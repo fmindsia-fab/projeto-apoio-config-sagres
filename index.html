@@ -1100,13 +1100,6 @@
     }
   }
 
-  function clearHighlights() {
-    // Restaura o HTML original de cada linha marcada
-    _savedRows.forEach((html, row) => { row.innerHTML = html; });
-    _savedRows.clear();
-    document.querySelectorAll('tr.row-highlight').forEach(r => r.classList.remove('row-highlight'));
-  }
-
   function escapeHtml(str) {
     return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   }
@@ -1159,9 +1152,10 @@
   };
 
   // ── Auto-adiciona botões "Exibir na tela" em todas as linhas com coordenadas ──
-  document.addEventListener('DOMContentLoaded', () => {
+  // ── Injeta botões e data-attrs nas linhas ──
+  function initExibirButtons() {
     document.querySelectorAll('.page-section[data-section-img]').forEach(section => {
-      const imgSrc = section.dataset.sectionImg;
+      const imgSrc   = section.dataset.sectionImg;
       const coordMap = FIELD_COORDS[imgSrc];
       if (!coordMap) return;
 
@@ -1170,27 +1164,47 @@
         if (!fieldEl) return;
         const name = fieldEl.textContent.trim();
 
-        // Verifica localStorage primeiro (calibração salva)
         const storageKey = 'coords_' + imgSrc + '_' + name;
-        const saved = localStorage.getItem(storageKey);
-        const coords = saved || coordMap[name];
+        const coords = localStorage.getItem(storageKey) || coordMap[name];
         if (!coords) return;
 
-        row.dataset.coords = coords;
-        row.dataset.imgSrc = imgSrc;
+        row.dataset.coords  = coords;
+        row.dataset.imgSrc  = imgSrc;
+        row.dataset.fieldName = name;
 
-        const btn = document.createElement('button');
-        btn.className = 'btn-exibir';
-        btn.title = 'Exibir localização na tela do sistema';
-        btn.innerHTML = `<svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 2a5 5 0 1 1 0 10A5 5 0 0 1 8 3zm0 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-1 3h2v4H7V8z"/></svg> Exibir na tela`;
-        btn.addEventListener('click', e => {
-          e.stopPropagation();
-          openScreenModal(row, name, imgSrc);
-        });
-        row.querySelector('td')?.appendChild(btn);
+        // Só adiciona o botão se ainda não existe
+        if (!row.querySelector('.btn-exibir')) {
+          const btn = document.createElement('button');
+          btn.className = 'btn-exibir';
+          btn.title     = 'Exibir localização na tela do sistema';
+          // data-* para o event delegation recuperar sem precisar de closure
+          btn.dataset.action = 'exibir';
+          btn.innerHTML = `<svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 2a5 5 0 1 1 0 10A5 5 0 0 1 8 3zm0 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-1 3h2v4H7V8z"/></svg> Exibir na tela`;
+          row.querySelector('td')?.appendChild(btn);
+        }
       });
     });
+  }
+
+  // Event delegation no #main — funciona mesmo após innerHTML restore do clearHighlights
+  document.getElementById('main').addEventListener('click', e => {
+    const btn = e.target.closest('[data-action="exibir"]');
+    if (!btn) return;
+    e.stopPropagation();
+    const row = btn.closest('tr');
+    if (!row || !row.dataset.coords) return;
+    openScreenModal(row, row.dataset.fieldName, row.dataset.imgSrc);
   });
+
+  // Re-injeta botões após clearHighlights restaurar o innerHTML
+  function clearHighlights() {
+    _savedRows.forEach((html, row) => { row.innerHTML = html; });
+    _savedRows.clear();
+    document.querySelectorAll('tr.row-highlight').forEach(r => r.classList.remove('row-highlight'));
+    initExibirButtons(); // reinjeta após restore
+  }
+
+  document.addEventListener('DOMContentLoaded', initExibirButtons);
 
   // ── Modal ──
   let _calibrateMode  = false;
