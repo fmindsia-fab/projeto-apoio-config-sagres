@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Squalus Gestão — Guia de Configurações</title>
+  <style>
+    :root {
+      /* Dark theme palette */
+      --bg-page:     #0d1117;
+      --bg-card:     #161b22;
+      --bg-card2:    #1c2333;
+      --bg-thead:    #1e2a3a;
+      --bg-hover:    #1f2d40;
+      --bg-stripe:   #131920;
+
+      --sidebar-bg:  #0a0f1a;
+      --sidebar-hdr: #0d1626;
+      --sidebar-act: rgba(255,255,255,.08);
+
+      --azul-accent: #4d90fe;
+      --azul-dark:   #1a3a6b;
+      --amarelo:     #f0c040;
+      --amarelo-dim: rgba(240,192,64,.15);
+
+      --text:        #e2e8f0;
+      --text-dim:    #8b9ab5;
+      --text-faint:  #4a5568;
+      --border:      #2d3748;
+      --border-faint:#1e2a38;
+
+      --tag-sim-bg:  #0d2e1a;  --tag-sim:  #4ade80;
+      --tag-nao-bg:  #2d1515;  --tag-nao:  #f87171;
+      --tag-opt-bg:  #0f1f3d;  --tag-opt:  #60a5fa;
+      --tag-txt-bg:  #2d2300;  --tag-txt:  #fbbf24;
+
+      --sidebar-w: 290px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-page);
+      color: var(--text);
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg-page); }
+    ::-webkit-scrollbar-thumb { background: #2d3748; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #4a5568; }
+
+    /* ── SIDEBAR ── */
+    #sidebar {
+      width: var(--sidebar-w);
+      min-width: var(--sidebar-w);
+      background: var(--sidebar-bg);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    #sidebar-header {
+      background: var(--sidebar-hdr);
+      padding: 20px 16px 14px;
+      border-bottom: 2px solid var(--amarelo);
+    }
+
+    #sidebar-header h1 {
+      color: var(--text);
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: .4px;
+    }
+
+    #sidebar-header p {
+      color: var(--text-dim);
+      font-size: .72rem;
+      margin-top: 3px;
+    }
+
+    .nav-section {
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border-faint);
+    }
+
+    .nav-section-title {
+      color: var(--amarelo);
+      font-size: .64rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      padding: 10px 16px 4px;
+    }
+
+    .nav-item {
+      display: block;
+      padding: 8px 16px 8px 22px;
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: .82rem;
+      border-left: 3px solid transparent;
+      transition: all .15s;
+      cursor: pointer;
+    }
+
+    .nav-item:hover,
+    .nav-item.active {
+      background: var(--sidebar-act);
+      color: var(--text);
+      border-left-color: var(--amarelo);
+    }
+
+    .nav-item .path-badge {
+      display: block;
+      font-size: .66rem;
+      color: var(--text-faint);
+      margin-top: 2px;
+      font-family: monospace;
+    }
+
+    /* ── MAIN ── */
+    #main {
+      flex: 1;
+      padding: 32px 36px;
+      overflow-y: auto;
+      min-width: 0;
+    }
+
+    .page-section { display: none; }
+    .page-section.visible { display: block; }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-header .breadcrumb {
+      font-size: .72rem;
+      color: var(--text-dim);
+      font-family: monospace;
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    .page-header h2 {
+      font-size: 1.45rem;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .page-header p {
+      color: var(--text-dim);
+      font-size: .88rem;
+      margin-top: 5px;
+    }
+
+    /* ── SCREEN PRINT ── */
+    .screen-print {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    .screen-print img {
+      max-width: 100%;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+
+    .screen-print-placeholder {
+      background: var(--bg-card2);
+      border: 2px dashed var(--border);
+      border-radius: 6px;
+      padding: 32px;
+      color: var(--text-dim);
+      font-size: .85rem;
+    }
+
+    .screen-print-placeholder strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 6px;
+      color: var(--azul-accent);
+    }
+
+    /* ── FIELDS CARD ── */
+    .fields-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+
+    .fields-card-header {
+      background: var(--azul-dark);
+      color: var(--text);
+      padding: 11px 18px;
+      font-weight: 600;
+      font-size: .88rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── TABLE ── */
+    table.fields-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .84rem;
+      table-layout: fixed;
+    }
+
+    table.fields-table thead tr {
+      background: var(--bg-thead);
+    }
+
+    table.fields-table th {
+      text-align: left;
+      padding: 9px 14px;
+      color: var(--azul-accent);
+      font-weight: 600;
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Larguras fixas para não cortar texto */
+    table.fields-table th:nth-child(1),
+    table.fields-table td:nth-child(1) { width: 42%; }
+    table.fields-table th:nth-child(2),
+    table.fields-table td:nth-child(2) { width: 16%; }
+    table.fields-table th:nth-child(3),
+    table.fields-table td:nth-child(3) { width: 42%; }
+
+    table.fields-table td {
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--border-faint);
+      vertical-align: top;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      line-height: 1.5;
+    }
+
+    table.fields-table tr:last-child td { border-bottom: none; }
+    table.fields-table tr:hover td { background: var(--bg-hover); }
+
+    .field-name {
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    /* ── TAGS ── */
+    .tag {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 10px;
+      font-size: .72rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .tag-sim  { background: var(--tag-sim-bg); color: var(--tag-sim); }
+    .tag-nao  { background: var(--tag-nao-bg); color: var(--tag-nao); }
+    .tag-opt  { background: var(--tag-opt-bg); color: var(--tag-opt); font-size: .68rem; white-space: normal; }
+    .tag-text { background: var(--tag-txt-bg); color: var(--tag-txt); }
+
+    /* ── NOTE BOX ── */
+    .note-box {
+      background: var(--amarelo-dim);
+      border-left: 4px solid var(--amarelo);
+      border-radius: 0 6px 6px 0;
+      padding: 12px 16px;
+      font-size: .83rem;
+      color: #d4b96a;
+      margin-bottom: 20px;
+    }
+
+    .note-box strong { color: var(--amarelo); }
+
+    /* ── WELCOME CARDS ── */
+    .welcome-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .welcome-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      cursor: pointer;
+      transition: all .15s;
+      border-top: 3px solid var(--azul-accent);
+    }
+
+    .welcome-card:hover {
+      background: var(--bg-card2);
+      border-color: var(--azul-accent);
+      transform: translateY(-2px);
+    }
+
+    .welcome-card .icon { font-size: 1.7rem; margin-bottom: 10px; }
+    .welcome-card h3 { font-size: .92rem; color: var(--azul-accent); margin-bottom: 4px; }
+    .welcome-card p  { font-size: .78rem; color: var(--text-dim); line-height: 1.4; }
+
+    /* ── SEARCH BAR ── */
+    #search-bar {
+      width: 100%;
+      padding: 8px 12px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-size: .82rem;
+      margin: 12px 0 4px;
+    }
+
+    #search-bar::placeholder { color: var(--text-faint); }
+    #search-bar:focus { outline: none; border-color: var(--amarelo); background: rgba(255,255,255,.09); }
+
+    /* ── SEARCH RESULTS ── */
+    #search-results { padding: 4px 0 8px; }
+
+    .search-result-item {
+      display: block;
+      padding: 9px 14px 9px 20px;
+      color: var(--text-dim);
+      font-size: .8rem;
+      cursor: pointer;
+      border-left: 3px solid transparent;
+      transition: all .15s;
+      text-decoration: none;
+    }
+
+    .search-result-item:hover {
+      background: var(--sidebar-act);
+      color: var(--text);
+      border-left-color: var(--amarelo);
+    }
+
+    /* Corrigido: permite quebra de linha, sem corte */
+    .search-result-item .res-field {
+      display: block;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.35;
+      word-break: break-word;
+    }
+
+    .search-result-item .res-section {
+      display: block;
+      font-size: .67rem;
+      color: var(--text-faint);
+      font-family: monospace;
+      margin-top: 3px;
+    }
+
+    .search-result-empty {
+      padding: 12px 16px;
+      color: var(--text-faint);
+      font-size: .8rem;
+      font-style: italic;
+    }
+
+    .search-results-title {
+      color: var(--amarelo);
+      font-size: .64rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      padding: 10px 16px 4px;
+    }
+
+    /* ── HIGHLIGHT ── */
+    tr.row-highlight td {
+      background: rgba(240,192,64,.08) !important;
+      transition: background .4s;
+    }
+
+    mark.search-mark {
+      background: rgba(240,192,64,.35);
+      color: var(--amarelo);
+      border-radius: 2px;
+      padding: 0 2px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 768px) {
+      body { flex-direction: column; }
+      #sidebar { width: 100%; min-width: unset; height: auto; position: static; }
+      #main { padding: 20px 16px; }
+      table.fields-table { table-layout: auto; }
+    }
+
+    /* ── BOTÃO EXIBIR NA TELA ── */
+    .btn-exibir {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(77,144,254,.1);
+      border: 1px solid rgba(77,144,254,.25);
+      color: var(--azul-accent);
+      font-size: .68rem;
+      padding: 2px 8px 2px 6px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-left: 8px;
+      vertical-align: middle;
+      transition: all .15s;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+    .btn-exibir:hover {
+      background: rgba(77,144,254,.25);
+      border-color: rgba(77,144,254,.5);
+    }
+    .btn-exibir svg { flex-shrink: 0; }
+
+    /* ── MODAL DE TELA ── */
+    #screen-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.88);
+      z-index: 9999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      gap: 12px;
+    }
+    #screen-modal.open { display: flex; }
+
+    #modal-header {
+      width: 100%;
+      max-width: 1160px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    #modal-field-name {
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--text);
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      padding: 5px 14px;
+      border-radius: 6px;
+      max-width: 70%;
+    }
+    #modal-actions { display: flex; gap: 8px; }
+    #modal-calibrate-btn {
+      background: rgba(240,192,64,.1);
+      border: 1px solid rgba(240,192,64,.3);
+      color: var(--amarelo);
+      padding: 5px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: .78rem;
+      font-family: inherit;
+      transition: all .15s;
+    }
+    #modal-calibrate-btn.active {
+      background: rgba(240,192,64,.25);
+      border-color: var(--amarelo);
+    }
+    #modal-calibrate-hint {
+      font-size: .72rem;
+      color: var(--amarelo);
+      display: none;
+      margin-top: 4px;
+    }
+    #modal-calibrate-btn.active ~ #modal-calibrate-hint { display: block; }
+    #modal-close {
+      background: rgba(255,255,255,.08);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 5px 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: .82rem;
+      font-family: inherit;
+    }
+    #modal-close:hover { background: rgba(255,255,255,.15); }
+
+    #modal-img-wrap {
+      position: relative;
+      max-width: 1160px;
+      width: 100%;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      cursor: default;
+    }
+    #modal-img-wrap.calibrate-mode { cursor: crosshair; }
+    #modal-img { width: 100%; display: block; user-select: none; }
+
+    #modal-svg-overlay {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    #modal-img-wrap.calibrate-mode #modal-svg-overlay { pointer-events: all; }
+
+    #modal-coords-info {
+      font-size: .72rem;
+      color: var(--text-dim);
+      font-family: monospace;
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 4px;
+      display: none;
+    }
+
+    /* Animação do highlight */
+    @keyframes pulse-border {
+      0%   { stroke-opacity: 1; }
+      50%  { stroke-opacity: .4; }
+      100% { stroke-opacity: 1; }
+    }
+    .highlight-rect { animation: pulse-border 1.8s ease-in-out infinite; }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════ SIDEBAR ══════════════ -->
+<nav id="sidebar">
+  <div id="sidebar-header">
+    <h1>Squalus Gestão</h1>
+    <p>Guia de Configurações — Suporte</p>
+    <input id="search-bar" type="text" placeholder="Buscar configuração..." oninput="searchAll(this.value)" />
+  </div>
+
+  <!-- Resultados de busca (visível só durante pesquisa) -->
+  <div id="search-results-panel" style="display:none">
+    <div class="search-results-title">Resultados</div>
+    <div id="search-results"></div>
+  </div>
+
+  <!-- Navegação normal (oculta durante pesquisa) -->
+  <div id="nav-normal">
+    <div class="nav-section">
+      <div class="nav-section-title">Início</div>
+      <a class="nav-item active" onclick="showSection('home')">
+        Visão Geral
+      </a>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-section-title">Configurações Gerais</div>
+      <a class="nav-item" onclick="showSection('cfg-gerais')">
+        Configurações Gerais
+        <span class="path-badge">Gestão › Configurações Gerais</span>
+      </a>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-section-title">Fiscal / NF-e / SAT</div>
+      <a class="nav-item" onclick="showSection('fiscal-nfe')">
+        NF-e / NFC-e / SAT
+        <span class="path-badge">Em breve</span>
+      </a>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-section-title">PDV / Caixa</div>
+      <a class="nav-item" onclick="showSection('pdv-caixa')">
+        Configurações PDV/Caixa
+        <span class="path-badge">Em breve</span>
+      </a>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-section-title">Usuários / Permissões</div>
+      <a class="nav-item" onclick="showSection('usuarios')">
+        Usuários e Perfis
+        <span class="path-badge">Em breve</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════ MAIN ══════════════ -->
+<main id="main">
+
+  <!-- HOME -->
+  <section id="home" class="page-section visible">
+    <div class="page-header">
+      <div class="breadcrumb">Squalus Gestão › Guia de Suporte</div>
+      <h2>Guia de Configurações</h2>
+      <p>Referência rápida para a equipe de suporte — caminhos e campos de cada tela de configuração.</p>
+    </div>
+
+    <div class="welcome-grid">
+      <div class="welcome-card" onclick="showSection('cfg-gerais')">
+        <div class="icon">⚙️</div>
+        <h3>Configurações Gerais</h3>
+        <p>Parâmetros globais do sistema, empresa, produtos e comportamento do PDV.</p>
+      </div>
+      <div class="welcome-card" onclick="showSection('fiscal-nfe')">
+        <div class="icon">🧾</div>
+        <h3>Fiscal / NF-e / SAT</h3>
+        <p>Configurações de emissão de nota fiscal, SAT e NFC-e.</p>
+      </div>
+      <div class="welcome-card" onclick="showSection('pdv-caixa')">
+        <div class="icon">🖥️</div>
+        <h3>PDV / Caixa</h3>
+        <p>Parâmetros de ponto de venda, operadores e abertura de caixa.</p>
+      </div>
+      <div class="welcome-card" onclick="showSection('usuarios')">
+        <div class="icon">👤</div>
+        <h3>Usuários / Permissões</h3>
+        <p>Cadastro de usuários, perfis de acesso e permissões.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONFIGURAÇÕES GERAIS ══ -->
+  <section id="cfg-gerais" class="page-section" data-section-img="prints/cfg_gerais.png">
+    <div class="page-header">
+      <div class="breadcrumb">Gestão › Configurações Gerais</div>
+      <h2>Configurações Gerais</h2>
+      <p>Tela principal de parâmetros globais do sistema Squalus Gestão.</p>
+    </div>
+
+    <!-- Print da tela -->
+    <div class="screen-print">
+      <img src="prints/cfg_gerais.png" alt="Tela Configurações Gerais"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+      <div class="screen-print-placeholder" style="display:none">
+        <strong>Print da Tela</strong>
+        Salve o print como <code>prints/cfg_gerais.png</code> para exibir aqui.
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → clique em <strong>Configurações Gerais</strong>.
+      Apenas usuários com permissão de administrador conseguem alterar esses campos.
+    </div>
+
+    <!-- Dados da Empresa -->
+    <div class="fields-card">
+      <div class="fields-card-header">Dados da Empresa</div>
+      <table class="fields-table">
+        <thead>
+          <tr>
+            <th>Campo</th>
+            <th>Tipo</th>
+            <th>Descrição / Orientação de Suporte</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Nome da Empresa (p/Relatórios)</div></td>
+            <td><span class="tag tag-text">Texto</span></td>
+            <td>Nome exibido no cabeçalho de todos os relatórios impressos pelo sistema. Não interfere no cadastro fiscal nem no CNPJ da empresa — é apenas para fins de impressão.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Endereço - Linha 1</div></td>
+            <td><span class="tag tag-text">Texto</span></td>
+            <td>Primeira linha de endereço/contato impressa nos relatórios. Frequentemente utilizada para o telefone do estabelecimento ou o logradouro completo.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Endereço - Linha 2</div></td>
+            <td><span class="tag tag-text">Texto</span></td>
+            <td>Segunda linha de endereço impressa nos relatórios. Normalmente usada para Cidade – Estado ou complemento do endereço.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Diretório do Sistema Gestão (indicar caminho via rede)</div></td>
+            <td><span class="tag tag-text">Caminho UNC</span></td>
+            <td>Caminho de rede (UNC) para a pasta de instalação do Gestão no servidor. Obrigatório em ambientes multi-estação para que os PDVs localizem o banco de dados central. Deixar em branco quando a instalação for local (servidor e PDV na mesma máquina). Exemplo: <code>\\SERVIDOR01\Squalus</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Cadastro de Produtos -->
+    <div class="fields-card">
+      <div class="fields-card-header">Cadastro de Produtos</div>
+      <table class="fields-table">
+        <thead>
+          <tr><th>Campo</th><th>Padrão</th><th>Descrição</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Usar Filtro no campo "Descrição" p/o Cad. Produtos</div></td>
+            <td><span class="tag tag-sim">S-Sim</span></td>
+            <td>Quando S-Sim, a pesquisa de produtos no cadastro funciona por filtro dinâmico: o sistema exibe os resultados enquanto o usuário digita, sem precisar pressionar Enter. Quando N-Não, é necessário pressionar Enter para acionar a busca.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Usar Campo "Cobrar Tx. Serviço" no Cadastro de Produtos</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Exibe o campo "Cobrar Taxa de Serviço" na ficha de cada produto, permitindo definir individualmente quais itens do cardápio incluem a taxa de serviço. Ativar somente se o restaurante cobra taxa por produto específico, e não de forma global.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Usar Campo "Balança Alternativa" p/os Produtos</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Habilita um campo no cadastro de produto para vincular uma balança alternativa (secundária). Útil em estabelecimentos que operam com mais de um tipo ou marca de balança integrada ao sistema.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Usar Agrupamento Interligado ao Grupos de Produtos</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Quando S-Sim, o agrupamento de produtos fica vinculado diretamente à estrutura de grupos cadastrada no sistema, mantendo hierarquia coerente entre grupo e agrupamento. Impacta a exibição em relatórios e na tela do PDV.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Utilizar "Combo" p/Produtos</div></td>
+            <td><span class="tag tag-nao">Não</span></td>
+            <td>Ativa o módulo de montagem de combos. Permite criar produtos compostos por outros itens do cardápio com regras de preço e substituição. Requer configuração adicional no cadastro de produtos após habilitar.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Permitir Exclusão de "Outros Códigos" dos Produtos</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Quando S-Sim, o usuário pode excluir códigos de barras alternativos (EAN, balança ou PDV) cadastrados em um produto. Manter N-Não para evitar exclusão acidental de códigos vinculados a equipamentos de leitura.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Clientes e Entregas -->
+    <div class="fields-card">
+      <div class="fields-card-header">Clientes e Entregas</div>
+      <table class="fields-table">
+        <thead>
+          <tr><th>Campo</th><th>Padrão</th><th>Descrição</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Utilizar Campo "Número" nos Endereços</div></td>
+            <td><span class="tag tag-sim">S-Sim</span></td>
+            <td>Quando S-Sim, o campo de número do imóvel é exibido separadamente do logradouro no cadastro de clientes e na tela de entregas. Facilita a integração com sistemas de roteirização e mapa.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Usar Campo "Celular p/SMS" no Cad. de Clientes</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Adiciona um campo específico de número de celular no cadastro de clientes destinado ao envio de SMS (confirmação de pedido, promoções). Ativar somente se houver módulo de SMS contratado e configurado.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Utilizar Código de Clientes nas Reservas</div></td>
+            <td><span class="tag tag-sim">S-Sim</span></td>
+            <td>Quando S-Sim, ao registrar uma reserva de mesa o sistema vincula o código do cliente cadastrado, permitindo consultar histórico de reservas por cliente e facilitar o atendimento na chegada.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Apenas Dígitos nos Telefones das Entregas</div></td>
+            <td><span class="tag tag-sim">S-Sim</span></td>
+            <td>Quando S-Sim, o campo de telefone na tela de entregas aceita somente números, sem traços, parênteses ou espaços. Padroniza o formato e facilita integração com discagem automática ou WhatsApp.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Usar Campo "Tx. Entrega p/Repasse"</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Adiciona um campo de taxa de entrega individual por pedido, cujo valor é repassado ao entregador no fechamento do caixa. Ativar quando o estabelecimento opera com entregadores próprios e repassa a taxa de delivery a eles.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Validar Telefone Celular nas Entregas</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Quando S-Sim, o sistema valida o formato do número de celular antes de confirmar o pedido de entrega. Útil para evitar erros de digitação e garantir que o número seja válido para contato ou envio de SMS/WhatsApp.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Obrigar Bloqueio "Compras a Prazo" ou "Venda Antecipada" p/Clientes</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Quando S-Sim, o sistema exige que o campo "Bloqueado para Compras a Prazo" seja preenchido explicitamente no cadastro do cliente antes de salvar. Evita clientes com situação de crédito indefinida.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Valor Padrão p/Clientes Campo "Bloqueado p/Compras a Prazo"</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Define o valor padrão do campo "Bloqueado para Compras a Prazo" ao cadastrar um novo cliente. Quando S-Sim, todo cliente novo já é criado bloqueado para crédito — o operador precisa liberar manualmente. Quando N-Não, clientes novos chegam liberados por padrão.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Preços e Tabelas -->
+    <div class="fields-card">
+      <div class="fields-card-header">Preços e Tabelas</div>
+      <table class="fields-table">
+        <thead>
+          <tr><th>Campo</th><th>Padrão</th><th>Descrição</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Escolher Empresa na Alteração de Preços de Produtos</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Em ambientes com mais de uma empresa cadastrada, quando S-Sim o sistema pergunta qual empresa terá os preços alterados antes de aplicar a mudança. Quando N-Não, a alteração afeta sempre a empresa logada.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Pode Alterar Preços c/Base Em Outra Tabela</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Quando S-Sim, permite usar os valores de uma tabela de preços alternativa como referência para atualizar os preços da tabela principal (ex.: reajustar tabela 1 com base nos preços da tabela 2 mais um percentual).</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Pode Alterar Preços c/Base no Markup</div></td>
+            <td><span class="tag tag-opt">Apenas nas notas de compra</span></td>
+            <td>Controla em quais momentos o sistema permite recalcular o preço de venda automaticamente com base no markup (margem) configurado por produto. <br><strong>Sempre:</strong> permite em qualquer alteração de custo. <strong>Apenas nas notas de compra:</strong> recalcula somente ao lançar uma nota de entrada. <strong>Nunca:</strong> desativa o recálculo automático.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Financeiro e Contas -->
+    <div class="fields-card">
+      <div class="fields-card-header">Financeiro e Contas</div>
+      <table class="fields-table">
+        <thead>
+          <tr><th>Campo</th><th>Padrão</th><th>Descrição</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Permitir Recebimento de Contas Assinadas no Gestão</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Quando S-Sim, habilita o recebimento, dentro do módulo Gestão, de contas que foram assinadas eletronicamente pelo cliente no ECF/PDV (ex.: comanda assinada). Quando N-Não, esse recebimento só pode ser feito diretamente no caixa do PDV.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Receber Conta Assinada de Quais Empresas no ECF</div></td>
+            <td><span class="tag tag-opt">1-Todas as Empresas</span></td>
+            <td>Define de quais empresas o ECF/PDV pode receber contas assinadas. Utilizado em operações multi-empresa com caixas compartilhados entre filiais. Selecionar a empresa específica quando for necessário restringir o recebimento.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Permitir Alterar Valores das Formas de Pagamento dos Caixas no Gestão</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Quando S-Sim, o usuário do módulo Gestão pode editar os valores das formas de pagamento já informados no fechamento de caixa do PDV (ex.: corrigir valor de dinheiro vs. cartão após fechamento). Manter N-Não para preservar integridade dos fechamentos.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PDV e Operação -->
+    <div class="fields-card">
+      <div class="fields-card-header">PDV e Operação</div>
+      <table class="fields-table">
+        <thead>
+          <tr><th>Campo</th><th>Padrão</th><th>Descrição</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Módulo de Biometria</div></td>
+            <td><span class="tag tag-nao">Não</span></td>
+            <td>Ativa o suporte a leitor biométrico para autenticação de operadores no PDV (em substituição ou complemento ao cartão de código de barras). Requer hardware de biometria instalado e driver configurado no sistema operacional.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Ajustar Configurações de Internet ao Entrar no Sistema</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Quando S-Sim, o sistema redefine configurações de proxy e internet ao iniciar. Usar somente se o cliente relatar conflitos de rede no momento da abertura do sistema — em situações normais deve permanecer N-Não.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Registrar Itens no Cancelamento Total nas Ocorrências do Caixa</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Quando S-Sim, todos os itens de um pedido cancelado integralmente são detalhados no log de ocorrências do caixa, facilitando auditoria e controle de cancelamentos por operador.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Checar Valores de Pré-Conta (sempre deixar como S-Sim)</div></td>
+            <td><span class="tag tag-sim">S-Sim</span></td>
+            <td><strong>Manter sempre como S-Sim.</strong> O sistema valida os valores da pré-conta (subtotal do pedido aberto) antes de efetuar o fechamento, garantindo que o valor cobrado corresponde ao que foi consumido. Alterar para N-Não pode causar divergências de valor entre a pré-conta e o documento fiscal emitido.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Ação a Ser Tomada Quando Operador Abrir Mais de Um PDV</div></td>
+            <td><span class="tag tag-opt">3-Não Permitir</span></td>
+            <td>Controla o comportamento quando o mesmo operador tenta abrir um segundo terminal PDV simultaneamente. <strong>1-Avisar:</strong> exibe alerta mas permite abrir. <strong>2-Fechar o Anterior:</strong> encerra automaticamente a sessão no primeiro PDV. <strong>3-Não Permitir:</strong> bloqueia a abertura do segundo PDV. Recomendado: opção 3 para evitar conflitos de caixa.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Criptografar Senha do Operador no Cartão Cód. Barras</div></td>
+            <td><span class="tag tag-sim">S-Sim</span></td>
+            <td>Quando S-Sim, a senha do operador é gravada de forma criptografada no cartão de código de barras, impedindo leitura direta da senha em caso de clonagem do cartão. Manter sempre S-Sim por segurança.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Mensagem de Backup Preventivo</div></td>
+            <td><span class="tag tag-sim">S-Sim</span></td>
+            <td>Quando S-Sim, o sistema exibe um lembrete de backup ao ser aberto. Manter S-Sim para reforçar a rotina de backup do cliente e evitar perda de dados em caso de falha de hardware.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Tecla de Atalho (Shift+F10) p/Relatórios</div></td>
+            <td><span class="tag tag-nao">Não</span></td>
+            <td>Quando ativado, o atalho de teclado Shift+F10 abre a tela de relatórios de qualquer ponto do sistema, sem precisar navegar pelos menus. Útil para estabelecimentos que consultam relatórios com frequência durante a operação.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ══ FISCAL ══ -->
+  <section id="fiscal-nfe" class="page-section">
+    <div class="page-header">
+      <div class="breadcrumb">Gestão › Configurações › Fiscal / NF-e / SAT</div>
+      <h2>Fiscal / NF-e / NFC-e / SAT</h2>
+      <p>Configurações de emissão de documentos fiscais eletrônicos.</p>
+    </div>
+    <div class="screen-print">
+      <div class="screen-print-placeholder">
+        <strong>Seção em construção</strong>
+        Envie o print da tela fiscal para adicionar o mapeamento dos campos.
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PDV / CAIXA ══ -->
+  <section id="pdv-caixa" class="page-section">
+    <div class="page-header">
+      <div class="breadcrumb">Gestão › Configurações › PDV / Caixa</div>
+      <h2>PDV / Caixa</h2>
+      <p>Parâmetros de ponto de venda, abertura e fechamento de caixa.</p>
+    </div>
+    <div class="screen-print">
+      <div class="screen-print-placeholder">
+        <strong>Seção em construção</strong>
+        Envie o print da tela de PDV/Caixa para adicionar o mapeamento dos campos.
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ USUÁRIOS ══ -->
+  <section id="usuarios" class="page-section">
+    <div class="page-header">
+      <div class="breadcrumb">Gestão › Cadastros › Usuários / Permissões</div>
+      <h2>Usuários e Permissões</h2>
+      <p>Cadastro de operadores, perfis de acesso e controle de permissões.</p>
+    </div>
+    <div class="screen-print">
+      <div class="screen-print-placeholder">
+        <strong>Seção em construção</strong>
+        Envie o print da tela de usuários para adicionar o mapeamento dos campos.
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════════ MODAL EXIBIR NA TELA ══════════════ -->
+<div id="screen-modal" onclick="handleModalClick(event)">
+  <div id="modal-header">
+    <div id="modal-field-name"></div>
+    <div id="modal-actions">
+      <button id="modal-calibrate-btn" onclick="toggleCalibrate(event)" title="Clique para ajustar a posição do destaque na imagem">
+        ✏️ Ajustar Posição
+      </button>
+      <button id="modal-close" onclick="closeScreenModal()">✕ Fechar</button>
+    </div>
+  </div>
+  <div id="modal-calibrate-hint">Clique no canto superior esquerdo do campo, depois no canto inferior direito</div>
+  <div id="modal-img-wrap" onclick="handleImgClick(event)">
+    <img id="modal-img" src="" alt="Tela do sistema" draggable="false" />
+    <svg id="modal-svg-overlay" xmlns="http://www.w3.org/2000/svg"></svg>
+  </div>
+  <div id="modal-coords-info"></div>
+</div>
+
+<script>
+  // Mapa de seções: id → label legível
+  const SECTION_LABELS = {
+    'home':      'Visão Geral',
+    'cfg-gerais':'Configurações Gerais',
+    'fiscal-nfe':'Fiscal / NF-e / SAT',
+    'pdv-caixa': 'PDV / Caixa',
+    'usuarios':  'Usuários / Permissões'
+  };
+
+  function showSection(id) {
+    document.querySelectorAll('.page-section').forEach(s => s.classList.remove('visible'));
+    document.querySelectorAll('.nav-item').forEach(a => a.classList.remove('active'));
+    const sec = document.getElementById(id);
+    if (sec) sec.classList.add('visible');
+    document.querySelectorAll('#nav-normal .nav-item').forEach(a => {
+      if (a.getAttribute('onclick') && a.getAttribute('onclick').includes(id)) {
+        a.classList.add('active');
+      }
+    });
+    document.getElementById('main').scrollTop = 0;
+  }
+
+  function searchAll(query) {
+    const q = query.trim();
+    const panel  = document.getElementById('search-results-panel');
+    const box    = document.getElementById('search-results');
+    const navNormal = document.getElementById('nav-normal');
+
+    // limpa destaques anteriores
+    clearHighlights();
+
+    if (!q) {
+      panel.style.display = 'none';
+      navNormal.style.display = '';
+      return;
+    }
+
+    panel.style.display = '';
+    navNormal.style.display = 'none';
+    box.innerHTML = '';
+
+    const qLow = q.toLowerCase();
+    const results = [];
+
+    // Percorre todas as linhas de todas as tabelas em todas as seções
+    document.querySelectorAll('.page-section').forEach(section => {
+      const sectionId = section.id;
+      const sectionLabel = SECTION_LABELS[sectionId] || sectionId;
+
+      // Busca em linhas de tabela
+      section.querySelectorAll('table.fields-table tbody tr').forEach(row => {
+        const fieldEl = row.querySelector('.field-name');
+        const cells   = row.querySelectorAll('td');
+        const rowText = row.textContent.toLowerCase();
+
+        if (rowText.includes(qLow)) {
+          const fieldName = fieldEl ? fieldEl.textContent.trim() : row.cells[0]?.textContent.trim() || '—';
+          results.push({ sectionId, sectionLabel, fieldName, row });
+        }
+      });
+
+      // Busca em note-box e cabeçalhos de card
+      section.querySelectorAll('.note-box, .fields-card-header, .page-header h2, .page-header p').forEach(el => {
+        if (el.textContent.toLowerCase().includes(qLow) && !el.closest('tr')) {
+          // evita duplicatas — só adiciona se não é dentro de uma linha já capturada
+          const label = el.classList.contains('fields-card-header')
+            ? 'Grupo: ' + el.textContent.trim()
+            : el.textContent.trim().slice(0, 60);
+          results.push({ sectionId, sectionLabel, fieldName: label, row: null, el });
+        }
+      });
+    });
+
+    if (results.length === 0) {
+      box.innerHTML = '<div class="search-result-empty">Nenhum resultado encontrado.</div>';
+      return;
+    }
+
+    results.forEach(({ sectionId, sectionLabel, fieldName, row, el }) => {
+      const item = document.createElement('a');
+      item.className = 'search-result-item';
+      item.innerHTML = `<span class="res-field">${escapeHtml(fieldName)}</span>
+                        <span class="res-section">${escapeHtml(sectionLabel)}</span>`;
+      item.onclick = () => {
+        clearHighlights();
+        showSection(sectionId);
+        // fecha busca e volta nav
+        document.getElementById('search-bar').value = '';
+        panel.style.display = 'none';
+        navNormal.style.display = '';
+        // destaca a linha após navegação
+        requestAnimationFrame(() => {
+          if (row) {
+            row.classList.add('row-highlight');
+            row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            highlightTextInRow(row, q);
+            setTimeout(() => { row.classList.remove('row-highlight'); }, 2500);
+          } else if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        });
+      };
+      box.appendChild(item);
+    });
+  }
+
+  // Guarda innerHTML original das linhas antes de marcar, para restauração limpa
+  const _savedRows = new Map();
+
+  function highlightTextInRow(row, q) {
+    if (!_savedRows.has(row)) {
+      _savedRows.set(row, row.innerHTML);
+    }
+    const escaped = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    row.querySelectorAll('td').forEach(td => markTextNodes(td, escaped));
+  }
+
+  function markTextNodes(el, escapedQ) {
+    if (el.nodeType === Node.TEXT_NODE) {
+      const regex = new RegExp(`(${escapedQ})`, 'gi');
+      if (!regex.test(el.textContent)) return;
+      regex.lastIndex = 0;
+      // Cria span temporário para injetar o <mark> com segurança
+      const span = document.createElement('span');
+      span.innerHTML = el.textContent
+        .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(new RegExp(`(${escapedQ})`, 'gi'), '<mark class="search-mark">$1</mark>');
+      el.parentNode.replaceChild(span, el);
+    } else if (el.nodeType === Node.ELEMENT_NODE && el.tagName !== 'MARK' && el.tagName !== 'SCRIPT') {
+      Array.from(el.childNodes).forEach(child => markTextNodes(child, escapedQ));
+    }
+  }
+
+  function clearHighlights() {
+    // Restaura o HTML original de cada linha marcada
+    _savedRows.forEach((html, row) => { row.innerHTML = html; });
+    _savedRows.clear();
+    document.querySelectorAll('tr.row-highlight').forEach(r => r.classList.remove('row-highlight'));
+  }
+
+  function escapeHtml(str) {
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  // ══════════════════════════════════════════════
+  // EXIBIR NA TELA — coordenadas (top%,left%,w%,h%)
+  // Cada chave = texto exato do .field-name
+  // ══════════════════════════════════════════════
+  const FIELD_COORDS = {
+    'prints/cfg_gerais.png': {
+      // Dados da Empresa
+      'Nome da Empresa (p/Relatórios)':                                        '10,42,36,4.5',
+      'Endereço - Linha 1':                                                    '16,42,36,4.5',
+      'Endereço - Linha 2':                                                    '22,42,36,4.5',
+      'Diretório do Sistema Gestão (indicar caminho via rede)':                '88,41,40,4.5',
+      // Cadastro de Produtos
+      'Usar Filtro no campo "Descrição" p/o Cad. Produtos':                    '29,42,12,5',
+      'Usar Campo "Cobrar Tx. Serviço" no Cadastro de Produtos':               '35,41,12,5',
+      'Usar Campo "Balança Alternativa" p/os Produtos':                        '35,79,15,5',
+      'Usar Agrupamento Interligado ao Grupos de Produtos':                     '42,41,12,5',
+      'Utilizar "Combo" p/Produtos':                                           '42,72,22,5',
+      'Permitir Exclusão de "Outros Códigos" dos Produtos':                    '71,79,15,5',
+      // Clientes e Entregas
+      'Utilizar Campo "Número" nos Endereços':                                 '35,0,50,5',
+      'Usar Campo "Celular p/SMS" no Cad. de Clientes':                        '35,50,50,5',
+      'Utilizar Código de Clientes nas Reservas':                              '48,0,50,5',
+      'Apenas Dígitos nos Telefones das Entregas':                             '48,50,50,5',
+      'Usar Campo "Tx. Entrega p/Repasse"':                                    '61,0,50,5',
+      'Validar Telefone Celular nas Entregas':                                 '61,50,50,5',
+      'Obrigar Bloqueio "Compras a Prazo" ou "Venda Antecipada" p/Clientes':   '67.5,0,50,5',
+      'Valor Padrão p/Clientes Campo "Bloqueado p/Compras a Prazo"':           '67.5,50,50,5',
+      // Preços e Tabelas
+      'Escolher Empresa na Alteração de Preços de Produtos':                   '55,0,50,5',
+      'Pode Alterar Preços c/Base Em Outra Tabela':                            '55,0,50,5',
+      'Pode Alterar Preços c/Base no Markup':                                  '55,50,50,5',
+      // Financeiro e Contas
+      'Permitir Recebimento de Contas Assinadas no Gestão':                    '61,0,50,5',
+      'Receber Conta Assinada de Quais Empresas no ECF':                       '74,0,100,5',
+      'Permitir Alterar Valores das Formas de Pagamento dos Caixas no Gestão': '77.5,0,50,5',
+      // PDV e Operação
+      'Módulo de Biometria':                                                   '61,50,50,5',
+      'Ajustar Configurações de Internet ao Entrar no Sistema':                '55,50,50,5',
+      'Registrar Itens no Cancelamento Total nas Ocorrências do Caixa':        '80.5,0,50,5',
+      'Checar Valores de Pré-Conta (sempre deixar como S-Sim)':                '80.5,50,50,5',
+      'Ação a Ser Tomada Quando Operador Abrir Mais de Um PDV':                '84.5,0,50,5',
+      'Criptografar Senha do Operador no Cartão Cód. Barras':                  '84.5,50,50,5',
+      'Mensagem de Backup Preventivo':                                         '88,0,50,5',
+      'Tecla de Atalho (Shift+F10) p/Relatórios':                             '88,50,50,5',
+    }
+  };
+
+  // ── Auto-adiciona botões "Exibir na tela" em todas as linhas com coordenadas ──
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.page-section[data-section-img]').forEach(section => {
+      const imgSrc = section.dataset.sectionImg;
+      const coordMap = FIELD_COORDS[imgSrc];
+      if (!coordMap) return;
+
+      section.querySelectorAll('table.fields-table tbody tr').forEach(row => {
+        const fieldEl = row.querySelector('.field-name');
+        if (!fieldEl) return;
+        const name = fieldEl.textContent.trim();
+
+        // Verifica localStorage primeiro (calibração salva)
+        const storageKey = 'coords_' + imgSrc + '_' + name;
+        const saved = localStorage.getItem(storageKey);
+        const coords = saved || coordMap[name];
+        if (!coords) return;
+
+        row.dataset.coords = coords;
+        row.dataset.imgSrc = imgSrc;
+
+        const btn = document.createElement('button');
+        btn.className = 'btn-exibir';
+        btn.title = 'Exibir localização na tela do sistema';
+        btn.innerHTML = `<svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 2a5 5 0 1 1 0 10A5 5 0 0 1 8 3zm0 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-1 3h2v4H7V8z"/></svg> Exibir na tela`;
+        btn.addEventListener('click', e => {
+          e.stopPropagation();
+          openScreenModal(row, name, imgSrc);
+        });
+        row.querySelector('td')?.appendChild(btn);
+      });
+    });
+  });
+
+  // ── Modal ──
+  let _calibrateMode  = false;
+  let _calibrateStep  = 0;   // 0=idle, 1=esperando 2º clique
+  let _calibrateStart = null;
+  let _currentRow     = null;
+  let _currentImgSrc  = null;
+  let _currentName    = null;
+
+  function openScreenModal(row, name, imgSrc) {
+    _currentRow    = row;
+    _currentName   = name;
+    _currentImgSrc = imgSrc;
+    _calibrateMode = false;
+    _calibrateStep = 0;
+
+    document.getElementById('modal-field-name').textContent = name;
+    const img = document.getElementById('modal-img');
+    img.src = imgSrc;
+    document.getElementById('modal-calibrate-btn').classList.remove('active');
+    document.getElementById('modal-img-wrap').classList.remove('calibrate-mode');
+    document.getElementById('modal-coords-info').style.display = 'none';
+    document.getElementById('screen-modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+
+    if (img.complete && img.naturalWidth) drawHighlight(row);
+    else img.onload = () => drawHighlight(row);
+  }
+
+  function drawHighlight(row) {
+    const coords = row.dataset.coords;
+    if (!coords) return;
+    const [top, left, width, height] = coords.split(',').map(Number);
+    renderHighlight(top, left, width, height);
+  }
+
+  function renderHighlight(top, left, width, height) {
+    const svg = document.getElementById('modal-svg-overlay');
+    const ns  = 'http://www.w3.org/2000/svg';
+    svg.innerHTML = '';
+
+    // Defs + máscara para escurecer tudo exceto a área destacada
+    const defs = document.createElementNS(ns, 'defs');
+    const mask = document.createElementNS(ns, 'mask');
+    mask.id = 'hm';
+
+    const bg   = document.createElementNS(ns, 'rect');
+    bg.setAttribute('width','100%'); bg.setAttribute('height','100%'); bg.setAttribute('fill','white');
+
+    const hole = document.createElementNS(ns, 'rect');
+    hole.setAttribute('x', left+'%'); hole.setAttribute('y', top+'%');
+    hole.setAttribute('width', width+'%'); hole.setAttribute('height', height+'%');
+    hole.setAttribute('rx','4');  hole.setAttribute('fill','black');
+
+    mask.appendChild(bg); mask.appendChild(hole);
+    defs.appendChild(mask);
+    svg.appendChild(defs);
+
+    // Overlay escuro
+    const dim = document.createElementNS(ns, 'rect');
+    dim.setAttribute('width','100%'); dim.setAttribute('height','100%');
+    dim.setAttribute('fill','rgba(0,0,0,0.55)');
+    dim.setAttribute('mask','url(#hm)');
+    svg.appendChild(dim);
+
+    // Borda pulsante amarela
+    const border = document.createElementNS(ns, 'rect');
+    border.setAttribute('x', left+'%'); border.setAttribute('y', top+'%');
+    border.setAttribute('width', width+'%'); border.setAttribute('height', height+'%');
+    border.setAttribute('rx','4');
+    border.setAttribute('fill','rgba(240,192,64,0.12)');
+    border.setAttribute('stroke','#f0c040');
+    border.setAttribute('stroke-width','2.5');
+    border.classList.add('highlight-rect');
+    svg.appendChild(border);
+
+    // Label com seta
+    const labelY = top > 10 ? top - 1 : top + height + 1;
+    const text = document.createElementNS(ns, 'text');
+    text.setAttribute('x', (left + width/2)+'%');
+    text.setAttribute('y', labelY+'%');
+    text.setAttribute('text-anchor','middle');
+    text.setAttribute('dominant-baseline', top > 10 ? 'auto' : 'hanging');
+    text.setAttribute('fill','#f0c040');
+    text.setAttribute('font-size','12');
+    text.setAttribute('font-family','Segoe UI,sans-serif');
+    text.setAttribute('font-weight','700');
+    text.textContent = '▼ campo';
+    svg.appendChild(text);
+  }
+
+  function closeScreenModal() {
+    document.getElementById('screen-modal').classList.remove('open');
+    document.body.style.overflow = '';
+    _calibrateMode = false; _calibrateStep = 0;
+  }
+
+  function handleModalClick(e) {
+    if (e.target === document.getElementById('screen-modal')) closeScreenModal();
+  }
+
+  // ── Calibração ──
+  function toggleCalibrate(e) {
+    e.stopPropagation();
+    _calibrateMode = !_calibrateMode;
+    _calibrateStep = 0;
+    const btn  = document.getElementById('modal-calibrate-btn');
+    const wrap = document.getElementById('modal-img-wrap');
+    const hint = document.getElementById('modal-calibrate-hint');
+    btn.classList.toggle('active', _calibrateMode);
+    wrap.classList.toggle('calibrate-mode', _calibrateMode);
+    hint.style.display = _calibrateMode ? 'block' : 'none';
+    if (!_calibrateMode) {
+      document.getElementById('modal-svg-overlay').querySelectorAll('.calib-rect').forEach(r=>r.remove());
+    }
+  }
+
+  function handleImgClick(e) {
+    if (!_calibrateMode) return;
+    const wrap  = document.getElementById('modal-img-wrap');
+    const rect  = wrap.getBoundingClientRect();
+    const xPct  = ((e.clientX - rect.left) / rect.width  * 100).toFixed(1);
+    const yPct  = ((e.clientY - rect.top)  / rect.height * 100).toFixed(1);
+
+    if (_calibrateStep === 0) {
+      _calibrateStart = { x: parseFloat(xPct), y: parseFloat(yPct) };
+      _calibrateStep = 1;
+      document.getElementById('modal-calibrate-hint').textContent =
+        `Ponto 1: (${xPct}%, ${yPct}%) — agora clique no canto inferior direito`;
+    } else {
+      const x2 = parseFloat(xPct), y2 = parseFloat(yPct);
+      const top    = Math.min(_calibrateStart.y, y2);
+      const left   = Math.min(_calibrateStart.x, x2);
+      const width  = Math.abs(x2 - _calibrateStart.x).toFixed(1);
+      const height = Math.abs(y2 - _calibrateStart.y).toFixed(1);
+      const newCoords = `${top.toFixed(1)},${left.toFixed(1)},${width},${height}`;
+
+      // Salva e aplica
+      if (_currentRow) {
+        _currentRow.dataset.coords = newCoords;
+        const storageKey = 'coords_' + _currentImgSrc + '_' + _currentName;
+        localStorage.setItem(storageKey, newCoords);
+      }
+
+      const info = document.getElementById('modal-coords-info');
+      info.textContent = `Posição salva: ${newCoords}`;
+      info.style.display = 'block';
+
+      document.getElementById('modal-calibrate-hint').textContent =
+        'Posição ajustada e salva! Clique em "Ajustar Posição" para sair do modo de calibração.';
+
+      renderHighlight(top, parseFloat(left), parseFloat(width), parseFloat(height));
+      _calibrateStep = 0;
+    }
+  }
+
+  // Fecha modal com ESC
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeScreenModal();
+  });
+</script>
+</body>
+</html>
