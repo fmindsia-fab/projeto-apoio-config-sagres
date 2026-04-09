@@ -577,6 +577,10 @@
         Configurações Gerais
         <span class="path-badge">Gestão › Configurações Gerais</span>
       </a>
+      <a class="nav-item" onclick="showSection('cfg-gerais-2')">
+        Configurações Gerais 2
+        <span class="path-badge">Gestão › Configurações Gerais 2</span>
+      </a>
     </div>
 
     <div class="nav-section">
@@ -621,6 +625,11 @@
         <div class="icon">⚙️</div>
         <h3>Configurações Gerais</h3>
         <p>Parâmetros globais do sistema, empresa, produtos e comportamento do PDV.</p>
+      </div>
+      <div class="welcome-card" onclick="showSection('cfg-gerais-2')">
+        <div class="icon">⚙️</div>
+        <h3>Configurações Gerais 2</h3>
+        <p>Layout, brindes, adiantamentos, log de ocorrências e mensagens remotas.</p>
       </div>
       <div class="welcome-card" onclick="showSection('fiscal-nfe')">
         <div class="icon">🧾</div>
@@ -900,6 +909,144 @@
     </div>
   </section>
 
+  <!-- ══ CONFIGURAÇÕES GERAIS 2 ══ -->
+  <section id="cfg-gerais-2" class="page-section" data-section-img="prints/cfg_gerais2.png">
+    <div class="page-header">
+      <div class="breadcrumb">Gestão › Configurações Gerais 2</div>
+      <h2>Configurações Gerais 2</h2>
+      <p>Layout do sistema, brindes, adiantamentos, log de ocorrências e mensagens remotas.</p>
+    </div>
+
+    <div class="screen-print">
+      <img src="prints/cfg_gerais2.png" alt="Tela Configurações Gerais 2"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+      <div class="screen-print-placeholder" style="display:none">
+        <strong>Print da Tela</strong>
+        Salve o print como <code>prints/cfg_gerais2.png</code> para exibir aqui.
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → clique em <strong>Configurações Gerais 2</strong>.
+      Apenas usuários com permissão de administrador conseguem alterar esses campos.
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Layout e Interface</div>
+      <table class="fields-table">
+        <thead>
+          <tr>
+            <th>Campo</th>
+            <th>Tipo</th>
+            <th>Descrição / Orientação de Suporte</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Layout das Telas do Sistema</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Define o tema visual das telas do sistema. <strong>1-Novo Layout</strong> usa a interface mais recente e é o padrão recomendado. Opções legadas mantêm o visual antigo — alterar somente se o cliente tiver dificuldade de adaptação à nova interface.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Alterar Registro do Windows p/Padrão da Automação Comercial</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, ajusta entradas no registro do Windows para garantir compatibilidade com o ambiente de automação comercial (impressoras fiscais, balanças, etc.). Usar com cautela em máquinas com políticas de segurança corporativa restritivas.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Brindes e Adiantamentos</div>
+      <table class="fields-table">
+        <thead>
+          <tr>
+            <th>Campo</th>
+            <th>Tipo</th>
+            <th>Descrição / Orientação de Suporte</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Permitir Brinde no Conta Assinada</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Controla se brindes são permitidos em vendas de conta assinada e como o valor é tratado. <strong>2-Sim, somando c/valor do brinde das vendas</strong> inclui o valor do brinde no total da conta. Verificar com o cliente a política comercial antes de alterar.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Permitir Brinde no Adiantamento</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, habilita o uso de brindes em operações de adiantamento. Normalmente mantido como <strong>N-Não</strong> para evitar inconsistências no fluxo de caixa e facilitar o fechamento.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Bloquear Adiantamentos em Sangrias e Suprimentos</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, impede que operações de adiantamento sejam realizadas em conjunto com sangrias e suprimentos de caixa, evitando que o saldo fique inconsistente durante o processo.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Conta Assinada e Convênios</div>
+      <table class="fields-table">
+        <thead>
+          <tr>
+            <th>Campo</th>
+            <th>Tipo</th>
+            <th>Descrição / Orientação de Suporte</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Permitir Cancelamento de Registros de Conta Assinada</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, permite que operadores autorizados cancelem registros de conta assinada já gravados. Manter <strong>N-Não</strong> para maior controle e rastreabilidade — cancelamentos só devem ser feitos via supervisor.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Utilizar Limite Diário por Convênio p/Conta Assinada de Clientes</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, aplica um teto de consumo diário por convênio na conta assinada. Útil para estabelecimentos que atendem empresas e precisam controlar o gasto diário por funcionário ou departamento.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Operação e Sistema</div>
+      <table class="fields-table">
+        <thead>
+          <tr>
+            <th>Campo</th>
+            <th>Tipo</th>
+            <th>Descrição / Orientação de Suporte</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Utilizar "Log de Ocorrências"</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Define se o sistema registra um log detalhado de ocorrências operacionais. <strong>Não</strong> desativa o log. Ativar somente quando houver necessidade de rastrear eventos internos para diagnóstico de problemas — o log pode crescer e impactar performance.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Atribuir Path Temporário em Operações (Ex.:Backup)</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, o sistema usa um diretório temporário para operações como backup, evitando sobrecarga ou conflito na pasta principal de instalação. Recomendado manter ativo em ambientes com múltiplos usuários.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Utilizar Rotas p/os Bairros</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, habilita o cadastro e uso de rotas de entrega segmentadas por bairro. Ativar apenas para estabelecimentos que operam com delivery próprio e precisam organizar a distribuição por região.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Exibir Mensagens Remotas do Fornecedor do Sistema</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Controla se mensagens enviadas remotamente pelo fornecedor (Squalus) são exibidas ao usuário. <strong>S-Sim (todas)</strong> exibe todas as comunicações recebidas. Pode ser restringido ou desativado se o cliente não quiser interrupções durante o expediente.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
   <!-- ══ FISCAL ══ -->
   <section id="fiscal-nfe" class="page-section">
     <div class="page-header">
@@ -969,11 +1116,12 @@
 <script>
   // Mapa de seções: id → label legível
   const SECTION_LABELS = {
-    'home':      'Visão Geral',
-    'cfg-gerais':'Configurações Gerais',
-    'fiscal-nfe':'Fiscal / NF-e / SAT',
-    'pdv-caixa': 'PDV / Caixa',
-    'usuarios':  'Usuários / Permissões'
+    'home':         'Visão Geral',
+    'cfg-gerais':   'Configurações Gerais',
+    'cfg-gerais-2': 'Configurações Gerais 2',
+    'fiscal-nfe':   'Fiscal / NF-e / SAT',
+    'pdv-caixa':    'PDV / Caixa',
+    'usuarios':     'Usuários / Permissões'
   };
 
   function showSection(id) {
@@ -1148,6 +1296,23 @@
       'Criptografar Senha do Operador no Cartão Cód. Barras':                  '84.5,50,50,5',
       'Mensagem de Backup Preventivo':                                         '88,0,50,5',
       'Tecla de Atalho (Shift+F10) p/Relatórios':                             '88,50,50,5',
+    },
+    'prints/cfg_gerais2.png': {
+      // Layout e Interface
+      'Layout das Telas do Sistema':                                           '6,0,100,7',
+      'Alterar Registro do Windows p/Padrão da Automação Comercial':           '14,0,100,7',
+      // Brindes e Adiantamentos
+      'Permitir Brinde no Conta Assinada':                                     '22,0,100,7',
+      'Permitir Brinde no Adiantamento':                                       '30,0,100,7',
+      'Bloquear Adiantamentos em Sangrias e Suprimentos':                      '38,0,100,7',
+      // Conta Assinada e Convênios
+      'Permitir Cancelamento de Registros de Conta Assinada':                  '46,0,100,7',
+      'Utilizar Limite Diário por Convênio p/Conta Assinada de Clientes':      '54,0,100,7',
+      // Operação e Sistema
+      'Utilizar "Log de Ocorrências"':                                         '62,0,100,7',
+      'Atribuir Path Temporário em Operações (Ex.:Backup)':                    '70,0,100,7',
+      'Utilizar Rotas p/os Bairros':                                           '78,0,100,7',
+      'Exibir Mensagens Remotas do Fornecedor do Sistema':                     '86,0,100,7',
     }
   };
 
