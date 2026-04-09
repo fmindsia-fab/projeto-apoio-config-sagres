@@ -1242,22 +1242,36 @@
   }
 
   function renderHighlight(top, left, width, height) {
-    const svg = document.getElementById('modal-svg-overlay');
-    const ns  = 'http://www.w3.org/2000/svg';
+    const svg   = document.getElementById('modal-svg-overlay');
+    const imgEl = document.getElementById('modal-img');
+    const ns    = 'http://www.w3.org/2000/svg';
     svg.innerHTML = '';
+
+    // Usa as dimensões reais do <img> renderizado para o viewBox,
+    // garantindo que as coordenadas % sejam sempre relativas à imagem
+    // independente do tamanho da tela ou resolução.
+    const { width: W, height: H } = imgEl.getBoundingClientRect();
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    svg.setAttribute('preserveAspectRatio', 'none');
+
+    // Converte % para px absolutos baseados no tamanho atual da imagem
+    const x  = left   / 100 * W;
+    const y  = top    / 100 * H;
+    const rw = width  / 100 * W;
+    const rh = height / 100 * H;
 
     // Defs + máscara para escurecer tudo exceto a área destacada
     const defs = document.createElementNS(ns, 'defs');
     const mask = document.createElementNS(ns, 'mask');
     mask.id = 'hm';
 
-    const bg   = document.createElementNS(ns, 'rect');
-    bg.setAttribute('width','100%'); bg.setAttribute('height','100%'); bg.setAttribute('fill','white');
+    const bg = document.createElementNS(ns, 'rect');
+    bg.setAttribute('width', W); bg.setAttribute('height', H); bg.setAttribute('fill','white');
 
     const hole = document.createElementNS(ns, 'rect');
-    hole.setAttribute('x', left+'%'); hole.setAttribute('y', top+'%');
-    hole.setAttribute('width', width+'%'); hole.setAttribute('height', height+'%');
-    hole.setAttribute('rx','4');  hole.setAttribute('fill','black');
+    hole.setAttribute('x', x); hole.setAttribute('y', y);
+    hole.setAttribute('width', rw); hole.setAttribute('height', rh);
+    hole.setAttribute('rx','4'); hole.setAttribute('fill','black');
 
     mask.appendChild(bg); mask.appendChild(hole);
     defs.appendChild(mask);
@@ -1265,15 +1279,15 @@
 
     // Overlay escuro
     const dim = document.createElementNS(ns, 'rect');
-    dim.setAttribute('width','100%'); dim.setAttribute('height','100%');
+    dim.setAttribute('width', W); dim.setAttribute('height', H);
     dim.setAttribute('fill','rgba(0,0,0,0.55)');
     dim.setAttribute('mask','url(#hm)');
     svg.appendChild(dim);
 
     // Borda pulsante amarela
     const border = document.createElementNS(ns, 'rect');
-    border.setAttribute('x', left+'%'); border.setAttribute('y', top+'%');
-    border.setAttribute('width', width+'%'); border.setAttribute('height', height+'%');
+    border.setAttribute('x', x); border.setAttribute('y', y);
+    border.setAttribute('width', rw); border.setAttribute('height', rh);
     border.setAttribute('rx','4');
     border.setAttribute('fill','rgba(240,192,64,0.12)');
     border.setAttribute('stroke','#f0c040');
@@ -1282,14 +1296,14 @@
     svg.appendChild(border);
 
     // Label com seta
-    const labelY = top > 10 ? top - 1 : top + height + 1;
+    const labelY = y > H * 0.1 ? y - (H * 0.01) : y + rh + (H * 0.01);
     const text = document.createElementNS(ns, 'text');
-    text.setAttribute('x', (left + width/2)+'%');
-    text.setAttribute('y', labelY+'%');
+    text.setAttribute('x', x + rw / 2);
+    text.setAttribute('y', labelY);
     text.setAttribute('text-anchor','middle');
-    text.setAttribute('dominant-baseline', top > 10 ? 'auto' : 'hanging');
+    text.setAttribute('dominant-baseline', y > H * 0.1 ? 'auto' : 'hanging');
     text.setAttribute('fill','#f0c040');
-    text.setAttribute('font-size','12');
+    text.setAttribute('font-size', Math.max(10, H * 0.015));
     text.setAttribute('font-family','Segoe UI,sans-serif');
     text.setAttribute('font-weight','700');
     text.textContent = '▼ campo';
@@ -1324,8 +1338,8 @@
 
   function handleImgClick(e) {
     if (!_calibrateMode) return;
-    const wrap  = document.getElementById('modal-img-wrap');
-    const rect  = wrap.getBoundingClientRect();
+    const imgEl = document.getElementById('modal-img');
+    const rect  = imgEl.getBoundingClientRect();
     const xPct  = ((e.clientX - rect.left) / rect.width  * 100).toFixed(1);
     const yPct  = ((e.clientY - rect.top)  / rect.height * 100).toFixed(1);
 
