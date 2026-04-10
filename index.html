@@ -581,6 +581,10 @@
         Configurações Gerais 2
         <span class="path-badge">Gestão › Configurações Gerais 2</span>
       </a>
+      <a class="nav-item" onclick="showSection('prog-fidelidade')">
+        Programa de Fidelidade
+        <span class="path-badge">Gestão › Configurações › Fidelidade</span>
+      </a>
     </div>
 
     <div class="nav-section">
@@ -630,6 +634,11 @@
         <div class="icon">⚙️</div>
         <h3>Configurações Gerais 2</h3>
         <p>Layout, brindes, adiantamentos, log de ocorrências e mensagens remotas.</p>
+      </div>
+      <div class="welcome-card" onclick="showSection('prog-fidelidade')">
+        <div class="icon">🎯</div>
+        <h3>Programa de Fidelidade</h3>
+        <p>Pontos, trocas, intervalos de acúmulo e bloqueios do programa de fidelidade.</p>
       </div>
       <div class="welcome-card" onclick="showSection('fiscal-nfe')">
         <div class="icon">🧾</div>
@@ -1047,6 +1056,184 @@
     </div>
   </section>
 
+  <!-- ══ PROGRAMA DE FIDELIDADE ══ -->
+  <section id="prog-fidelidade" class="page-section" data-section-img="prints/prog_fidelidade.png">
+    <div class="page-header">
+      <div class="breadcrumb">Gestão › Configurações › Programa de Fidelidade</div>
+      <h2>Programa de Fidelidade</h2>
+      <p>Configurações de pontuação, trocas, intervalos e bloqueios do programa de fidelidade.</p>
+    </div>
+
+    <div class="screen-print">
+      <img src="prints/prog_fidelidade.png" alt="Tela Programa de Fidelidade"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+      <div class="screen-print-placeholder" style="display:none">
+        <strong>Print da Tela</strong>
+        Salve o print como <code>prints/prog_fidelidade.png</code> para exibir aqui.
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Configurações</strong> → <strong>Programa de Fidelidade</strong>.
+      A tela possui dois botões no topo: <strong>Definir Pontos dos Produtos</strong> e <strong>Definir Pontos de Troca dos Produtos</strong> — ambos abrem sub-telas para configuração por produto.
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Configuração Base</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Utilizar Programa de Fidelidade</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Ativa ou desativa o programa de fidelidade. Quando <strong>Não</strong>, todos os demais campos desta tela são ignorados pelo sistema. Ativar somente após configurar os demais parâmetros para evitar comportamento inesperado no PDV.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Valor</div></td>
+            <td><span class="tag tag-text">Numérico</span></td>
+            <td>Valor mínimo de compra (em R$) para que o cliente acumule pontos. Se <strong>0,00</strong>, qualquer venda gera pontos. Ajustar conforme a política comercial do cliente.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Nº Pontos</div></td>
+            <td><span class="tag tag-text">Numérico</span></td>
+            <td>Quantidade de pontos concedidos por unidade do valor configurado. Ex.: 1 ponto a cada R$ 1,00 gasto. Funciona em conjunto com o campo <strong>Valor</strong>.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Usar Fração no Calc do Nº de Pontos</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Define se frações de pontos são consideradas no cálculo. <strong>0-Não utilizar fração</strong> arredonda sempre para baixo, garantindo que o cliente só receba pontos inteiros. Ativar fração quando o cliente precisar de maior precisão no acúmulo.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Na troca, cada ponto equivale a quantos Reais (R$)</div></td>
+            <td><span class="tag tag-text">Numérico</span></td>
+            <td>Taxa de conversão de pontos em reais no momento do resgate. Ex.: <strong>R$ 0,01</strong> significa que 100 pontos valem R$ 1,00. Conferir junto ao cliente antes de alterar para não prejudicar clientes com pontos já acumulados.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Produtos e Pontuação</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Poder Definir Produtos do Progr.Fidelidade?</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, permite restringir o programa de fidelidade a um conjunto específico de produtos (configurado pelo botão <em>Definir Pontos dos Produtos</em> no topo da tela). Útil quando nem todos os itens do cardápio participam do programa.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Calcular Pontos de Troca por Produtos</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, o custo em pontos de cada produto na troca é definido individualmente (via botão <em>Definir Pontos de Troca dos Produtos</em>). Quando <strong>N-Não</strong>, usa a taxa global configurada no campo <strong>Na troca, cada ponto equivale a...</strong>.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Nº de Pontos para Aviso de Brinde Disponível</div></td>
+            <td><span class="tag tag-text">Numérico</span></td>
+            <td>Quantidade de pontos a partir da qual o sistema exibe um aviso no PDV informando que o cliente tem brinde disponível. <strong>0</strong> desativa o aviso.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">NºPontos Padrão ao Inserir Produtos Quando Fidelidade por Produtos</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Pontuação padrão atribuída automaticamente a novos produtos cadastrados quando o programa é configurado por produto. Evita que novos itens fiquem sem pontuação definida.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Clientes e Intervalo de Acúmulo</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Valor Padrão Para Novos Clientes</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Define se novos clientes cadastrados já entram automaticamente no programa de fidelidade. <strong>Campo Programa de Fidelidade = "Sim"</strong> insere todos os novos clientes no programa por padrão.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Considerar "Qtd=1" quando venda de produtos por "kg" for menor do que 1</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, vendas fracionadas (ex.: 0,3 kg) são tratadas como 1 unidade para fins de pontuação. Ativar quando o cliente quiser garantir pontos mesmo em compras de pequenas quantidades em peso.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Usar Intervalo de Data p/o Programa de Fidelidade</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, o acúmulo e a troca de pontos ficam restritos ao período definido nos campos de data abaixo. Útil para campanhas sazonais ou promoções com prazo determinado.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Data Inicial p/Acúmulo de Pontos</div></td>
+            <td><span class="tag tag-text">Data</span></td>
+            <td>Data de início do período em que o cliente pode acumular pontos. Só tem efeito quando <strong>Usar Intervalo de Data</strong> está ativo.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Data Final p/Acúmulo</div></td>
+            <td><span class="tag tag-text">Data</span></td>
+            <td>Data de encerramento do acúmulo de pontos. Após essa data, vendas não geram novos pontos. Só tem efeito quando <strong>Usar Intervalo de Data</strong> está ativo.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Data Final p/Troca de Pontos</div></td>
+            <td><span class="tag tag-text">Data</span></td>
+            <td>Data limite para o cliente resgatar os pontos acumulados. Pode ser diferente da data final de acúmulo — ex.: acúmulo até 31/12, troca até 31/01. Só tem efeito quando <strong>Usar Intervalo de Data</strong> está ativo.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Troca de Pontos</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Permitir Inserção Manual de Pontos no Progr.Fidelidade</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, operadores autorizados podem adicionar pontos manualmente ao saldo do cliente, sem vínculo com uma venda. Manter <strong>N-Não</strong> como padrão para garantir rastreabilidade — ativar somente mediante solicitação justificada do cliente.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Cálculo Automático de Pontos na Troca dos Pontos</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, o sistema calcula e aplica automaticamente o desconto em reais ao efetuar uma troca de pontos, sem que o operador precise informar o valor manualmente.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Mínimo de Pontos Cliente Precisa ter para Troca</div></td>
+            <td><span class="tag tag-text">Numérico</span></td>
+            <td>Quantidade mínima de pontos que o cliente deve possuir para poder realizar uma troca. <strong>0</strong> desativa o limite mínimo. Usar para evitar resgates de valores muito baixos que gerem mais custo operacional do que benefício.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Máximo de Pontos Cliente Pode Usar na Troca</div></td>
+            <td><span class="tag tag-text">Numérico</span></td>
+            <td>Limite máximo de pontos que o cliente pode utilizar em uma única troca. <strong>0</strong> significa sem limite. Usar quando o cliente quiser controlar o desconto máximo concedido por transação.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Bloqueios de Acúmulo</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Bloquear Acúmulo de Pontos no Fidelidade nas Entregas</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, vendas realizadas como entrega não geram pontos no programa de fidelidade. Útil quando o cliente quer restringir o programa ao consumo no local.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Bloquear Acúmulo de Pontos no Fidelidade p/Conta Assinada</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, vendas lançadas em conta assinada não acumulam pontos. Recomendado quando o programa de fidelidade deve se aplicar apenas a pagamentos à vista ou imediatos.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Bloquear Acúmulo de Pontos no Fidelidade p/Vnd.Antecipada</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, vendas antecipadas não geram pontos no programa de fidelidade. Manter conforme a política comercial do estabelecimento.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
   <!-- ══ FISCAL ══ -->
   <section id="fiscal-nfe" class="page-section">
     <div class="page-header">
@@ -1118,7 +1305,8 @@
   const SECTION_LABELS = {
     'home':         'Visão Geral',
     'cfg-gerais':   'Configurações Gerais',
-    'cfg-gerais-2': 'Configurações Gerais 2',
+    'cfg-gerais-2':    'Configurações Gerais 2',
+    'prog-fidelidade': 'Programa de Fidelidade',
     'fiscal-nfe':   'Fiscal / NF-e / SAT',
     'pdv-caixa':    'PDV / Caixa',
     'usuarios':     'Usuários / Permissões'
@@ -1313,6 +1501,35 @@
       'Atribuir Path Temporário em Operações (Ex.:Backup)':                    '70,0,100,7',
       'Utilizar Rotas p/os Bairros':                                           '78,0,100,7',
       'Exibir Mensagens Remotas do Fornecedor do Sistema':                     '86,0,100,7',
+    },
+    'prints/prog_fidelidade.png': {
+      // Configuração Base
+      'Utilizar Programa de Fidelidade':                                       '13,0,100,5',
+      'Valor':                                                                 '18,0,100,5',
+      'Nº Pontos':                                                             '23,0,45,5',
+      'Usar Fração no Calc do Nº de Pontos':                                   '23,45,55,5',
+      'Na troca, cada ponto equivale a quantos Reais (R$)':                    '28,0,100,5',
+      // Produtos e Pontuação
+      'Poder Definir Produtos do Progr.Fidelidade?':                           '33,0,100,5',
+      'Calcular Pontos de Troca por Produtos':                                 '38,0,100,5',
+      'Nº de Pontos para Aviso de Brinde Disponível':                          '43,0,50,5',
+      'NºPontos Padrão ao Inserir Produtos Quando Fidelidade por Produtos':    '43,50,50,5',
+      // Clientes e Intervalo de Acúmulo
+      'Valor Padrão Para Novos Clientes':                                      '48,0,100,5',
+      'Considerar "Qtd=1" quando venda de produtos por "kg" for menor do que 1':'53,0,100,5',
+      'Usar Intervalo de Data p/o Programa de Fidelidade':                     '58,0,100,5',
+      'Data Inicial p/Acúmulo de Pontos':                                      '63,0,33,5',
+      'Data Final p/Acúmulo':                                                  '63,33,34,5',
+      'Data Final p/Troca de Pontos':                                          '63,67,33,5',
+      // Troca de Pontos
+      'Permitir Inserção Manual de Pontos no Progr.Fidelidade':                '68,0,100,5',
+      'Cálculo Automático de Pontos na Troca dos Pontos':                      '73,0,100,5',
+      'Mínimo de Pontos Cliente Precisa ter para Troca':                       '78,0,50,5',
+      'Máximo de Pontos Cliente Pode Usar na Troca':                           '78,50,50,5',
+      // Bloqueios
+      'Bloquear Acúmulo de Pontos no Fidelidade nas Entregas':                 '83,0,100,5',
+      'Bloquear Acúmulo de Pontos no Fidelidade p/Conta Assinada':             '88,0,50,5',
+      'Bloquear Acúmulo de Pontos no Fidelidade p/Vnd.Antecipada':             '88,50,50,5',
     }
   };
 
