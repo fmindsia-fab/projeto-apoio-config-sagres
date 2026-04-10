@@ -589,6 +589,10 @@
         Venda Antecipada
         <span class="path-badge">Gestão › Configurações › Venda Antecipada</span>
       </a>
+      <a class="nav-item" onclick="showSection('fech-caixa')">
+        Fechamento de Caixa
+        <span class="path-badge">Gestão › Configurações › Fechamento de Caixa</span>
+      </a>
     </div>
 
     <div class="nav-section">
@@ -648,6 +652,11 @@
         <div class="icon">🛒</div>
         <h3>Venda Antecipada</h3>
         <p>Configurações de preço por kg, saldo negativo e bloqueio de clientes.</p>
+      </div>
+      <div class="welcome-card" onclick="showSection('fech-caixa')">
+        <div class="icon">🧾</div>
+        <h3>Fechamento de Caixa</h3>
+        <p>O que imprimir no fechamento: brindes, fiados, produtos, ocorrências e mais.</p>
       </div>
       <div class="welcome-card" onclick="showSection('fiscal-nfe')">
         <div class="icon">🧾</div>
@@ -1310,6 +1319,194 @@
     </div>
   </section>
 
+  <!-- ══ FECHAMENTO DE CAIXA ══ -->
+  <section id="fech-caixa" class="page-section" data-section-img="prints/fech_caixa.png">
+    <div class="page-header">
+      <div class="breadcrumb">Gestão › Configurações › Fechamento de Caixa</div>
+      <h2>Fechamento de Caixa</h2>
+      <p>Define o que é impresso e exibido no relatório de fechamento do caixa.</p>
+    </div>
+
+    <div class="screen-print">
+      <img src="prints/fech_caixa.png" alt="Tela Fechamento de Caixa"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+      <div class="screen-print-placeholder" style="display:none">
+        <strong>Print da Tela</strong>
+        Salve o print como <code>prints/fech_caixa.png</code> para exibir aqui.
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Configurações</strong> → <strong>Fechamento de Caixa</strong>.
+      Alterações afetam o layout do relatório impresso ao fechar o caixa no PDV.
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Formas de Pagamento</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Informar Valores de Formas de Pagamento</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, o operador precisa informar manualmente os valores de cada forma de pagamento ao fechar o caixa (conferência de gaveta). Manter <strong>N-Não</strong> quando o estabelecimento não realiza essa conferência no fechamento.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Detalhamentos no Fechamento</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Imprimir Detalhamento dos Brindes no Fechamento do Caixa</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, inclui no relatório de fechamento a lista detalhada de brindes concedidos no período. Desativar se o cliente não usa brindes ou não quer esse detalhe no relatório.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Imprimir Detalhamento dos Crediários no Fechamento do Caixa</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, lista as vendas a crediário no fechamento do caixa, facilitando o controle de contas a receber abertas no período.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Imprimir Detalhamento dos Fiados no Fechamento do Caixa</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, exibe no fechamento a relação de vendas lançadas como fiado. Útil para estabelecimentos que controlam fiado manualmente ao final do turno.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Separar Fiados por Vendas no Fechamento do Caixa</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, os fiados são listados individualmente por venda no relatório, em vez de um total consolidado. Ativar quando o operador precisa rastrear cada lançamento de fiado.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Imprimir Detalhamento das Vendas Antecipadas no Fechamento do Caixa</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, inclui as vendas antecipadas do período no relatório de fechamento. Ativar em estabelecimentos que utilizam o módulo de venda antecipada.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Imprimir Vendas de Atendendes no Fechamento do Caixa</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, detalha as vendas por atendente no relatório de fechamento, permitindo acompanhar o desempenho individual de cada operador no turno.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Imprimir Taxas de Entrega no Fechamento do Caixa</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, inclui o total de taxas de entrega cobradas no período. Ativar em estabelecimentos com delivery que precisam contabilizar esse valor no fechamento.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Relatório de Produtos</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Imprimir Vendas de Produtos no Fechamento do Caixa</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Define se e como os produtos vendidos aparecem no fechamento. <strong>Sim (ordem de valor)</strong> lista os produtos do maior para o menor faturamento. Outras opções incluem ordem alfabética ou por quantidade. Desativar em estabelecimentos com muitos produtos para evitar relatórios muito longos.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Imprimir Vendas de Grupos de Produtos no Fechamento do Caixa</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, totaliza as vendas agrupadas por grupo de produto no fechamento. Útil para gestores que acompanham o desempenho por categoria.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Imprimir Vendas de Classes de Produtos no Fechamento do Caixa</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, agrupa as vendas por classe de produto no relatório. Ativar apenas se o cliente usa a classificação de produtos no cadastro.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Imprimir Vendas de Departamentos de Produtos no Fechamento do Caixa</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, totaliza as vendas por departamento no fechamento. Ativar em estabelecimentos que utilizam departamentos no cadastro de produtos.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Imprimir Vendas de Marcas de Produtos no Fechamento do Caixa</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, exibe as vendas agrupadas por marca no fechamento. Útil para clientes que trabalham com múltiplas marcas e precisam de controle por fornecedor.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Ocorrências e Contas Assinadas</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Imprimir Ocorrências do Caixa de Descontos no Fechamento do Caixa</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, lista os descontos aplicados durante o turno no relatório de fechamento. Importante para auditoria e controle de margens.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Imprimir Ocorrências do Caixa de Transferências no Fechamento do Caixa</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, inclui as transferências entre caixas realizadas no período. Ativar quando o estabelecimento faz sangrias ou suprimentos entre caixas durante o turno.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Imprimir Informações de Ocorrências no Fechamento de Caixa</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Controla o nível de detalhe das ocorrências exibidas no fechamento. <strong>Sim</strong> inclui as informações; opções podem limitar o tipo de ocorrência exibida. Verificar com o cliente o nível de detalhe desejado.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Imprimir Ctas.Assinadas Recebidas/Realizadas por Departamentos no Fech.Caixa</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, detalha as contas assinadas recebidas e realizadas separadas por departamento no fechamento. Ativar em estabelecimentos que controlam conta assinada por departamento.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Configurações Avançadas</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Imprimir Formas Pagto s/Retiradas e Troco Inicial no Fech.Caixa</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, os valores das formas de pagamento são exibidos já descontando as retiradas (sangrias) e o troco inicial, mostrando o saldo líquido por forma de pagamento.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Imprimir Vendas de Produtos por Kilo</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, inclui no fechamento o relatório de produtos vendidos por peso (kg). Ativar em estabelecimentos com balança ou produtos fracionados.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Pode Exibir Totalizações de Outros Caixas no Ecf</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, o ECF pode exibir os totais consolidados de outros caixas além do caixa atual. Útil em ambientes com múltiplos PDVs onde o gerente precisa de visão consolidada.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Nível Exibição das Ocorrências do Caixa</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Define a quantidade de informação exibida nas ocorrências do caixa. <strong>2-Reduzida</strong> mostra um resumo compacto. Aumentar o nível para mais detalhes quando necessário para auditoria.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Pode Imprimir Resumo do Caixa Antes do Fechamento</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, permite que o operador imprima um resumo parcial do caixa a qualquer momento, sem fechar o turno. Útil para conferências durante o expediente.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Ordem de Digitação das Formas Pagto no Fech.Caixa</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Define a ordem em que as formas de pagamento aparecem para digitação no fechamento. <strong>2-Ordem definida pelo campo "Ordem Sequêncial"</strong> usa a sequência configurada no cadastro de formas de pagamento.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Nº Máximo de Cópias no Fechamento do Caixa</div></td>
+            <td><span class="tag tag-text">Numérico</span></td>
+            <td>Quantidade máxima de vias que o sistema permite imprimir no fechamento do caixa. <strong>1</strong> limita a uma via, evitando impressões desnecessárias. Aumentar se o cliente precisar de mais cópias por padrão.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
   <!-- ══ FISCAL ══ -->
   <section id="fiscal-nfe" class="page-section">
     <div class="page-header">
@@ -1384,6 +1581,7 @@
     'cfg-gerais-2':    'Configurações Gerais 2',
     'prog-fidelidade':  'Programa de Fidelidade',
     'venda-antecipada': 'Venda Antecipada',
+    'fech-caixa':       'Fechamento de Caixa',
     'fiscal-nfe':   'Fiscal / NF-e / SAT',
     'pdv-caixa':    'PDV / Caixa',
     'usuarios':     'Usuários / Permissões'
@@ -1616,6 +1814,37 @@
       'Usar Saldo Negativo Máximo na Venda Antecipada':                                   '52,0,100,9',
       'Valor Máximo do Saldo Negativo':                                                   '63,0,100,9',
       'Valor Padrão para "Bloq.p/Vnd.Antecip." no Cadastro de Clientes':                 '74,0,100,9',
+    },
+    'prints/fech_caixa.png': {
+      // Formas de Pagamento
+      'Informar Valores de Formas de Pagamento':                                          '4,0,100,4',
+      // Detalhamentos
+      'Imprimir Detalhamento dos Brindes no Fechamento do Caixa':                        '8,0,100,4',
+      'Imprimir Detalhamento dos Crediários no Fechamento do Caixa':                     '12,0,100,4',
+      'Imprimir Detalhamento dos Fiados no Fechamento do Caixa':                         '16,0,100,4',
+      'Separar Fiados por Vendas no Fechamento do Caixa':                                '20,0,100,4',
+      'Imprimir Detalhamento das Vendas Antecipadas no Fechamento do Caixa':             '24,0,100,4',
+      'Imprimir Vendas de Atendendes no Fechamento do Caixa':                            '28.5,0,100,4',
+      'Imprimir Taxas de Entrega no Fechamento do Caixa':                                '32.5,0,100,4',
+      // Produtos
+      'Imprimir Vendas de Produtos no Fechamento do Caixa':                              '37,0,100,4',
+      'Imprimir Vendas de Grupos de Produtos no Fechamento do Caixa':                    '41,0,100,4',
+      'Imprimir Vendas de Classes de Produtos no Fechamento do Caixa':                   '45,0,100,4',
+      'Imprimir Vendas de Departamentos de Produtos no Fechamento do Caixa':             '49.5,0,100,4',
+      'Imprimir Vendas de Marcas de Produtos no Fechamento do Caixa':                    '53.5,0,100,4',
+      // Ocorrências e Contas
+      'Imprimir Ocorrências do Caixa de Descontos no Fechamento do Caixa':               '58,0,100,4',
+      'Imprimir Ocorrências do Caixa de Transferências no Fechamento do Caixa':          '62,0,100,4',
+      'Imprimir Informações de Ocorrências no Fechamento de Caixa':                      '66.5,0,100,4',
+      'Imprimir Ctas.Assinadas Recebidas/Realizadas por Departamentos no Fech.Caixa':   '70.5,0,100,4',
+      // Avançadas
+      'Imprimir Formas Pagto s/Retiradas e Troco Inicial no Fech.Caixa':                '74.5,0,58,4',
+      'Imprimir Vendas de Produtos por Kilo':                                            '74.5,58,42,4',
+      'Pode Exibir Totalizações de Outros Caixas no Ecf':                               '79,0,52,4',
+      'Nível Exibição das Ocorrências do Caixa':                                        '79,52,48,4',
+      'Pode Imprimir Resumo do Caixa Antes do Fechamento':                              '83,0,100,4',
+      'Ordem de Digitação das Formas Pagto no Fech.Caixa':                              '87.5,0,100,4',
+      'Nº Máximo de Cópias no Fechamento do Caixa':                                     '92,0,100,4',
     }
   };
 
