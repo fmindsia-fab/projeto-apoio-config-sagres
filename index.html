@@ -585,6 +585,10 @@
         Programa de Fidelidade
         <span class="path-badge">Gestão › Configurações › Fidelidade</span>
       </a>
+      <a class="nav-item" onclick="showSection('venda-antecipada')">
+        Venda Antecipada
+        <span class="path-badge">Gestão › Configurações › Venda Antecipada</span>
+      </a>
     </div>
 
     <div class="nav-section">
@@ -639,6 +643,11 @@
         <div class="icon">🎯</div>
         <h3>Programa de Fidelidade</h3>
         <p>Pontos, trocas, intervalos de acúmulo e bloqueios do programa de fidelidade.</p>
+      </div>
+      <div class="welcome-card" onclick="showSection('venda-antecipada')">
+        <div class="icon">🛒</div>
+        <h3>Venda Antecipada</h3>
+        <p>Configurações de preço por kg, saldo negativo e bloqueio de clientes.</p>
       </div>
       <div class="welcome-card" onclick="showSection('fiscal-nfe')">
         <div class="icon">🧾</div>
@@ -1234,6 +1243,73 @@
     </div>
   </section>
 
+  <!-- ══ VENDA ANTECIPADA ══ -->
+  <section id="venda-antecipada" class="page-section" data-section-img="prints/venda_antecipada.png">
+    <div class="page-header">
+      <div class="breadcrumb">Gestão › Configurações › Venda Antecipada</div>
+      <h2>Venda Antecipada</h2>
+      <p>Configurações de modalidade, precificação por peso, saldo negativo e bloqueio de clientes.</p>
+    </div>
+
+    <div class="screen-print">
+      <img src="prints/venda_antecipada.png" alt="Tela Venda Antecipada"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+      <div class="screen-print-placeholder" style="display:none">
+        <strong>Print da Tela</strong>
+        Salve o print como <code>prints/venda_antecipada.png</code> para exibir aqui.
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Configurações</strong> → <strong>Venda Antecipada</strong>.
+      As alterações são gravadas ao clicar em <strong>Salvar</strong>. Clicar em <strong>Cancelar</strong> descarta qualquer mudança não salva.
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Configurações de Venda Antecipada</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Utilizar Venda Antecipada</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Define se e como a venda antecipada é utilizada. <strong>Sim, por preço</strong> habilita o módulo com base em valor monetário por kg. Quando desativado, os demais campos desta tela são ignorados. Confirmar com o cliente a modalidade antes de alterar.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Preço do Kilo na Venda Antecipada</div></td>
+            <td><span class="tag tag-text">Numérico</span></td>
+            <td>Valor padrão cobrado por kg nas vendas antecipadas. Usado quando o cliente compra acima do limite definido no campo abaixo. Verificar se o preço está atualizado conforme a tabela vigente do cliente.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Se o cliente comprar menos de (Kgs)</div></td>
+            <td><span class="tag tag-text">Numérico</span></td>
+            <td>Quantidade mínima em kg para aplicar o preço padrão do kilo. Compras abaixo desse valor terão o preço alternativo definido no campo <strong>O preço do Kg. será então</strong>. Permite diferenciar o preço para compras pequenas.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">O preço do Kg. será então</div></td>
+            <td><span class="tag tag-text">Numérico</span></td>
+            <td>Preço por kg aplicado quando a quantidade comprada for inferior ao limite definido no campo acima. Normalmente igual ou superior ao preço padrão, penalizando compras de menor volume.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Usar Saldo Negativo Máximo na Venda Antecipada</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, o sistema permite que o cliente fique com saldo negativo na venda antecipada, até o limite definido no campo abaixo. Manter <strong>N-Não</strong> como padrão para evitar exposição de crédito não controlada.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Valor Máximo do Saldo Negativo</div></td>
+            <td><span class="tag tag-text">Numérico</span></td>
+            <td>Limite máximo em reais que o cliente pode ficar negativo na venda antecipada. Só tem efeito quando <strong>Usar Saldo Negativo Máximo</strong> está ativo. <strong>0</strong> sem limite definido.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Valor Padrão para "Bloq.p/Vnd.Antecip." no Cadastro de Clientes</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Define o status padrão do campo de bloqueio de venda antecipada para clientes novos. <strong>Não bloqueado</strong> permite que todos os novos clientes utilizem a venda antecipada por padrão. Alterar para bloquear automaticamente caso o estabelecimento prefira liberar individualmente.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
   <!-- ══ FISCAL ══ -->
   <section id="fiscal-nfe" class="page-section">
     <div class="page-header">
@@ -1306,7 +1382,8 @@
     'home':         'Visão Geral',
     'cfg-gerais':   'Configurações Gerais',
     'cfg-gerais-2':    'Configurações Gerais 2',
-    'prog-fidelidade': 'Programa de Fidelidade',
+    'prog-fidelidade':  'Programa de Fidelidade',
+    'venda-antecipada': 'Venda Antecipada',
     'fiscal-nfe':   'Fiscal / NF-e / SAT',
     'pdv-caixa':    'PDV / Caixa',
     'usuarios':     'Usuários / Permissões'
@@ -1530,6 +1607,15 @@
       'Bloquear Acúmulo de Pontos no Fidelidade nas Entregas':                 '83,0,100,5',
       'Bloquear Acúmulo de Pontos no Fidelidade p/Conta Assinada':             '88,0,50,5',
       'Bloquear Acúmulo de Pontos no Fidelidade p/Vnd.Antecipada':             '88,50,50,5',
+    },
+    'prints/venda_antecipada.png': {
+      'Utilizar Venda Antecipada':                                                        '8,0,100,9',
+      'Preço do Kilo na Venda Antecipada':                                                '19,0,100,9',
+      'Se o cliente comprar menos de (Kgs)':                                              '30,0,100,9',
+      'O preço do Kg. será então':                                                        '41,0,100,9',
+      'Usar Saldo Negativo Máximo na Venda Antecipada':                                   '52,0,100,9',
+      'Valor Máximo do Saldo Negativo':                                                   '63,0,100,9',
+      'Valor Padrão para "Bloq.p/Vnd.Antecip." no Cadastro de Clientes':                 '74,0,100,9',
     }
   };
 
