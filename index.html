@@ -581,6 +581,18 @@
         Configurações Gerais 2
         <span class="path-badge">Gestão › Configurações Gerais 2</span>
       </a>
+      <a class="nav-item" onclick="showSection('prog-fidelidade')">
+        Programa de Fidelidade
+        <span class="path-badge">Gestão › Configurações › Fidelidade</span>
+      </a>
+      <a class="nav-item" onclick="showSection('venda-antecipada')">
+        Venda Antecipada
+        <span class="path-badge">Gestão › Configurações › Venda Antecipada</span>
+      </a>
+      <a class="nav-item" onclick="showSection('fech-caixa')">
+        Fechamento de Caixa
+        <span class="path-badge">Gestão › Configurações › Fechamento de Caixa</span>
+      </a>
     </div>
 
     <div class="nav-section">
@@ -630,6 +642,21 @@
         <div class="icon">⚙️</div>
         <h3>Configurações Gerais 2</h3>
         <p>Layout, brindes, adiantamentos, log de ocorrências e mensagens remotas.</p>
+      </div>
+      <div class="welcome-card" onclick="showSection('prog-fidelidade')">
+        <div class="icon">🎯</div>
+        <h3>Programa de Fidelidade</h3>
+        <p>Pontos, trocas, intervalos de acúmulo e bloqueios do programa de fidelidade.</p>
+      </div>
+      <div class="welcome-card" onclick="showSection('venda-antecipada')">
+        <div class="icon">🛒</div>
+        <h3>Venda Antecipada</h3>
+        <p>Configurações de preço por kg, saldo negativo e bloqueio de clientes.</p>
+      </div>
+      <div class="welcome-card" onclick="showSection('fech-caixa')">
+        <div class="icon">🧾</div>
+        <h3>Fechamento de Caixa</h3>
+        <p>O que imprimir no fechamento: brindes, fiados, produtos, ocorrências e mais.</p>
       </div>
       <div class="welcome-card" onclick="showSection('fiscal-nfe')">
         <div class="icon">🧾</div>
@@ -1047,6 +1074,439 @@
     </div>
   </section>
 
+  <!-- ══ PROGRAMA DE FIDELIDADE ══ -->
+  <section id="prog-fidelidade" class="page-section" data-section-img="prints/prog_fidelidade.png">
+    <div class="page-header">
+      <div class="breadcrumb">Gestão › Configurações › Programa de Fidelidade</div>
+      <h2>Programa de Fidelidade</h2>
+      <p>Configurações de pontuação, trocas, intervalos e bloqueios do programa de fidelidade.</p>
+    </div>
+
+    <div class="screen-print">
+      <img src="prints/prog_fidelidade.png" alt="Tela Programa de Fidelidade"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+      <div class="screen-print-placeholder" style="display:none">
+        <strong>Print da Tela</strong>
+        Salve o print como <code>prints/prog_fidelidade.png</code> para exibir aqui.
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Configurações</strong> → <strong>Programa de Fidelidade</strong>.
+      A tela possui dois botões no topo: <strong>Definir Pontos dos Produtos</strong> e <strong>Definir Pontos de Troca dos Produtos</strong> — ambos abrem sub-telas para configuração por produto.
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Configuração Base</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Utilizar Programa de Fidelidade</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Ativa ou desativa o programa de fidelidade. Quando <strong>Não</strong>, todos os demais campos desta tela são ignorados pelo sistema. Ativar somente após configurar os demais parâmetros para evitar comportamento inesperado no PDV.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Valor</div></td>
+            <td><span class="tag tag-text">Numérico</span></td>
+            <td>Valor mínimo de compra (em R$) para que o cliente acumule pontos. Se <strong>0,00</strong>, qualquer venda gera pontos. Ajustar conforme a política comercial do cliente.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Nº Pontos</div></td>
+            <td><span class="tag tag-text">Numérico</span></td>
+            <td>Quantidade de pontos concedidos por unidade do valor configurado. Ex.: 1 ponto a cada R$ 1,00 gasto. Funciona em conjunto com o campo <strong>Valor</strong>.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Usar Fração no Calc do Nº de Pontos</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Define se frações de pontos são consideradas no cálculo. <strong>0-Não utilizar fração</strong> arredonda sempre para baixo, garantindo que o cliente só receba pontos inteiros. Ativar fração quando o cliente precisar de maior precisão no acúmulo.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Na troca, cada ponto equivale a quantos Reais (R$)</div></td>
+            <td><span class="tag tag-text">Numérico</span></td>
+            <td>Taxa de conversão de pontos em reais no momento do resgate. Ex.: <strong>R$ 0,01</strong> significa que 100 pontos valem R$ 1,00. Conferir junto ao cliente antes de alterar para não prejudicar clientes com pontos já acumulados.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Produtos e Pontuação</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Poder Definir Produtos do Progr.Fidelidade?</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, permite restringir o programa de fidelidade a um conjunto específico de produtos (configurado pelo botão <em>Definir Pontos dos Produtos</em> no topo da tela). Útil quando nem todos os itens do cardápio participam do programa.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Calcular Pontos de Troca por Produtos</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, o custo em pontos de cada produto na troca é definido individualmente (via botão <em>Definir Pontos de Troca dos Produtos</em>). Quando <strong>N-Não</strong>, usa a taxa global configurada no campo <strong>Na troca, cada ponto equivale a...</strong>.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Nº de Pontos para Aviso de Brinde Disponível</div></td>
+            <td><span class="tag tag-text">Numérico</span></td>
+            <td>Quantidade de pontos a partir da qual o sistema exibe um aviso no PDV informando que o cliente tem brinde disponível. <strong>0</strong> desativa o aviso.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">NºPontos Padrão ao Inserir Produtos Quando Fidelidade por Produtos</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Pontuação padrão atribuída automaticamente a novos produtos cadastrados quando o programa é configurado por produto. Evita que novos itens fiquem sem pontuação definida.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Clientes e Intervalo de Acúmulo</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Valor Padrão Para Novos Clientes</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Define se novos clientes cadastrados já entram automaticamente no programa de fidelidade. <strong>Campo Programa de Fidelidade = "Sim"</strong> insere todos os novos clientes no programa por padrão.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Considerar "Qtd=1" quando venda de produtos por "kg" for menor do que 1</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, vendas fracionadas (ex.: 0,3 kg) são tratadas como 1 unidade para fins de pontuação. Ativar quando o cliente quiser garantir pontos mesmo em compras de pequenas quantidades em peso.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Usar Intervalo de Data p/o Programa de Fidelidade</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, o acúmulo e a troca de pontos ficam restritos ao período definido nos campos de data abaixo. Útil para campanhas sazonais ou promoções com prazo determinado.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Data Inicial p/Acúmulo de Pontos</div></td>
+            <td><span class="tag tag-text">Data</span></td>
+            <td>Data de início do período em que o cliente pode acumular pontos. Só tem efeito quando <strong>Usar Intervalo de Data</strong> está ativo.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Data Final p/Acúmulo</div></td>
+            <td><span class="tag tag-text">Data</span></td>
+            <td>Data de encerramento do acúmulo de pontos. Após essa data, vendas não geram novos pontos. Só tem efeito quando <strong>Usar Intervalo de Data</strong> está ativo.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Data Final p/Troca de Pontos</div></td>
+            <td><span class="tag tag-text">Data</span></td>
+            <td>Data limite para o cliente resgatar os pontos acumulados. Pode ser diferente da data final de acúmulo — ex.: acúmulo até 31/12, troca até 31/01. Só tem efeito quando <strong>Usar Intervalo de Data</strong> está ativo.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Troca de Pontos</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Permitir Inserção Manual de Pontos no Progr.Fidelidade</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, operadores autorizados podem adicionar pontos manualmente ao saldo do cliente, sem vínculo com uma venda. Manter <strong>N-Não</strong> como padrão para garantir rastreabilidade — ativar somente mediante solicitação justificada do cliente.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Cálculo Automático de Pontos na Troca dos Pontos</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, o sistema calcula e aplica automaticamente o desconto em reais ao efetuar uma troca de pontos, sem que o operador precise informar o valor manualmente.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Mínimo de Pontos Cliente Precisa ter para Troca</div></td>
+            <td><span class="tag tag-text">Numérico</span></td>
+            <td>Quantidade mínima de pontos que o cliente deve possuir para poder realizar uma troca. <strong>0</strong> desativa o limite mínimo. Usar para evitar resgates de valores muito baixos que gerem mais custo operacional do que benefício.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Máximo de Pontos Cliente Pode Usar na Troca</div></td>
+            <td><span class="tag tag-text">Numérico</span></td>
+            <td>Limite máximo de pontos que o cliente pode utilizar em uma única troca. <strong>0</strong> significa sem limite. Usar quando o cliente quiser controlar o desconto máximo concedido por transação.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Bloqueios de Acúmulo</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Bloquear Acúmulo de Pontos no Fidelidade nas Entregas</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, vendas realizadas como entrega não geram pontos no programa de fidelidade. Útil quando o cliente quer restringir o programa ao consumo no local.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Bloquear Acúmulo de Pontos no Fidelidade p/Conta Assinada</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, vendas lançadas em conta assinada não acumulam pontos. Recomendado quando o programa de fidelidade deve se aplicar apenas a pagamentos à vista ou imediatos.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Bloquear Acúmulo de Pontos no Fidelidade p/Vnd.Antecipada</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, vendas antecipadas não geram pontos no programa de fidelidade. Manter conforme a política comercial do estabelecimento.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ══ VENDA ANTECIPADA ══ -->
+  <section id="venda-antecipada" class="page-section" data-section-img="prints/venda_antecipada.png">
+    <div class="page-header">
+      <div class="breadcrumb">Gestão › Configurações › Venda Antecipada</div>
+      <h2>Venda Antecipada</h2>
+      <p>Configurações de modalidade, precificação por peso, saldo negativo e bloqueio de clientes.</p>
+    </div>
+
+    <div class="screen-print">
+      <img src="prints/venda_antecipada.png" alt="Tela Venda Antecipada"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+      <div class="screen-print-placeholder" style="display:none">
+        <strong>Print da Tela</strong>
+        Salve o print como <code>prints/venda_antecipada.png</code> para exibir aqui.
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Configurações</strong> → <strong>Venda Antecipada</strong>.
+      As alterações são gravadas ao clicar em <strong>Salvar</strong>. Clicar em <strong>Cancelar</strong> descarta qualquer mudança não salva.
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Configurações de Venda Antecipada</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Utilizar Venda Antecipada</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Define se e como a venda antecipada é utilizada. <strong>Sim, por preço</strong> habilita o módulo com base em valor monetário por kg. Quando desativado, os demais campos desta tela são ignorados. Confirmar com o cliente a modalidade antes de alterar.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Preço do Kilo na Venda Antecipada</div></td>
+            <td><span class="tag tag-text">Numérico</span></td>
+            <td>Valor padrão cobrado por kg nas vendas antecipadas. Usado quando o cliente compra acima do limite definido no campo abaixo. Verificar se o preço está atualizado conforme a tabela vigente do cliente.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Se o cliente comprar menos de (Kgs)</div></td>
+            <td><span class="tag tag-text">Numérico</span></td>
+            <td>Quantidade mínima em kg para aplicar o preço padrão do kilo. Compras abaixo desse valor terão o preço alternativo definido no campo <strong>O preço do Kg. será então</strong>. Permite diferenciar o preço para compras pequenas.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">O preço do Kg. será então</div></td>
+            <td><span class="tag tag-text">Numérico</span></td>
+            <td>Preço por kg aplicado quando a quantidade comprada for inferior ao limite definido no campo acima. Normalmente igual ou superior ao preço padrão, penalizando compras de menor volume.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Usar Saldo Negativo Máximo na Venda Antecipada</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, o sistema permite que o cliente fique com saldo negativo na venda antecipada, até o limite definido no campo abaixo. Manter <strong>N-Não</strong> como padrão para evitar exposição de crédito não controlada.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Valor Máximo do Saldo Negativo</div></td>
+            <td><span class="tag tag-text">Numérico</span></td>
+            <td>Limite máximo em reais que o cliente pode ficar negativo na venda antecipada. Só tem efeito quando <strong>Usar Saldo Negativo Máximo</strong> está ativo. <strong>0</strong> sem limite definido.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Valor Padrão para "Bloq.p/Vnd.Antecip." no Cadastro de Clientes</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Define o status padrão do campo de bloqueio de venda antecipada para clientes novos. <strong>Não bloqueado</strong> permite que todos os novos clientes utilizem a venda antecipada por padrão. Alterar para bloquear automaticamente caso o estabelecimento prefira liberar individualmente.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ══ FECHAMENTO DE CAIXA ══ -->
+  <section id="fech-caixa" class="page-section" data-section-img="prints/fech_caixa.png">
+    <div class="page-header">
+      <div class="breadcrumb">Gestão › Configurações › Fechamento de Caixa</div>
+      <h2>Fechamento de Caixa</h2>
+      <p>Define o que é impresso e exibido no relatório de fechamento do caixa.</p>
+    </div>
+
+    <div class="screen-print">
+      <img src="prints/fech_caixa.png" alt="Tela Fechamento de Caixa"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+      <div class="screen-print-placeholder" style="display:none">
+        <strong>Print da Tela</strong>
+        Salve o print como <code>prints/fech_caixa.png</code> para exibir aqui.
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Configurações</strong> → <strong>Fechamento de Caixa</strong>.
+      Alterações afetam o layout do relatório impresso ao fechar o caixa no PDV.
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Formas de Pagamento</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Informar Valores de Formas de Pagamento</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, o operador precisa informar manualmente os valores de cada forma de pagamento ao fechar o caixa (conferência de gaveta). Manter <strong>N-Não</strong> quando o estabelecimento não realiza essa conferência no fechamento.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Detalhamentos no Fechamento</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Imprimir Detalhamento dos Brindes no Fechamento do Caixa</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, inclui no relatório de fechamento a lista detalhada de brindes concedidos no período. Desativar se o cliente não usa brindes ou não quer esse detalhe no relatório.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Imprimir Detalhamento dos Crediários no Fechamento do Caixa</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, lista as vendas a crediário no fechamento do caixa, facilitando o controle de contas a receber abertas no período.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Imprimir Detalhamento dos Fiados no Fechamento do Caixa</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, exibe no fechamento a relação de vendas lançadas como fiado. Útil para estabelecimentos que controlam fiado manualmente ao final do turno.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Separar Fiados por Vendas no Fechamento do Caixa</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, os fiados são listados individualmente por venda no relatório, em vez de um total consolidado. Ativar quando o operador precisa rastrear cada lançamento de fiado.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Imprimir Detalhamento das Vendas Antecipadas no Fechamento do Caixa</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, inclui as vendas antecipadas do período no relatório de fechamento. Ativar em estabelecimentos que utilizam o módulo de venda antecipada.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Imprimir Vendas de Atendendes no Fechamento do Caixa</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, detalha as vendas por atendente no relatório de fechamento, permitindo acompanhar o desempenho individual de cada operador no turno.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Imprimir Taxas de Entrega no Fechamento do Caixa</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, inclui o total de taxas de entrega cobradas no período. Ativar em estabelecimentos com delivery que precisam contabilizar esse valor no fechamento.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Relatório de Produtos</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Imprimir Vendas de Produtos no Fechamento do Caixa</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Define se e como os produtos vendidos aparecem no fechamento. <strong>Sim (ordem de valor)</strong> lista os produtos do maior para o menor faturamento. Outras opções incluem ordem alfabética ou por quantidade. Desativar em estabelecimentos com muitos produtos para evitar relatórios muito longos.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Imprimir Vendas de Grupos de Produtos no Fechamento do Caixa</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, totaliza as vendas agrupadas por grupo de produto no fechamento. Útil para gestores que acompanham o desempenho por categoria.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Imprimir Vendas de Classes de Produtos no Fechamento do Caixa</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, agrupa as vendas por classe de produto no relatório. Ativar apenas se o cliente usa a classificação de produtos no cadastro.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Imprimir Vendas de Departamentos de Produtos no Fechamento do Caixa</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, totaliza as vendas por departamento no fechamento. Ativar em estabelecimentos que utilizam departamentos no cadastro de produtos.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Imprimir Vendas de Marcas de Produtos no Fechamento do Caixa</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, exibe as vendas agrupadas por marca no fechamento. Útil para clientes que trabalham com múltiplas marcas e precisam de controle por fornecedor.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Ocorrências e Contas Assinadas</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Imprimir Ocorrências do Caixa de Descontos no Fechamento do Caixa</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, lista os descontos aplicados durante o turno no relatório de fechamento. Importante para auditoria e controle de margens.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Imprimir Ocorrências do Caixa de Transferências no Fechamento do Caixa</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, inclui as transferências entre caixas realizadas no período. Ativar quando o estabelecimento faz sangrias ou suprimentos entre caixas durante o turno.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Imprimir Informações de Ocorrências no Fechamento de Caixa</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Controla o nível de detalhe das ocorrências exibidas no fechamento. <strong>Sim</strong> inclui as informações; opções podem limitar o tipo de ocorrência exibida. Verificar com o cliente o nível de detalhe desejado.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Imprimir Ctas.Assinadas Recebidas/Realizadas por Departamentos no Fech.Caixa</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, detalha as contas assinadas recebidas e realizadas separadas por departamento no fechamento. Ativar em estabelecimentos que controlam conta assinada por departamento.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Configurações Avançadas</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Imprimir Formas Pagto s/Retiradas e Troco Inicial no Fech.Caixa</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, os valores das formas de pagamento são exibidos já descontando as retiradas (sangrias) e o troco inicial, mostrando o saldo líquido por forma de pagamento.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Imprimir Vendas de Produtos por Kilo</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, inclui no fechamento o relatório de produtos vendidos por peso (kg). Ativar em estabelecimentos com balança ou produtos fracionados.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Pode Exibir Totalizações de Outros Caixas no Ecf</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, o ECF pode exibir os totais consolidados de outros caixas além do caixa atual. Útil em ambientes com múltiplos PDVs onde o gerente precisa de visão consolidada.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Nível Exibição das Ocorrências do Caixa</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Define a quantidade de informação exibida nas ocorrências do caixa. <strong>2-Reduzida</strong> mostra um resumo compacto. Aumentar o nível para mais detalhes quando necessário para auditoria.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Pode Imprimir Resumo do Caixa Antes do Fechamento</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, permite que o operador imprima um resumo parcial do caixa a qualquer momento, sem fechar o turno. Útil para conferências durante o expediente.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Ordem de Digitação das Formas Pagto no Fech.Caixa</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Define a ordem em que as formas de pagamento aparecem para digitação no fechamento. <strong>2-Ordem definida pelo campo "Ordem Sequêncial"</strong> usa a sequência configurada no cadastro de formas de pagamento.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Nº Máximo de Cópias no Fechamento do Caixa</div></td>
+            <td><span class="tag tag-text">Numérico</span></td>
+            <td>Quantidade máxima de vias que o sistema permite imprimir no fechamento do caixa. <strong>1</strong> limita a uma via, evitando impressões desnecessárias. Aumentar se o cliente precisar de mais cópias por padrão.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
   <!-- ══ FISCAL ══ -->
   <section id="fiscal-nfe" class="page-section">
     <div class="page-header">
@@ -1118,7 +1578,10 @@
   const SECTION_LABELS = {
     'home':         'Visão Geral',
     'cfg-gerais':   'Configurações Gerais',
-    'cfg-gerais-2': 'Configurações Gerais 2',
+    'cfg-gerais-2':    'Configurações Gerais 2',
+    'prog-fidelidade':  'Programa de Fidelidade',
+    'venda-antecipada': 'Venda Antecipada',
+    'fech-caixa':       'Fechamento de Caixa',
     'fiscal-nfe':   'Fiscal / NF-e / SAT',
     'pdv-caixa':    'PDV / Caixa',
     'usuarios':     'Usuários / Permissões'
@@ -1313,6 +1776,75 @@
       'Atribuir Path Temporário em Operações (Ex.:Backup)':                    '70,0,100,7',
       'Utilizar Rotas p/os Bairros':                                           '78,0,100,7',
       'Exibir Mensagens Remotas do Fornecedor do Sistema':                     '86,0,100,7',
+    },
+    'prints/prog_fidelidade.png': {
+      // Configuração Base
+      'Utilizar Programa de Fidelidade':                                       '13,0,100,5',
+      'Valor':                                                                 '18,0,100,5',
+      'Nº Pontos':                                                             '23,0,45,5',
+      'Usar Fração no Calc do Nº de Pontos':                                   '23,45,55,5',
+      'Na troca, cada ponto equivale a quantos Reais (R$)':                    '28,0,100,5',
+      // Produtos e Pontuação
+      'Poder Definir Produtos do Progr.Fidelidade?':                           '33,0,100,5',
+      'Calcular Pontos de Troca por Produtos':                                 '38,0,100,5',
+      'Nº de Pontos para Aviso de Brinde Disponível':                          '43,0,50,5',
+      'NºPontos Padrão ao Inserir Produtos Quando Fidelidade por Produtos':    '43,50,50,5',
+      // Clientes e Intervalo de Acúmulo
+      'Valor Padrão Para Novos Clientes':                                      '48,0,100,5',
+      'Considerar "Qtd=1" quando venda de produtos por "kg" for menor do que 1':'53,0,100,5',
+      'Usar Intervalo de Data p/o Programa de Fidelidade':                     '58,0,100,5',
+      'Data Inicial p/Acúmulo de Pontos':                                      '63,0,33,5',
+      'Data Final p/Acúmulo':                                                  '63,33,34,5',
+      'Data Final p/Troca de Pontos':                                          '63,67,33,5',
+      // Troca de Pontos
+      'Permitir Inserção Manual de Pontos no Progr.Fidelidade':                '68,0,100,5',
+      'Cálculo Automático de Pontos na Troca dos Pontos':                      '73,0,100,5',
+      'Mínimo de Pontos Cliente Precisa ter para Troca':                       '78,0,50,5',
+      'Máximo de Pontos Cliente Pode Usar na Troca':                           '78,50,50,5',
+      // Bloqueios
+      'Bloquear Acúmulo de Pontos no Fidelidade nas Entregas':                 '83,0,100,5',
+      'Bloquear Acúmulo de Pontos no Fidelidade p/Conta Assinada':             '88,0,50,5',
+      'Bloquear Acúmulo de Pontos no Fidelidade p/Vnd.Antecipada':             '88,50,50,5',
+    },
+    'prints/venda_antecipada.png': {
+      'Utilizar Venda Antecipada':                                                        '8,0,100,9',
+      'Preço do Kilo na Venda Antecipada':                                                '19,0,100,9',
+      'Se o cliente comprar menos de (Kgs)':                                              '30,0,100,9',
+      'O preço do Kg. será então':                                                        '41,0,100,9',
+      'Usar Saldo Negativo Máximo na Venda Antecipada':                                   '52,0,100,9',
+      'Valor Máximo do Saldo Negativo':                                                   '63,0,100,9',
+      'Valor Padrão para "Bloq.p/Vnd.Antecip." no Cadastro de Clientes':                 '74,0,100,9',
+    },
+    'prints/fech_caixa.png': {
+      // Formas de Pagamento
+      'Informar Valores de Formas de Pagamento':                                          '4,0,100,4',
+      // Detalhamentos
+      'Imprimir Detalhamento dos Brindes no Fechamento do Caixa':                        '8,0,100,4',
+      'Imprimir Detalhamento dos Crediários no Fechamento do Caixa':                     '12,0,100,4',
+      'Imprimir Detalhamento dos Fiados no Fechamento do Caixa':                         '16,0,100,4',
+      'Separar Fiados por Vendas no Fechamento do Caixa':                                '20,0,100,4',
+      'Imprimir Detalhamento das Vendas Antecipadas no Fechamento do Caixa':             '24,0,100,4',
+      'Imprimir Vendas de Atendendes no Fechamento do Caixa':                            '28.5,0,100,4',
+      'Imprimir Taxas de Entrega no Fechamento do Caixa':                                '32.5,0,100,4',
+      // Produtos
+      'Imprimir Vendas de Produtos no Fechamento do Caixa':                              '37,0,100,4',
+      'Imprimir Vendas de Grupos de Produtos no Fechamento do Caixa':                    '41,0,100,4',
+      'Imprimir Vendas de Classes de Produtos no Fechamento do Caixa':                   '45,0,100,4',
+      'Imprimir Vendas de Departamentos de Produtos no Fechamento do Caixa':             '49.5,0,100,4',
+      'Imprimir Vendas de Marcas de Produtos no Fechamento do Caixa':                    '53.5,0,100,4',
+      // Ocorrências e Contas
+      'Imprimir Ocorrências do Caixa de Descontos no Fechamento do Caixa':               '58,0,100,4',
+      'Imprimir Ocorrências do Caixa de Transferências no Fechamento do Caixa':          '62,0,100,4',
+      'Imprimir Informações de Ocorrências no Fechamento de Caixa':                      '66.5,0,100,4',
+      'Imprimir Ctas.Assinadas Recebidas/Realizadas por Departamentos no Fech.Caixa':   '70.5,0,100,4',
+      // Avançadas
+      'Imprimir Formas Pagto s/Retiradas e Troco Inicial no Fech.Caixa':                '74.5,0,58,4',
+      'Imprimir Vendas de Produtos por Kilo':                                            '74.5,58,42,4',
+      'Pode Exibir Totalizações de Outros Caixas no Ecf':                               '79,0,52,4',
+      'Nível Exibição das Ocorrências do Caixa':                                        '79,52,48,4',
+      'Pode Imprimir Resumo do Caixa Antes do Fechamento':                              '83,0,100,4',
+      'Ordem de Digitação das Formas Pagto no Fech.Caixa':                              '87.5,0,100,4',
+      'Nº Máximo de Cópias no Fechamento do Caixa':                                     '92,0,100,4',
     }
   };
 
