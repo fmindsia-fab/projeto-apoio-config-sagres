@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Calibrador de Campos — Squalus</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', sans-serif; background: #0d1117; color: #e2e8f0; display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+
+    /* ── TOP BAR ── */
+    #top-bar {
+      background: #0a0f1a;
+      border-bottom: 2px solid #f0c040;
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+    #top-bar h1 { font-size: 1rem; color: #f0c040; white-space: nowrap; }
+    #top-bar p  { font-size: 0.78rem; color: #8b9ab5; }
+    #top-bar .spacer { flex: 1; }
+    .btn { padding: 7px 16px; border-radius: 6px; border: none; cursor: pointer; font-size: 0.82rem; font-weight: 700; transition: background .15s; }
+    .btn-primary   { background: #4d90fe; color: #fff; }
+    .btn-primary:hover { background: #3a7bd5; }
+    .btn-yellow    { background: #f0c040; color: #0d1117; }
+    .btn-yellow:hover  { background: #d4a800; }
+    .btn-secondary { background: #2d3748; color: #e2e8f0; }
+    .btn-secondary:hover { background: #3d4a5c; }
+    .btn-red       { background: #c0392b; color: #fff; }
+    .btn-red:hover { background: #a93226; }
+
+    /* ── LAYOUT ── */
+    #layout { display: flex; flex: 1; overflow: hidden; }
+
+    /* ── LEFT PANEL — image list ── */
+    #img-panel {
+      width: 190px;
+      min-width: 190px;
+      background: #0a0f1a;
+      border-right: 1px solid #2d3748;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+    #img-panel h2 { font-size: 0.72rem; color: #8b9ab5; text-transform: uppercase; letter-spacing: 1px; padding: 12px 12px 6px; border-bottom: 1px solid #2d3748; }
+    .img-btn {
+      display: block; width: 100%; padding: 10px 12px; background: none;
+      border: none; border-bottom: 1px solid #1e2a38; color: #c0cce0;
+      cursor: pointer; text-align: left; font-size: 0.78rem; line-height: 1.35;
+    }
+    .img-btn:hover { background: #1f2d40; }
+    .img-btn.active { background: #1a3060; color: #fff; border-left: 3px solid #4d90fe; }
+    .img-btn .img-prog { font-size: 0.68rem; color: #8b9ab5; margin-top: 2px; }
+    .img-btn.active .img-prog { color: #9ab5e0; }
+
+    /* ── CENTER — canvas area ── */
+    #canvas-wrap {
+      flex: 1;
+      overflow: auto;
+      background: #111827;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 20px 20px 60px;
+    }
+    #main-canvas { display: block; cursor: crosshair; }
+
+    /* ── RIGHT PANEL — field list ── */
+    #field-panel {
+      width: 310px;
+      min-width: 310px;
+      background: #0a0f1a;
+      border-left: 1px solid #2d3748;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    #field-header {
+      padding: 12px 14px 10px;
+      border-bottom: 1px solid #2d3748;
+      background: #0d1626;
+      flex-shrink: 0;
+    }
+    #field-header h2 { font-size: 0.9rem; color: #f0c040; }
+    #field-header p  { font-size: 0.72rem; color: #8b9ab5; margin-top: 4px; line-height: 1.4; }
+    #field-header #step-hint {
+      margin-top: 8px;
+      padding: 7px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      background: #1a3060;
+      color: #9ab5e0;
+      display: none;
+    }
+    #field-header #step-hint.show { display: block; }
+    #fields-scroll { flex: 1; overflow-y: auto; padding: 6px; }
+
+    .group-label {
+      font-size: 0.67rem; text-transform: uppercase; letter-spacing: 1px;
+      color: #4a5568; padding: 8px 8px 3px; font-weight: 700;
+    }
+    .field-item {
+      padding: 7px 10px 7px 10px;
+      border-radius: 5px; cursor: pointer;
+      border: 1px solid transparent;
+      margin-bottom: 3px; display: flex; align-items: flex-start; gap: 8px;
+    }
+    .field-item:hover { background: #1f2d40; }
+    .field-item.active { background: #1a3060; border-color: #4d90fe; }
+    .field-item.mapped { border-color: rgba(74,222,128,.3); }
+    .field-dot { width: 9px; height: 9px; border-radius: 50%; background: #3d4a5c; flex-shrink: 0; margin-top: 3px; }
+    .field-item.mapped .field-dot { background: #4ade80; }
+    .field-item.active .field-dot { background: #f0c040; }
+    .field-text { flex: 1; }
+    .field-name-txt { font-size: 0.77rem; line-height: 1.35; }
+    .field-coords-txt { font-size: 0.68rem; color: #8b9ab5; margin-top: 2px; font-family: monospace; }
+    .field-item.active .field-coords-txt { color: #9ab5e0; }
+
+    /* ── BOTTOM STATUS BAR ── */
+    #status-bar {
+      position: fixed; bottom: 0; left: 190px; right: 310px;
+      background: #161b22; border-top: 1px solid #2d3748;
+      padding: 8px 16px; display: flex; gap: 10px; align-items: center;
+      font-size: 0.78rem; color: #8b9ab5; z-index: 50;
+    }
+    #status-msg { flex: 1; }
+    #coord-display { font-family: monospace; font-size: 0.75rem; color: #4d90fe; }
+
+    /* ── EXPORT MODAL ── */
+    #export-modal {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.85); z-index: 300;
+      align-items: center; justify-content: center;
+    }
+    #export-modal.open { display: flex; }
+    #export-box {
+      background: #161b22; border: 1px solid #2d3748; border-radius: 12px;
+      width: min(860px, 95vw); max-height: 85vh;
+      display: flex; flex-direction: column; padding: 22px; gap: 14px;
+    }
+    #export-box h3 { color: #f0c040; font-size: 1.05rem; }
+    #export-box .sub { font-size: 0.78rem; color: #8b9ab5; }
+    #export-code {
+      flex: 1; overflow: auto; max-height: 55vh;
+      background: #0d1117; border: 1px solid #2d3748; border-radius: 6px;
+      padding: 14px; font-family: 'Courier New', monospace;
+      font-size: 0.75rem; color: #4ade80; white-space: pre;
+    }
+    #export-actions { display: flex; gap: 10px; justify-content: flex-end; align-items: center; }
+    #copy-feedback { font-size: 0.78rem; color: #4ade80; opacity: 0; transition: opacity .4s; }
+    #copy-feedback.show { opacity: 1; }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div id="top-bar">
+  <h1>🎯 Calibrador de Campos</h1>
+  <p>Clique em um campo → clique no canto superior-esquerdo → clique no canto inferior-direito</p>
+  <div class="spacer"></div>
+  <button class="btn btn-secondary" id="btn-skip">Pular campo</button>
+  <button class="btn btn-red"       id="btn-clear">Limpar campo</button>
+  <button class="btn btn-yellow"    id="btn-export">⬇ Gerar Código</button>
+</div>
+
+<!-- LAYOUT -->
+<div id="layout">
+
+  <!-- LEFT: image list -->
+  <div id="img-panel">
+    <h2>Imagens</h2>
+    <!-- filled by JS -->
+  </div>
+
+  <!-- CENTER: canvas -->
+  <div id="canvas-wrap">
+    <canvas id="main-canvas"></canvas>
+  </div>
+
+  <!-- RIGHT: field list -->
+  <div id="field-panel">
+    <div id="field-header">
+      <h2>Campos</h2>
+      <p id="field-header-sub">Selecione uma imagem para ver os campos.</p>
+      <div id="step-hint"></div>
+    </div>
+    <div id="fields-scroll"></div>
+  </div>
+</div>
+
+<!-- STATUS BAR -->
+<div id="status-bar">
+  <span id="status-msg">Selecione uma imagem no painel esquerdo.</span>
+  <span id="coord-display"></span>
+</div>
+
+<!-- EXPORT MODAL -->
+<div id="export-modal">
+  <div id="export-box">
+    <h3>⬇ Código FIELD_COORDS Gerado</h3>
+    <p class="sub">Copie tudo abaixo e substitua o bloco <code>const FIELD_COORDS = { ... };</code> no <strong>index.html</strong></p>
+    <div id="export-code"></div>
+    <div id="export-actions">
+      <span id="copy-feedback">✔ Copiado!</span>
+      <button class="btn btn-primary" id="btn-copy">Copiar tudo</button>
+      <button class="btn btn-secondary" id="btn-close-export">Fechar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ════════════════════════════════════════════════════════════════
+//  DEFINIÇÃO DOS CAMPOS — mesma estrutura do index.html
+//  Edite as coordenadas aqui inicialmente, depois use o gerador.
+// ════════════════════════════════════════════════════════════════
+const IMAGES = [
+  {
+    file: 'prints/cfg_gerais.png',
+    label: 'Configurações Gerais',
+    groups: [
+      { group: 'Dados da Empresa', fields: [
+        'Nome da Empresa (p/Relatórios)',
+        'Endereço - Linha 1',
+        'Endereço - Linha 2',
+        'Diretório do Sistema Gestão (indicar caminho via rede)',
+      ]},
+      { group: 'Cadastro de Produtos', fields: [
+        'Usar Filtro no campo "Descrição" p/o Cad. Produtos',
+        'Usar Campo "Cobrar Tx. Serviço" no Cadastro de Produtos',
+        'Usar Campo "Balança Alternativa" p/os Produtos',
+        'Usar Agrupamento Interligado ao Grupos de Produtos',
+        'Utilizar "Combo" p/Produtos',
+        'Permitir Exclusão de "Outros Códigos" dos Produtos',
+      ]},
+      { group: 'Clientes e Entregas', fields: [
+        'Utilizar Campo "Número" nos Endereços',
+        'Usar Campo "Celular p/SMS" no Cad. de Clientes',
+        'Utilizar Código de Clientes nas Reservas',
+        'Apenas Dígitos nos Telefones das Entregas',
+        'Usar Campo "Tx. Entrega p/Repasse"',
+        'Validar Telefone Celular nas Entregas',
+        'Obrigar Bloqueio "Compras a Prazo" ou "Venda Antecipada" p/Clientes',
+        'Valor Padrão p/Clientes Campo "Bloqueado p/Compras a Prazo"',
+      ]},
+      { group: 'Preços e Tabelas', fields: [
+        'Escolher Empresa na Alteração de Preços de Produtos',
+        'Pode Alterar Preços c/Base Em Outra Tabela',
+        'Pode Alterar Preços c/Base no Markup',
+      ]},
+      { group: 'Financeiro e Contas', fields: [
+        'Permitir Recebimento de Contas Assinadas no Gestão',
+        'Receber Conta Assinada de Quais Empresas no ECF',
+        'Permitir Alterar Valores das Formas de Pagamento dos Caixas no Gestão',
+      ]},
+      { group: 'PDV e Operação', fields: [
+        'Módulo de Biometria',
+        'Ajustar Configurações de Internet ao Entrar no Sistema',
+        'Registrar Itens no Cancelamento Total nas Ocorrências do Caixa',
+        'Checar Valores de Pré-Conta (sempre deixar como S-Sim)',
+        'Ação a Ser Tomada Quando Operador Abrir Mais de Um PDV',
+        'Criptografar Senha do Operador no Cartão Cód. Barras',
+        'Mensagem de Backup Preventivo',
+        'Tecla de Atalho (Shift+F10) p/Relatórios',
+      ]},
+    ]
+  },
+  {
+    file: 'prints/cfg_gerais2.png',
+    label: 'Configurações Gerais 2',
+    groups: [
+      { group: 'Layout e Interface', fields: [
+        'Layout das Telas do Sistema',
+        'Alterar Registro do Windows p/Padrão da Automação Comercial',
+      ]},
+      { group: 'Brindes e Adiantamentos', fields: [
+        'Permitir Brinde no Conta Assinada',
+        'Permitir Brinde no Adiantamento',
+        'Bloquear Adiantamentos em Sangrias e Suprimentos',
+      ]},
+      { group: 'Conta Assinada e Convênios', fields: [
+        'Permitir Cancelamento de Registros de Conta Assinada',
+        'Utilizar Limite Diário por Convênio p/Conta Assinada de Clientes',
+      ]},
+      { group: 'Operação e Sistema', fields: [
+        'Utilizar "Log de Ocorrências"',
+        'Atribuir Path Temporário em Operações (Ex.:Backup)',
+        'Utilizar Rotas p/os Bairros',
+        'Exibir Mensagens Remotas do Fornecedor do Sistema',
+      ]},
+    ]
+  },
+  {
+    file: 'prints/prog_fidelidade.png',
+    label: 'Programa de Fidelidade',
+    groups: [
+      { group: 'Configuração Base', fields: [
+        'Utilizar Programa de Fidelidade',
+        'Valor',
+        'Nº Pontos',
+        'Usar Fração no Calc do Nº de Pontos',
+        'Na troca, cada ponto equivale a quantos Reais (R$)',
+      ]},
+      { group: 'Produtos e Pontuação', fields: [
+        'Poder Definir Produtos do Progr.Fidelidade?',
+        'Calcular Pontos de Troca por Produtos',
+        'Nº de Pontos para Aviso de Brinde Disponível',
+        'NºPontos Padrão ao Inserir Produtos Quando Fidelidade por Produtos',
+      ]},
+      { group: 'Clientes e Intervalo de Acúmulo', fields: [
+        'Valor Padrão Para Novos Clientes',
+        'Considerar "Qtd=1" quando venda de produtos por "kg" for menor do que 1',
+        'Usar Intervalo de Data p/o Programa de Fidelidade',
+        'Data Inicial p/Acúmulo de Pontos',
+        'Data Final p/Acúmulo',
+        'Data Final p/Troca de Pontos',
+      ]},
+      { group: 'Troca de Pontos', fields: [
+        'Permitir Inserção Manual de Pontos no Progr.Fidelidade',
+        'Cálculo Automático de Pontos na Troca dos Pontos',
+        'Mínimo de Pontos Cliente Precisa ter para Troca',
+        'Máximo de Pontos Cliente Pode Usar na Troca',
+      ]},
+      { group: 'Bloqueios', fields: [
+        'Bloquear Acúmulo de Pontos no Fidelidade nas Entregas',
+        'Bloquear Acúmulo de Pontos no Fidelidade p/Conta Assinada',
+        'Bloquear Acúmulo de Pontos no Fidelidade p/Vnd.Antecipada',
+      ]},
+    ]
+  },
+  {
+    file: 'prints/venda_antecipada.png',
+    label: 'Venda Antecipada',
+    groups: [
+      { group: 'Configurações', fields: [
+        'Utilizar Venda Antecipada',
+        'Preço do Kilo na Venda Antecipada',
+        'Se o cliente comprar menos de (Kgs)',
+        'O preço do Kg. será então',
+        'Usar Saldo Negativo Máximo na Venda Antecipada',
+        'Valor Máximo do Saldo Negativo',
+        'Valor Padrão para "Bloq.p/Vnd.Antecip." no Cadastro de Clientes',
+      ]},
+    ]
+  },
+  {
+    file: 'prints/fech_caixa.png',
+    label: 'Fechamento de Caixa',
+    groups: [
+      { group: 'Formas de Pagamento', fields: [
+        'Informar Valores de Formas de Pagamento',
+      ]},
+      { group: 'Detalhamentos', fields: [
+        'Imprimir Detalhamento dos Brindes no Fechamento do Caixa',
+        'Imprimir Detalhamento dos Crediários no Fechamento do Caixa',
+        'Imprimir Detalhamento dos Fiados no Fechamento do Caixa',
+        'Separar Fiados por Vendas no Fechamento do Caixa',
+        'Imprimir Detalhamento das Vendas Antecipadas no Fechamento do Caixa',
+        'Imprimir Vendas de Atendendes no Fechamento do Caixa',
+        'Imprimir Taxas de Entrega no Fechamento do Caixa',
+      ]},
+      { group: 'Produtos', fields: [
+        'Imprimir Vendas de Produtos no Fechamento do Caixa',
+        'Imprimir Vendas de Grupos de Produtos no Fechamento do Caixa',
+        'Imprimir Vendas de Classes de Produtos no Fechamento do Caixa',
+        'Imprimir Vendas de Departamentos de Produtos no Fechamento do Caixa',
+        'Imprimir Vendas de Marcas de Produtos no Fechamento do Caixa',
+      ]},
+      { group: 'Ocorrências e Contas', fields: [
+        'Imprimir Ocorrências do Caixa de Descontos no Fechamento do Caixa',
+        'Imprimir Ocorrências do Caixa de Transferências no Fechamento do Caixa',
+        'Imprimir Informações de Ocorrências no Fechamento de Caixa',
+        'Imprimir Ctas.Assinadas Recebidas/Realizadas por Departamentos no Fech.Caixa',
+      ]},
+      { group: 'Avançadas', fields: [
+        'Imprimir Formas Pagto s/Retiradas e Troco Inicial no Fech.Caixa',
+        'Imprimir Vendas de Produtos por Kilo',
+        'Pode Exibir Totalizações de Outros Caixas no Ecf',
+        'Nível Exibição das Ocorrências do Caixa',
+        'Pode Imprimir Resumo do Caixa Antes do Fechamento',
+        'Ordem de Digitação das Formas Pagto no Fech.Caixa',
+        'Nº Máximo de Cópias no Fechamento do Caixa',
+      ]},
+    ]
+  },
+];
+
+// ── Coordenadas atuais (carregadas do index.html, editáveis aqui) ──
+// Formato: 'top,left,width,height' em % da imagem natural
+const COORDS = {
+  'prints/cfg_gerais.png': {
+    'Nome da Empresa (p/Relatórios)':                                        '10,42,36,4.5',
+    'Endereço - Linha 1':                                                    '16,42,36,4.5',
+    'Endereço - Linha 2':                                                    '22,42,36,4.5',
+    'Diretório do Sistema Gestão (indicar caminho via rede)':                '88,41,40,4.5',
+    'Usar Filtro no campo "Descrição" p/o Cad. Produtos':                    '29,42,12,5',
+    'Usar Campo "Cobrar Tx. Serviço" no Cadastro de Produtos':               '35,41,12,5',
+    'Usar Campo "Balança Alternativa" p/os Produtos':                        '35,79,15,5',
+    'Usar Agrupamento Interligado ao Grupos de Produtos':                     '42,41,12,5',
+    'Utilizar "Combo" p/Produtos':                                           '42,72,22,5',
+    'Permitir Exclusão de "Outros Códigos" dos Produtos':                    '71,79,15,5',
+    'Utilizar Campo "Número" nos Endereços':                                 '35,0,50,5',
+    'Usar Campo "Celular p/SMS" no Cad. de Clientes':                        '35,50,50,5',
+    'Utilizar Código de Clientes nas Reservas':                              '48,0,50,5',
+    'Apenas Dígitos nos Telefones das Entregas':                             '48,50,50,5',
+    'Usar Campo "Tx. Entrega p/Repasse"':                                    '61,0,50,5',
+    'Validar Telefone Celular nas Entregas':                                 '61,50,50,5',
+    'Obrigar Bloqueio "Compras a Prazo" ou "Venda Antecipada" p/Clientes':   '67.5,0,50,5',
+    'Valor Padrão p/Clientes Campo "Bloqueado p/Compras a Prazo"':           '67.5,50,50,5',
+    'Escolher Empresa na Alteração de Preços de Produtos':                   '55,0,50,5',
+    'Pode Alterar Preços c/Base Em Outra Tabela':                            '55,0,50,5',
+    'Pode Alterar Preços c/Base no Markup':                                  '55,50,50,5',
+    'Permitir Recebimento de Contas Assinadas no Gestão':                    '61,0,50,5',
+    'Receber Conta Assinada de Quais Empresas no ECF':                       '74,0,100,5',
+    'Permitir Alterar Valores das Formas de Pagamento dos Caixas no Gestão': '77.5,0,50,5',
+    'Módulo de Biometria':                                                   '61,50,50,5',
+    'Ajustar Configurações de Internet ao Entrar no Sistema':                '55,50,50,5',
+    'Registrar Itens no Cancelamento Total nas Ocorrências do Caixa':        '80.5,0,50,5',
+    'Checar Valores de Pré-Conta (sempre deixar como S-Sim)':                '80.5,50,50,5',
+    'Ação a Ser Tomada Quando Operador Abrir Mais de Um PDV':                '84.5,0,50,5',
+    'Criptografar Senha do Operador no Cartão Cód. Barras':                  '84.5,50,50,5',
+    'Mensagem de Backup Preventivo':                                         '88,0,50,5',
+    'Tecla de Atalho (Shift+F10) p/Relatórios':                             '88,50,50,5',
+  },
+  'prints/cfg_gerais2.png': {
+    'Layout das Telas do Sistema':                                           '6,0,100,7',
+    'Alterar Registro do Windows p/Padrão da Automação Comercial':           '14,0,100,7',
+    'Permitir Brinde no Conta Assinada':                                     '22,0,100,7',
+    'Permitir Brinde no Adiantamento':                                       '30,0,100,7',
+    'Bloquear Adiantamentos em Sangrias e Suprimentos':                      '38,0,100,7',
+    'Permitir Cancelamento de Registros de Conta Assinada':                  '46,0,100,7',
+    'Utilizar Limite Diário por Convênio p/Conta Assinada de Clientes':      '54,0,100,7',
+    'Utilizar "Log de Ocorrências"':                                         '62,0,100,7',
+    'Atribuir Path Temporário em Operações (Ex.:Backup)':                    '70,0,100,7',
+    'Utilizar Rotas p/os Bairros':                                           '78,0,100,7',
+    'Exibir Mensagens Remotas do Fornecedor do Sistema':                     '86,0,100,7',
+  },
+  'prints/prog_fidelidade.png': {
+    'Utilizar Programa de Fidelidade':                                       '13,0,100,5',
+    'Valor':                                                                 '18,0,100,5',
+    'Nº Pontos':                                                             '23,0,45,5',
+    'Usar Fração no Calc do Nº de Pontos':                                   '23,45,55,5',
+    'Na troca, cada ponto equivale a quantos Reais (R$)':                    '28,0,100,5',
+    'Poder Definir Produtos do Progr.Fidelidade?':                           '33,0,100,5',
+    'Calcular Pontos de Troca por Produtos':                                 '38,0,100,5',
+    'Nº de Pontos para Aviso de Brinde Disponível':                          '43,0,50,5',
+    'NºPontos Padrão ao Inserir Produtos Quando Fidelidade por Produtos':    '43,50,50,5',
+    'Valor Padrão Para Novos Clientes':                                      '48,0,100,5',
+    'Considerar "Qtd=1" quando venda de produtos por "kg" for menor do que 1':'53,0,100,5',
+    'Usar Intervalo de Data p/o Programa de Fidelidade':                     '58,0,100,5',
+    'Data Inicial p/Acúmulo de Pontos':                                      '63,0,33,5',
+    'Data Final p/Acúmulo':                                                  '63,33,34,5',
+    'Data Final p/Troca de Pontos':                                          '63,67,33,5',
+    'Permitir Inserção Manual de Pontos no Progr.Fidelidade':                '68,0,100,5',
+    'Cálculo Automático de Pontos na Troca dos Pontos':                      '73,0,100,5',
+    'Mínimo de Pontos Cliente Precisa ter para Troca':                       '78,0,50,5',
+    'Máximo de Pontos Cliente Pode Usar na Troca':                           '78,50,50,5',
+    'Bloquear Acúmulo de Pontos no Fidelidade nas Entregas':                 '83,0,100,5',
+    'Bloquear Acúmulo de Pontos no Fidelidade p/Conta Assinada':             '88,0,50,5',
+    'Bloquear Acúmulo de Pontos no Fidelidade p/Vnd.Antecipada':             '88,50,50,5',
+  },
+  'prints/venda_antecipada.png': {
+    'Utilizar Venda Antecipada':                                             '8,0,100,9',
+    'Preço do Kilo na Venda Antecipada':                                     '19,0,100,9',
+    'Se o cliente comprar menos de (Kgs)':                                   '30,0,100,9',
+    'O preço do Kg. será então':                                             '41,0,100,9',
+    'Usar Saldo Negativo Máximo na Venda Antecipada':                        '52,0,100,9',
+    'Valor Máximo do Saldo Negativo':                                        '63,0,100,9',
+    'Valor Padrão para "Bloq.p/Vnd.Antecip." no Cadastro de Clientes':      '74,0,100,9',
+  },
+  'prints/fech_caixa.png': {
+    'Informar Valores de Formas de Pagamento':                               '4,0,100,4',
+    'Imprimir Detalhamento dos Brindes no Fechamento do Caixa':              '8,0,100,4',
+    'Imprimir Detalhamento dos Crediários no Fechamento do Caixa':           '12,0,100,4',
+    'Imprimir Detalhamento dos Fiados no Fechamento do Caixa':               '16,0,100,4',
+    'Separar Fiados por Vendas no Fechamento do Caixa':                      '20,0,100,4',
+    'Imprimir Detalhamento das Vendas Antecipadas no Fechamento do Caixa':   '24,0,100,4',
+    'Imprimir Vendas de Atendendes no Fechamento do Caixa':                  '28.5,0,100,4',
+    'Imprimir Taxas de Entrega no Fechamento do Caixa':                      '32.5,0,100,4',
+    'Imprimir Vendas de Produtos no Fechamento do Caixa':                    '37,0,100,4',
+    'Imprimir Vendas de Grupos de Produtos no Fechamento do Caixa':          '41,0,100,4',
+    'Imprimir Vendas de Classes de Produtos no Fechamento do Caixa':         '45,0,100,4',
+    'Imprimir Vendas de Departamentos de Produtos no Fechamento do Caixa':   '49.5,0,100,4',
+    'Imprimir Vendas de Marcas de Produtos no Fechamento do Caixa':          '53.5,0,100,4',
+    'Imprimir Ocorrências do Caixa de Descontos no Fechamento do Caixa':     '58,0,100,4',
+    'Imprimir Ocorrências do Caixa de Transferências no Fechamento do Caixa':'62,0,100,4',
+    'Imprimir Informações de Ocorrências no Fechamento de Caixa':            '66.5,0,100,4',
+    'Imprimir Ctas.Assinadas Recebidas/Realizadas por Departamentos no Fech.Caixa':'70.5,0,100,4',
+    'Imprimir Formas Pagto s/Retiradas e Troco Inicial no Fech.Caixa':       '74.5,0,58,4',
+    'Imprimir Vendas de Produtos por Kilo':                                  '74.5,58,42,4',
+    'Pode Exibir Totalizações de Outros Caixas no Ecf':                      '79,0,52,4',
+    'Nível Exibição das Ocorrências do Caixa':                               '79,52,48,4',
+    'Pode Imprimir Resumo do Caixa Antes do Fechamento':                     '83,0,100,4',
+    'Ordem de Digitação das Formas Pagto no Fech.Caixa':                     '87.5,0,100,4',
+    'Nº Máximo de Cópias no Fechamento do Caixa':                            '92,0,100,4',
+  }
+};
+
+// ════════════════════════════════════════════════════════════════
+//  STATE
+// ════════════════════════════════════════════════════════════════
+let currentImg   = null;   // IMAGES entry
+let currentField = null;   // field name string
+let clickStep    = 0;      // 0=idle, 1=waiting 2nd click
+let click1       = null;   // {x,y} in natural %
+let loadedImage  = new Image();
+
+// ════════════════════════════════════════════════════════════════
+//  BUILD LEFT PANEL
+// ════════════════════════════════════════════════════════════════
+function buildImgPanel() {
+  const panel = document.getElementById('img-panel');
+  IMAGES.forEach((img, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'img-btn';
+    btn.innerHTML = `<div>${img.label}</div><div class="img-prog">${img.file.split('/')[1]}</div>`;
+    btn.dataset.idx = i;
+    btn.addEventListener('click', () => selectImage(i));
+    panel.appendChild(btn);
+  });
+}
+
+// ════════════════════════════════════════════════════════════════
+//  SELECT IMAGE
+// ════════════════════════════════════════════════════════════════
+function selectImage(idx) {
+  currentImg   = IMAGES[idx];
+  currentField = null;
+  clickStep    = 0;
+  click1       = null;
+
+  // update left panel active
+  document.querySelectorAll('.img-btn').forEach((b, i) => b.classList.toggle('active', i === idx));
+
+  // update right panel
+  buildFieldPanel();
+
+  // load image
+  loadedImage = new Image();
+  loadedImage.onload = () => { redraw(); };
+  loadedImage.src = currentImg.file;
+
+  setStatus('Selecione um campo no painel direito.');
+  document.getElementById('step-hint').classList.remove('show');
+  document.getElementById('field-header-sub').textContent = currentImg.label + ' — clique em um campo para calibrar.';
+}
+
+// ════════════════════════════════════════════════════════════════
+//  BUILD FIELD PANEL
+// ════════════════════════════════════════════════════════════════
+function buildFieldPanel() {
+  const scroll = document.getElementById('fields-scroll');
+  scroll.innerHTML = '';
+
+  const coordMap = COORDS[currentImg.file] || {};
+
+  currentImg.groups.forEach(g => {
+    const lbl = document.createElement('div');
+    lbl.className = 'group-label';
+    lbl.textContent = g.group;
+    scroll.appendChild(lbl);
+
+    g.fields.forEach(name => {
+      const coords = coordMap[name] || '';
+      const item = document.createElement('div');
+      item.className = 'field-item' + (coords ? ' mapped' : '');
+      item.dataset.field = name;
+      item.innerHTML = `
+        <div class="field-dot"></div>
+        <div class="field-text">
+          <div class="field-name-txt">${name}</div>
+          <div class="field-coords-txt">${coords || '— não calibrado —'}</div>
+        </div>`;
+      item.addEventListener('click', () => selectField(name));
+      scroll.appendChild(item);
+    });
+  });
+}
+
+// ════════════════════════════════════════════════════════════════
+//  SELECT FIELD
+// ════════════════════════════════════════════════════════════════
+function selectField(name) {
+  currentField = name;
+  clickStep    = 1;
+  click1       = null;
+
+  document.querySelectorAll('.field-item').forEach(el => {
+    el.classList.toggle('active', el.dataset.field === name);
+  });
+
+  const hint = document.getElementById('step-hint');
+  hint.textContent = '📍 Passo 1/2 — clique no canto SUPERIOR-ESQUERDO do campo na imagem.';
+  hint.classList.add('show');
+
+  setStatus(`Campo selecionado: "${name}" — clique no canto superior-esquerdo.`);
+  redraw();
+
+  // scroll field into view
+  const activeEl = document.querySelector('.field-item.active');
+  if (activeEl) activeEl.scrollIntoView({ block: 'nearest' });
+}
+
+// ════════════════════════════════════════════════════════════════
+//  CANVAS — DRAW
+// ════════════════════════════════════════════════════════════════
+const COLORS = [
+  'rgba(77,144,254,0.35)', 'rgba(240,192,64,0.35)',
+  'rgba(74,222,128,0.30)', 'rgba(248,113,113,0.30)',
+  'rgba(167,139,250,0.30)','rgba(45,212,191,0.30)',
+];
+const STROKE = [
+  '#4d90fe','#f0c040','#4ade80','#f87171','#a78bfa','#2dd4bf'
+];
+
+function redraw() {
+  if (!loadedImage.naturalWidth) return;
+
+  const wrap   = document.getElementById('canvas-wrap');
+  const canvas = document.getElementById('main-canvas');
+  const ctx    = canvas.getContext('2d');
+
+  const W = loadedImage.naturalWidth;
+  const H = loadedImage.naturalHeight;
+
+  // Scale to fit wrap, preserving aspect
+  const maxW = wrap.clientWidth  - 40;
+  const maxH = wrap.clientHeight - 80;
+  const scale = Math.min(1, maxW / W, maxH / H);
+  canvas.width  = W * scale;
+  canvas.height = H * scale;
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(loadedImage, 0, 0, canvas.width, canvas.height);
+
+  // Draw all mapped fields
+  const coordMap = COORDS[currentImg.file] || {};
+  let colorIdx = 0;
+  const allFields = currentImg.groups.flatMap(g => g.fields);
+
+  allFields.forEach(name => {
+    const c = coordMap[name];
+    if (!c) { colorIdx++; return; }
+    const [top, left, width, height] = c.split(',').map(Number);
+
+    const x = left   / 100 * canvas.width;
+    const y = top    / 100 * canvas.height;
+    const w = width  / 100 * canvas.width;
+    const h = height / 100 * canvas.height;
+
+    const ci = colorIdx % COLORS.length;
+    colorIdx++;
+
+    const isActive = (name === currentField);
+
+    ctx.fillStyle   = isActive ? 'rgba(240,192,64,0.25)' : COLORS[ci];
+    ctx.strokeStyle = isActive ? '#f0c040' : STROKE[ci];
+    ctx.lineWidth   = isActive ? 3 : 1.5;
+
+    ctx.fillRect(x, y, w, h);
+    ctx.strokeRect(x, y, w, h);
+
+    // Label
+    ctx.font = `bold ${Math.max(10, h * 0.55)}px Segoe UI, sans-serif`;
+    ctx.fillStyle = isActive ? '#f0c040' : STROKE[ci];
+    ctx.textAlign = 'left';
+    const shortName = name.length > 28 ? name.slice(0, 25) + '…' : name;
+    ctx.fillText(shortName, x + 3, y + Math.max(10, h * 0.65));
+  });
+
+  // Draw first click point if waiting for 2nd click
+  if (clickStep === 2 && click1) {
+    const cx = click1.xPct / 100 * canvas.width;
+    const cy = click1.yPct / 100 * canvas.height;
+    ctx.beginPath();
+    ctx.arc(cx, cy, 6, 0, Math.PI * 2);
+    ctx.fillStyle   = '#f0c040';
+    ctx.strokeStyle = '#fff';
+    ctx.lineWidth   = 2;
+    ctx.fill();
+    ctx.stroke();
+  }
+}
+
+// ════════════════════════════════════════════════════════════════
+//  CANVAS CLICK
+// ════════════════════════════════════════════════════════════════
+document.getElementById('main-canvas').addEventListener('click', e => {
+  if (!currentImg || !currentField) return;
+
+  const canvas = document.getElementById('main-canvas');
+  const rect   = canvas.getBoundingClientRect();
+
+  // Convert click to % of canvas (= % of image, since canvas is proportional)
+  const xPct = ((e.clientX - rect.left) / canvas.width  * 100);
+  const yPct = ((e.clientY - rect.top)  / canvas.height * 100);
+
+  if (clickStep === 1) {
+    // First click = top-left
+    click1    = { xPct, yPct };
+    clickStep = 2;
+
+    const hint = document.getElementById('step-hint');
+    hint.textContent = '📍 Passo 2/2 — agora clique no canto INFERIOR-DIREITO do campo.';
+
+    setStatus(`Passo 2: clique no canto INFERIOR-DIREITO do campo "${currentField}".`);
+    redraw();
+
+  } else if (clickStep === 2 && click1) {
+    // Second click = bottom-right
+    const x1 = Math.min(click1.xPct, xPct);
+    const y1 = Math.min(click1.yPct, yPct);
+    const x2 = Math.max(click1.xPct, xPct);
+    const y2 = Math.max(click1.yPct, yPct);
+
+    const top    = +y1.toFixed(1);
+    const left   = +x1.toFixed(1);
+    const width  = +(x2 - x1).toFixed(1);
+    const height = +(y2 - y1).toFixed(1);
+    const val    = `${top},${left},${width},${height}`;
+
+    // Save
+    if (!COORDS[currentImg.file]) COORDS[currentImg.file] = {};
+    COORDS[currentImg.file][currentField] = val;
+
+    // Update field item UI
+    const item = document.querySelector(`.field-item[data-field="${CSS.escape(currentField)}"]`);
+    if (item) {
+      item.classList.add('mapped');
+      item.querySelector('.field-coords-txt').textContent = val;
+    }
+
+    setStatus(`✅ Campo "${currentField}" salvo: ${val}`);
+
+    // Auto-advance to next unmapped field
+    const allFields = currentImg.groups.flatMap(g => g.fields);
+    const coordMap  = COORDS[currentImg.file] || {};
+    const idx       = allFields.indexOf(currentField);
+    let next        = null;
+
+    // Look for next unmapped
+    for (let i = idx + 1; i < allFields.length; i++) {
+      if (!coordMap[allFields[i]]) { next = allFields[i]; break; }
+    }
+    // If all mapped after current, just go to next
+    if (!next && idx + 1 < allFields.length) {
+      next = allFields[idx + 1];
+    }
+
+    clickStep = 0;
+    click1    = null;
+    redraw();
+
+    if (next) {
+      setTimeout(() => selectField(next), 300);
+    } else {
+      currentField = null;
+      document.getElementById('step-hint').classList.remove('show');
+      document.querySelectorAll('.field-item').forEach(el => el.classList.remove('active'));
+      setStatus('✅ Todos os campos desta imagem estão calibrados!');
+    }
+  }
+});
+
+// ════════════════════════════════════════════════════════════════
+//  MOUSE MOVE — show live coordinates
+// ════════════════════════════════════════════════════════════════
+document.getElementById('main-canvas').addEventListener('mousemove', e => {
+  if (!loadedImage.naturalWidth) return;
+  const canvas = document.getElementById('main-canvas');
+  const rect   = canvas.getBoundingClientRect();
+  const xPct = ((e.clientX - rect.left) / canvas.width  * 100).toFixed(1);
+  const yPct = ((e.clientY - rect.top)  / canvas.height * 100).toFixed(1);
+  document.getElementById('coord-display').textContent = `x: ${xPct}%  y: ${yPct}%`;
+});
+
+// ════════════════════════════════════════════════════════════════
+//  BUTTONS
+// ════════════════════════════════════════════════════════════════
+document.getElementById('btn-skip').addEventListener('click', () => {
+  if (!currentImg || !currentField) return;
+  const allFields = currentImg.groups.flatMap(g => g.fields);
+  const idx = allFields.indexOf(currentField);
+  const next = allFields[idx + 1];
+  clickStep = 0; click1 = null;
+  if (next) selectField(next);
+  else { currentField = null; setStatus('Fim dos campos.'); }
+});
+
+document.getElementById('btn-clear').addEventListener('click', () => {
+  if (!currentImg || !currentField) return;
+  if (COORDS[currentImg.file]) delete COORDS[currentImg.file][currentField];
+  const item = document.querySelector(`.field-item[data-field="${CSS.escape(currentField)}"]`);
+  if (item) {
+    item.classList.remove('mapped');
+    item.querySelector('.field-coords-txt').textContent = '— não calibrado —';
+  }
+  clickStep = 1; click1 = null;
+  const hint = document.getElementById('step-hint');
+  hint.textContent = '📍 Passo 1/2 — clique no canto SUPERIOR-ESQUERDO do campo na imagem.';
+  hint.classList.add('show');
+  setStatus(`Campo "${currentField}" limpo. Clique no canto superior-esquerdo.`);
+  redraw();
+});
+
+// ════════════════════════════════════════════════════════════════
+//  EXPORT
+// ════════════════════════════════════════════════════════════════
+document.getElementById('btn-export').addEventListener('click', () => {
+  const lines = ['  const FIELD_COORDS = {'];
+
+  IMAGES.forEach((imgDef, imgIdx) => {
+    lines.push(`    '${imgDef.file}': {`);
+    imgDef.groups.forEach(g => {
+      lines.push(`      // ${g.group}`);
+      g.fields.forEach(name => {
+        const c = (COORDS[imgDef.file] || {})[name] || '';
+        const pad = Math.max(0, 72 - name.length);
+        lines.push(`      '${name}':${' '.repeat(pad)} '${c}',`);
+      });
+    });
+    const comma = imgIdx < IMAGES.length - 1 ? ',' : '';
+    lines.push(`    }${comma}`);
+  });
+
+  lines.push('  };');
+
+  document.getElementById('export-code').textContent = lines.join('\n');
+  document.getElementById('export-modal').classList.add('open');
+});
+
+document.getElementById('btn-copy').addEventListener('click', () => {
+  const code = document.getElementById('export-code').textContent;
+  navigator.clipboard.writeText(code).then(() => {
+    const fb = document.getElementById('copy-feedback');
+    fb.classList.add('show');
+    setTimeout(() => fb.classList.remove('show'), 2500);
+  });
+});
+
+document.getElementById('btn-close-export').addEventListener('click', () => {
+  document.getElementById('export-modal').classList.remove('open');
+});
+
+// ════════════════════════════════════════════════════════════════
+//  HELPERS
+// ════════════════════════════════════════════════════════════════
+function setStatus(msg) {
+  document.getElementById('status-msg').textContent = msg;
+}
+
+// Resize canvas on window resize
+window.addEventListener('resize', () => {
+  if (loadedImage.naturalWidth) redraw();
+});
+
+// ── INIT ──
+buildImgPanel();
+setStatus('Selecione uma imagem no painel esquerdo para começar.');
+</script>
+</body>
+</html>
