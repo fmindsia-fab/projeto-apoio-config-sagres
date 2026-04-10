@@ -383,6 +383,46 @@ const IMAGES = [
       ]},
     ]
   },
+  {
+    file: 'prints/estoque.png',
+    label: 'Configurações de Estoque',
+    groups: [
+      { group: 'Custo e Entradas de Produtos', fields: [
+        'Custo a ser atribuído no lançamento da saída de produtos',
+        'Custo a ser atribuído no lançamento da entrada de produtos',
+        'Chamar Tela de "Condições de Pagamento" Após Lançamento da Nota de Compra',
+        'Exibir Botão "Alterar Preço" em "Outras Entradas de Estoque"',
+        'Campo "Validade" nas Entradas de Estoque dos Produtos',
+        'Informar Último Preço no Lançamento das Entradas',
+        'Percentual de Variação Permitido nas Entradas',
+      ]},
+      { group: 'Contagem de Estoque', fields: [
+        'Ocultar Campos Informativos na Contagem de Estoque',
+        'Usar Campo "Compensação" na Contagem de Estoque',
+        'Método p/Contagem de Estoque',
+        'Permitir Alterar Custo de Produtos na Contagem',
+        'Data Padrão p/Contagem do Estoque',
+        'Tipo Mov.Estoque p/Contagem',
+        'Cliente p/Contagem',
+        'Fornecedor p/Contagem',
+      ]},
+      { group: 'Pedidos de Compra', fields: [
+        'Tipo de Cálculo p/Qtd.Vendida nos Pedidos de Compra',
+        'Informar Operador c/Senha nos Pedidos de Compra',
+        'Desabilitar Campo Data nos Pedidos de Compra',
+        'Permitir Exclusão de Itens nos Pedidos de Compra',
+        'Usar Preço Máximo para Produtos nas Compra',
+        'Forma de Inserir Produto Específico no Pedido de Compra',
+      ]},
+      { group: 'Outras Entradas/Saídas e Fiscal', fields: [
+        'Método de Uso de Outras Entradas/Saídas',
+        'Permitir Alterar Data de Emissão NFe de Terceiros',
+        'Fator de Conversão ao Importar XML da NFe',
+        'Usar Campo "Conferido" para Outras Entradas/Saídas',
+        'Permitir Alterar Outras Entradas/Saídas Conferidas',
+      ]},
+    ]
+  },
 ];
 
 // ── Coordenadas atuais (carregadas do index.html, editáveis aqui) ──
@@ -493,6 +533,34 @@ const COORDS = {
     'Pode Imprimir Resumo do Caixa Antes do Fechamento':                     '83,0,100,4',
     'Ordem de Digitação das Formas Pagto no Fech.Caixa':                     '87.5,0,100,4',
     'Nº Máximo de Cópias no Fechamento do Caixa':                            '92,0,100,4',
+  },
+  'prints/estoque.png': {
+    'Custo a ser atribuído no lançamento da saída de produtos':               '7,42,30,5',
+    'Custo a ser atribuído no lançamento da entrada de produtos':             '14,42,30,5',
+    'Chamar Tela de "Condições de Pagamento" Após Lançamento da Nota de Compra': '21,42,10,5',
+    'Exibir Botão "Alterar Preço" em "Outras Entradas de Estoque"':           '28,42,10,5',
+    'Campo "Validade" nas Entradas de Estoque dos Produtos':                  '28,60,15,5',
+    'Informar Último Preço no Lançamento das Entradas':                       '35,42,10,5',
+    'Percentual de Variação Permitido nas Entradas':                          '42,42,10,5',
+    'Ocultar Campos Informativos na Contagem de Estoque':                     '49,42,10,5',
+    'Usar Campo "Compensação" na Contagem de Estoque':                        '49,60,15,5',
+    'Método p/Contagem de Estoque':                                           '56,42,20,5',
+    'Permitir Alterar Custo de Produtos na Contagem':                         '63,42,10,5',
+    'Data Padrão p/Contagem do Estoque':                                      '63,60,25,5',
+    'Tipo Mov.Estoque p/Contagem':                                            '77,42,10,5',
+    'Cliente p/Contagem':                                                     '84,42,10,5',
+    'Fornecedor p/Contagem':                                                  '91,42,10,5',
+    'Tipo de Cálculo p/Qtd.Vendida nos Pedidos de Compra':                    '42,42,50,5',
+    'Informar Operador c/Senha nos Pedidos de Compra':                        '49,42,10,5',
+    'Desabilitar Campo Data nos Pedidos de Compra':                           '49,60,15,5',
+    'Permitir Exclusão de Itens nos Pedidos de Compra':                       '56,42,10,5',
+    'Usar Preço Máximo para Produtos nas Compra':                             '56,60,15,5',
+    'Forma de Inserir Produto Específico no Pedido de Compra':                '63,42,50,5',
+    'Método de Uso de Outras Entradas/Saídas':                                '70,42,25,5',
+    'Permitir Alterar Data de Emissão NFe de Terceiros':                      '84,42,10,5',
+    'Fator de Conversão ao Importar XML da NFe':                              '84,60,20,5',
+    'Usar Campo "Conferido" para Outras Entradas/Saídas':                     '91,42,10,5',
+    'Permitir Alterar Outras Entradas/Saídas Conferidas':                     '91,60,10,5',
   }
 };
 
