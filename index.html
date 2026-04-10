@@ -584,6 +584,14 @@
     </div>
 
     <div class="nav-section">
+      <div class="nav-section-title">Estoque</div>
+      <a class="nav-item" onclick="showSection('estoque')">
+        Configurações de Estoque
+        <span class="path-badge">Gestão › Configurações › Estoque</span>
+      </a>
+    </div>
+
+    <div class="nav-section">
       <div class="nav-section-title">Fiscal / NF-e / SAT</div>
       <a class="nav-item" onclick="showSection('fiscal-nfe')">
         NF-e / NFC-e / SAT
@@ -1307,6 +1315,195 @@
     </div>
   </section>
 
+  <!-- ══ ESTOQUE ══ -->
+  <section id="estoque" class="page-section" data-section-img="prints/estoque.png">
+    <div class="page-header">
+      <div class="breadcrumb">Gestão › Configurações › Estoque</div>
+      <h2>Configurações de Estoque</h2>
+      <p>Define o comportamento do sistema nas entradas, saídas, contagem e pedidos de compra relacionados ao estoque.</p>
+    </div>
+
+    <div class="screen-print">
+      <img src="prints/estoque.png" alt="Tela Configurações de Estoque"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+      <div class="screen-print-placeholder" style="display:none">
+        <strong>Print da Tela</strong>
+        Salve o print como <code>prints/estoque.png</code> para exibir aqui.
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Configurações</strong> → <strong>Estoque</strong>.
+      Alterações impactam o comportamento de entradas de mercadoria, contagem de estoque e pedidos de compra.
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Custo e Entradas de Produtos</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Custo a ser atribuído no lançamento da saída de produtos</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Define qual custo é registrado quando um produto sai do estoque. <strong>Nenhum</strong> não atribui custo automaticamente. Ajustar conforme a política de custo do cliente (ex.: último custo, médio).</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Custo a ser atribuído no lançamento da entrada de produtos</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Define qual custo é gravado na entrada de mercadoria. <strong>Nenhum</strong> não atribui custo automaticamente. Confirmar com o cliente qual método de custeio ele utiliza antes de alterar.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Chamar Tela de "Condições de Pagamento" Após Lançamento da Nota de Compra</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, após lançar uma nota de compra o sistema abre automaticamente a tela de condições de pagamento para registrar o financeiro da compra. Útil quando a empresa controla contas a pagar diretamente no lançamento.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Exibir Botão "Alterar Preço" em "Outras Entradas de Estoque"</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, exibe o botão para alterar o preço de venda diretamente nas outras entradas de estoque (transferências, ajustes). Ativar somente se o fluxo de trabalho do cliente exige essa funcionalidade nessa tela.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Campo "Validade" nas Entradas de Estoque dos Produtos</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, exibe o campo de data de validade nas entradas de estoque. Ativar para clientes que trabalham com produtos perecíveis e precisam registrar a validade de cada lote.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Informar Último Preço no Lançamento das Entradas</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, preenche automaticamente o campo de custo com o último preço pago pelo produto ao lançar uma nova entrada. Facilita a conferência e identificação de variações de custo.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Percentual de Variação Permitido nas Entradas</div></td>
+            <td><span class="tag tag-text">Numérico</span></td>
+            <td>Define o percentual máximo de variação de custo aceito ao lançar uma entrada em relação ao último preço registrado. <strong>0</strong> desativa o controle de variação. Útil para alertar o operador sobre diferenças de preço suspeitas.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Contagem de Estoque</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Ocultar Campos Informativos na Contagem de Estoque</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, oculta campos como saldo atual e custo durante a contagem, evitando que o operador seja influenciado pelos valores do sistema. Recomendado para inventários cegos.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Usar Campo "Compensação" na Contagem de Estoque</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, habilita o campo de compensação na contagem, permitindo ajustar diferenças específicas sem afetar o saldo total diretamente. Verificar com o cliente se o processo de inventário utiliza esse recurso.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Método p/Contagem de Estoque</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Define a metodologia de contagem: <strong>Normal</strong> registra os itens contados diretamente. Outros métodos podem envolver etapas adicionais de conferência. Manter <strong>Normal</strong> na maioria dos casos, salvo orientação específica do cliente.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Permitir Alterar Custo de Produtos na Contagem</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, o operador pode editar o custo unitário dos produtos durante a contagem de estoque. Habilitar somente quando há necessidade de ajuste de custo junto ao inventário.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Data Padrão p/Contagem do Estoque</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Define qual data é usada como padrão na contagem de estoque. <strong>2-Data de ontem do computador</strong> usa o dia anterior, evitando que movimentos do dia corrente interfiram no inventário. Ajustar conforme o processo de fechamento do cliente.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Tipo Mov.Estoque p/Contagem</div></td>
+            <td><span class="tag tag-text">Numérico</span></td>
+            <td>Código do tipo de movimento de estoque gerado pela contagem. Verificar na tabela de tipos de movimento qual código corresponde à contagem/inventário no sistema do cliente.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Cliente p/Contagem</div></td>
+            <td><span class="tag tag-text">Numérico</span></td>
+            <td>Código do cliente padrão vinculado ao movimento gerado pela contagem de estoque. Geralmente um cliente interno ou fictício criado para esse fim.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Fornecedor p/Contagem</div></td>
+            <td><span class="tag tag-text">Numérico</span></td>
+            <td>Código do fornecedor padrão vinculado ao movimento de contagem de estoque. Geralmente um fornecedor interno criado para esse fim.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Pedidos de Compra</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Tipo de Cálculo p/Qtd.Vendida nos Pedidos de Compra</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Define como o sistema calcula a quantidade vendida usada como base para sugestão de compra. <strong>1-Incluir todas as vendas e saídas que derem baixa no estoque</strong> é o mais completo. Alterar somente se o cliente precisar de uma base de cálculo diferente.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Informar Operador c/Senha nos Pedidos de Compra</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, exige que o operador se identifique com senha ao realizar ou alterar pedidos de compra. Ativar em ambientes onde o controle de acesso a compras é necessário.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Desabilitar Campo Data nos Pedidos de Compra</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, o campo de data do pedido de compra fica bloqueado para edição, usando sempre a data automática do sistema. Ativar para evitar manipulação de datas nos pedidos.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Permitir Exclusão de Itens nos Pedidos de Compra</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, o operador pode excluir itens de um pedido de compra já criado. Manter <strong>S-Sim</strong> na maioria dos casos para flexibilidade na edição de pedidos.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Usar Preço Máximo para Produtos nas Compra</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, o sistema aplica o preço máximo cadastrado para o produto nos pedidos de compra, bloqueando valores acima desse limite. Útil para controle de custo de aquisição.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Forma de Inserir Produto Específico no Pedido de Compra</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Define como produtos são adicionados manualmente a um pedido de compra. <strong>1-Chamar tela de cadastro de produtos, com ordem padrão por descrição</strong> abre a busca padrão por nome. Alterar se o cliente preferir busca por código ou outra ordenação.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Outras Entradas/Saídas e Fiscal</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Método de Uso de Outras Entradas/Saídas</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Define o método de processamento das outras entradas e saídas de estoque. <strong>1-Novo Método</strong> utiliza o fluxo mais atual do sistema. Manter o padrão salvo pelo cliente, alterar somente sob orientação técnica.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Permitir Alterar Data de Emissão NFe de Terceiros</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, permite editar a data de emissão de NF-e de terceiros importadas (XML). Habilitar apenas quando o cliente precisa corrigir datas de notas de fornecedores com data divergente.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Fator de Conversão ao Importar XML da NFe</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Define se o fator de conversão de unidades é aplicado ao importar XML de NF-e. <strong>Usar (Obrigatório)</strong> força a aplicação do fator cadastrado no produto. Manter como padrão para garantir conversão correta de unidades.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Usar Campo "Conferido" para Outras Entradas/Saídas</div></td>
+            <td><span class="tag tag-sim">S/N</span></td>
+            <td>Quando <strong>S-Sim</strong>, exibe o campo "Conferido" nas outras entradas e saídas, permitindo marcar o documento como conferido após a revisão. Útil para controle de qualidade no lançamento de movimentações.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Permitir Alterar Outras Entradas/Saídas Conferidas</div></td>
+            <td><span class="tag tag-opt">Seleção</span></td>
+            <td>Define se documentos já marcados como conferidos podem ser editados. <strong>Não</strong> bloqueia qualquer alteração após a conferência, garantindo integridade dos dados. Alterar somente se o cliente precisar de flexibilidade na edição pós-conferência.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
   <!-- ══ FECHAMENTO DE CAIXA ══ -->
   <section id="fech-caixa" class="page-section" data-section-img="prints/fech_caixa.png">
     <div class="page-header">
@@ -1570,6 +1767,7 @@
     'prog-fidelidade':  'Programa de Fidelidade',
     'venda-antecipada': 'Venda Antecipada',
     'fech-caixa':       'Fechamento de Caixa',
+    'estoque':          'Configurações de Estoque',
     'fiscal-nfe':   'Fiscal / NF-e / SAT',
     'pdv-caixa':    'PDV / Caixa',
     'usuarios':     'Usuários / Permissões'
@@ -1803,6 +2001,38 @@
       'Usar Saldo Negativo Máximo na Venda Antecipada':                           '56.7,60.9,10,7.4',
       'Valor Máximo do Saldo Negativo':                                           '68.3,60.6,19.2,7',
       'Valor Padrão para "Bloq.p/Vnd.Antecip." no Cadastro de Clientes':          '79,60.7,37.7,7.4',
+    },
+    'prints/estoque.png': {
+      // Custo e Entradas
+      'Custo a ser atribuído no lançamento da saída de produtos':               '7,42,30,5',
+      'Custo a ser atribuído no lançamento da entrada de produtos':             '14,42,30,5',
+      'Chamar Tela de "Condições de Pagamento" Após Lançamento da Nota de Compra': '21,42,10,5',
+      'Exibir Botão "Alterar Preço" em "Outras Entradas de Estoque"':           '28,42,10,5',
+      'Campo "Validade" nas Entradas de Estoque dos Produtos':                  '28,60,15,5',
+      'Informar Último Preço no Lançamento das Entradas':                       '35,42,10,5',
+      'Percentual de Variação Permitido nas Entradas':                          '42,42,10,5',
+      // Contagem
+      'Ocultar Campos Informativos na Contagem de Estoque':                     '49,42,10,5',
+      'Usar Campo "Compensação" na Contagem de Estoque':                        '49,60,15,5',
+      'Método p/Contagem de Estoque':                                           '56,42,20,5',
+      'Permitir Alterar Custo de Produtos na Contagem':                         '63,42,10,5',
+      'Data Padrão p/Contagem do Estoque':                                      '63,60,25,5',
+      'Tipo Mov.Estoque p/Contagem':                                            '77,42,10,5',
+      'Cliente p/Contagem':                                                     '84,42,10,5',
+      'Fornecedor p/Contagem':                                                  '91,42,10,5',
+      // Pedidos de Compra
+      'Tipo de Cálculo p/Qtd.Vendida nos Pedidos de Compra':                    '42,42,50,5',
+      'Informar Operador c/Senha nos Pedidos de Compra':                        '49,42,10,5',
+      'Desabilitar Campo Data nos Pedidos de Compra':                           '49,60,15,5',
+      'Permitir Exclusão de Itens nos Pedidos de Compra':                       '56,42,10,5',
+      'Usar Preço Máximo para Produtos nas Compra':                             '56,60,15,5',
+      'Forma de Inserir Produto Específico no Pedido de Compra':                '63,42,50,5',
+      // Outras Entradas/Saídas
+      'Método de Uso de Outras Entradas/Saídas':                                '70,42,25,5',
+      'Permitir Alterar Data de Emissão NFe de Terceiros':                      '84,42,10,5',
+      'Fator de Conversão ao Importar XML da NFe':                              '84,60,20,5',
+      'Usar Campo "Conferido" para Outras Entradas/Saídas':                     '91,42,10,5',
+      'Permitir Alterar Outras Entradas/Saídas Conferidas':                     '91,60,10,5',
     },
     'prints/fech_caixa.png': {
       // Formas de Pagamento
