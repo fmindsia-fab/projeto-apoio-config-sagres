@@ -626,6 +626,14 @@
     </div>
 
     <div class="nav-section">
+      <div class="nav-section-title">Produtos</div>
+      <a class="nav-item" onclick="showSection('cfg-produtos-apoio')">
+        Produtos de Apoio
+        <span class="path-badge">Gestão › Configurações › Produtos de Apoio</span>
+      </a>
+    </div>
+
+    <div class="nav-section">
       <div class="nav-section-title">Fiscal / NF-e / SAT</div>
       <a class="nav-item" onclick="showSection('fiscal-nfe')">
         NF-e / NFC-e / SAT
@@ -697,6 +705,11 @@
         <div class="icon">👤</div>
         <h3>Cadastro Rápido de Clientes</h3>
         <p>Campos exibidos no cadastro rápido: DDD, CPF, RG, convênio, e-mail e observação.</p>
+      </div>
+      <div class="welcome-card" onclick="showSection('cfg-produtos-apoio')">
+        <div class="icon">🧂</div>
+        <h3>Produtos de Apoio</h3>
+        <p>Taxa de serviço, taxa de entrega, couvert e consumação mínima.</p>
       </div>
       <div class="welcome-card" onclick="showSection('fiscal-nfe')">
         <div class="icon">🧾</div>
@@ -2022,6 +2035,79 @@
     </div>
   </section>
 
+  <!-- ══ PRODUTOS DE APOIO ══ -->
+  <section id="cfg-produtos-apoio" class="page-section" data-section-img="prints/produtos_apoio.png">
+    <div class="page-header">
+      <div class="breadcrumb">Gestão › Configurações › Produtos de Apoio</div>
+      <h2>Produtos de Apoio</h2>
+      <p>Define quais produtos especiais (taxa de serviço, entrega, couvert, consumação mínima) são utilizados e quais itens do cadastro os representam.</p>
+    </div>
+
+    <div class="screen-print">
+      <img src="prints/produtos_apoio.png" alt="Tela Configurar Produtos de Apoio"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+      <div class="screen-print-placeholder" style="display:none">
+        <strong>Print da Tela</strong>
+        Salve o print como <code>prints/produtos_apoio.png</code> para exibir aqui.
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Configurações</strong> → <strong>Produtos de Apoio</strong>.
+      Para cada produto especial, habilite com <strong>S-Sim</strong> e informe o produto cadastrado que representa aquela cobrança.
+    </div>
+
+    <!-- Campos de Produtos de Apoio -->
+    <div class="fields-card">
+      <div class="fields-card-header">Campos — Produtos de Apoio</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Utilizar Produto "Taxa de Serviço"</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Quando <strong>S-Sim</strong>, habilita a cobrança automática de taxa de serviço nos pedidos. Requer que o campo <em>Produto "Taxa de Serviço"</em> esteja preenchido com o produto correspondente.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Produto "Taxa de Serviço"</div></td>
+            <td><span class="tag tag-txt">Texto</span></td>
+            <td>Informe o código ou nome do produto cadastrado que representa a taxa de serviço. Só tem efeito quando o campo <em>Utilizar</em> estiver como <strong>S-Sim</strong>.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Utilizar Produto "Taxa de Entrega"</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Quando <strong>S-Sim</strong>, habilita a cobrança de taxa de entrega nos pedidos de delivery. Requer o produto correspondente informado abaixo.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Produto "Taxa de Entrega"</div></td>
+            <td><span class="tag tag-txt">Texto</span></td>
+            <td>Informe o código ou nome do produto que representa a taxa de entrega. Utilizado para lançar automaticamente o valor de frete no pedido.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Utilizar Produto "Couvert"</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Quando <strong>S-Sim</strong>, habilita a cobrança automática de couvert artístico nos pedidos. Requer o produto correspondente informado abaixo.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Produto "Couvert"</div></td>
+            <td><span class="tag tag-txt">Texto</span></td>
+            <td>Informe o código ou nome do produto que representa o couvert. O sistema lançará este produto automaticamente ao abrir uma comanda, conforme regras configuradas.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Utilizar Produto "Consumação Mínima"</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Quando <strong>S-Sim</strong>, habilita o controle de consumação mínima por cliente/mesa. Requer o produto correspondente informado abaixo.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Produto "Cons.Mínima"</div></td>
+            <td><span class="tag tag-txt">Texto</span></td>
+            <td>Informe o código ou nome do produto que representa a consumação mínima. Utilizado para lançar automaticamente o valor mínimo exigido por pessoa ou mesa.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
   <!-- ══ FISCAL ══ -->
   <section id="fiscal-nfe" class="page-section">
     <div class="page-header">
@@ -2100,6 +2186,7 @@
     'estoque':          'Configurações de Estoque',
     'contas-pagar':     'Contas a Pagar / Conta Corrente',
     'cfg-cad-rapido':   'Cadastro Rápido de Clientes',
+    'cfg-produtos-apoio': 'Produtos de Apoio',
     'fiscal-nfe':   'Fiscal / NF-e / SAT',
     'pdv-caixa':    'PDV / Caixa',
     'usuarios':     'Usuários / Permissões'
@@ -2400,6 +2487,17 @@
       'Plano de Contas Padrão p/Transf.(Crédito)':                                '82,35.3,9.3,3.5',
       'Plano de Contas Padrão p/Transf.(Débito)':                                 '86.3,35.7,8.9,3.5',
       'Plano de Contas Padrão p/Falta de Caixa (Crédito)':                        '90.9,35.7,9.1,3.3',
+    },
+    'prints/produtos_apoio.png': {
+      // Produtos de Apoio
+      'Utilizar Produto "Taxa de Serviço"':                                       '10.5,31.6,9.5,7.3',
+      'Produto "Taxa de Serviço"':                                                '21.1,31.8,18.1,6.7',
+      'Utilizar Produto "Taxa de Entrega"':                                       '31,31.9,9.2,7.3',
+      'Produto "Taxa de Entrega"':                                                '41.2,31.9,17.8,7',
+      'Utilizar Produto "Couvert"':                                               '50.2,31.9,9.2,7.7',
+      'Produto "Couvert"':                                                        '61.3,31.8,17.8,7',
+      'Utilizar Produto "Consumação Mínima"':                                     '71.2,32,8.8,6.1',
+      'Produto "Cons.Mínima"':                                                    '81.5,31.9,17.7,6.7',
     },
     'prints/cad_rapido_clientes.png': {
       // Campos do Cadastro Rápido
