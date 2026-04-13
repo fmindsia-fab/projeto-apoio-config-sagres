@@ -618,6 +618,14 @@
     </div>
 
     <div class="nav-section">
+      <div class="nav-section-title">Clientes</div>
+      <a class="nav-item" onclick="showSection('cfg-cad-rapido')">
+        Cadastro Rápido de Clientes
+        <span class="path-badge">Gestão › Configurações › Cad.Rápido Clientes</span>
+      </a>
+    </div>
+
+    <div class="nav-section">
       <div class="nav-section-title">Fiscal / NF-e / SAT</div>
       <a class="nav-item" onclick="showSection('fiscal-nfe')">
         NF-e / NFC-e / SAT
@@ -684,6 +692,11 @@
         <div class="icon">💰</div>
         <h3>Contas a Pagar / Conta Corrente</h3>
         <p>Bloqueio de contas, integração C/C, plano de contas e vencimento em dias úteis.</p>
+      </div>
+      <div class="welcome-card" onclick="showSection('cfg-cad-rapido')">
+        <div class="icon">👤</div>
+        <h3>Cadastro Rápido de Clientes</h3>
+        <p>Campos exibidos no cadastro rápido: DDD, CPF, RG, convênio, e-mail e observação.</p>
       </div>
       <div class="welcome-card" onclick="showSection('fiscal-nfe')">
         <div class="icon">🧾</div>
@@ -1931,6 +1944,84 @@
     </div>
   </section>
 
+  <!-- ══ CADASTRO RÁPIDO DE CLIENTES ══ -->
+  <section id="cfg-cad-rapido" class="page-section" data-section-img="prints/cad_rapido_clientes.png">
+    <div class="page-header">
+      <div class="breadcrumb">Gestão › Configurações › Cadastro Rápido de Clientes</div>
+      <h2>Cadastro Rápido de Clientes</h2>
+      <p>Define quais campos são exibidos e obrigatórios na tela de cadastro rápido de clientes.</p>
+    </div>
+
+    <div class="screen-print">
+      <img src="prints/cad_rapido_clientes.png" alt="Tela Cadastro Rápido de Clientes"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+      <div class="screen-print-placeholder" style="display:none">
+        <strong>Print da Tela</strong>
+        Salve o print como <code>prints/cad_rapido_clientes.png</code> para exibir aqui.
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Configurações</strong> → <strong>Cadastro Rápido de Clientes</strong>.
+      Cada campo configurado como <strong>S-Sim</strong> passa a ser exibido (e possivelmente obrigatório) na tela de cadastro rápido.
+    </div>
+
+    <!-- Campos do Cadastro Rápido -->
+    <div class="fields-card">
+      <div class="fields-card-header">Campos do Cadastro Rápido</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Campo Código Interno c/Apenas Dígitos Numéricos</div></td>
+            <td><span class="tag tag-sim">S-Sim</span></td>
+            <td>Quando <strong>S-Sim</strong>, o código interno do cliente aceita apenas dígitos numéricos, evitando letras ou caracteres especiais. Recomendado para manter consistência na numeração de clientes.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Campo DDD</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Quando <strong>S-Sim</strong>, exibe o campo de DDD separado do telefone no cadastro rápido. Ativar quando o cliente opera em mais de uma região e precisa registrar DDDs distintos.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Campo Data de Nascimento</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Quando <strong>S-Sim</strong>, exibe o campo de data de nascimento no cadastro rápido. Útil para clientes que usam aniversário como critério de benefício ou programa de fidelidade.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Campo Convênio</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Quando <strong>S-Sim</strong>, exibe o campo de convênio no cadastro rápido, permitindo vincular o cliente a um convênio já no momento do cadastro.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Campo CPF</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Quando <strong>S-Sim</strong>, exibe o campo de CPF no cadastro rápido. Habilitar junto com "Checar CPF Duplicado" para evitar duplicidade de cadastros.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Checar CPF Duplicado</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Quando <strong>S-Sim</strong>, o sistema verifica se o CPF informado já existe em outro cadastro antes de salvar. Depende do campo CPF estar habilitado. Ativar para evitar clientes duplicados.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Campo RG</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Quando <strong>S-Sim</strong>, exibe o campo de RG no cadastro rápido. Ativar quando o negócio exige identificação por documento de identidade.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Campo eMail</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Quando <strong>S-Sim</strong>, exibe o campo de e-mail no cadastro rápido. Recomendado para clientes que utilizam envio de cupom fiscal ou comunicação por e-mail.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Campo Observação</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Quando <strong>S-Sim</strong>, exibe o campo de observação livre no cadastro rápido, permitindo registrar informações adicionais sobre o cliente no momento do cadastro.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
   <!-- ══ FISCAL ══ -->
   <section id="fiscal-nfe" class="page-section">
     <div class="page-header">
@@ -2008,6 +2099,7 @@
     'fech-caixa':       'Fechamento de Caixa',
     'estoque':          'Configurações de Estoque',
     'contas-pagar':     'Contas a Pagar / Conta Corrente',
+    'cfg-cad-rapido':   'Cadastro Rápido de Clientes',
     'fiscal-nfe':   'Fiscal / NF-e / SAT',
     'pdv-caixa':    'PDV / Caixa',
     'usuarios':     'Usuários / Permissões'
@@ -2308,6 +2400,18 @@
       'Plano de Contas Padrão p/Transf.(Crédito)':                                '82,35.3,9.3,3.5',
       'Plano de Contas Padrão p/Transf.(Débito)':                                 '86.3,35.7,8.9,3.5',
       'Plano de Contas Padrão p/Falta de Caixa (Crédito)':                        '90.9,35.7,9.1,3.3',
+    },
+    'prints/cad_rapido_clientes.png': {
+      // Campos do Cadastro Rápido
+      'Campo Código Interno c/Apenas Dígitos Numéricos':                          '11,45.9,10.1,6.8',
+      'Campo DDD':                                                                '21.4,45.7,21.9,6.2',
+      'Campo Data de Nascimento':                                                 '30.7,45.8,21.2,6.8',
+      'Campo Convênio':                                                           '41.1,45.7,21.8,6.8',
+      'Campo CPF':                                                                '51.5,45.8,21.4,5.9',
+      'Checar CPF Duplicado':                                                     '51.3,88.8,10.5,6.8',
+      'Campo RG':                                                                 '60.6,45.9,21.6,7',
+      'Campo eMail':                                                              '71.3,45.9,21.1,6.8',
+      'Campo Observação':                                                         '80.6,45.9,21.2,6.8',
     },
     'prints/fech_caixa.png': {
       // Formas de Pagamento
