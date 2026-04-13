@@ -610,6 +610,14 @@
     </div>
 
     <div class="nav-section">
+      <div class="nav-section-title">Financeiro</div>
+      <a class="nav-item" onclick="showSection('contas-pagar')">
+        Contas a Pagar / Conta Corrente
+        <span class="path-badge">Gestão › Configurações › C.Pagar/C.Corrente</span>
+      </a>
+    </div>
+
+    <div class="nav-section">
       <div class="nav-section-title">Fiscal / NF-e / SAT</div>
       <a class="nav-item" onclick="showSection('fiscal-nfe')">
         NF-e / NFC-e / SAT
@@ -1710,6 +1718,214 @@
     </div>
   </section>
 
+  <!-- ══ CONTAS A PAGAR / CONTA CORRENTE ══ -->
+  <section id="contas-pagar" class="page-section" data-section-img="prints/contas_pagar.png">
+    <div class="page-header">
+      <div class="breadcrumb">Gestão › Configurações › Contas a Pagar / Conta Corrente</div>
+      <h2>Contas a Pagar / Conta Corrente</h2>
+      <p>Parâmetros de bloqueio, integração C/C, plano de contas e vencimento no módulo financeiro.</p>
+    </div>
+
+    <div class="screen-print">
+      <img src="prints/contas_pagar.png" alt="Tela Contas a Pagar / Conta Corrente"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+      <div class="screen-print-placeholder" style="display:none">
+        <strong>Print da Tela</strong>
+        Salve o print como <code>prints/contas_pagar.png</code> para exibir aqui.
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Configurações</strong> → <strong>Contas a Pagar / Conta Corrente</strong>.
+      Alterações impactam o comportamento financeiro de contas a pagar, integração com conta corrente e plano de contas.
+    </div>
+
+    <!-- Configurações Gerais -->
+    <div class="fields-card">
+      <div class="fields-card-header">Configurações Gerais</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Usar Grupo de Despesa Interligado ao Tipo de Despesa</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Quando <strong>S-Sim</strong>, o grupo de despesa fica vinculado ao tipo de despesa, forçando consistência hierárquica no lançamento de contas a pagar. Ativar somente se o cliente usa essa estrutura de classificação financeira.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Utilizar Detalhamento de Tipos de Despesa</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Habilita um nível adicional de detalhamento nos tipos de despesa. Ativar quando o cliente precisa de granularidade maior na classificação das despesas financeiras.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Chamar Tela Detalhamento Tipo Desp. Automaticamente</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Quando <strong>S-Sim</strong>, a tela de detalhamento do tipo de despesa é aberta automaticamente ao lançar uma conta a pagar. Depende da opção "Utilizar Detalhamento de Tipos de Despesa" estar ativa.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Campo "Nº de Dias p/Pagto" no Contas a Pagar</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Exibe o campo de número de dias para pagamento na tela de contas a pagar. Útil para clientes que controlam prazo médio de pagamento por lançamento.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Campo "Lançamento Conferido" no Contas a Pagar</div></td>
+            <td><span class="tag tag-nao">Não</span></td>
+            <td>Adiciona um campo de conferência no lançamento de contas a pagar, permitindo marcar registros já revisados. Útil para equipes que fazem dupla conferência dos lançamentos financeiros.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Integrar Caixa c/C.Corrente Tot.por Dia</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Quando <strong>S-Sim</strong>, a integração do caixa com a conta corrente é feita de forma totalizadora por dia (um único lançamento diário), em vez de lançamento por lançamento. Reduz o volume de registros na conta corrente.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Bloqueio de Contas -->
+    <div class="fields-card">
+      <div class="fields-card-header">Bloqueio de Contas</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Bloquear Contas a Pagar/Conta Corrente</div></td>
+            <td><span class="tag tag-nao">Não</span></td>
+            <td>Define se o sistema bloqueia alterações em contas a pagar e conta corrente. Quando ativo, impede edição de lançamentos anteriores à data de bloqueio configurada.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Lógica p/Bloqueio de Contas</div></td>
+            <td><span class="tag tag-opt">1-Normal</span></td>
+            <td>Define a regra de bloqueio aplicada. <strong>1-Normal</strong> usa a data de bloqueio configurada como referência fixa. Verificar com o cliente qual lógica se adequa ao fluxo de fechamento financeiro dele.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Data para Bloqueio das Contas</div></td>
+            <td><span class="tag tag-txt">Data</span></td>
+            <td>Data a partir da qual lançamentos anteriores ficam bloqueados para edição. Padrão <strong>31/12/1999</strong> efetivamente não bloqueia nada — alterar para a data de fechamento do período desejado.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Nº de Dias para Bloqueio de Contas</div></td>
+            <td><span class="tag tag-txt">365</span></td>
+            <td>Número de dias retroativos usados como janela de bloqueio quando a lógica é por dias. Ajustar conforme a política de bloqueio de período do cliente.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Bloquear por Data de Consolidação</div></td>
+            <td><span class="tag tag-sim">S-Sim</span></td>
+            <td>Quando <strong>S-Sim</strong>, o bloqueio considera a data de consolidação do lançamento (data em que foi integrado/fechado), e não apenas a data de lançamento.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Bloquear Contas se Estiverem Consolidadas e Integradas</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Quando <strong>S-Sim</strong>, contas que já foram consolidadas e integradas ao caixa/conta corrente ficam bloqueadas automaticamente para alteração, independente da data de bloqueio.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Chamar Tela de Permissão Quando Conta Bloqueada</div></td>
+            <td><span class="tag tag-sim">S-Sim</span></td>
+            <td>Quando <strong>S-Sim</strong>, ao tentar editar uma conta bloqueada o sistema exibe a tela de permissão (senha de supervisor), em vez de simplesmente impedir a ação. Manter ativo para permitir exceções supervisionadas.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Integração C/C -->
+    <div class="fields-card">
+      <div class="fields-card-header">Integração com Conta Corrente</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Alterar Data de Lancto da Cond.Pagto Quando Alterar Data da Nota de Entrada</div></td>
+            <td><span class="tag tag-sim">S-Sim</span></td>
+            <td>Quando <strong>S-Sim</strong>, ao alterar a data de uma nota de entrada o sistema recalcula automaticamente as datas de vencimento das condições de pagamento vinculadas. Manter ativo para evitar inconsistências de prazo.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Ordem de Preenchimento da Descr. na Integração C/C</div></td>
+            <td><span class="tag tag-opt">Tipo de Operação/Forma de Pagamento</span></td>
+            <td>Define como é gerada a descrição do lançamento na conta corrente durante a integração. Cada opção monta o texto de forma diferente — verificar com o cliente qual formato facilita a conciliação bancária.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Sub-Ordem por Nome nos Relatórios</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Quando <strong>S-Sim</strong>, os relatórios financeiros são ordenados por nome dentro de cada grupo/tipo. Ativar quando o cliente precisa de listagens alfabéticas por fornecedor/cliente nos relatórios de contas.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Atribuir Valor Digitado Ao Informado na Integração C/C</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Quando <strong>S-Sim</strong>, o valor digitado manualmente sobrepõe o valor calculado automaticamente durante a integração com a conta corrente. Usar com cautela — pode gerar divergências contábeis.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Data de Vencimento de Contas a Pagar Apenas em Dias Úteis</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Quando <strong>S-Sim</strong>, datas de vencimento que caem em fins de semana ou feriados são automaticamente ajustadas para o próximo dia útil. Ativar conforme a política de pagamento do cliente.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Plano de Contas -->
+    <div class="fields-card">
+      <div class="fields-card-header">Plano de Contas</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Utilizar Plano de Contas</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Habilita o módulo de plano de contas contábil integrado ao financeiro. Quando <strong>N-Não</strong>, os campos de plano de contas abaixo são ignorados. Ativar somente se o cliente usa plano de contas no sistema.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Plano de Contas Padrão p/C.Receber</div></td>
+            <td><span class="tag tag-txt">Código</span></td>
+            <td>Código do plano de contas vinculado automaticamente aos lançamentos de contas a receber. Preencher com o código da conta contábil de receita do cliente.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Plano de Contas Padrão p/Créditos</div></td>
+            <td><span class="tag tag-txt">Código</span></td>
+            <td>Código do plano de contas para lançamentos de crédito (entradas) na conta corrente. Verificar com o contador do cliente qual conta utilizar.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Plano de Contas Padrão p/Débitos</div></td>
+            <td><span class="tag tag-txt">Código</span></td>
+            <td>Código do plano de contas para lançamentos de débito (saídas) na conta corrente. Verificar com o contador do cliente qual conta utilizar.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Plano de Contas Padrão p/C.Pagar Não Existentes</div></td>
+            <td><span class="tag tag-txt">Código</span></td>
+            <td>Conta contábil de fallback para contas a pagar que não possuem plano de contas cadastrado. Evita erros de integração quando um lançamento não encontra sua conta específica.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Plano de Contas Padrão p/Créditos Não Existentes</div></td>
+            <td><span class="tag tag-txt">Código</span></td>
+            <td>Conta contábil de fallback para créditos sem plano de contas definido. Garantia de que a integração contábil não falha por ausência de mapeamento.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Plano de Contas Padrão p/Débitos Não Existentes</div></td>
+            <td><span class="tag tag-txt">Código</span></td>
+            <td>Conta contábil de fallback para débitos sem plano de contas definido.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Plano de Contas para Cálculo do Percentual</div></td>
+            <td><span class="tag tag-txt">Código</span></td>
+            <td>Conta contábil usada como base para cálculo de percentuais financeiros (rateios, centros de custo). Verificar com o contador qual conta representa a base de cálculo desejada.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Plano de Contas Padrão p/Transf.(Crédito)</div></td>
+            <td><span class="tag tag-txt">0</span></td>
+            <td>Conta contábil para o lado crédito das transferências entre contas correntes. Valor <strong>0</strong> = não se aplica (transferências não geram lançamento contábil).</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Plano de Contas Padrão p/Transf.(Débito)</div></td>
+            <td><span class="tag tag-txt">0</span></td>
+            <td>Conta contábil para o lado débito das transferências entre contas correntes. Valor <strong>0</strong> = não se aplica.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Plano de Contas Padrão p/Falta de Caixa (Crédito)</div></td>
+            <td><span class="tag tag-txt">Código</span></td>
+            <td>Conta contábil creditada quando há falta de caixa no fechamento. Geralmente uma conta de ajuste ou diferença de caixa — verificar com o contador do cliente.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
   <!-- ══ FISCAL ══ -->
   <section id="fiscal-nfe" class="page-section">
     <div class="page-header">
@@ -1786,6 +2002,7 @@
     'venda-antecipada': 'Venda Antecipada',
     'fech-caixa':       'Fechamento de Caixa',
     'estoque':          'Configurações de Estoque',
+    'contas-pagar':     'Contas a Pagar / Conta Corrente',
     'fiscal-nfe':   'Fiscal / NF-e / SAT',
     'pdv-caixa':    'PDV / Caixa',
     'usuarios':     'Usuários / Permissões'
@@ -2051,6 +2268,41 @@
       'Fator de Conversão ao Importar XML da NFe':                              '85.2,83.1,15.8,3.9',
       'Usar Campo "Conferido" para Outras Entradas/Saídas':                     '90.6,48.2,7.1,3.5',
       'Permitir Alterar Outras Entradas/Saídas Conferidas':                     '90.4,86.2,6.6,3.7',
+    },
+    'prints/contas_pagar.png': {
+      // Configurações Gerais
+      'Usar Grupo de Despesa Interligado ao Tipo de Despesa':                     '5,35.3,7.6,3.5',
+      'Utilizar Detalhamento de Tipos de Despesa':                                '4.8,70.3,7.2,4.1',
+      'Chamar Tela Detalhamento Tipo Desp. Automaticamente':                      '9.5,35.7,7,3.7',
+      'Campo "Nº de Dias p/Pagto" no Contas a Pagar':                             '9.5,73,7.4,3.5',
+      'Campo "Lançamento Conferido" no Contas a Pagar':                           '14.1,35.4,27.2,3.9',
+      'Integrar Caixa c/C.Corrente Tot.por Dia':                                  '14.1,88,7.4,3.7',
+      // Bloqueio de Contas
+      'Bloquear Contas a Pagar/Conta Corrente':                                   '18.7,35.5,19.8,3.5',
+      'Lógica p/Bloqueio de Contas':                                              '18.7,74.2,10.3,3.5',
+      'Data para Bloqueio das Contas':                                            '23.4,35.7,10.4,3.3',
+      'Nº de Dias para Bloqueio de Contas':                                       '23.2,68.8,4.3,3.5',
+      'Bloquear por Data de Consolidação':                                        '27.8,35.5,7.3,3.3',
+      'Bloquear Contas se Estiverem Consolidadas e Integradas':                   '27.8,78.6,7.4,3.1',
+      'Chamar Tela de Permissão Quando Conta Bloqueada':                          '32,35.5,7.2,3.5',
+      // Integração com Conta Corrente
+      'Alterar Data de Lancto da Cond.Pagto Quando Alterar Data da Nota de Entrada': '32,92.2,7.2,3.9',
+      'Ordem de Preenchimento da Descr. na Integração C/C':                       '36.5,35.7,31.5,3.7',
+      'Sub-Ordem por Nome nos Relatórios':                                        '36.9,91,7.3,3.3',
+      'Atribuir Valor Digitado Ao Informado na Integração C/C':                   '40.9,35.5,7.2,3.9',
+      'Data de Vencimento de Contas a Pagar Apenas em Dias Úteis':                '41.1,81.9,7,3.7',
+      // Plano de Contas
+      'Utilizar Plano de Contas':                                                 '45.9,35.7,7,2.7',
+      'Plano de Contas Padrão p/C.Receber':                                       '50,35.3,9.7,3.9',
+      'Plano de Contas Padrão p/Créditos':                                        '54.8,35.7,9.1,3.7',
+      'Plano de Contas Padrão p/Débitos':                                         '59.3,35.7,9.1,3.3',
+      'Plano de Contas Padrão p/C.Pagar Não Existentes':                          '63.7,35.7,9.1,3.7',
+      'Plano de Contas Padrão p/Créditos Não Existentes':                         '68,35.7,9.3,3.9',
+      'Plano de Contas Padrão p/Débitos Não Existentes':                          '72.8,35.7,8.9,3.7',
+      'Plano de Contas para Cálculo do Percentual':                               '77.2,35.7,9.1,3.7',
+      'Plano de Contas Padrão p/Transf.(Crédito)':                                '82,35.3,9.3,3.5',
+      'Plano de Contas Padrão p/Transf.(Débito)':                                 '86.3,35.7,8.9,3.5',
+      'Plano de Contas Padrão p/Falta de Caixa (Crédito)':                        '90.9,35.7,9.1,3.3',
     },
     'prints/fech_caixa.png': {
       // Formas de Pagamento

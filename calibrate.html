@@ -423,6 +423,49 @@ const IMAGES = [
       ]},
     ]
   },
+  {
+    file: 'prints/contas_pagar.png',
+    label: 'Contas a Pagar / Conta Corrente',
+    groups: [
+      { group: 'Configurações Gerais', fields: [
+        'Usar Grupo de Despesa Interligado ao Tipo de Despesa',
+        'Utilizar Detalhamento de Tipos de Despesa',
+        'Chamar Tela Detalhamento Tipo Desp. Automaticamente',
+        'Campo "Nº de Dias p/Pagto" no Contas a Pagar',
+        'Campo "Lançamento Conferido" no Contas a Pagar',
+        'Integrar Caixa c/C.Corrente Tot.por Dia',
+      ]},
+      { group: 'Bloqueio de Contas', fields: [
+        'Bloquear Contas a Pagar/Conta Corrente',
+        'Lógica p/Bloqueio de Contas',
+        'Data para Bloqueio das Contas',
+        'Nº de Dias para Bloqueio de Contas',
+        'Bloquear por Data de Consolidação',
+        'Bloquear Contas se Estiverem Consolidadas e Integradas',
+        'Chamar Tela de Permissão Quando Conta Bloqueada',
+      ]},
+      { group: 'Integração com Conta Corrente', fields: [
+        'Alterar Data de Lancto da Cond.Pagto Quando Alterar Data da Nota de Entrada',
+        'Ordem de Preenchimento da Descr. na Integração C/C',
+        'Sub-Ordem por Nome nos Relatórios',
+        'Atribuir Valor Digitado Ao Informado na Integração C/C',
+        'Data de Vencimento de Contas a Pagar Apenas em Dias Úteis',
+      ]},
+      { group: 'Plano de Contas', fields: [
+        'Utilizar Plano de Contas',
+        'Plano de Contas Padrão p/C.Receber',
+        'Plano de Contas Padrão p/Créditos',
+        'Plano de Contas Padrão p/Débitos',
+        'Plano de Contas Padrão p/C.Pagar Não Existentes',
+        'Plano de Contas Padrão p/Créditos Não Existentes',
+        'Plano de Contas Padrão p/Débitos Não Existentes',
+        'Plano de Contas para Cálculo do Percentual',
+        'Plano de Contas Padrão p/Transf.(Crédito)',
+        'Plano de Contas Padrão p/Transf.(Débito)',
+        'Plano de Contas Padrão p/Falta de Caixa (Crédito)',
+      ]},
+    ]
+  },
 ];
 
 // ── Coordenadas atuais (carregadas do index.html, editáveis aqui) ──
@@ -561,6 +604,37 @@ const COORDS = {
     'Fator de Conversão ao Importar XML da NFe':                              '84,60,20,5',
     'Usar Campo "Conferido" para Outras Entradas/Saídas':                     '91,42,10,5',
     'Permitir Alterar Outras Entradas/Saídas Conferidas':                     '91,60,10,5',
+  },
+  'prints/contas_pagar.png': {
+    'Usar Grupo de Despesa Interligado ao Tipo de Despesa':                     '5,35.3,7.6,3.5',
+    'Utilizar Detalhamento de Tipos de Despesa':                                '4.8,70.3,7.2,4.1',
+    'Chamar Tela Detalhamento Tipo Desp. Automaticamente':                      '9.5,35.7,7,3.7',
+    'Campo "Nº de Dias p/Pagto" no Contas a Pagar':                             '9.5,73,7.4,3.5',
+    'Campo "Lançamento Conferido" no Contas a Pagar':                           '14.1,35.4,27.2,3.9',
+    'Integrar Caixa c/C.Corrente Tot.por Dia':                                  '14.1,88,7.4,3.7',
+    'Bloquear Contas a Pagar/Conta Corrente':                                   '18.7,35.5,19.8,3.5',
+    'Lógica p/Bloqueio de Contas':                                              '18.7,74.2,10.3,3.5',
+    'Data para Bloqueio das Contas':                                            '23.4,35.7,10.4,3.3',
+    'Nº de Dias para Bloqueio de Contas':                                       '23.2,68.8,4.3,3.5',
+    'Bloquear por Data de Consolidação':                                        '27.8,35.5,7.3,3.3',
+    'Bloquear Contas se Estiverem Consolidadas e Integradas':                   '27.8,78.6,7.4,3.1',
+    'Chamar Tela de Permissão Quando Conta Bloqueada':                          '32,35.5,7.2,3.5',
+    'Alterar Data de Lancto da Cond.Pagto Quando Alterar Data da Nota de Entrada': '32,92.2,7.2,3.9',
+    'Ordem de Preenchimento da Descr. na Integração C/C':                       '36.5,35.7,31.5,3.7',
+    'Sub-Ordem por Nome nos Relatórios':                                        '36.9,91,7.3,3.3',
+    'Atribuir Valor Digitado Ao Informado na Integração C/C':                   '40.9,35.5,7.2,3.9',
+    'Data de Vencimento de Contas a Pagar Apenas em Dias Úteis':                '41.1,81.9,7,3.7',
+    'Utilizar Plano de Contas':                                                 '45.9,35.7,7,2.7',
+    'Plano de Contas Padrão p/C.Receber':                                       '50,35.3,9.7,3.9',
+    'Plano de Contas Padrão p/Créditos':                                        '54.8,35.7,9.1,3.7',
+    'Plano de Contas Padrão p/Débitos':                                         '59.3,35.7,9.1,3.3',
+    'Plano de Contas Padrão p/C.Pagar Não Existentes':                          '63.7,35.7,9.1,3.7',
+    'Plano de Contas Padrão p/Créditos Não Existentes':                         '68,35.7,9.3,3.9',
+    'Plano de Contas Padrão p/Débitos Não Existentes':                          '72.8,35.7,8.9,3.7',
+    'Plano de Contas para Cálculo do Percentual':                               '77.2,35.7,9.1,3.7',
+    'Plano de Contas Padrão p/Transf.(Crédito)':                                '82,35.3,9.3,3.5',
+    'Plano de Contas Padrão p/Transf.(Débito)':                                 '86.3,35.7,8.9,3.5',
+    'Plano de Contas Padrão p/Falta de Caixa (Crédito)':                        '90.9,35.7,9.1,3.3',
   }
 };
 
