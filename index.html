@@ -2160,9 +2160,6 @@
   <div id="modal-header">
     <div id="modal-field-name"></div>
     <div id="modal-actions">
-      <button id="modal-calibrate-btn" onclick="toggleCalibrate(event)" title="Clique para ajustar a posição do destaque na imagem">
-        ✏️ Ajustar Posição
-      </button>
       <button id="modal-close" onclick="closeScreenModal()">✕ Fechar</button>
     </div>
   </div>
@@ -2617,7 +2614,7 @@
     document.getElementById('modal-field-name').textContent = name;
     const img = document.getElementById('modal-img');
     img.src = imgSrc;
-    document.getElementById('modal-calibrate-btn').classList.remove('active');
+    document.getElementById('modal-calibrate-btn')?.classList.remove('active');
     document.getElementById('modal-img-wrap').classList.remove('calibrate-mode');
     document.getElementById('modal-coords-info').style.display = 'none';
     document.getElementById('screen-modal').classList.add('open');
