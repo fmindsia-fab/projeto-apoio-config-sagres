@@ -773,6 +773,10 @@
           Dados p/ Lançamento de Falta de Caixa
           <span class="path-badge">Gestão › Configurações › Falta de Caixa</span>
         </a>
+        <a class="nav-item" onclick="showSection('cfg-contas-pagar-nf')">
+          Dados de C.Pagar p/ NF de Compra
+          <span class="path-badge">Gestão › Configurações › Dados C.Pagar NF Compra</span>
+        </a>
       </div>
 
       <div class="nav-section">
@@ -872,6 +876,11 @@
           <div class="icon">⚠️</div>
           <h3>Dados p/ Lançamento de Falta de Caixa</h3>
           <p>Credor, tipo de documento, despesa e grupo para lançamento automático de faltas.</p>
+        </div>
+        <div class="welcome-card" onclick="showSection('cfg-contas-pagar-nf')">
+          <div class="icon">🧾</div>
+          <h3>Dados de C.Pagar p/ NF de Compra</h3>
+          <p>Data de pagamento, tipo de documento, despesa, departamento e grupo para lançamento de NFs de compra.</p>
         </div>
         <div class="welcome-card" onclick="showSection('cfg-cad-rapido')">
           <div class="icon">👤</div>
@@ -3271,6 +3280,76 @@
       </div>
     </section>
 
+    <!-- ══ CONTAS A PAGAR NF COMPRA ══ -->
+    <section id="cfg-contas-pagar-nf" class="page-section" data-section-img="prints/contas_pagar_nf_compra.png">
+      <div class="page-header">
+        <div class="breadcrumb">Gestão › Configurações › Dados de Contas a Pagar para Lançamento de Notas de Compra</div>
+        <h2>Dados de C.Pagar p/ NF de Compra</h2>
+        <p>Define os parâmetros usados para lançar automaticamente as contas a pagar ao importar notas fiscais de compra pelo XML.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/contas_pagar_nf_compra.png" alt="Tela Configurar Dados de Contas a Pagar de Notas Fiscais de Compra"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/contas_pagar_nf_compra.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Configurações</strong> →
+        <strong>Dados de Contas a Pagar para Lançamento de notas de Compra</strong>.<br>
+        Os campos de código (Tipo de Documento, Tipo de Despesa, Departamento e Grupo) aceitam o número do registro cadastrado no sistema — o nome correspondente é exibido ao lado após a confirmação.
+        O campo <strong>Utilizar Campos Abaixo</strong> habilita ou desabilita o preenchimento automático dos demais campos no lançamento da NF.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Campos da Tela</div>
+        <table class="fields-table">
+          <thead>
+            <tr>
+              <th>Campo</th>
+              <th>Tipo</th>
+              <th>Descrição / Orientação de Suporte</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Campo "Data Pagto" do C.Pagar vazio na importação pelo XML</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o campo <em>Data Pagto</em> do contas a pagar deve ficar em branco ao importar a nota pelo XML. <strong>S-Sim</strong> = campo vazio (pagamento não agendado); <strong>N-Não</strong> = preenche com a data de vencimento da NF.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Utilizar Campos Abaixo</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Habilita (<strong>Sim</strong>) ou desabilita (<strong>Não</strong>) o preenchimento automático dos campos de Tipo de Documento, Tipo de Despesa, Departamento e Grupo ao lançar a NF de compra. Quando <strong>Não</strong>, o sistema não aplica os valores configurados abaixo.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Tipo de Documento de Cobrança</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Código do tipo de documento de cobrança a ser associado ao lançamento (ex.: <em>1 – BOLETO</em>). Informe o código cadastrado em <strong>Financeiro › Tipos de Documento</strong>.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Tipo de Despesa</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Código do tipo de despesa para classificação do lançamento (ex.: <em>1 – BEBIDAS</em>). Informe o código cadastrado no plano de despesas do financeiro.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Departamento da Despesa</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Código do departamento ao qual a despesa será atribuída (ex.: <em>1 – GERAL</em>). Utilizado para relatórios de custos por centro de custo.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Grupo de Despesa</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Código do grupo de despesa para agrupamento contábil do lançamento (ex.: <em>1 – CUSTO DE MERCADORIAS</em>). Reflete o plano de contas configurado no financeiro.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- ══ FISCAL ══ -->
     <section id="fiscal-nfe" class="page-section">
       <div class="page-header">
@@ -3351,6 +3430,7 @@
       'cfg-cad-rapido': 'Cadastro Rápido de Clientes',
       'cfg-produtos-apoio': 'Produtos de Apoio',
       'cfg-prod-calc-pessoas': 'Produtos p/ Calc. Nº de Pessoas',
+      'cfg-contas-pagar-nf': 'Dados de C.Pagar p/ NF de Compra',
       'fiscal-nfe': 'Fiscal / NF-e / SAT',
       'pdv-caixa': 'PDV / Caixa',
       'usuarios': 'Usuários / Permissões'
@@ -3728,6 +3808,15 @@
         'Campo RG': '61.1,45.7,21.8,6.2',
         'Campo eMail': '71.3,46.1,21.2,6.2',
         'Campo Observação': '81.1,45.8,21.2,5.9',
+      },
+      'prints/contas_pagar_nf_compra.png': {
+        // Campos da Tela
+        'Campo "Data Pagto" do C.Pagar vazio na importação pelo XML':               '28.3,0.3,66.5,9',
+        'Utilizar Campos Abaixo':                                                   '39.4,40,26.9,7.9',
+        'Tipo de Documento de Cobrança':                                            '49.8,33.6,39.3,6.5',
+        'Tipo de Despesa':                                                          '60.2,44.7,28.6,6.5',
+        'Departamento da Despesa':                                                  '70.6,37.8,33.9,5.7',
+        'Grupo de Despesa':                                                         '80.3,43.4,43.6,6.8',
       },
     };
 
