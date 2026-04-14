@@ -344,17 +344,35 @@
     /* ── SEARCH BAR ── */
     #search-bar {
       width: 100%;
-      padding: 8px 12px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid var(--border);
+      padding: 8px 34px 8px 12px;
+      background: rgba(77,144,254,.07);
+      border: 2px solid rgba(77,144,254,.6);
       border-radius: 6px;
       color: var(--text);
       font-size: .82rem;
       margin: 12px 0 4px;
+      box-shadow: 0 0 0 3px rgba(77,144,254,.12);
+      transition: border-color .15s, box-shadow .15s, background .15s;
     }
 
-    #search-bar::placeholder { color: var(--text-faint); }
-    #search-bar:focus { outline: none; border-color: var(--amarelo); background: rgba(255,255,255,.09); }
+    #sidebar-header { position: relative; }
+    #search-icon {
+      position: absolute;
+      right: 28px;
+      bottom: 16px;
+      width: 14px;
+      height: 14px;
+      color: rgba(77,144,254,.8);
+      pointer-events: none;
+    }
+
+    #search-bar::placeholder { color: var(--text-dim); }
+    #search-bar:focus {
+      outline: none;
+      border-color: var(--azul-accent);
+      background: rgba(77,144,254,.12);
+      box-shadow: 0 0 0 4px rgba(77,144,254,.22);
+    }
 
     /* ── SEARCH RESULTS ── */
     #search-results { padding: 4px 0 8px; }
@@ -559,6 +577,7 @@
   <div id="sidebar-header">
     <h1>Squalus Gestão</h1>
     <p>Guia de Configurações — Suporte</p>
+    <svg id="search-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398l3.85 3.85a1 1 0 0 0 1.415-1.415l-3.868-3.833zm-5.242 1.156a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/></svg>
     <input id="search-bar" type="text" placeholder="Buscar configuração..." oninput="searchAll(this.value)" />
   </div>
 
@@ -614,6 +633,10 @@
       <a class="nav-item" onclick="showSection('contas-pagar')">
         Contas a Pagar / Conta Corrente
         <span class="path-badge">Gestão › Configurações › C.Pagar/C.Corrente</span>
+      </a>
+      <a class="nav-item" onclick="showSection('cfg-taxas-cartoes')">
+        Taxas Administrativas de Cartões
+        <span class="path-badge">Gestão › Configurações › Taxas Adm. Cartões</span>
       </a>
     </div>
 
@@ -705,6 +728,11 @@
         <h3>Contas a Pagar / Conta Corrente</h3>
         <p>Bloqueio de contas, integração C/C, plano de contas e vencimento em dias úteis.</p>
       </div>
+      <div class="welcome-card" onclick="showSection('cfg-taxas-cartoes')">
+        <div class="icon">💳</div>
+        <h3>Taxas Adm. de Cartões</h3>
+        <p>Plano de contas das taxas, diferenciação por empresa e parcelas no crédito.</p>
+      </div>
       <div class="welcome-card" onclick="showSection('cfg-cad-rapido')">
         <div class="icon">👤</div>
         <h3>Cadastro Rápido de Clientes</h3>
@@ -714,6 +742,11 @@
         <div class="icon">🧂</div>
         <h3>Produtos de Apoio</h3>
         <p>Taxa de serviço, taxa de entrega, couvert e consumação mínima.</p>
+      </div>
+      <div class="welcome-card" onclick="showSection('cfg-prod-calc-pessoas')">
+        <div class="icon">👥</div>
+        <h3>Produtos p/ Calc. Nº de Pessoas</h3>
+        <p>Lista de produtos que definem o número de pessoas no fechamento da conta.</p>
       </div>
       <div class="welcome-card" onclick="showSection('fiscal-nfe')">
         <div class="icon">🧾</div>
@@ -1962,6 +1995,73 @@
   </section>
 
   <!-- ══ CADASTRO RÁPIDO DE CLIENTES ══ -->
+  <!-- ══ TAXAS ADMINISTRATIVAS DE CARTÕES ══ -->
+  <section id="cfg-taxas-cartoes" class="page-section" data-section-img="prints/taxas_cartoes.png">
+    <div class="page-header">
+      <div class="breadcrumb">Gestão › Configurações › Taxas Adm de Cartões e Outras Opções</div>
+      <h2>Taxas Administrativas de Cartões</h2>
+      <p>Define os parâmetros para lançamento automático das taxas administrativas de cartões nas contas a pagar, integrando formas de pagamento com a conta corrente.</p>
+    </div>
+
+    <div class="screen-print">
+      <img src="prints/taxas_cartoes.png" alt="Tela Configurar Taxas Administrativas de Cartões"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+      <div class="screen-print-placeholder" style="display:none">
+        <strong>Print da Tela</strong>
+        Salve o print como <code>prints/taxas_cartoes.png</code> para exibir aqui.
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Configurações</strong> → <strong>Taxas Adm de Cartões e Outras Opções</strong>.<br>
+      As informações configuradas aqui são usadas para lançar automaticamente as taxas administrativas de cartões nas contas a pagar, integradas às formas de pagamento via conta corrente.
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Campos — Taxas Adm de Cartões e Outras Opções</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Tipo de Documento de Cobrança</div></td>
+            <td><span class="tag tag-txt">Texto</span></td>
+            <td>Código e descrição do tipo de documento usado para cobrar a taxa (ex.: <strong>2 — DÉBITO EM CC</strong>). Deve corresponder a um tipo de documento cadastrado no financeiro.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Tipo de Despesa</div></td>
+            <td><span class="tag tag-txt">Texto</span></td>
+            <td>Código e descrição do tipo de despesa que classifica a taxa administrativa (ex.: <strong>24 — TAXA ADM CARTÃO CRÉDITO</strong>). Utilizado para categorizar o lançamento no plano de contas.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Departamento da Despesa</div></td>
+            <td><span class="tag tag-txt">Texto</span></td>
+            <td>Código e nome do departamento ao qual a despesa de taxa será atribuída (ex.: <strong>1 — GERAL</strong>). Deve existir no cadastro de departamentos.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Grupo de Despesa</div></td>
+            <td><span class="tag tag-txt">Texto</span></td>
+            <td>Código e nome do grupo de despesa para classificação contábil (ex.: <strong>4 — DESPESAS COM VENDAS</strong>). Utilizado junto com o tipo de despesa para categorização no financeiro.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Taxas Administrativas Diferenciadas por Empresas</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Quando <strong>S-Sim</strong>, permite definir taxas administrativas distintas para cada empresa do grupo. Ativar somente em ambientes multi-empresa onde as taxas negociadas com as operadoras diferem entre filiais.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Tipo de Despesa das Taxas Adm. Diferenciadas por Formas Pagto</div></td>
+            <td><span class="tag tag-nao">N-Não</span></td>
+            <td>Quando <strong>S-Sim</strong>, cada forma de pagamento pode ter um tipo de despesa diferente para as taxas administrativas. Útil quando o cliente precisa separar contabilmente as taxas de débito, crédito, voucher etc.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Permitir o Uso de Parcelas nos Cartões de Crédito</div></td>
+            <td><span class="tag tag-nao">Não</span></td>
+            <td>Quando ativado, habilita o parcelamento de vendas nos cartões de crédito. Ao ativar, o sistema passa a registrar cada parcela individualmente para controle das taxas e recebimentos.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
   <section id="cfg-cad-rapido" class="page-section" data-section-img="prints/cad_rapido_clientes.png">
     <div class="page-header">
       <div class="breadcrumb">Gestão › Configurações › Cadastro Rápido de Clientes</div>
@@ -2206,6 +2306,7 @@
   <div id="modal-header">
     <div id="modal-field-name"></div>
     <div id="modal-actions">
+      <button id="modal-calibrate-btn" onclick="toggleCalibrate(event)">✎ Calibrar</button>
       <button id="modal-close" onclick="closeScreenModal()">✕ Fechar</button>
     </div>
   </div>
@@ -2228,6 +2329,7 @@
     'fech-caixa':       'Fechamento de Caixa',
     'estoque':          'Configurações de Estoque',
     'contas-pagar':     'Contas a Pagar / Conta Corrente',
+    'cfg-taxas-cartoes': 'Taxas Administrativas de Cartões',
     'cfg-cad-rapido':   'Cadastro Rápido de Clientes',
     'cfg-produtos-apoio': 'Produtos de Apoio',
     'cfg-prod-calc-pessoas': 'Produtos p/ Calc. Nº de Pessoas',
@@ -2465,37 +2567,68 @@
       'Valor Máximo do Saldo Negativo':                                           '68.3,60.6,19.2,7',
       'Valor Padrão para "Bloq.p/Vnd.Antecip." no Cadastro de Clientes':          '79,60.7,37.7,7.4',
     },
+    'prints/fech_caixa.png': {
+      // Formas de Pagamento
+      'Informar Valores de Formas de Pagamento':                                  '4.7,53.3,7.5,2.6',
+      // Detalhamentos
+      'Imprimir Detalhamento dos Brindes no Fechamento do Caixa':                 '8.9,53.2,8.1,3.1',
+      'Imprimir Detalhamento dos Crediários no Fechamento do Caixa':              '13,53.3,7.7,2.8',
+      'Imprimir Detalhamento dos Fiados no Fechamento do Caixa':                  '17.2,53.6,7.5,3.1',
+      'Separar Fiados por Vendas no Fechamento do Caixa':                         '21.1,53.3,7.5,3.1',
+      'Imprimir Detalhamento das Vendas Antecipadas no Fechamento do Caixa':      '25.5,53.4,7.5,2.8',
+      'Imprimir Vendas de Atendendes no Fechamento do Caixa':                     '29.7,53.4,7.5,2.6',
+      'Imprimir Taxas de Entrega no Fechamento do Caixa':                         '34,53.4,7.5,2.5',
+      // Produtos
+      'Imprimir Vendas de Produtos no Fechamento do Caixa':                       '37.7,53.3,23.4,3.1',
+      'Imprimir Vendas de Grupos de Produtos no Fechamento do Caixa':             '41.7,53.6,7.4,2.8',
+      'Imprimir Vendas de Classes de Produtos no Fechamento do Caixa':            '45.7,53.1,8.1,4.3',
+      'Imprimir Vendas de Departamentos de Produtos no Fechamento do Caixa':      '50.4,53.2,7.7,3.2',
+      'Imprimir Vendas de Marcas de Produtos no Fechamento do Caixa':             '54.4,53.6,7.4,3.1',
+      // Ocorrências e Contas
+      'Imprimir Ocorrências do Caixa de Descontos no Fechamento do Caixa':        '58.6,53.4,7.8,3.2',
+      'Imprimir Ocorrências do Caixa de Transferências no Fechamento do Caixa':   '62.6,53.4,7.7,3.4',
+      'Imprimir Informações de Ocorrências no Fechamento de Caixa':               '66.7,53.2,32.3,3.2',
+      'Imprimir Ctas.Assinadas Recebidas/Realizadas por Departamentos no Fech.Caixa': '71.4,53.3,7.7,2.5',
+      // Avançadas
+      'Imprimir Formas Pagto s/Retiradas e Troco Inicial no Fech.Caixa':          '75.4,53.6,7.4,2.6',
+      'Imprimir Vendas de Produtos por Kilo':                                     '75.1,86.3,8.1,3.4',
+      'Pode Exibir Totalizações de Outros Caixas no Ecf':                         '79.1,53.6,7.7,3.1',
+      'Nível Exibição das Ocorrências do Caixa':                                  '79.7,88.2,10.8,3.2',
+      'Pode Imprimir Resumo do Caixa Antes do Fechamento':                        '83.4,53.4,7.5,2.9',
+      'Ordem de Digitação das Formas Pagto no Fech.Caixa':                        '87.4,53.4,33.6,3.4',
+      'Nº Máximo de Cópias no Fechamento do Caixa':                               '91.7,53.3,3.9,3.2',
+    },
     'prints/estoque.png': {
       // Custo e Entradas de Produtos
-      'Custo a ser atribuído no lançamento da saída de produtos':               '5.2,48.5,28.2,4',
-      'Custo a ser atribuído no lançamento da entrada de produtos':             '9.8,48.5,14.5,4',
+      'Custo a ser atribuído no lançamento da saída de produtos':                 '5.2,48.5,28.2,4',
+      'Custo a ser atribuído no lançamento da entrada de produtos':               '9.8,48.5,14.5,4',
       'Chamar Tela de "Condições de Pagamento" Após Lançamento da Nota de Compra': '14.5,48.5,6.7,4.2',
-      'Exibir Botão "Alterar Preço" em "Outras Entradas de Estoque"':           '19.3,48.3,6.8,4.2',
-      'Campo "Validade" nas Entradas de Estoque dos Produtos':                  '18.9,89.1,7.3,4.2',
-      'Informar Último Preço no Lançamento das Entradas':                       '24.5,48.5,6.7,3.3',
-      'Percentual de Variação Permitido nas Entradas':                          '29.1,48.3,5.3,3.3',
+      'Exibir Botão "Alterar Preço" em "Outras Entradas de Estoque"':             '19.3,48.3,6.8,4.2',
+      'Campo "Validade" nas Entradas de Estoque dos Produtos':                    '18.9,89.1,7.3,4.2',
+      'Informar Último Preço no Lançamento das Entradas':                         '24.5,48.5,6.7,3.3',
+      'Percentual de Variação Permitido nas Entradas':                            '29.1,48.3,5.3,3.3',
       // Contagem de Estoque
-      'Ocultar Campos Informativos na Contagem de Estoque':                     '33.4,48.4,6.7,4',
-      'Usar Campo "Compensação" na Contagem de Estoque':                        '33.4,87.7,7,3.9',
-      'Método p/Contagem de Estoque':                                           '38.4,48.4,28.1,3.5',
-      'Permitir Alterar Custo de Produtos na Contagem':                         '43.2,48.2,7.1,3.5',
-      'Data Padrão p/Contagem do Estoque':                                      '42.6,77.7,21.5,4.2',
-      'Tipo Mov.Estoque p/Contagem':                                            '71.3,48.3,6.3,3.9',
-      'Cliente p/Contagem':                                                     '76.1,48.4,6,3.9',
-      'Fornecedor p/Contagem':                                                  '80.9,48.3,6.1,3.7',
+      'Ocultar Campos Informativos na Contagem de Estoque':                       '33.4,48.4,6.7,4',
+      'Usar Campo "Compensação" na Contagem de Estoque':                          '33.4,87.7,7,3.9',
+      'Método p/Contagem de Estoque':                                             '38.4,48.4,28.1,3.5',
+      'Permitir Alterar Custo de Produtos na Contagem':                           '43.2,48.2,7.1,3.5',
+      'Data Padrão p/Contagem do Estoque':                                        '42.6,77.7,21.5,4.2',
+      'Tipo Mov.Estoque p/Contagem':                                              '71.3,48.3,6.3,3.9',
+      'Cliente p/Contagem':                                                       '76.1,48.4,6,3.9',
+      'Fornecedor p/Contagem':                                                    '80.9,48.3,6.1,3.7',
       // Pedidos de Compra
-      'Tipo de Cálculo p/Qtd.Vendida nos Pedidos de Compra':                    '48,48.2,37.8,3.5',
-      'Informar Operador c/Senha nos Pedidos de Compra':                        '52.6,48.4,6.8,3.9',
-      'Desabilitar Campo Data nos Pedidos de Compra':                           '52.6,83.9,7.4,3.7',
-      'Permitir Exclusão de Itens nos Pedidos de Compra':                       '57.4,48.4,6.7,3.3',
-      'Usar Preço Máximo para Produtos nas Compra':                             '57.2,83.5,6.6,3.5',
-      'Forma de Inserir Produto Específico no Pedido de Compra':                '61.9,48.5,46.9,3.9',
+      'Tipo de Cálculo p/Qtd.Vendida nos Pedidos de Compra':                      '48,48.2,37.8,3.5',
+      'Informar Operador c/Senha nos Pedidos de Compra':                          '52.6,48.4,6.8,3.9',
+      'Desabilitar Campo Data nos Pedidos de Compra':                             '52.6,83.9,7.4,3.7',
+      'Permitir Exclusão de Itens nos Pedidos de Compra':                         '57.4,48.4,6.7,3.3',
+      'Usar Preço Máximo para Produtos nas Compra':                               '57.2,83.5,6.6,3.5',
+      'Forma de Inserir Produto Específico no Pedido de Compra':                  '61.9,48.5,46.9,3.9',
       // Outras Entradas/Saídas e Fiscal
-      'Método de Uso de Outras Entradas/Saídas':                                '66.9,48.2,19.2,3.9',
-      'Permitir Alterar Data de Emissão NFe de Terceiros':                      '85.6,48.2,7,3.9',
-      'Fator de Conversão ao Importar XML da NFe':                              '85.2,83.1,15.8,3.9',
-      'Usar Campo "Conferido" para Outras Entradas/Saídas':                     '90.6,48.2,7.1,3.5',
-      'Permitir Alterar Outras Entradas/Saídas Conferidas':                     '90.4,86.2,6.6,3.7',
+      'Método de Uso de Outras Entradas/Saídas':                                  '70,42,25,5',
+      'Permitir Alterar Data de Emissão NFe de Terceiros':                        '84,42,10,5',
+      'Fator de Conversão ao Importar XML da NFe':                                '84,60,20,5',
+      'Usar Campo "Conferido" para Outras Entradas/Saídas':                       '91,42,10,5',
+      'Permitir Alterar Outras Entradas/Saídas Conferidas':                       '91,60,10,5',
     },
     'prints/contas_pagar.png': {
       // Configurações Gerais
@@ -2534,58 +2667,42 @@
     },
     'prints/produtos_apoio.png': {
       // Produtos de Apoio
-      'Utilizar Produto "Taxa de Serviço"':                                       '10.5,31.6,9.5,7.3',
-      'Produto "Taxa de Serviço"':                                                '21.1,31.8,18.1,6.7',
-      'Utilizar Produto "Taxa de Entrega"':                                       '31,31.9,9.2,7.3',
-      'Produto "Taxa de Entrega"':                                                '41.2,31.9,17.8,7',
-      'Utilizar Produto "Couvert"':                                               '50.2,31.9,9.2,7.7',
-      'Produto "Couvert"':                                                        '61.3,31.8,17.8,7',
-      'Utilizar Produto "Consumação Mínima"':                                     '71.2,32,8.8,6.1',
-      'Produto "Cons.Mínima"':                                                    '81.5,31.9,17.7,6.7',
+      'Utilizar Produto "Taxa de Serviço"':                                       '10.9,32,9.1,7.3',
+      'Produto "Taxa de Serviço"':                                                '20.8,31.9,17.8,8',
+      'Utilizar Produto "Taxa de Entrega"':                                       '30.7,32,9.1,7',
+      'Produto "Taxa de Entrega"':                                                '41.5,32,18,6.7',
+      'Utilizar Produto "Couvert"':                                               '51.1,32,8.9,7',
+      'Produto "Couvert"':                                                        '61,31.9,18,6.7',
+      'Utilizar Produto "Consumação Mínima"':                                     '70.6,31.9,9.3,7',
+      'Produto "Cons.Mínima"':                                                    '80.5,31.8,17.7,7.3',
+    },
+    'prints/taxas_cartoes.png': {
+      // Campos — Taxas Adm de Cartões e Outras Opções
+      'Tipo de Documento de Cobrança':                                            '27.4,52.2,8.8,7.3',
+      'Tipo de Despesa':                                                          '36.4,52.6,8.2,7.1',
+      'Departamento da Despesa':                                                  '46.3,52.6,8.1,6.2',
+      'Grupo de Despesa':                                                         '55.1,52.6,8,6.8',
+      'Taxas Administrativas Diferenciadas por Empresas':                         '64.4,52.6,9.5,6.5',
+      'Tipo de Despesa das Taxas Adm. Diferenciadas por Formas Pagto':            '73.7,52.3,9.6,5.9',
+      'Permitir o Uso de Parcelas nos Cartões de Crédito':                        '82.8,52.6,44.7,5.9',
+    },
+    'prints/prod_calc_pessoas.png': {
+      // Colunas da Grade
+      'Código':                                                                   '0,0,0,0',
+      'Produto':                                                                  '0,0,0,0',
     },
     'prints/cad_rapido_clientes.png': {
       // Campos do Cadastro Rápido
-      'Campo Código Interno c/Apenas Dígitos Numéricos':                          '11,45.9,10.1,6.8',
-      'Campo DDD':                                                                '21.4,45.7,21.9,6.2',
-      'Campo Data de Nascimento':                                                 '30.7,45.8,21.2,6.8',
-      'Campo Convênio':                                                           '41.1,45.7,21.8,6.8',
-      'Campo CPF':                                                                '51.5,45.8,21.4,5.9',
-      'Checar CPF Duplicado':                                                     '51.3,88.8,10.5,6.8',
-      'Campo RG':                                                                 '60.6,45.9,21.6,7',
-      'Campo eMail':                                                              '71.3,45.9,21.1,6.8',
-      'Campo Observação':                                                         '80.6,45.9,21.2,6.8',
+      'Campo Código Interno c/Apenas Dígitos Numéricos':                          '11.3,45.5,10.7,6.2',
+      'Campo DDD':                                                                '20.8,45.7,21.9,7.6',
+      'Campo Data de Nascimento':                                                 '31.5,45.8,21.9,6.2',
+      'Campo Convênio':                                                           '40.6,45.7,21.4,7',
+      'Campo CPF':                                                                '50.7,45.9,21.4,6.8',
+      'Checar CPF Duplicado':                                                     '50.4,88.1,10.9,7.9',
+      'Campo RG':                                                                 '61.1,45.7,21.8,6.2',
+      'Campo eMail':                                                              '71.3,46.1,21.2,6.2',
+      'Campo Observação':                                                         '81.1,45.8,21.2,5.9',
     },
-    'prints/fech_caixa.png': {
-      // Formas de Pagamento
-      'Informar Valores de Formas de Pagamento':                                  '4.7,53.3,7.5,2.6',
-      // Detalhamentos
-      'Imprimir Detalhamento dos Brindes no Fechamento do Caixa':                 '8.9,53.2,8.1,3.1',
-      'Imprimir Detalhamento dos Crediários no Fechamento do Caixa':              '13,53.3,7.7,2.8',
-      'Imprimir Detalhamento dos Fiados no Fechamento do Caixa':                  '17.2,53.6,7.5,3.1',
-      'Separar Fiados por Vendas no Fechamento do Caixa':                         '21.1,53.3,7.5,3.1',
-      'Imprimir Detalhamento das Vendas Antecipadas no Fechamento do Caixa':      '25.5,53.4,7.5,2.8',
-      'Imprimir Vendas de Atendendes no Fechamento do Caixa':                     '29.7,53.4,7.5,2.6',
-      'Imprimir Taxas de Entrega no Fechamento do Caixa':                         '34,53.4,7.5,2.5',
-      // Produtos
-      'Imprimir Vendas de Produtos no Fechamento do Caixa':                       '37.7,53.3,23.4,3.1',
-      'Imprimir Vendas de Grupos de Produtos no Fechamento do Caixa':             '41.7,53.6,7.4,2.8',
-      'Imprimir Vendas de Classes de Produtos no Fechamento do Caixa':            '45.7,53.1,8.1,4.3',
-      'Imprimir Vendas de Departamentos de Produtos no Fechamento do Caixa':      '50.4,53.2,7.7,3.2',
-      'Imprimir Vendas de Marcas de Produtos no Fechamento do Caixa':             '54.4,53.6,7.4,3.1',
-      // Ocorrências e Contas
-      'Imprimir Ocorrências do Caixa de Descontos no Fechamento do Caixa':        '58.6,53.4,7.8,3.2',
-      'Imprimir Ocorrências do Caixa de Transferências no Fechamento do Caixa':   '62.6,53.4,7.7,3.4',
-      'Imprimir Informações de Ocorrências no Fechamento de Caixa':               '66.7,53.2,32.3,3.2',
-      'Imprimir Ctas.Assinadas Recebidas/Realizadas por Departamentos no Fech.Caixa': '71.4,53.3,7.7,2.5',
-      // Avançadas
-      'Imprimir Formas Pagto s/Retiradas e Troco Inicial no Fech.Caixa':          '75.4,53.6,7.4,2.6',
-      'Imprimir Vendas de Produtos por Kilo':                                     '75.1,86.3,8.1,3.4',
-      'Pode Exibir Totalizações de Outros Caixas no Ecf':                         '79.1,53.6,7.7,3.1',
-      'Nível Exibição das Ocorrências do Caixa':                                  '79.7,88.2,10.8,3.2',
-      'Pode Imprimir Resumo do Caixa Antes do Fechamento':                        '83.4,53.4,7.5,2.9',
-      'Ordem de Digitação das Formas Pagto no Fech.Caixa':                        '87.4,53.4,33.6,3.4',
-      'Nº Máximo de Cópias no Fechamento do Caixa':                               '91.7,53.3,3.9,3.2',
-    }
   };
 
   // ── Auto-adiciona botões "Exibir na tela" em todas as linhas com coordenadas ──

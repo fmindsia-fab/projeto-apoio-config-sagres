@@ -483,6 +483,31 @@ const IMAGES = [
     ]
   },
   {
+    file: 'prints/taxas_cartoes.png',
+    label: 'Taxas Adm. de Cartões',
+    groups: [
+      { group: 'Campos — Taxas Adm de Cartões e Outras Opções', fields: [
+        'Tipo de Documento de Cobrança',
+        'Tipo de Despesa',
+        'Departamento da Despesa',
+        'Grupo de Despesa',
+        'Taxas Administrativas Diferenciadas por Empresas',
+        'Tipo de Despesa das Taxas Adm. Diferenciadas por Formas Pagto',
+        'Permitir o Uso de Parcelas nos Cartões de Crédito',
+      ]},
+    ]
+  },
+  {
+    file: 'prints/prod_calc_pessoas.png',
+    label: 'Produtos p/ Calc. Nº de Pessoas',
+    groups: [
+      { group: 'Colunas da Grade', fields: [
+        'Código',
+        'Produto',
+      ]},
+    ]
+  },
+  {
     file: 'prints/cad_rapido_clientes.png',
     label: 'Cadastro Rápido de Clientes',
     groups: [
@@ -670,25 +695,38 @@ const COORDS = {
     'Plano de Contas Padrão p/Falta de Caixa (Crédito)':                        '90.9,35.7,9.1,3.3',
   },
   'prints/produtos_apoio.png': {
-    'Utilizar Produto "Taxa de Serviço"':    '0,0,0,0',
-    'Produto "Taxa de Serviço"':             '0,0,0,0',
-    'Utilizar Produto "Taxa de Entrega"':    '0,0,0,0',
-    'Produto "Taxa de Entrega"':             '0,0,0,0',
-    'Utilizar Produto "Couvert"':            '0,0,0,0',
-    'Produto "Couvert"':                     '0,0,0,0',
-    'Utilizar Produto "Consumação Mínima"':  '0,0,0,0',
-    'Produto "Cons.Mínima"':                 '0,0,0,0',
+    'Utilizar Produto "Taxa de Serviço"':    '10.9,32,9.1,7.3',
+    'Produto "Taxa de Serviço"':             '20.8,31.9,17.8,8',
+    'Utilizar Produto "Taxa de Entrega"':    '30.7,32,9.1,7',
+    'Produto "Taxa de Entrega"':             '41.5,32,18,6.7',
+    'Utilizar Produto "Couvert"':            '51.1,32,8.9,7',
+    'Produto "Couvert"':                     '61,31.9,18,6.7',
+    'Utilizar Produto "Consumação Mínima"':  '70.6,31.9,9.3,7',
+    'Produto "Cons.Mínima"':                 '80.5,31.8,17.7,7.3',
+  },
+  'prints/taxas_cartoes.png': {
+    'Tipo de Documento de Cobrança':                                              '27.4,52.2,8.8,7.3',
+    'Tipo de Despesa':                                                            '36.4,52.6,8.2,7.1',
+    'Departamento da Despesa':                                                    '46.3,52.6,8.1,6.2',
+    'Grupo de Despesa':                                                           '55.1,52.6,8,6.8',
+    'Taxas Administrativas Diferenciadas por Empresas':                           '64.4,52.6,9.5,6.5',
+    'Tipo de Despesa das Taxas Adm. Diferenciadas por Formas Pagto':              '73.7,52.3,9.6,5.9',
+    'Permitir o Uso de Parcelas nos Cartões de Crédito':                          '82.8,52.6,44.7,5.9',
+  },
+  'prints/prod_calc_pessoas.png': {
+    'Código':   '0,0,0,0',
+    'Produto':  '0,0,0,0',
   },
   'prints/cad_rapido_clientes.png': {
-    'Campo Código Interno c/Apenas Dígitos Numéricos':  '0,0,0,0',
-    'Campo DDD':                                        '0,0,0,0',
-    'Campo Data de Nascimento':                         '0,0,0,0',
-    'Campo Convênio':                                   '0,0,0,0',
-    'Campo CPF':                                        '0,0,0,0',
-    'Checar CPF Duplicado':                             '0,0,0,0',
-    'Campo RG':                                         '0,0,0,0',
-    'Campo eMail':                                      '0,0,0,0',
-    'Campo Observação':                                 '0,0,0,0',
+    'Campo Código Interno c/Apenas Dígitos Numéricos':  '11.3,45.5,10.7,6.2',
+    'Campo DDD':                                        '20.8,45.7,21.9,7.6',
+    'Campo Data de Nascimento':                         '31.5,45.8,21.9,6.2',
+    'Campo Convênio':                                   '40.6,45.7,21.4,7',
+    'Campo CPF':                                        '50.7,45.9,21.4,6.8',
+    'Checar CPF Duplicado':                             '50.4,88.1,10.9,7.9',
+    'Campo RG':                                         '61.1,45.7,21.8,6.2',
+    'Campo eMail':                                      '71.3,46.1,21.2,6.2',
+    'Campo Observação':                                 '81.1,45.8,21.2,5.9',
   }
 };
 
