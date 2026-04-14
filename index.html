@@ -631,6 +631,10 @@
         Produtos de Apoio
         <span class="path-badge">Gestão › Configurações › Produtos de Apoio</span>
       </a>
+      <a class="nav-item" onclick="showSection('cfg-prod-calc-pessoas')">
+        Produtos p/ Calc. Nº de Pessoas
+        <span class="path-badge">Gestão › Configurações › Prod. Obrigatórios/Calc. Pessoas</span>
+      </a>
     </div>
 
     <div class="nav-section">
@@ -2108,6 +2112,48 @@
     </div>
   </section>
 
+  <!-- ══ PRODUTOS PARA CALC. Nº DE PESSOAS ══ -->
+  <section id="cfg-prod-calc-pessoas" class="page-section" data-section-img="prints/prod_calc_pessoas.png">
+    <div class="page-header">
+      <div class="breadcrumb">Gestão › Configurações › Produtos Obrigatórios e/ou para Calc. de Número de Pessoas</div>
+      <h2>Produtos p/ Cálculo de Nº de Pessoas</h2>
+      <p>Define quais produtos, quando lançados na comanda, são considerados para calcular automaticamente o número de pessoas no fechamento da conta.</p>
+    </div>
+
+    <div class="screen-print">
+      <img src="prints/prod_calc_pessoas.png" alt="Tela Definir Produtos para Cálculo do Nº de Pessoas"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+      <div class="screen-print-placeholder" style="display:none">
+        <strong>Print da Tela</strong>
+        Salve o print como <code>prints/prod_calc_pessoas.png</code> para exibir aqui.
+      </div>
+    </div>
+
+    <div class="note-box">
+      <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Configurações</strong> → <strong>Produtos Obrigatórios e/ou para Calc de Número de Pessoas</strong>.<br>
+      Use <strong>[Insert] Inserir Novo</strong> para adicionar um produto à lista, <strong>[Enter] Alterar</strong> para editar e <strong>[Ctrl+Del] Excluir</strong> para remover. O sistema usará esses produtos como referência para contabilizar automaticamente o número de pessoas ao fechar a conta.
+    </div>
+
+    <div class="fields-card">
+      <div class="fields-card-header">Colunas da Grade</div>
+      <table class="fields-table">
+        <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><div class="field-name">Código</div></td>
+            <td><span class="tag tag-txt">Texto</span></td>
+            <td>Código interno do produto cadastrado no sistema. Gerado automaticamente ao inserir.</td>
+          </tr>
+          <tr>
+            <td><div class="field-name">Produto</div></td>
+            <td><span class="tag tag-txt">Texto</span></td>
+            <td>Nome/descrição do produto que será contabilizado como "uma pessoa" no fechamento da conta. Informe produtos individuais por pessoa (ex.: prato executivo, entrada individual) para que o cálculo seja preciso.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
   <!-- ══ FISCAL ══ -->
   <section id="fiscal-nfe" class="page-section">
     <div class="page-header">
@@ -2184,6 +2230,7 @@
     'contas-pagar':     'Contas a Pagar / Conta Corrente',
     'cfg-cad-rapido':   'Cadastro Rápido de Clientes',
     'cfg-produtos-apoio': 'Produtos de Apoio',
+    'cfg-prod-calc-pessoas': 'Produtos p/ Calc. Nº de Pessoas',
     'fiscal-nfe':   'Fiscal / NF-e / SAT',
     'pdv-caixa':    'PDV / Caixa',
     'usuarios':     'Usuários / Permissões'
