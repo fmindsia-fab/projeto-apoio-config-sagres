@@ -875,6 +875,10 @@
             Sagres RestServer
             <span class="path-badge">Gestão › Configurações › Sagres RestServer</span>
           </a>
+          <a class="nav-item" onclick="showSection('cfg-senha-internet')">
+            Senha Via Internet
+            <span class="path-badge">Gestão › Configurações › Senha Via Internet</span>
+          </a>
         </div>
       </div>
 
@@ -1001,6 +1005,11 @@
           <div class="icon">🔌</div>
           <h3>Sagres RestServer</h3>
           <p>Lógica de acesso e tempos de expiração de sessão do servidor REST do Sagres.</p>
+        </div>
+        <div class="welcome-card" onclick="showSection('cfg-senha-internet')">
+          <div class="icon">🔐</div>
+          <h3>Senha Via Internet</h3>
+          <p>CNPJ do representante, senha e nome do responsável para acesso ao sistema via internet.</p>
         </div>
         <div class="welcome-card" onclick="showSection('pdv-caixa')">
           <div class="icon">🖥️</div>
@@ -3599,6 +3608,59 @@
       </div>
     </section>
 
+    <!-- ══ SENHA VIA INTERNET ══ -->
+    <section id="cfg-senha-internet" class="page-section" data-section-img="prints/cfg_senha_internet.png">
+      <div class="page-header">
+        <div class="breadcrumb">Gestão › Configurações › Senha Via Internet (Sistema Gestão)</div>
+        <h2>Senha Via Internet (Sistema Gestão)</h2>
+        <p>Cadastro das credenciais do representante para acesso e autenticação do sistema via internet.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cfg_senha_internet.png" alt="Tela Identificação do Representante — Senha Via Internet"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cfg_senha_internet.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Configurações</strong> →
+        <strong>Senha Via Internet (Sistema Gestão)</strong>.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Campos da Tela</div>
+        <table class="fields-table">
+          <thead>
+            <tr>
+              <th>Campo</th>
+              <th>Tipo</th>
+              <th>Descrição / Orientação de Suporte</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">CNPJ do Representante</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>CNPJ do representante autorizado a acessar o sistema via internet. Informe no formato <em>XX.XXX.XXX/XXXX-XX</em>.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Senha</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Senha de acesso do representante para autenticação no sistema via internet.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Nome do Responsável</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Nome completo do responsável vinculado ao CNPJ do representante.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- ══ LOCAIS DE IMPRESSÃO ══ -->
     <section id="cfg-locais-impressao" class="page-section" data-section-img="prints/cfg_locais_impressao.png">
       <div class="page-header">
@@ -3864,6 +3926,7 @@
       'cfg-sistema-backup': 'Sistema de Backup',
       'cfg-gestao-remoto': 'Sistema de Gestão Remoto',
       'cfg-sagres-restserver': 'Sagres RestServer',
+      'cfg-senha-internet': 'Senha Via Internet (Sistema Gestão)',
       'cfg-locais-impressao': 'Locais de Impressão',
       'cfg-xml-email-contabilidade': 'Envio de XMLs por Email para a Contabilidade',
       'cfg-xml-email-outras-opcoes': 'Envio de XMLs por Email — Outras Opções',
@@ -4264,6 +4327,11 @@
         'Lógica de Acesso ao SagresRestServer':                                              '20.8,24.7,74.7,15.3',
         'Tempo p/Expiração da Sessão a Partir do Último Horário de Acesso (min.)':           '43.1,2,58.2,13.9',
         'Tempo p/Expiração da Sessão a Partir do Primeiro Horário de Acesso (min.)':         '63.9,0.8,59.2,13.9',
+      },
+      'prints/cfg_senha_internet.png': {
+        'CNPJ do Representante': '20.1,1,73.1,16.7',
+        'Senha':                 '43.5,23.9,74.8,13.8',
+        'Nome do Responsável':   '64,3.3,95.6,13',
       },
       'prints/cfg_locais_impressao.png': {
         'Utilizar Locais de Impressão nos Produtos': '28.2,0.7,97.4,17.6',
