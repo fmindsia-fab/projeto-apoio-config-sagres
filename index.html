@@ -909,6 +909,16 @@
           </a>
         </div>
       </div>
+
+      <div class="nav-section collapsed">
+        <div class="nav-section-title" onclick="toggleNavSection(this)">Cadastro</div>
+        <div class="nav-items">
+          <a class="nav-item" onclick="showSection('cad-empresas')">
+            Empresas
+            <span class="path-badge">Gestão › Cadastro › Empresas</span>
+          </a>
+        </div>
+      </div>
     </div>
   </nav>
 
@@ -1038,6 +1048,11 @@
           <div class="icon">👤</div>
           <h3>Usuários / Permissões</h3>
           <p>Cadastro de usuários, perfis de acesso e permissões.</p>
+        </div>
+        <div class="welcome-card" onclick="showSection('cad-empresas')">
+          <div class="icon">🏢</div>
+          <h3>Empresas</h3>
+          <p>Cadastro das empresas do sistema: CNPJ, endereço, dados fiscais, regime de tributação e horários de redução Z.</p>
         </div>
       </div>
     </section>
@@ -3992,6 +4007,235 @@
       </div>
     </section>
 
+    <!-- ══ CADASTRO DE EMPRESAS ══ -->
+    <section id="cad-empresas" class="page-section" data-section-img="prints/cad_empresas.png">
+      <div class="page-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas</div>
+        <h2>Cadastro de Empresas</h2>
+        <p>Cadastro das empresas do sistema. Define dados de identificação, endereço, contato, parâmetros fiscais e horários de operação.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas.png" alt="Tela Cadastro de Empresas"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong>.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Identificação</div>
+        <table class="fields-table">
+          <thead>
+            <tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Nome</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Nome fantasia da empresa, utilizado nas telas operacionais do sistema.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Nome Resumido</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Versão abreviada do nome da empresa para exibição em espaços reduzidos.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Razão Social</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Razão social completa conforme registro na Receita Federal.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">CNPJ</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>CNPJ da empresa no formato <em>XX.XXX.XXX/XXXX-XX</em>. Utilizado na emissão de documentos fiscais.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Inscr.Estadual</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Inscrição Estadual da empresa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Inscr.Municipal</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Inscrição Municipal da empresa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Cnae Fiscal</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Código CNAE (Classificação Nacional de Atividades Econômicas) da empresa.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Endereço</div>
+        <table class="fields-table">
+          <thead>
+            <tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Logradouro</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Rua, avenida ou logradouro do endereço da empresa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Número</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Número do endereço.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Complemento</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Complemento do endereço (sala, loja, andar etc.).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Bairro</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Bairro do endereço da empresa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">CEP</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Código de Endereçamento Postal.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Latitude</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Coordenada geográfica de latitude (uso opcional).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Longitude</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Coordenada geográfica de longitude (uso opcional).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Cód.Município</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Código IBGE do município, utilizado na emissão de NF-e e NFC-e.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Contato</div>
+        <table class="fields-table">
+          <thead>
+            <tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Contato</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Nome da pessoa de contato na empresa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">DDD</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Código DDD do telefone principal.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Telefone</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Número do telefone principal da empresa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Fax</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Número do fax (se utilizado).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">EMail</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Endereço de e-mail da empresa, podendo ser utilizado em envios automáticos do sistema.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Fiscal</div>
+        <table class="fields-table">
+          <thead>
+            <tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Perfil (Sped)</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Perfil SPED da empresa para geração dos arquivos contábeis e fiscais.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Tipo de Atividade (Sped)</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Tipo de atividade econômica para fins de SPED Fiscal.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Regime de Tributação</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define o regime tributário da empresa: Lucro Real, Lucro Presumido, Simples Nacional etc. Impacta o cálculo de impostos nas notas fiscais.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Empresa é "Simples Nacional" (Nfe/NFCe/Sat)</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Indica se a empresa é optante pelo Simples Nacional para fins de emissão de NF-e, NFC-e e SAT.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Relatórios</div>
+        <table class="fields-table">
+          <thead>
+            <tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Nome para Relatórios</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Nome da empresa que será impresso no cabeçalho dos relatórios.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Endereço para Relatórios (Linha 1)</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Primeira linha do endereço exibido no cabeçalho dos relatórios.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Endereço para Relatórios (Linha 2)</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Segunda linha do endereço exibido no cabeçalho dos relatórios.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Operação</div>
+        <table class="fields-table">
+          <thead>
+            <tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Horário Inicial Redução Z</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Define o horário inicial da Redução Z para cada dia da semana (Dom, Seg, Ter, Qua, Qui, Sex, Sab). Utilizado para controle dos fechamentos de caixa.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <!-- ══════════════ MODAL EXIBIR NA TELA ══════════════ -->
@@ -4039,7 +4283,8 @@
       'cfg-xml-email-outras-opcoes': 'Envio de XMLs por Email — Outras Opções',
       'fiscal-nfe': 'Fiscal / NF-e / SAT',
       'pdv-caixa': 'PDV / Caixa',
-      'usuarios': 'Usuários / Permissões'
+      'usuarios': 'Usuários / Permissões',
+      'cad-empresas': 'Cadastro de Empresas'
     };
 
     function toggleNavSection(titleEl) {
