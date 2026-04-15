@@ -120,8 +120,35 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1.4px;
-      padding: 12px 16px 4px;
+      padding: 12px 14px 4px 16px;
       opacity: .85;
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-section-title::after {
+      content: '▾';
+      font-size: .78rem;
+      opacity: .55;
+      transition: transform .22s ease;
+      flex-shrink: 0;
+    }
+
+    .nav-section.collapsed .nav-section-title::after {
+      transform: rotate(-90deg);
+    }
+
+    .nav-items {
+      overflow: hidden;
+      max-height: 600px;
+      transition: max-height .28s ease;
+    }
+
+    .nav-section.collapsed .nav-items {
+      max-height: 0;
     }
 
     .nav-item {
@@ -721,126 +748,146 @@
     <!-- Navegação normal (oculta durante pesquisa) -->
     <div id="nav-normal">
       <div class="nav-section">
-        <div class="nav-section-title">Início</div>
-        <a class="nav-item active" onclick="showSection('home')">
-          Visão Geral
-        </a>
+        <div class="nav-section-title" onclick="toggleNavSection(this)">Início</div>
+        <div class="nav-items">
+          <a class="nav-item active" onclick="showSection('home')">
+            Visão Geral
+          </a>
+        </div>
       </div>
 
-      <div class="nav-section">
-        <div class="nav-section-title">Configurações Gerais</div>
-        <a class="nav-item" onclick="showSection('cfg-gerais')">
-          Configurações Gerais
-          <span class="path-badge">Gestão › Configurações Gerais</span>
-        </a>
-        <a class="nav-item" onclick="showSection('cfg-gerais-2')">
-          Configurações Gerais 2
-          <span class="path-badge">Gestão › Configurações Gerais 2</span>
-        </a>
-        <a class="nav-item" onclick="showSection('prog-fidelidade')">
-          Programa de Fidelidade
-          <span class="path-badge">Gestão › Configurações › Fidelidade</span>
-        </a>
-        <a class="nav-item" onclick="showSection('venda-antecipada')">
-          Venda Antecipada
-          <span class="path-badge">Gestão › Configurações › Venda Antecipada</span>
-        </a>
-        <a class="nav-item" onclick="showSection('fech-caixa')">
-          Fechamento de Caixa
-          <span class="path-badge">Gestão › Configurações › Fechamento de Caixa</span>
-        </a>
+      <div class="nav-section collapsed">
+        <div class="nav-section-title" onclick="toggleNavSection(this)">Configurações Gerais</div>
+        <div class="nav-items">
+          <a class="nav-item" onclick="showSection('cfg-gerais')">
+            Configurações Gerais
+            <span class="path-badge">Gestão › Configurações Gerais</span>
+          </a>
+          <a class="nav-item" onclick="showSection('cfg-gerais-2')">
+            Configurações Gerais 2
+            <span class="path-badge">Gestão › Configurações Gerais 2</span>
+          </a>
+          <a class="nav-item" onclick="showSection('prog-fidelidade')">
+            Programa de Fidelidade
+            <span class="path-badge">Gestão › Configurações › Fidelidade</span>
+          </a>
+          <a class="nav-item" onclick="showSection('venda-antecipada')">
+            Venda Antecipada
+            <span class="path-badge">Gestão › Configurações › Venda Antecipada</span>
+          </a>
+          <a class="nav-item" onclick="showSection('fech-caixa')">
+            Fechamento de Caixa
+            <span class="path-badge">Gestão › Configurações › Fechamento de Caixa</span>
+          </a>
+        </div>
       </div>
 
-      <div class="nav-section">
-        <div class="nav-section-title">Estoque</div>
-        <a class="nav-item" onclick="showSection('estoque')">
-          Configurações de Estoque
-          <span class="path-badge">Gestão › Configurações › Estoque</span>
-        </a>
+      <div class="nav-section collapsed">
+        <div class="nav-section-title" onclick="toggleNavSection(this)">Estoque</div>
+        <div class="nav-items">
+          <a class="nav-item" onclick="showSection('estoque')">
+            Configurações de Estoque
+            <span class="path-badge">Gestão › Configurações › Estoque</span>
+          </a>
+        </div>
       </div>
 
-      <div class="nav-section">
-        <div class="nav-section-title">Financeiro</div>
-        <a class="nav-item" onclick="showSection('contas-pagar')">
-          Contas a Pagar / Conta Corrente
-          <span class="path-badge">Gestão › Configurações › C.Pagar/C.Corrente</span>
-        </a>
-        <a class="nav-item" onclick="showSection('cfg-taxas-cartoes')">
-          Taxas Administrativas de Cartões
-          <span class="path-badge">Gestão › Configurações › Taxas Adm. Cartões</span>
-        </a>
-        <a class="nav-item" onclick="showSection('cfg-falta-caixa')">
-          Dados p/ Lançamento de Falta de Caixa
-          <span class="path-badge">Gestão › Configurações › Falta de Caixa</span>
-        </a>
-        <a class="nav-item" onclick="showSection('cfg-contas-pagar-nf')">
-          Dados de C.Pagar p/ NF de Compra
-          <span class="path-badge">Gestão › Configurações › Dados C.Pagar NF Compra</span>
-        </a>
+      <div class="nav-section collapsed">
+        <div class="nav-section-title" onclick="toggleNavSection(this)">Financeiro</div>
+        <div class="nav-items">
+          <a class="nav-item" onclick="showSection('contas-pagar')">
+            Contas a Pagar / Conta Corrente
+            <span class="path-badge">Gestão › Configurações › C.Pagar/C.Corrente</span>
+          </a>
+          <a class="nav-item" onclick="showSection('cfg-taxas-cartoes')">
+            Taxas Administrativas de Cartões
+            <span class="path-badge">Gestão › Configurações › Taxas Adm. Cartões</span>
+          </a>
+          <a class="nav-item" onclick="showSection('cfg-falta-caixa')">
+            Dados p/ Lançamento de Falta de Caixa
+            <span class="path-badge">Gestão › Configurações › Falta de Caixa</span>
+          </a>
+          <a class="nav-item" onclick="showSection('cfg-contas-pagar-nf')">
+            Dados de C.Pagar p/ NF de Compra
+            <span class="path-badge">Gestão › Configurações › Dados C.Pagar NF Compra</span>
+          </a>
+        </div>
       </div>
 
-      <div class="nav-section">
-        <div class="nav-section-title">Clientes</div>
-        <a class="nav-item" onclick="showSection('cfg-cad-rapido')">
-          Cadastro Rápido de Clientes
-          <span class="path-badge">Gestão › Configurações › Cad.Rápido Clientes</span>
-        </a>
+      <div class="nav-section collapsed">
+        <div class="nav-section-title" onclick="toggleNavSection(this)">Clientes</div>
+        <div class="nav-items">
+          <a class="nav-item" onclick="showSection('cfg-cad-rapido')">
+            Cadastro Rápido de Clientes
+            <span class="path-badge">Gestão › Configurações › Cad.Rápido Clientes</span>
+          </a>
+        </div>
       </div>
 
-      <div class="nav-section">
-        <div class="nav-section-title">Produtos</div>
-        <a class="nav-item" onclick="showSection('cfg-produtos-apoio')">
-          Produtos de Apoio
-          <span class="path-badge">Gestão › Configurações › Produtos de Apoio</span>
-        </a>
-        <a class="nav-item" onclick="showSection('cfg-prod-calc-pessoas')">
-          Produtos p/ Calc. Nº de Pessoas
-          <span class="path-badge">Gestão › Configurações › Prod. Obrigatórios/Calc. Pessoas</span>
-        </a>
-        <a class="nav-item" onclick="showSection('cfg-locais-impressao')">
-          Locais de Impressão
-          <span class="path-badge">Gestão › Configurações › Locais de Impressão</span>
-        </a>
+      <div class="nav-section collapsed">
+        <div class="nav-section-title" onclick="toggleNavSection(this)">Produtos</div>
+        <div class="nav-items">
+          <a class="nav-item" onclick="showSection('cfg-produtos-apoio')">
+            Produtos de Apoio
+            <span class="path-badge">Gestão › Configurações › Produtos de Apoio</span>
+          </a>
+          <a class="nav-item" onclick="showSection('cfg-prod-calc-pessoas')">
+            Produtos p/ Calc. Nº de Pessoas
+            <span class="path-badge">Gestão › Configurações › Prod. Obrigatórios/Calc. Pessoas</span>
+          </a>
+          <a class="nav-item" onclick="showSection('cfg-locais-impressao')">
+            Locais de Impressão
+            <span class="path-badge">Gestão › Configurações › Locais de Impressão</span>
+          </a>
+        </div>
       </div>
 
-      <div class="nav-section">
-        <div class="nav-section-title">Fiscal / NF-e / SAT</div>
-        <a class="nav-item" onclick="showSection('fiscal-nfe')">
-          NF-e / NFC-e / SAT
-          <span class="path-badge">Em breve</span>
-        </a>
-        <a class="nav-item" onclick="showSection('cfg-xml-email-contabilidade')">
-          Envio de XMLs por Email para a Contabilidade
-          <span class="path-badge">Gestão › Configurações › Envio dos XMLs por email › Envio de XMLs</span>
-        </a>
-        <a class="nav-item" onclick="showSection('cfg-xml-email-outras-opcoes')">
-          Envio de XMLs por Email — Outras Opções
-          <span class="path-badge">Gestão › Configurações › Envio dos XMLs por email › Outras Opções</span>
-        </a>
+      <div class="nav-section collapsed">
+        <div class="nav-section-title" onclick="toggleNavSection(this)">Fiscal / NF-e / SAT</div>
+        <div class="nav-items">
+          <a class="nav-item" onclick="showSection('fiscal-nfe')">
+            NF-e / NFC-e / SAT
+            <span class="path-badge">Em breve</span>
+          </a>
+          <a class="nav-item" onclick="showSection('cfg-xml-email-contabilidade')">
+            Envio de XMLs por Email para a Contabilidade
+            <span class="path-badge">Gestão › Configurações › Envio dos XMLs por email › Envio de XMLs</span>
+          </a>
+          <a class="nav-item" onclick="showSection('cfg-xml-email-outras-opcoes')">
+            Envio de XMLs por Email — Outras Opções
+            <span class="path-badge">Gestão › Configurações › Envio dos XMLs por email › Outras Opções</span>
+          </a>
+        </div>
       </div>
 
-      <div class="nav-section">
-        <div class="nav-section-title">Sistema / Backup</div>
-        <a class="nav-item" onclick="showSection('cfg-sistema-backup')">
-          Sistema de Backup
-          <span class="path-badge">Gestão › Configurações › Sistema de Backup</span>
-        </a>
+      <div class="nav-section collapsed">
+        <div class="nav-section-title" onclick="toggleNavSection(this)">Sistema / Backup</div>
+        <div class="nav-items">
+          <a class="nav-item" onclick="showSection('cfg-sistema-backup')">
+            Sistema de Backup
+            <span class="path-badge">Gestão › Configurações › Sistema de Backup</span>
+          </a>
+        </div>
       </div>
 
-      <div class="nav-section">
-        <div class="nav-section-title">PDV / Caixa</div>
-        <a class="nav-item" onclick="showSection('pdv-caixa')">
-          Configurações PDV/Caixa
-          <span class="path-badge">Em breve</span>
-        </a>
+      <div class="nav-section collapsed">
+        <div class="nav-section-title" onclick="toggleNavSection(this)">PDV / Caixa</div>
+        <div class="nav-items">
+          <a class="nav-item" onclick="showSection('pdv-caixa')">
+            Configurações PDV/Caixa
+            <span class="path-badge">Em breve</span>
+          </a>
+        </div>
       </div>
 
-      <div class="nav-section">
-        <div class="nav-section-title">Usuários / Permissões</div>
-        <a class="nav-item" onclick="showSection('usuarios')">
-          Usuários e Perfis
-          <span class="path-badge">Em breve</span>
-        </a>
+      <div class="nav-section collapsed">
+        <div class="nav-section-title" onclick="toggleNavSection(this)">Usuários / Permissões</div>
+        <div class="nav-items">
+          <a class="nav-item" onclick="showSection('usuarios')">
+            Usuários e Perfis
+            <span class="path-badge">Em breve</span>
+          </a>
+        </div>
       </div>
     </div>
   </nav>
@@ -3704,6 +3751,10 @@
       'usuarios': 'Usuários / Permissões'
     };
 
+    function toggleNavSection(titleEl) {
+      titleEl.closest('.nav-section').classList.toggle('collapsed');
+    }
+
     function showSection(id) {
       document.querySelectorAll('.page-section').forEach(s => s.classList.remove('visible'));
       document.querySelectorAll('.nav-item').forEach(a => a.classList.remove('active'));
@@ -3712,6 +3763,9 @@
       document.querySelectorAll('#nav-normal .nav-item').forEach(a => {
         if (a.getAttribute('onclick') && a.getAttribute('onclick').includes(id)) {
           a.classList.add('active');
+          // auto-expande a seção pai
+          const navSection = a.closest('.nav-section');
+          if (navSection) navSection.classList.remove('collapsed');
         }
       });
       document.getElementById('main').scrollTop = 0;
