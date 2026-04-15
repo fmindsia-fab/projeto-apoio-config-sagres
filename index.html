@@ -871,6 +871,10 @@
             Sistema de Gestão Remoto
             <span class="path-badge">Gestão › Configurações › Sistema de Gestão Remoto</span>
           </a>
+          <a class="nav-item" onclick="showSection('cfg-sagres-restserver')">
+            Sagres RestServer
+            <span class="path-badge">Gestão › Configurações › Sagres RestServer</span>
+          </a>
         </div>
       </div>
 
@@ -992,6 +996,11 @@
           <div class="icon">🌐</div>
           <h3>Sistema de Gestão Remoto</h3>
           <p>IP e porta do servidor para acesso remoto ao sistema de gestão.</p>
+        </div>
+        <div class="welcome-card" onclick="showSection('cfg-sagres-restserver')">
+          <div class="icon">🔌</div>
+          <h3>Sagres RestServer</h3>
+          <p>Lógica de acesso e tempos de expiração de sessão do servidor REST do Sagres.</p>
         </div>
         <div class="welcome-card" onclick="showSection('pdv-caixa')">
           <div class="icon">🖥️</div>
@@ -3537,6 +3546,59 @@
       </div>
     </section>
 
+    <!-- ══ SAGRES RESTSERVER ══ -->
+    <section id="cfg-sagres-restserver" class="page-section" data-section-img="prints/cfg_sagres_restserver.png">
+      <div class="page-header">
+        <div class="breadcrumb">Gestão › Configurações › Sagres RestServer</div>
+        <h2>Sagres RestServer</h2>
+        <p>Configura a lógica de autenticação e os tempos de expiração de sessão do servidor REST do Sagres.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cfg_sagres_restserver.png" alt="Tela Configurações do SagresRestServer"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cfg_sagres_restserver.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Configurações</strong> →
+        <strong>Sagres RestServer</strong>.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Campos da Tela</div>
+        <table class="fields-table">
+          <thead>
+            <tr>
+              <th>Campo</th>
+              <th>Tipo</th>
+              <th>Descrição / Orientação de Suporte</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Lógica de Acesso ao SagresRestServer</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define o modelo de autenticação utilizado pelo RestServer. A opção <strong>1-Acessar c/o conceito de sessão (operador/senha)</strong> exige que cada acesso seja autenticado com operador e senha, criando uma sessão temporária.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Tempo p/Expiração da Sessão a Partir do Último Horário de Acesso (min.)</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Tempo em minutos de inatividade após o qual a sessão expira automaticamente. Valor padrão: <strong>60</strong>. O contador é reiniciado a cada acesso realizado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Tempo p/Expiração da Sessão a Partir do Primeiro Horário de Acesso (min.)</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Tempo máximo em minutos que uma sessão pode permanecer ativa desde o primeiro acesso, independentemente de atividade. Valor padrão: <strong>240</strong>.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- ══ LOCAIS DE IMPRESSÃO ══ -->
     <section id="cfg-locais-impressao" class="page-section" data-section-img="prints/cfg_locais_impressao.png">
       <div class="page-header">
@@ -3801,6 +3863,7 @@
       'cfg-contas-pagar-nf': 'Dados de C.Pagar p/ NF de Compra',
       'cfg-sistema-backup': 'Sistema de Backup',
       'cfg-gestao-remoto': 'Sistema de Gestão Remoto',
+      'cfg-sagres-restserver': 'Sagres RestServer',
       'cfg-locais-impressao': 'Locais de Impressão',
       'cfg-xml-email-contabilidade': 'Envio de XMLs por Email para a Contabilidade',
       'cfg-xml-email-outras-opcoes': 'Envio de XMLs por Email — Outras Opções',
@@ -4196,6 +4259,11 @@
       'prints/cfg_gestao_remoto.png': {
         'IP do Sistema de Gestão Remoto':    '28.5,3,96.5,17.7',
         'Porta do Sistema de Gestão Remoto': '53.2,0.7,46.2,19',
+      },
+      'prints/cfg_sagres_restserver.png': {
+        'Lógica de Acesso ao SagresRestServer':                                              '20.8,24.7,74.7,15.3',
+        'Tempo p/Expiração da Sessão a Partir do Último Horário de Acesso (min.)':           '43.1,2,58.2,13.9',
+        'Tempo p/Expiração da Sessão a Partir do Primeiro Horário de Acesso (min.)':         '63.9,0.8,59.2,13.9',
       },
       'prints/cfg_locais_impressao.png': {
         'Utilizar Locais de Impressão nos Produtos': '28.2,0.7,97.4,17.6',
