@@ -957,6 +957,10 @@
             Empresas
             <span class="path-badge">Gestão › Cadastro › Empresas</span>
           </a>
+          <a class="nav-item" onclick="showSection('cad-empresas-op-gerais')">
+            Opções Gerais da Empresa
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções Gerais</span>
+          </a>
         </div>
       </div>
     </div>
@@ -1093,6 +1097,11 @@
           <div class="icon">🏢</div>
           <h3>Empresas</h3>
           <p>Cadastro das empresas do sistema: CNPJ, endereço, dados fiscais, regime de tributação e horários de redução Z.</p>
+        </div>
+        <div class="welcome-card empresa" onclick="showSection('cad-empresas-op-gerais')">
+          <div class="icon">⚙️</div>
+          <h3>Opções Gerais da Empresa</h3>
+          <p>Parâmetros operacionais da empresa: senha do painel, sincronização, cancelamentos, módulos NF e compatibilidade de terminais.</p>
         </div>
       </div>
     </section>
@@ -4270,6 +4279,247 @@
               <td><div class="field-name">Horário Inicial Redução Z</div></td>
               <td><span class="tag tag-txt">Texto</span></td>
               <td>Define o horário inicial da Redução Z para cada dia da semana (Dom, Seg, Ter, Qua, Qui, Sex, Sab). Utilizado para controle dos fechamentos de caixa.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ OPÇÕES GERAIS DA EMPRESA ══ -->
+    <section id="cad-empresas-op-gerais" class="page-section" data-section-img="prints/cad_empresas_op_gerais.png">
+      <div class="page-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções Gerais</div>
+        <h2>Opções Gerais da Empresa</h2>
+        <p>Parâmetros operacionais da empresa: senha do painel, sincronização, cancelamentos, módulos de NF e compatibilidade de terminais.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_op_gerais.png" alt="Tela Configurações da Empresa — Opções Gerais"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_op_gerais.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções Gerais</strong>.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Senha e Painel</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Utilizar Senha p/Painel</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o sistema exige senha para acesso ao painel de configurações.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Zerar Senha do Painel no Fech.Caixa</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando ativo, a senha do painel é zerada automaticamente ao fechar o caixa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Atribuir Senha p/Painel no Início</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se a senha do painel é atribuída ao iniciar o sistema.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Atribuir no Início de Venda</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se a senha é atribuída no início de cada venda.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Operação e Cancelamento</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Cancelar Permanente com Cartão Cod.Barras</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Permite cancelamento permanente de itens utilizando cartão de código de barras.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Cancelamentos Operacionais</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Habilita o cancelamento operacional de lançamentos pelo operador.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Alteração do Preço de Venda Antecipada no ECF</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Permite que o operador altere o preço de venda antecipada diretamente no ECF.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Digital Motivo do Cancelamento</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se é obrigatório digitar o motivo ao realizar um cancelamento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Informe Motivo de Cancelamento em Vendas p/Produtos</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando ativo, exige informação do motivo ao cancelar produtos em vendas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Motivo de Escritosa Apenas No Lançamento</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Restringe a informação do motivo apenas ao momento do lançamento.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Vendas e Alertas</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Valor p/Mensagem de Aviso nas Vendas</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Valor de referência que dispara uma mensagem de aviso durante as vendas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Emitir Extras nas Telas dos Vendas</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se informações extras são exibidas nas telas de venda.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Usa Alterar Qtd Para Menos em Pedidos</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Permite ao operador reduzir a quantidade de itens em pedidos em andamento.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Sincronização</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Sincronizar Dados Ao Fechar Caixa</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Executa sincronização de dados automaticamente ao fechar o caixa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Sincronizar ao Sair do Sistema</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Executa sincronização ao encerrar o sistema.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Sincronizar ao Entrar no Sistema</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Executa sincronização ao iniciar o sistema.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Sincronizar na Impressão do Lançamento</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define quando ocorre a sincronização durante a impressão de lançamentos (ex.: Valor/Preço).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">NF e Módulos</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Módulo Digitação NF Venda no Comandador</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Habilita o módulo de digitação de NF de venda no comandador.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Módulo Digitação NF Venda Módulo "1" e Simulado</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Habilita o módulo "1" e modo simulado para digitação de NF de venda.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permite Fazer Imagens p/Fotos de Código</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Habilita a funcionalidade de captura de imagens/fotos de código de produtos.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">PDV e Terminais</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Rel.Vendas Detalhados no Dia no PDV</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se relatórios de vendas detalhados do dia são exibidos no PDV.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Compatibilidade Tablet</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define o modo de compatibilidade da interface com tablets.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Outros Produtos Inativos nas Telas de Pesquisa</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Controla a exibição de produtos inativos nas telas de pesquisa do PDV.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Descontos</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Descontos Automáticos por Produtos do REST</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Habilita a aplicação de descontos automáticos por produto via REST.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Descontos no Pedido do Campo de Preço</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Permite aplicar descontos diretamente no campo de preço do pedido.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Descontos por Comissão</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define o comportamento dos descontos vinculados à comissão do operador.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Outros Parâmetros</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Mensagem no Fech.Caixa Como Hora Hoje Troco Inicial</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se a mensagem no fechamento de caixa exibe a hora atual como troco inicial.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Informação Diferente de Balança</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Configura o comportamento quando a informação recebida da balança difere do esperado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">PDV usar</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define qual configuração ou modo o PDV deve utilizar.</td>
             </tr>
           </tbody>
         </table>
