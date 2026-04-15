@@ -805,6 +805,10 @@
           NF-e / NFC-e / SAT
           <span class="path-badge">Em breve</span>
         </a>
+        <a class="nav-item" onclick="showSection('cfg-xml-email-outras-opcoes')">
+          Envio de XMLs por Email — Outras Opções
+          <span class="path-badge">Gestão › Configurações › Envio dos XMLs por email › Outras Opções</span>
+        </a>
       </div>
 
       <div class="nav-section">
@@ -3350,6 +3354,49 @@
       </div>
     </section>
 
+    <!-- ══ XML EMAIL OUTRAS OPÇÕES ══ -->
+    <section id="cfg-xml-email-outras-opcoes" class="page-section" data-section-img="prints/cfg_xml_email_outras_opcoes.png">
+      <div class="page-header">
+        <div class="breadcrumb">Gestão › Configurações › Envio dos XMLs por email para Contabilidade › Outras Opções</div>
+        <h2>Envio de XMLs por Email — Outras Opções</h2>
+        <p>Parâmetro complementar para a gravação dos arquivos XML enviados por e-mail à contabilidade.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cfg_xml_email_outras_opcoes.png" alt="Tela Envio dos XMLs por email para Contabilidade — Outras Opções"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cfg_xml_email_outras_opcoes.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Configurações</strong> →
+        <strong>Envio dos XMLs por email para Contabilidade</strong> → <strong>Outras Opções</strong>.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Campos da Tela</div>
+        <table class="fields-table">
+          <thead>
+            <tr>
+              <th>Campo</th>
+              <th>Tipo</th>
+              <th>Descrição / Orientação de Suporte</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Incluir Relatório de Produtos Totalizados por CFOP na Gravação dos Arquivos XML</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se um relatório com os produtos totalizados por CFOP será gerado e incluído junto aos arquivos XML gravados. <strong>S-Sim</strong> = inclui o relatório; <strong>N-Não</strong> = não inclui.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- ══ FISCAL ══ -->
     <section id="fiscal-nfe" class="page-section">
       <div class="page-header">
@@ -3431,6 +3478,7 @@
       'cfg-produtos-apoio': 'Produtos de Apoio',
       'cfg-prod-calc-pessoas': 'Produtos p/ Calc. Nº de Pessoas',
       'cfg-contas-pagar-nf': 'Dados de C.Pagar p/ NF de Compra',
+      'cfg-xml-email-outras-opcoes': 'Envio de XMLs por Email — Outras Opções',
       'fiscal-nfe': 'Fiscal / NF-e / SAT',
       'pdv-caixa': 'PDV / Caixa',
       'usuarios': 'Usuários / Permissões'
@@ -3808,6 +3856,9 @@
         'Campo RG': '61.1,45.7,21.8,6.2',
         'Campo eMail': '71.3,46.1,21.2,6.2',
         'Campo Observação': '81.1,45.8,21.2,5.9',
+      },
+      'prints/cfg_xml_email_outras_opcoes.png': {
+        'Incluir Relatório de Produtos Totalizados por CFOP na Gravação dos Arquivos XML': '11,0.5,99.1,39.6',
       },
       'prints/contas_pagar_nf_compra.png': {
         // Campos da Tela
