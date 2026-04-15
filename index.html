@@ -820,6 +820,14 @@
       </div>
 
       <div class="nav-section">
+        <div class="nav-section-title">Sistema / Backup</div>
+        <a class="nav-item" onclick="showSection('cfg-sistema-backup')">
+          Sistema de Backup
+          <span class="path-badge">Gestão › Configurações › Sistema de Backup</span>
+        </a>
+      </div>
+
+      <div class="nav-section">
         <div class="nav-section-title">PDV / Caixa</div>
         <a class="nav-item" onclick="showSection('pdv-caixa')">
           Configurações PDV/Caixa
@@ -923,6 +931,11 @@
           <div class="icon">🧾</div>
           <h3>Fiscal / NF-e / SAT</h3>
           <p>Configurações de emissão de nota fiscal, SAT e NFC-e.</p>
+        </div>
+        <div class="welcome-card" onclick="showSection('cfg-sistema-backup')">
+          <div class="icon">💾</div>
+          <h3>Sistema de Backup</h3>
+          <p>Define se este computador atua como servidor de backup e configura a senha de acesso.</p>
         </div>
         <div class="welcome-card" onclick="showSection('pdv-caixa')">
           <div class="icon">🖥️</div>
@@ -3372,6 +3385,54 @@
       </div>
     </section>
 
+    <!-- ══ SISTEMA DE BACKUP ══ -->
+    <section id="cfg-sistema-backup" class="page-section" data-section-img="prints/cfg_sistema_backup.png">
+      <div class="page-header">
+        <div class="breadcrumb">Gestão › Configurações › Sistema de Backup</div>
+        <h2>Sistema de Backup</h2>
+        <p>Configura se este computador atuará como servidor de backup e define a senha de acesso remoto.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cfg_sistema_backup.png" alt="Tela Configurar Sistema de Backup"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cfg_sistema_backup.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Configurações</strong> →
+        <strong>Sistema de Backup</strong>.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Campos da Tela</div>
+        <table class="fields-table">
+          <thead>
+            <tr>
+              <th>Campo</th>
+              <th>Tipo</th>
+              <th>Descrição / Orientação de Suporte</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Usar Esse Computador Como "Sistema de Backup"</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se este computador atuará como servidor de backup do sistema. <strong>S-Sim</strong> = habilita a função de backup neste equipamento; <strong>N-Não</strong> = desabilita.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Senha de Acesso ao Servidor para Backup</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Senha utilizada para autenticar o acesso remoto ao servidor de backup. Deve ser definida quando o campo acima estiver como <strong>S-Sim</strong>.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- ══ LOCAIS DE IMPRESSÃO ══ -->
     <section id="cfg-locais-impressao" class="page-section" data-section-img="prints/cfg_locais_impressao.png">
       <div class="page-header">
@@ -3634,6 +3695,7 @@
       'cfg-produtos-apoio': 'Produtos de Apoio',
       'cfg-prod-calc-pessoas': 'Produtos p/ Calc. Nº de Pessoas',
       'cfg-contas-pagar-nf': 'Dados de C.Pagar p/ NF de Compra',
+      'cfg-sistema-backup': 'Sistema de Backup',
       'cfg-locais-impressao': 'Locais de Impressão',
       'cfg-xml-email-contabilidade': 'Envio de XMLs por Email para a Contabilidade',
       'cfg-xml-email-outras-opcoes': 'Envio de XMLs por Email — Outras Opções',
@@ -4014,6 +4076,10 @@
         'Campo RG': '61.1,45.7,21.8,6.2',
         'Campo eMail': '71.3,46.1,21.2,6.2',
         'Campo Observação': '81.1,45.8,21.2,5.9',
+      },
+      'prints/cfg_sistema_backup.png': {
+        'Usar Esse Computador Como "Sistema de Backup"': '28,0.7,74.9,18.5',
+        'Senha de Acesso ao Servidor para Backup':       '53.4,11.2,88,18',
       },
       'prints/cfg_locais_impressao.png': {
         'Utilizar Locais de Impressão nos Produtos': '28.2,0.7,97.4,17.6',
