@@ -646,6 +646,52 @@ const IMAGES = [
       ]},
     ]
   },
+  {
+    file: 'prints/cad_empresas.png',
+    label: 'Cadastro de Empresas',
+    groups: [
+      { group: 'Identificação', fields: [
+        'Nome',
+        'Nome Resumido',
+        'Razão Social',
+        'CNPJ',
+        'Inscr.Estadual',
+        'Inscr.Municipal',
+        'Cnae Fiscal',
+      ]},
+      { group: 'Endereço', fields: [
+        'Logradouro',
+        'Número',
+        'Complemento',
+        'Bairro',
+        'CEP',
+        'Latitude',
+        'Longitude',
+        'Cód.Município',
+      ]},
+      { group: 'Contato', fields: [
+        'Contato',
+        'DDD',
+        'Telefone',
+        'Fax',
+        'EMail',
+      ]},
+      { group: 'Fiscal', fields: [
+        'Perfil (Sped)',
+        'Tipo de Atividade (Sped)',
+        'Regime de Tributação',
+        'Empresa é "Simples Nacional" (Nfe/NFCe/Sat)',
+      ]},
+      { group: 'Relatórios', fields: [
+        'Nome para Relatórios',
+        'Endereço para Relatórios (Linha 1)',
+        'Endereço para Relatórios (Linha 2)',
+      ]},
+      { group: 'Operação', fields: [
+        'Horário Inicial Redução Z',
+      ]},
+    ]
+  },
 ];
 
 // ── Coordenadas atuais (carregadas do index.html, editáveis aqui) ──
@@ -905,6 +951,36 @@ const COORDS = {
   },
   'prints/cfg_xml_email_outras_opcoes.png': {
     'Incluir Relatório de Produtos Totalizados por CFOP na Gravação dos Arquivos XML': '11,0.5,99.1,39.6',
+  },
+  'prints/cad_empresas.png': {
+    'Nome':                                          '0,0,0,0',
+    'Nome Resumido':                                 '0,0,0,0',
+    'Razão Social':                                  '0,0,0,0',
+    'CNPJ':                                          '0,0,0,0',
+    'Inscr.Estadual':                                '0,0,0,0',
+    'Inscr.Municipal':                               '0,0,0,0',
+    'Cnae Fiscal':                                   '0,0,0,0',
+    'Logradouro':                                    '0,0,0,0',
+    'Número':                                        '0,0,0,0',
+    'Complemento':                                   '0,0,0,0',
+    'Bairro':                                        '0,0,0,0',
+    'CEP':                                           '0,0,0,0',
+    'Latitude':                                      '0,0,0,0',
+    'Longitude':                                     '0,0,0,0',
+    'Cód.Município':                                 '0,0,0,0',
+    'Contato':                                       '0,0,0,0',
+    'DDD':                                           '0,0,0,0',
+    'Telefone':                                      '0,0,0,0',
+    'Fax':                                           '0,0,0,0',
+    'EMail':                                         '0,0,0,0',
+    'Perfil (Sped)':                                 '0,0,0,0',
+    'Tipo de Atividade (Sped)':                      '0,0,0,0',
+    'Regime de Tributação':                          '0,0,0,0',
+    'Empresa é "Simples Nacional" (Nfe/NFCe/Sat)':   '0,0,0,0',
+    'Nome para Relatórios':                          '0,0,0,0',
+    'Endereço para Relatórios (Linha 1)':            '0,0,0,0',
+    'Endereço para Relatórios (Linha 2)':            '0,0,0,0',
+    'Horário Inicial Redução Z':                     '0,0,0,0',
   }
 };
 
