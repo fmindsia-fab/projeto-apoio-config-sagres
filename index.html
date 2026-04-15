@@ -805,6 +805,10 @@
           NF-e / NFC-e / SAT
           <span class="path-badge">Em breve</span>
         </a>
+        <a class="nav-item" onclick="showSection('cfg-xml-email-contabilidade')">
+          Envio de XMLs por Email para a Contabilidade
+          <span class="path-badge">Gestão › Configurações › Envio dos XMLs por email › Envio de XMLs</span>
+        </a>
         <a class="nav-item" onclick="showSection('cfg-xml-email-outras-opcoes')">
           Envio de XMLs por Email — Outras Opções
           <span class="path-badge">Gestão › Configurações › Envio dos XMLs por email › Outras Opções</span>
@@ -885,6 +889,11 @@
           <div class="icon">🧾</div>
           <h3>Dados de C.Pagar p/ NF de Compra</h3>
           <p>Data de pagamento, tipo de documento, despesa, departamento e grupo para lançamento de NFs de compra.</p>
+        </div>
+        <div class="welcome-card" onclick="showSection('cfg-xml-email-contabilidade')">
+          <div class="icon">📧</div>
+          <h3>Envio de XMLs por Email</h3>
+          <p>Configuração do envio automático dos XMLs das notas fiscais para a contabilidade: e-mail, SMTP e SSL.</p>
         </div>
         <div class="welcome-card" onclick="showSection('cfg-cad-rapido')">
           <div class="icon">👤</div>
@@ -3354,6 +3363,95 @@
       </div>
     </section>
 
+    <!-- ══ XML EMAIL CONTABILIDADE ══ -->
+    <section id="cfg-xml-email-contabilidade" class="page-section" data-section-img="prints/cfg_xml_email_contabilidade.png">
+      <div class="page-header">
+        <div class="breadcrumb">Gestão › Configurações › Envio dos XMLs por email para Contabilidade › Envio de XMLs por Email para a Contabilidade</div>
+        <h2>Envio de XMLs por Email para a Contabilidade</h2>
+        <p>Configura o envio automático dos arquivos XML das notas fiscais para o contador via e-mail.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cfg_xml_email_contabilidade.png" alt="Tela Envio de XMLs por Email para a Contabilidade"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cfg_xml_email_contabilidade.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Configurações</strong> →
+        <strong>Envio dos XMLs por email para Contabilidade</strong> → <strong>Envio de XMLs por Email para a Contabilidade</strong>.
+      </div>
+
+      <div class="note-box">
+        <strong>*** Atalho CTRL+F4 — Parametrização Automática:</strong> Com a tela aberta, pressione <strong>CTRL+F4</strong> para que o sistema preencha automaticamente os campos de SMTP (servidor, porta, usuário, senha e SSL) com os valores padrão da Sagres. O sistema exibirá uma mensagem de confirmação antes de aplicar os valores. Após a parametrização automática, basta informar:<br>
+        &bull; <strong>Enviar XML para o seguinte eMail</strong> — e-mail do contador (ex.: <em>contador@escritorio.com.br</em>)<br>
+        &bull; <strong>Título Padrão do eMail</strong> — assunto do e-mail (ex.: <em>XMLs da Empresa XPTO do Mês</em>)
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Campos da Tela</div>
+        <table class="fields-table">
+          <thead>
+            <tr>
+              <th>Campo</th>
+              <th>Tipo</th>
+              <th>Descrição / Orientação de Suporte</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Enviar XML das Notas por EMail para o Contador</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Habilita (<strong>Sim</strong>) ou desabilita (<strong>Não</strong>) o envio automático dos arquivos XML das notas fiscais para o e-mail do contador.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Enviar XML para o seguinte eMail</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Endereço de e-mail do contador ou da contabilidade que receberá os XMLs. Informe um e-mail válido.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Dia p/Envio dos XMLs</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Dia do mês em que o sistema realizará o envio automático dos XMLs. Selecione o dia desejado na lista.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Servidor SMTP</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Endereço do servidor SMTP utilizado para envio do e-mail (ex.: <em>smtp.gmail.com</em>, <em>smtp.office365.com</em>).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Porta do Servidor SMTP</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Porta de comunicação do servidor SMTP. Valores comuns: <strong>587</strong> (TLS), <strong>465</strong> (SSL), <strong>25</strong> (sem criptografia).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Usuário SMTP</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Nome de usuário (geralmente o próprio endereço de e-mail) utilizado para autenticação no servidor SMTP.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Senha SMTP</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Senha da conta de e-mail usada para autenticação no servidor SMTP. Em contas Google, pode ser necessária uma <em>Senha de App</em>.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">SSL no Envio do EMail</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se a conexão com o servidor SMTP usará SSL. <strong>S-Sim</strong> = habilita SSL; <strong>N-Não</strong> = sem SSL. Use conforme exigência do provedor.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Título Padrão do eMail</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Assunto padrão do e-mail enviado ao contador (ex.: <em>XMLs de Notas Fiscais Emitidas do Mês</em>). Pode ser personalizado conforme preferência.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- ══ XML EMAIL OUTRAS OPÇÕES ══ -->
     <section id="cfg-xml-email-outras-opcoes" class="page-section" data-section-img="prints/cfg_xml_email_outras_opcoes.png">
       <div class="page-header">
@@ -3478,6 +3576,7 @@
       'cfg-produtos-apoio': 'Produtos de Apoio',
       'cfg-prod-calc-pessoas': 'Produtos p/ Calc. Nº de Pessoas',
       'cfg-contas-pagar-nf': 'Dados de C.Pagar p/ NF de Compra',
+      'cfg-xml-email-contabilidade': 'Envio de XMLs por Email para a Contabilidade',
       'cfg-xml-email-outras-opcoes': 'Envio de XMLs por Email — Outras Opções',
       'fiscal-nfe': 'Fiscal / NF-e / SAT',
       'pdv-caixa': 'PDV / Caixa',
@@ -3856,6 +3955,17 @@
         'Campo RG': '61.1,45.7,21.8,6.2',
         'Campo eMail': '71.3,46.1,21.2,6.2',
         'Campo Observação': '81.1,45.8,21.2,5.9',
+      },
+      'prints/cfg_xml_email_contabilidade.png': {
+        'Enviar XML das Notas por EMail para o Contador': '15.7,0.3,62.7,7.7',
+        'Enviar XML para o seguinte eMail':               '24.7,10.1,89.3,7.1',
+        'Dia p/Envio dos XMLs':                           '32.7,18.1,23.1,6.8',
+        'Servidor SMTP':                                  '42,22.2,67,6.8',
+        'Porta do Servidor SMTP':                         '50,16.9,25.4,6.8',
+        'Usuário SMTP':                                   '58.6,23.8,65.5,7.1',
+        'Senha SMTP':                                     '67.3,24.6,53.9,7.1',
+        'SSL no Envio do EMail':                          '75.9,18,25.4,5.9',
+        'Título Padrão do eMail':                         '84,18.2,70.9,7.1',
       },
       'prints/cfg_xml_email_outras_opcoes.png': {
         'Incluir Relatório de Produtos Totalizados por CFOP na Gravação dos Arquivos XML': '11,0.5,99.1,39.6',
