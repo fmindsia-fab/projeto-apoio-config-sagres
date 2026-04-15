@@ -867,6 +867,10 @@
             Sistema de Backup
             <span class="path-badge">Gestão › Configurações › Sistema de Backup</span>
           </a>
+          <a class="nav-item" onclick="showSection('cfg-gestao-remoto')">
+            Sistema de Gestão Remoto
+            <span class="path-badge">Gestão › Configurações › Sistema de Gestão Remoto</span>
+          </a>
         </div>
       </div>
 
@@ -983,6 +987,11 @@
           <div class="icon">💾</div>
           <h3>Sistema de Backup</h3>
           <p>Define se este computador atua como servidor de backup e configura a senha de acesso.</p>
+        </div>
+        <div class="welcome-card" onclick="showSection('cfg-gestao-remoto')">
+          <div class="icon">🌐</div>
+          <h3>Sistema de Gestão Remoto</h3>
+          <p>IP e porta do servidor para acesso remoto ao sistema de gestão.</p>
         </div>
         <div class="welcome-card" onclick="showSection('pdv-caixa')">
           <div class="icon">🖥️</div>
@@ -3480,6 +3489,54 @@
       </div>
     </section>
 
+    <!-- ══ GESTÃO REMOTO ══ -->
+    <section id="cfg-gestao-remoto" class="page-section" data-section-img="prints/cfg_gestao_remoto.png">
+      <div class="page-header">
+        <div class="breadcrumb">Gestão › Configurações › Sistema de Gestão Remoto</div>
+        <h2>Sistema de Gestão Remoto</h2>
+        <p>Define o endereço IP e a porta de comunicação do servidor para acesso remoto ao sistema.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cfg_gestao_remoto.png" alt="Tela Configurações de Sistema de Gestão Remoto"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cfg_gestao_remoto.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Configurações</strong> →
+        <strong>Sistema de Gestão Remoto</strong>.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Campos da Tela</div>
+        <table class="fields-table">
+          <thead>
+            <tr>
+              <th>Campo</th>
+              <th>Tipo</th>
+              <th>Descrição / Orientação de Suporte</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">IP do Sistema de Gestão Remoto</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Endereço IP do servidor onde o sistema de gestão remoto está instalado (ex.: <em>192.168.1.100</em>). Deixe em branco se o recurso não for utilizado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Porta do Sistema de Gestão Remoto</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Porta de comunicação utilizada para conexão com o servidor remoto. Valor padrão do sistema: <strong>12205</strong>. Alterar somente se orientado pelo suporte técnico.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- ══ LOCAIS DE IMPRESSÃO ══ -->
     <section id="cfg-locais-impressao" class="page-section" data-section-img="prints/cfg_locais_impressao.png">
       <div class="page-header">
@@ -3743,6 +3800,7 @@
       'cfg-prod-calc-pessoas': 'Produtos p/ Calc. Nº de Pessoas',
       'cfg-contas-pagar-nf': 'Dados de C.Pagar p/ NF de Compra',
       'cfg-sistema-backup': 'Sistema de Backup',
+      'cfg-gestao-remoto': 'Sistema de Gestão Remoto',
       'cfg-locais-impressao': 'Locais de Impressão',
       'cfg-xml-email-contabilidade': 'Envio de XMLs por Email para a Contabilidade',
       'cfg-xml-email-outras-opcoes': 'Envio de XMLs por Email — Outras Opções',
@@ -4134,6 +4192,10 @@
       'prints/cfg_sistema_backup.png': {
         'Usar Esse Computador Como "Sistema de Backup"': '28,0.7,74.9,18.5',
         'Senha de Acesso ao Servidor para Backup':       '53.4,11.2,88,18',
+      },
+      'prints/cfg_gestao_remoto.png': {
+        'IP do Sistema de Gestão Remoto':    '28.5,3,96.5,17.7',
+        'Porta do Sistema de Gestão Remoto': '53.2,0.7,46.2,19',
       },
       'prints/cfg_locais_impressao.png': {
         'Utilizar Locais de Impressão nos Produtos': '28.2,0.7,97.4,17.6',
