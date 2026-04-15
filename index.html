@@ -839,6 +839,10 @@
             Locais de Impressão
             <span class="path-badge">Gestão › Configurações › Locais de Impressão</span>
           </a>
+          <a class="nav-item" onclick="showSection('cfg-local-impressao-padrao')">
+            Definir Local de Impressão Padrão
+            <span class="path-badge">Gestão › Configurações › Definir Local de Impressão p/ este Computador</span>
+          </a>
         </div>
       </div>
 
@@ -878,6 +882,10 @@
           <a class="nav-item" onclick="showSection('cfg-senha-internet')">
             Senha Via Internet
             <span class="path-badge">Gestão › Configurações › Senha Via Internet</span>
+          </a>
+          <a class="nav-item" onclick="showSection('cfg-otimizar-velocidade')">
+            Otimizar Velocidade do Sistema
+            <span class="path-badge">Gestão › Configurações › Otimizar Velocidade do Sistema de Gestão</span>
           </a>
         </div>
       </div>
@@ -986,6 +994,11 @@
           <h3>Locais de Impressão</h3>
           <p>Define se o sistema utiliza locais de impressão nos produtos e qual o modo: único, múltiplos ou múltiplos com espelhos.</p>
         </div>
+        <div class="welcome-card" onclick="showSection('cfg-local-impressao-padrao')">
+          <div class="icon">🖨️</div>
+          <h3>Local de Impressão Padrão</h3>
+          <p>Define o local de impressão padrão para este computador específico.</p>
+        </div>
         <div class="welcome-card" onclick="showSection('fiscal-nfe')">
           <div class="icon">🧾</div>
           <h3>Fiscal / NF-e / SAT</h3>
@@ -1010,6 +1023,11 @@
           <div class="icon">🔐</div>
           <h3>Senha Via Internet</h3>
           <p>CNPJ do representante, senha e nome do responsável para acesso ao sistema via internet.</p>
+        </div>
+        <div class="welcome-card" onclick="showSection('cfg-otimizar-velocidade')">
+          <div class="icon">⚡</div>
+          <h3>Otimizar Velocidade do Sistema</h3>
+          <p>Define o tipo de otimização de velocidade para acesso aos dados do sistema de gestão.</p>
         </div>
         <div class="welcome-card" onclick="showSection('pdv-caixa')">
           <div class="icon">🖥️</div>
@@ -3661,6 +3679,49 @@
       </div>
     </section>
 
+    <!-- ══ OTIMIZAR VELOCIDADE DO SISTEMA ══ -->
+    <section id="cfg-otimizar-velocidade" class="page-section" data-section-img="prints/cfg_otimizar_velocidade.png">
+      <div class="page-header">
+        <div class="breadcrumb">Gestão › Configurações › Otimizar Velocidade do Sistema de Gestão</div>
+        <h2>Otimizar Velocidade do Sistema</h2>
+        <p>Define o tipo de otimização de velocidade de acesso aos dados do sistema de gestão.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cfg_otimizar_velocidade.png" alt="Tela Otimizar Velocidade de Acesso aos Dados do Sistema de Gestão"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cfg_otimizar_velocidade.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Configurações</strong> →
+        <strong>Otimizar Velocidade do Sistema de Gestão</strong>.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Campos da Tela</div>
+        <table class="fields-table">
+          <thead>
+            <tr>
+              <th>Campo</th>
+              <th>Tipo</th>
+              <th>Descrição / Orientação de Suporte</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Tipo de Velocidade</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define o modo de otimização de acesso aos dados. A opção recomendada é <em>Otimizar Velocidade p/Rede Local</em>, indicada para ambientes com rede local estruturada.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- ══ LOCAIS DE IMPRESSÃO ══ -->
     <section id="cfg-locais-impressao" class="page-section" data-section-img="prints/cfg_locais_impressao.png">
       <div class="page-header">
@@ -3704,6 +3765,50 @@
                 <strong>S-Sim (Múltiplos)</strong> — cada produto pode ter mais de um local de impressão;<br>
                 <strong>S-Sim (Múltiplos c/2 Espelhos)</strong> — múltiplos locais com impressão espelhada em duas impressoras simultâneas.
               </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ LOCAL DE IMPRESSÃO PADRÃO ══ -->
+    <section id="cfg-local-impressao-padrao" class="page-section" data-section-img="prints/cfg_local_impressao_padrao.png">
+      <div class="page-header">
+        <div class="breadcrumb">Gestão › Configurações › Definir Local de Impressão Padrão para este Computador</div>
+        <h2>Definir Local de Impressão Padrão</h2>
+        <p>Define qual local de impressão será usado como padrão neste computador específico.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cfg_local_impressao_padrao.png" alt="Tela Definir Local de Impressão Padrão para este Computador"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cfg_local_impressao_padrao.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Configurações</strong> →
+        <strong>Definir Local de Impressão para este Computador</strong>.<br>
+        Esta configuração é <strong>por estação</strong> — cada computador pode ter um local de impressão padrão diferente.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Campos da Tela</div>
+        <table class="fields-table">
+          <thead>
+            <tr>
+              <th>Campo</th>
+              <th>Tipo</th>
+              <th>Descrição / Orientação de Suporte</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Local de Impressão Padrão</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Código do local de impressão a ser usado como padrão neste computador. O nome da impressora correspondente é exibido ao lado após a confirmação (ex.: <em>2 — Impressora Padrão</em>). Os locais disponíveis são cadastrados em <strong>Configurações › Locais de Impressão</strong>.</td>
             </tr>
           </tbody>
         </table>
@@ -3927,6 +4032,8 @@
       'cfg-gestao-remoto': 'Sistema de Gestão Remoto',
       'cfg-sagres-restserver': 'Sagres RestServer',
       'cfg-senha-internet': 'Senha Via Internet (Sistema Gestão)',
+      'cfg-otimizar-velocidade': 'Otimizar Velocidade do Sistema',
+      'cfg-local-impressao-padrao': 'Definir Local de Impressão Padrão',
       'cfg-locais-impressao': 'Locais de Impressão',
       'cfg-xml-email-contabilidade': 'Envio de XMLs por Email para a Contabilidade',
       'cfg-xml-email-outras-opcoes': 'Envio de XMLs por Email — Outras Opções',
@@ -4333,8 +4440,9 @@
         'Senha':                 '43.5,23.9,74.8,13.8',
         'Nome do Responsável':   '64,3.3,95.6,13',
       },
+      
       'prints/cfg_locais_impressao.png': {
-        'Utilizar Locais de Impressão nos Produtos': '28.2,0.7,97.4,17.6',
+        'Utilizar Locais de Impressão nos Produtos': '28.2,0.7,97.4,17.5',
       },
       'prints/cfg_xml_email_contabilidade.png': {
         'Enviar XML das Notas por EMail para o Contador': '15.7,0.3,62.7,7.7',
@@ -4349,6 +4457,12 @@
       },
       'prints/cfg_xml_email_outras_opcoes.png': {
         'Incluir Relatório de Produtos Totalizados por CFOP na Gravação dos Arquivos XML': '11,0.5,99.1,39.6',
+      },
+      'prints/cfg_otimizar_velocidade.png': {
+        'Tipo de Velocidade': '36.6,0.9,98.2,25.4',
+      },
+      'prints/cfg_local_impressao_padrao.png': {
+        'Local de Impressão Padrão': '39.9,0.9,65.5,21.7',
       },
       'prints/contas_pagar_nf_compra.png': {
         // Campos da Tela
