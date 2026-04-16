@@ -696,6 +696,24 @@
       border-color: var(--amarelo);
     }
 
+    #modal-share-btn {
+      background: rgba(37, 211, 102, .12);
+      border: 1px solid rgba(37, 211, 102, .35);
+      color: #25d366;
+      padding: 5px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: .78rem;
+      font-family: inherit;
+      transition: all .15s;
+      display: none;
+    }
+
+    #modal-share-btn:hover {
+      background: rgba(37, 211, 102, .25);
+      border-color: #25d366;
+    }
+
     #modal-calibrate-hint {
       font-size: .72rem;
       color: var(--amarelo);
@@ -4864,6 +4882,7 @@
     <div id="modal-header">
       <div id="modal-field-name"></div>
       <div id="modal-actions">
+        <button id="modal-share-btn" onclick="shareField(event)">⬆ Compartilhar</button>
         <button id="modal-calibrate-btn" onclick="toggleCalibrate(event)">✎ Calibrar</button>
         <button id="modal-close" onclick="closeScreenModal()">✕ Fechar</button>
       </div>
@@ -5546,10 +5565,30 @@
       document.getElementById('screen-modal').classList.add('open');
       document.body.style.overflow = 'hidden';
 
+      // Mostrar botão Compartilhar apenas quando Web Share API disponível (mobile)
+      const shareBtn = document.getElementById('modal-share-btn');
+      shareBtn.style.display = navigator.share ? 'inline-block' : 'none';
+
       // requestAnimationFrame garante que o modal já está no layout antes de desenhar
       const onReady = () => requestAnimationFrame(() => drawHighlight(row));
       if (img.complete && img.naturalWidth) onReady();
       else img.onload = onReady;
+    }
+
+    function shareField(e) {
+      e.stopPropagation();
+      if (!navigator.share) return;
+
+      // Descobre seção e breadcrumb a partir da linha atual
+      const section = _currentRow?.closest('.page-section');
+      const sectionId = section?.id || '';
+      const sectionLabel = SECTION_LABELS[sectionId] || sectionId;
+      const breadcrumb = section?.querySelector('.breadcrumb')?.textContent?.trim() || sectionLabel;
+
+      navigator.share({
+        title: _currentName,
+        text: `Campo: ${_currentName}\nTela: ${sectionLabel}\nCaminho: ${breadcrumb}`,
+      }).catch(() => {});
     }
 
     function drawHighlight(row) {
