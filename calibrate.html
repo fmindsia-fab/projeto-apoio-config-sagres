@@ -692,6 +692,63 @@ const IMAGES = [
       ]},
     ]
   },
+  {
+    file: 'prints/cad_empresas_op_gerais.png',
+    label: 'Opções Gerais da Empresa',
+    groups: [
+      { group: 'Senha e Painel', fields: [
+        'Conceder Permissões com Cartão Cod.Barras',
+        'Utilizar Senha p/Painel',
+        'Zerar Senhas do Painel no Fech.Caixa',
+        'Atribuir Senha p/Painel no Início',
+      ]},
+      { group: 'Cancelamentos', fields: [
+        'Permitir Cancelamentos Operacionais',
+        'Permitir Alteração de Preços de Venda Antecipada no Ecf',
+        'Digitar Motivo no Cancelamento',
+        'Motivo da Exclusão Apenas Se Já Lançado',
+        'Informar Motivo de Cancelamento em Vendas s/Produtos',
+      ]},
+      { group: 'Vendas e Alertas', fields: [
+        'Valor p/Mensagem de Aviso nas Vendas',
+        'Sempre Chamar Tela Qtd.nas Vendas do Caixa',
+        'Exibir Botões Extras nas Telas das Vendas',
+        'Exibir Descr.Completa do Produto Quando Posicionar Mouse',
+        'Pode Alterar Qtd.Para Menos nos Pedidos',
+        'Tela de Nº de Pessoas Primeiro nos Pedidos',
+      ]},
+      { group: 'Sincronização', fields: [
+        'Sincronizar Dados Ao Fechar Caixa',
+        'Sincronizar ao Sair do Sistema',
+        'Sincronizar ao Entrar no Sistema',
+        'Checar Duplicidade no Lancto.de Prod.nos Pedidos',
+      ]},
+      { group: 'Balança', fields: [
+        'Nº Dígitos Côd.Produtos na Balança',
+        'Informação Contida no Côd.Barras Balança',
+      ]},
+      { group: 'NF e Módulos', fields: [
+        'Módulo Digitação NF Venda ao Consumidor',
+        'Módulo Digitação NF Venda Modelo "1" e Similares',
+        'Permitir Fazer Sangrias p/Pagto de Contas',
+        'Módulo Sagres Produção',
+      ]},
+      { group: 'PDV e Terminais', fields: [
+        'Rel.Vendas Detalhadas no Dia no PDV',
+        'Compatibilidade Teclas',
+        'Forçar Impr.dos Relatórios de Ecf na Bobina',
+        'Ocultar Produtos Inativos nas Telas de Pesquisa',
+      ]},
+      { group: 'Descontos', fields: [
+        'Desconto Automático para Produtos de R$ 0,01',
+        'Ordem Padrão na Consulta de Preços',
+        'Desconto por Convênios',
+      ]},
+      { group: 'Outras Configurações', fields: [
+        'Mensagem no Fech.Caixa Caso Não Haja Troco Inicial',
+      ]},
+    ]
+  },
 ];
 
 // ── Coordenadas atuais (carregadas do index.html, editáveis aqui) ──
@@ -951,6 +1008,41 @@ const COORDS = {
   },
   'prints/cfg_xml_email_outras_opcoes.png': {
     'Incluir Relatório de Produtos Totalizados por CFOP na Gravação dos Arquivos XML': '11,0.5,99.1,39.6',
+  },
+  'prints/cad_empresas_op_gerais.png': {
+    'Conceder Permissões com Cartão Cod.Barras':               '9.6,7.3,49.3,3.9',
+    'Utilizar Senha p/Painel':                                 '13.9,20.9,31.6,3.7',
+    'Zerar Senhas do Painel no Fech.Caixa':                    '13.9,52.8,44.7,3.9',
+    'Atribuir Senha p/Painel no Início':                       '18.8,15.1,46.6,3.1',
+    'Permitir Cancelamentos Operacionais':                     '23.3,11.9,31.8,3.7',
+    'Permitir Alteração de Preços de Venda Antecipada no Ecf': '23.3,44.2,43.2,3.1',
+    'Digitar Motivo no Cancelamento':                          '86.5,14.5,47.2,3.5',
+    'Motivo da Exclusão Apenas Se Já Lançado':                 '86.1,62.2,34.6,3.9',
+    'Informar Motivo de Cancelamento em Vendas s/Produtos':    '91,0.3,43.5,3.3',
+    'Valor p/Mensagem de Aviso nas Vendas':                    '27.6,10.7,38.8,3.9',
+    'Sempre Chamar Tela Qtd.nas Vendas do Caixa':              '27.6,49.9,49.5,3.7',
+    'Exibir Botões Extras nas Telas das Vendas':               '31.7,8.9,34.9,3.7',
+    'Exibir Descr.Completa do Produto Quando Posicionar Mouse':'31.9,43.8,45.7,3.9',
+    'Pode Alterar Qtd.Para Menos nos Pedidos':                 '59.5,9.2,34.5,3.1',
+    'Tela de Nº de Pessoas Primeiro nos Pedidos':              '59.3,44.2,35,3.5',
+    'Sincronizar Dados Ao Fechar Caixa':                       '36.6,12.8,30.4,3.5',
+    'Sincronizar ao Sair do Sistema':                          '36.8,44.2,26.8,3.5',
+    'Sincronizar ao Entrar no Sistema':                        '40.9,15,28.4,3.9',
+    'Checar Duplicidade no Lancto.de Prod.nos Pedidos':        '41.5,44.1,55.1,3.1',
+    'Nº Dígitos Côd.Produtos na Balança':                      '45.6,13.4,32.2,3.7',
+    'Informação Contida no Côd.Barras Balança':                '45.8,45.5,40.4,3.1',
+    'Módulo Digitação NF Venda ao Consumidor':                 '50.3,8.1,35.1,3.5',
+    'Módulo Digitação NF Venda Modelo "1" e Similares':        '50.3,44.5,40.5,3.1',
+    'Permitir Fazer Sangrias p/Pagto de Contas':               '54.8,9.6,33.6,2.9',
+    'Módulo Sagres Produção':                                  '54.4,44.3,41.4,3.7',
+    'Rel.Vendas Detalhadas no Dia no PDV':                     '63.8,11.2,53.4,3.7',
+    'Compatibilidade Teclas':                                  '63.8,65.1,32.7,3.3',
+    'Forçar Impr.dos Relatórios de Ecf na Bobina':             '67.9,8,35.4,3.7',
+    'Ocultar Produtos Inativos nas Telas de Pesquisa':         '68.3,43.9,38.1,2.9',
+    'Desconto Automático para Produtos de R$ 0,01':            '72.8,6.5,37.2,3.1',
+    'Ordem Padrão na Consulta de Preços':                      '77.5,12,47.4,3.1',
+    'Desconto por Convênios':                                  '81.8,20.1,51.2,3.1',
+    'Mensagem no Fech.Caixa Caso Não Haja Troco Inicial':      '72.6,44.1,41.9,4.1',
   },
   'prints/cad_empresas.png': {
     'Nome':                                          '0,0,0,0',

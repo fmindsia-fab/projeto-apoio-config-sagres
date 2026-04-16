@@ -4308,218 +4308,256 @@
         → aba <strong>Opções Gerais</strong>.
       </div>
 
+      <!-- Senha e Painel -->
       <div class="fields-card">
         <div class="fields-card-header">Senha e Painel</div>
         <table class="fields-table">
-          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
           <tbody>
             <tr>
-              <td><div class="field-name">Utilizar Senha p/Painel</div></td>
-              <td><span class="tag tag-opt">Seleção</span></td>
-              <td>Define se o sistema exige senha para acesso ao painel de configurações.</td>
+              <td><div class="field-name">Conceder Permissões com Cartão Cod.Barras</div></td>
+              <td><span class="tag tag-nao">Não</span></td>
+              <td>Quando ativo, exige o uso do cartão de código de barras para conceder permissões e autorizar operações restritas no PDV.</td>
             </tr>
             <tr>
-              <td><div class="field-name">Zerar Senha do Painel no Fech.Caixa</div></td>
-              <td><span class="tag tag-opt">Seleção</span></td>
-              <td>Quando ativo, a senha do painel é zerada automaticamente ao fechar o caixa.</td>
+              <td><div class="field-name">Utilizar Senha p/Painel</div></td>
+              <td><span class="tag tag-nao">Não</span></td>
+              <td>Define se o sistema exige senha para acesso ao painel de configurações da empresa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Zerar Senhas do Painel no Fech.Caixa</div></td>
+              <td><span class="tag tag-nao">Não</span></td>
+              <td>Quando ativo, a senha do painel é zerada automaticamente ao fechar o caixa, forçando nova atribuição no próximo acesso.</td>
             </tr>
             <tr>
               <td><div class="field-name">Atribuir Senha p/Painel no Início</div></td>
-              <td><span class="tag tag-opt">Seleção</span></td>
-              <td>Define se a senha do painel é atribuída ao iniciar o sistema.</td>
-            </tr>
-            <tr>
-              <td><div class="field-name">Atribuir no Início de Venda</div></td>
-              <td><span class="tag tag-opt">Seleção</span></td>
-              <td>Define se a senha é atribuída no início de cada venda.</td>
+              <td><span class="tag tag-opt">S-Sim, Atribuir no Início da Venda</span></td>
+              <td>Define o momento em que a senha do painel é atribuída. <strong>S-Sim, Atribuir no Início da Venda:</strong> senha definida a cada nova venda. Outras opções configuram a atribuição ao iniciar o sistema.</td>
             </tr>
           </tbody>
         </table>
       </div>
 
+      <!-- Cancelamentos -->
       <div class="fields-card">
-        <div class="fields-card-header">Operação e Cancelamento</div>
+        <div class="fields-card-header">Cancelamentos</div>
         <table class="fields-table">
-          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
           <tbody>
             <tr>
-              <td><div class="field-name">Cancelar Permanente com Cartão Cod.Barras</div></td>
-              <td><span class="tag tag-opt">Seleção</span></td>
-              <td>Permite cancelamento permanente de itens utilizando cartão de código de barras.</td>
-            </tr>
-            <tr>
               <td><div class="field-name">Permitir Cancelamentos Operacionais</div></td>
-              <td><span class="tag tag-opt">Seleção</span></td>
-              <td>Habilita o cancelamento operacional de lançamentos pelo operador.</td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Habilita o cancelamento operacional de lançamentos pelo operador no PDV, sem necessidade de autorização gerencial.</td>
             </tr>
             <tr>
-              <td><div class="field-name">Permitir Alteração do Preço de Venda Antecipada no ECF</div></td>
-              <td><span class="tag tag-opt">Seleção</span></td>
-              <td>Permite que o operador altere o preço de venda antecipada diretamente no ECF.</td>
+              <td><div class="field-name">Permitir Alteração de Preços de Venda Antecipada no Ecf</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Permite que o operador altere o preço de uma venda antecipada diretamente no ECF. Manter N-Não para preservar os preços pré-acordados.</td>
             </tr>
             <tr>
-              <td><div class="field-name">Digital Motivo do Cancelamento</div></td>
-              <td><span class="tag tag-opt">Seleção</span></td>
-              <td>Define se é obrigatório digitar o motivo ao realizar um cancelamento.</td>
+              <td><div class="field-name">Digitar Motivo no Cancelamento</div></td>
+              <td><span class="tag tag-nao">Não</span></td>
+              <td>Define se é obrigatório digitar o motivo ao realizar um cancelamento. Ativar para reforçar controle e auditoria de cancelamentos.</td>
             </tr>
             <tr>
-              <td><div class="field-name">Informe Motivo de Cancelamento em Vendas p/Produtos</div></td>
-              <td><span class="tag tag-opt">Seleção</span></td>
-              <td>Quando ativo, exige informação do motivo ao cancelar produtos em vendas.</td>
+              <td><div class="field-name">Motivo da Exclusão Apenas Se Já Lançado</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, o campo de motivo da exclusão só é exigido se o item já tiver sido lançado/impresso, dispensando o preenchimento em cancelamentos antes do lançamento.</td>
             </tr>
             <tr>
-              <td><div class="field-name">Motivo de Escritosa Apenas No Lançamento</div></td>
-              <td><span class="tag tag-opt">Seleção</span></td>
-              <td>Restringe a informação do motivo apenas ao momento do lançamento.</td>
+              <td><div class="field-name">Informar Motivo de Cancelamento em Vendas s/Produtos</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, exige a informação do motivo ao cancelar produtos em vendas. Recomendado para estabelecimentos com controle rigoroso de cancelamentos.</td>
             </tr>
           </tbody>
         </table>
       </div>
 
+      <!-- Vendas e Alertas -->
       <div class="fields-card">
         <div class="fields-card-header">Vendas e Alertas</div>
         <table class="fields-table">
-          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
           <tbody>
             <tr>
               <td><div class="field-name">Valor p/Mensagem de Aviso nas Vendas</div></td>
-              <td><span class="tag tag-txt">Texto</span></td>
-              <td>Valor de referência que dispara uma mensagem de aviso durante as vendas.</td>
+              <td><span class="tag tag-txt">Valor</span></td>
+              <td>Valor monetário de referência (ex.: R$ 100,00) que, ao ser atingido em uma venda, dispara uma mensagem de aviso para o operador.</td>
             </tr>
             <tr>
-              <td><div class="field-name">Emitir Extras nas Telas dos Vendas</div></td>
-              <td><span class="tag tag-opt">Seleção</span></td>
-              <td>Define se informações extras são exibidas nas telas de venda.</td>
+              <td><div class="field-name">Sempre Chamar Tela Qtd.nas Vendas do Caixa</div></td>
+              <td><span class="tag tag-nao">Não</span></td>
+              <td>Quando ativo, o sistema sempre exibe a tela de digitação de quantidade ao lançar um produto nas vendas do caixa, independentemente de qualquer quantidade pré-definida.</td>
             </tr>
             <tr>
-              <td><div class="field-name">Usa Alterar Qtd Para Menos em Pedidos</div></td>
-              <td><span class="tag tag-opt">Seleção</span></td>
-              <td>Permite ao operador reduzir a quantidade de itens em pedidos em andamento.</td>
+              <td><div class="field-name">Exibir Botões Extras nas Telas das Vendas</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, exibe botões adicionais nas telas de venda (atalhos para funções complementares). Desativar em ambientes onde a tela precisa ser mais limpa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Exibir Descr.Completa do Produto Quando Posicionar Mouse</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, ao posicionar o mouse sobre um produto na tela de vendas, o sistema exibe a descrição completa do item em um tooltip. Útil para produtos com nomes resumidos na grade.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Pode Alterar Qtd.Para Menos nos Pedidos</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, permite que o operador reduza a quantidade de itens já lançados nos pedidos. Desativar (N-Não) para impedir manipulação de pedidos em andamento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Tela de Nº de Pessoas Primeiro nos Pedidos</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, ao abrir um pedido o sistema exibe primeiro a tela de informação do número de pessoas antes de permitir o lançamento de itens. Útil para controle de consumo per capita.</td>
             </tr>
           </tbody>
         </table>
       </div>
 
+      <!-- Sincronização -->
       <div class="fields-card">
         <div class="fields-card-header">Sincronização</div>
         <table class="fields-table">
-          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
           <tbody>
             <tr>
               <td><div class="field-name">Sincronizar Dados Ao Fechar Caixa</div></td>
-              <td><span class="tag tag-opt">Seleção</span></td>
-              <td>Executa sincronização de dados automaticamente ao fechar o caixa.</td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Executa sincronização automática de dados com o servidor ao fechar o caixa. Manter S-Sim em ambientes multi-estação para garantir consistência dos dados.</td>
             </tr>
             <tr>
               <td><div class="field-name">Sincronizar ao Sair do Sistema</div></td>
-              <td><span class="tag tag-opt">Seleção</span></td>
-              <td>Executa sincronização ao encerrar o sistema.</td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Define se a sincronização é executada automaticamente ao encerrar o sistema. Útil para garantir que todos os dados do dia sejam enviados ao servidor antes do fechamento.</td>
             </tr>
             <tr>
               <td><div class="field-name">Sincronizar ao Entrar no Sistema</div></td>
-              <td><span class="tag tag-opt">Seleção</span></td>
-              <td>Executa sincronização ao iniciar o sistema.</td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, executa sincronização automática ao iniciar o sistema, garantindo que o terminal inicie com os dados mais atualizados do servidor.</td>
             </tr>
             <tr>
-              <td><div class="field-name">Sincronizar na Impressão do Lançamento</div></td>
-              <td><span class="tag tag-opt">Seleção</span></td>
-              <td>Define quando ocorre a sincronização durante a impressão de lançamentos (ex.: Valor/Preço).</td>
+              <td><div class="field-name">Checar Duplicidade no Lancto.de Prod.nos Pedidos</div></td>
+              <td><span class="tag tag-nao">Não</span></td>
+              <td>Quando ativo, o sistema verifica se um produto já foi lançado no pedido antes de adicioná-lo novamente, alertando o operador sobre possível duplicidade de itens.</td>
             </tr>
           </tbody>
         </table>
       </div>
 
+      <!-- Balança -->
+      <div class="fields-card">
+        <div class="fields-card-header">Balança</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Nº Dígitos Côd.Produtos na Balança</div></td>
+              <td><span class="tag tag-txt">5 dígitos</span></td>
+              <td>Define o número de dígitos reservados para o código do produto no código de barras gerado pela balança. Configurar conforme o padrão da balança instalada.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Informação Contida no Côd.Barras Balança</div></td>
+              <td><span class="tag tag-opt">Valor (Preço)</span></td>
+              <td>Define se o código de barras da balança contém o <strong>Valor (Preço)</strong> ou o <strong>Peso</strong> do produto. Configurar conforme o modelo de balança utilizado no estabelecimento.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- NF e Módulos -->
       <div class="fields-card">
         <div class="fields-card-header">NF e Módulos</div>
         <table class="fields-table">
-          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
           <tbody>
             <tr>
-              <td><div class="field-name">Módulo Digitação NF Venda no Comandador</div></td>
-              <td><span class="tag tag-opt">Seleção</span></td>
-              <td>Habilita o módulo de digitação de NF de venda no comandador.</td>
+              <td><div class="field-name">Módulo Digitação NF Venda ao Consumidor</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Habilita o módulo de digitação de NF de venda ao consumidor (NFC-e/SAT). Deve estar S-Sim em estabelecimentos que emitem NFC-e ou utilizam SAT fiscal.</td>
             </tr>
             <tr>
-              <td><div class="field-name">Módulo Digitação NF Venda Módulo "1" e Simulado</div></td>
-              <td><span class="tag tag-opt">Seleção</span></td>
-              <td>Habilita o módulo "1" e modo simulado para digitação de NF de venda.</td>
+              <td><div class="field-name">Módulo Digitação NF Venda Modelo "1" e Similares</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Habilita o módulo Modelo 1 e similares para digitação de NF de venda. Ativar somente se o estabelecimento operar com esse modelo específico de faturamento.</td>
             </tr>
             <tr>
-              <td><div class="field-name">Permite Fazer Imagens p/Fotos de Código</div></td>
-              <td><span class="tag tag-opt">Seleção</span></td>
-              <td>Habilita a funcionalidade de captura de imagens/fotos de código de produtos.</td>
+              <td><div class="field-name">Permitir Fazer Sangrias p/Pagto de Contas</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando ativo, permite realizar sangrias de caixa vinculadas ao pagamento de contas. Usar somente quando o fluxo operacional do estabelecimento exigir esse tipo de sangria.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Módulo Sagres Produção</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Ativa o módulo Sagres Produção. Habilitar somente se o estabelecimento utiliza o módulo de produção integrado ao Squalus e possui este módulo contratado.</td>
             </tr>
           </tbody>
         </table>
       </div>
 
+      <!-- PDV e Terminais -->
       <div class="fields-card">
         <div class="fields-card-header">PDV e Terminais</div>
         <table class="fields-table">
-          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
           <tbody>
             <tr>
-              <td><div class="field-name">Rel.Vendas Detalhados no Dia no PDV</div></td>
-              <td><span class="tag tag-opt">Seleção</span></td>
-              <td>Define se relatórios de vendas detalhados do dia são exibidos no PDV.</td>
+              <td><div class="field-name">Rel.Vendas Detalhadas no Dia no PDV</div></td>
+              <td><span class="tag tag-sim">Sim</span></td>
+              <td>Define se o relatório de vendas detalhadas do dia é exibido nos terminais PDV. Manter ativo para que os operadores possam consultar o movimento do dia diretamente no caixa.</td>
             </tr>
             <tr>
-              <td><div class="field-name">Compatibilidade Tablet</div></td>
-              <td><span class="tag tag-opt">Seleção</span></td>
-              <td>Define o modo de compatibilidade da interface com tablets.</td>
+              <td><div class="field-name">Compatibilidade Teclas</div></td>
+              <td><span class="tag tag-opt">0-Sem compatibilidade</span></td>
+              <td>Define o modo de compatibilidade do teclado com o PDV. <strong>0-Sem compatibilidade:</strong> teclado padrão sem ajustes. Alterar apenas se o PDV apresentar problemas de resposta ao teclado.</td>
             </tr>
             <tr>
-              <td><div class="field-name">Outros Produtos Inativos nas Telas de Pesquisa</div></td>
-              <td><span class="tag tag-opt">Seleção</span></td>
-              <td>Controla a exibição de produtos inativos nas telas de pesquisa do PDV.</td>
+              <td><div class="field-name">Forçar Impr.dos Relatórios de Ecf na Bobina</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, força a reimpressão dos relatórios do ECF diretamente na bobina ao reiniciar o sistema. Usar quando houver perda de relatórios de fechamento após reinicialização do terminal.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Ocultar Produtos Inativos nas Telas de Pesquisa</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, produtos marcados como inativos não aparecem nas pesquisas do PDV e do sistema. Manter S-Sim para evitar que operadores vendam produtos fora de linha.</td>
             </tr>
           </tbody>
         </table>
       </div>
 
+      <!-- Descontos -->
       <div class="fields-card">
         <div class="fields-card-header">Descontos</div>
         <table class="fields-table">
-          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
           <tbody>
             <tr>
-              <td><div class="field-name">Descontos Automáticos por Produtos do REST</div></td>
-              <td><span class="tag tag-opt">Seleção</span></td>
-              <td>Habilita a aplicação de descontos automáticos por produto via REST.</td>
+              <td><div class="field-name">Desconto Automático para Produtos de R$ 0,01</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, aplica desconto automático para produtos com valor de R$ 0,01 (itens gratuitos ou brindes). Ativar somente se o estabelecimento utilizar esse recurso de precificação.</td>
             </tr>
             <tr>
-              <td><div class="field-name">Descontos no Pedido do Campo de Preço</div></td>
-              <td><span class="tag tag-opt">Seleção</span></td>
-              <td>Permite aplicar descontos diretamente no campo de preço do pedido.</td>
+              <td><div class="field-name">Ordem Padrão na Consulta de Preços</div></td>
+              <td><span class="tag tag-opt">1-Ordem de Descrição do Produto</span></td>
+              <td>Define a ordem de exibição dos produtos na consulta de preços. <strong>1-Ordem de Descrição do Produto:</strong> lista em ordem alfabética pela descrição. Outras opções organizam por código ou preço.</td>
             </tr>
             <tr>
-              <td><div class="field-name">Descontos por Comissão</div></td>
-              <td><span class="tag tag-opt">Seleção</span></td>
-              <td>Define o comportamento dos descontos vinculados à comissão do operador.</td>
+              <td><div class="field-name">Desconto por Convênios</div></td>
+              <td><span class="tag tag-nao">N-Não usar</span></td>
+              <td>Configura o uso de descontos vinculados a convênios empresariais. <strong>N-Não usar:</strong> desativa o módulo de convênios. Ativar somente se o estabelecimento opera com descontos por convênio.</td>
             </tr>
           </tbody>
         </table>
       </div>
 
+      <!-- Outras Configurações -->
       <div class="fields-card">
-        <div class="fields-card-header">Outros Parâmetros</div>
+        <div class="fields-card-header">Outras Configurações</div>
         <table class="fields-table">
-          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
           <tbody>
             <tr>
-              <td><div class="field-name">Mensagem no Fech.Caixa Como Hora Hoje Troco Inicial</div></td>
-              <td><span class="tag tag-opt">Seleção</span></td>
-              <td>Define se a mensagem no fechamento de caixa exibe a hora atual como troco inicial.</td>
-            </tr>
-            <tr>
-              <td><div class="field-name">Informação Diferente de Balança</div></td>
-              <td><span class="tag tag-opt">Seleção</span></td>
-              <td>Configura o comportamento quando a informação recebida da balança difere do esperado.</td>
-            </tr>
-            <tr>
-              <td><div class="field-name">PDV usar</div></td>
-              <td><span class="tag tag-opt">Seleção</span></td>
-              <td>Define qual configuração ou modo o PDV deve utilizar.</td>
+              <td><div class="field-name">Mensagem no Fech.Caixa Caso Não Haja Troco Inicial</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, exibe uma mensagem de alerta no fechamento de caixa quando não há valor de troco inicial configurado para o próximo turno. Auxilia o controle de abertura de caixa.</td>
             </tr>
           </tbody>
         </table>
@@ -4574,7 +4612,8 @@
       'fiscal-nfe': 'Fiscal / NF-e / SAT',
       'pdv-caixa': 'PDV / Caixa',
       'usuarios': 'Usuários / Permissões',
-      'cad-empresas': 'Cadastro de Empresas'
+      'cad-empresas': 'Cadastro de Empresas',
+      'cad-empresas-op-gerais': 'Opções Gerais da Empresa'
     };
 
     function toggleNavSection(titleEl) {
@@ -5043,6 +5082,50 @@
         'Endereço para Relatórios (Linha 2)':            '86.3,0.7,68.2,3.3',
         // Operação
         'Horário Inicial Redução Z':                     '90.6,0.9,83.6,3.9',
+      },
+      'prints/cad_empresas_op_gerais.png': {
+        // Senha e Painel
+        'Conceder Permissões com Cartão Cod.Barras':                                '9.6,7.3,49.3,3.9',
+        'Utilizar Senha p/Painel':                                                  '13.9,20.9,31.6,3.7',
+        'Zerar Senhas do Painel no Fech.Caixa':                                     '13.9,52.8,44.7,3.9',
+        'Atribuir Senha p/Painel no Início':                                        '18.8,15.1,46.6,3.1',
+        // Cancelamentos
+        'Permitir Cancelamentos Operacionais':                                      '23.3,11.9,31.8,3.7',
+        'Permitir Alteração de Preços de Venda Antecipada no Ecf':                  '23.3,44.2,43.2,3.1',
+        'Digitar Motivo no Cancelamento':                                           '86.5,14.5,47.2,3.5',
+        'Motivo da Exclusão Apenas Se Já Lançado':                                  '86.1,62.2,34.6,3.9',
+        'Informar Motivo de Cancelamento em Vendas s/Produtos':                     '91,0.3,43.5,3.3',
+        // Vendas e Alertas
+        'Valor p/Mensagem de Aviso nas Vendas':                                     '27.6,10.7,38.8,3.9',
+        'Sempre Chamar Tela Qtd.nas Vendas do Caixa':                               '27.6,49.9,49.5,3.7',
+        'Exibir Botões Extras nas Telas das Vendas':                                '31.7,8.9,34.9,3.7',
+        'Exibir Descr.Completa do Produto Quando Posicionar Mouse':                 '31.9,43.8,45.7,3.9',
+        'Pode Alterar Qtd.Para Menos nos Pedidos':                                  '59.5,9.2,34.5,3.1',
+        'Tela de Nº de Pessoas Primeiro nos Pedidos':                               '59.3,44.2,35,3.5',
+        // Sincronização
+        'Sincronizar Dados Ao Fechar Caixa':                                        '36.6,12.8,30.4,3.5',
+        'Sincronizar ao Sair do Sistema':                                           '36.8,44.2,26.8,3.5',
+        'Sincronizar ao Entrar no Sistema':                                         '40.9,15,28.4,3.9',
+        'Checar Duplicidade no Lancto.de Prod.nos Pedidos':                         '41.5,44.1,55.1,3.1',
+        // Balança
+        'Nº Dígitos Côd.Produtos na Balança':                                       '45.6,13.4,32.2,3.7',
+        'Informação Contida no Côd.Barras Balança':                                 '45.8,45.5,40.4,3.1',
+        // NF e Módulos
+        'Módulo Digitação NF Venda ao Consumidor':                                  '50.3,8.1,35.1,3.5',
+        'Módulo Digitação NF Venda Modelo "1" e Similares':                         '50.3,44.5,40.5,3.1',
+        'Permitir Fazer Sangrias p/Pagto de Contas':                                '54.8,9.6,33.6,2.9',
+        'Módulo Sagres Produção':                                                   '54.4,44.3,41.4,3.7',
+        // PDV e Terminais
+        'Rel.Vendas Detalhadas no Dia no PDV':                                      '63.8,11.2,53.4,3.7',
+        'Compatibilidade Teclas':                                                   '63.8,65.1,32.7,3.3',
+        'Forçar Impr.dos Relatórios de Ecf na Bobina':                              '67.9,8,35.4,3.7',
+        'Ocultar Produtos Inativos nas Telas de Pesquisa':                          '68.3,43.9,38.1,2.9',
+        // Descontos
+        'Desconto Automático para Produtos de R$ 0,01':                             '72.8,6.5,37.2,3.1',
+        'Ordem Padrão na Consulta de Preços':                                       '77.5,12,47.4,3.1',
+        'Desconto por Convênios':                                                   '81.8,20.1,51.2,3.1',
+        // Outras Configurações
+        'Mensagem no Fech.Caixa Caso Não Haja Troco Inicial':                       '72.6,44.1,41.9,4.1',
       },
     };
 
