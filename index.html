@@ -961,6 +961,10 @@
             Opções Gerais da Empresa
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções Gerais</span>
           </a>
+          <a class="nav-item" onclick="showSection('cad-empresas-op-gerais-2')">
+            Opções Gerais da Empresa 2
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções Gerais 2</span>
+          </a>
         </div>
       </div>
     </div>
@@ -1102,6 +1106,11 @@
           <div class="icon">⚙️</div>
           <h3>Opções Gerais da Empresa</h3>
           <p>Parâmetros operacionais da empresa: senha do painel, sincronização, cancelamentos, módulos NF e compatibilidade de terminais.</p>
+        </div>
+        <div class="welcome-card empresa" onclick="showSection('cad-empresas-op-gerais-2')">
+          <div class="icon">⚙️</div>
+          <h3>Opções Gerais da Empresa 2</h3>
+          <p>Caixa, troco, ECF, sangria, SMS, pedidos, fiscal e exportação de arquivos.</p>
         </div>
       </div>
     </section>
@@ -4564,6 +4573,290 @@
       </div>
     </section>
 
+    <!-- ══ OPÇÕES GERAIS DA EMPRESA 2 ══ -->
+    <section id="cad-empresas-op-gerais-2" class="page-section" data-section-img="prints/cad_empresas_op_gerais_2.png">
+      <div class="page-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções Gerais 2</div>
+        <h2>Opções Gerais da Empresa 2</h2>
+        <p>Configurações de caixa, troco, ECF, sangria, pedidos, fiscal, SMS e exportação de arquivos.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_op_gerais_2.png" alt="Tela Configurações da Empresa — Opções Gerais 2"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_op_gerais_2.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções Gerais 2</strong>.
+      </div>
+
+      <!-- Caixa e Troco -->
+      <div class="fields-card">
+        <div class="fields-card-header">Caixa e Troco</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Lançar troco inicial ao abrir o caixa</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, o sistema solicita o lançamento do troco inicial ao abrir o caixa. Manter S-Sim para garantir o controle de fundo de caixa desde o início do turno.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Sugerir Troco Inicial c/Valor do Total do Caixa Anterior</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, o sistema pré-preenche o campo de troco inicial com o valor total do fechamento do caixa anterior, agilizando a abertura do próximo turno.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem se já lançado troco inicial anteriormente</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, o sistema exibe uma mensagem de aviso caso o operador tente lançar o troco inicial mais de uma vez no mesmo turno, evitando duplicidade.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Valor Máximo Permitido de Troco</div></td>
+              <td><span class="tag tag-txt">R$ 10.000,00</span></td>
+              <td>Define o valor máximo que pode ser concedido como troco em uma venda. Vendas cujo troco exceda esse limite são bloqueadas ou alertadas pelo sistema.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Valor Máximo de Troco s/Mensagem</div></td>
+              <td><span class="tag tag-txt">R$ 500,00</span></td>
+              <td>Define o valor de troco acima do qual o sistema exibe uma mensagem de confirmação ao operador antes de prosseguir. Auxilia no controle de trocos elevados.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ECF e Vendas -->
+      <div class="fields-card">
+        <div class="fields-card-header">ECF e Vendas</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Botão "Receber" c/tamanho grande na tela de vendas do ECF</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, o botão "Receber" é exibido em tamanho maior na tela de vendas do ECF, facilitando o uso em telas sensíveis ao toque ou ambientes com operação rápida.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir consulta/vendas de outras estações no ECF</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, permite que uma estação ECF consulte ou processe vendas originadas em outras estações. Ativar somente em ambientes com operação multi-caixa integrada.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir sangrias c/valores maiores do que apresenta no caixa</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, permite realizar sangrias com valor superior ao saldo atual do caixa. Manter N-Não para evitar saldo negativo não intencional.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Exibir vendas futuras no ECF</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, o ECF exibe as vendas antecipadas (futuras) junto com as vendas do dia, permitindo ao operador visualizar e processar esse tipo de venda diretamente no caixa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Totalizar Vendas Futuras Apenas da Estação</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, o totalizador de vendas futuras no ECF exibe apenas as vendas vinculadas à estação atual, ignorando vendas futuras de outros caixas/estações.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Produtos e Pesquisa -->
+      <div class="fields-card">
+        <div class="fields-card-header">Produtos e Pesquisa</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Ocultar produtos inativos nas telas de pesquisa</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, produtos marcados como inativos não aparecem nas pesquisas desta tela. Manter S-Sim para evitar que operadores selecionem produtos fora de linha.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Ocultar produtos c/preço zero nas telas de pesquisa</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, produtos com preço de venda zerado são ocultados nas pesquisas. Útil para remover da listagem itens não precificados que não devem ser vendidos.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Estoque Negativo</div></td>
+              <td><span class="tag tag-sim">S-Sim, permitir</span></td>
+              <td>Define o comportamento do sistema quando o estoque de um produto chega a zero. <strong>S-Sim, permitir:</strong> permite lançar vendas mesmo sem estoque. Configurar conforme a política do estabelecimento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem Prod.sem Aliq.Definida p/Cálc.Tributo</div></td>
+              <td><span class="tag tag-opt">Exibir só na entrada</span></td>
+              <td>Define quando o sistema exibe aviso para produtos sem alíquota definida para cálculo tributário. <strong>Exibir só na entrada:</strong> alerta apenas ao lançar entrada de estoque. Ajustar conforme necessidade fiscal.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pedidos -->
+      <div class="fields-card">
+        <div class="fields-card-header">Pedidos</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Imprimir identificação da conta nos adiantamentos</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, o número/identificação da conta é impresso nos comprovantes de adiantamento, facilitando a conciliação entre o comprovante e o pedido correspondente.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Ordem dos Produtos na Conferência do Pedido</div></td>
+              <td><span class="tag tag-opt">1-Ordem Alfabética</span></td>
+              <td>Define a ordenação dos produtos exibidos na tela de conferência do pedido. <strong>1-Ordem Alfabética:</strong> lista em ordem alfabética pela descrição do produto.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Recriar Pedidos na Tela de "Consultar Vendas"</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, permite recriar um pedido a partir da tela de consulta de vendas. Útil para reprocessar pedidos cancelados ou com erro, sem necessidade de redigitação manual.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Exibir Informação "Transf.De" na Tela de Lançamento de Produtos dos Pedidos</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, exibe o campo "Transferido de" na tela de lançamento de produtos dos pedidos, indicando a origem de itens transferidos entre pedidos ou mesas.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Sangria e PDV -->
+      <div class="fields-card">
+        <div class="fields-card-header">Sangria e PDV</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Método de Sangria no PDV</div></td>
+              <td><span class="tag tag-opt">1-Digitar Texto p/Sangria</span></td>
+              <td>Define como o operador informa o motivo da sangria no PDV. <strong>1-Digitar Texto p/Sangria:</strong> o operador digita livremente o motivo. Outras opções podem usar listas pré-definidas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Lógica p/Registro de Produtos c/Valores Zerados</div></td>
+              <td><span class="tag tag-opt">2-Registra os produtos como itens de venda</span></td>
+              <td>Define como o sistema registra produtos com valor zerado nas vendas. <strong>2-Registra os produtos como itens de venda:</strong> lança normalmente no cupom mesmo com valor R$ 0,00.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Fiscal e Backup -->
+      <div class="fields-card">
+        <div class="fields-card-header">Fiscal e Backup</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Gerar Sintegra Como Simples Nacional</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, o arquivo Sintegra é gerado seguindo as regras do Simples Nacional. Ativar somente para empresas optantes pelo Simples Nacional que precisam gerar o Sintegra.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Gravar XML NFe/NFCe/Sat em uma pasta Backup</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, cópias dos XMLs de NF-e, NFC-e e SAT são gravadas automaticamente em uma pasta de backup configurada no sistema. Recomendado para segurança dos documentos fiscais.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Balança -->
+      <div class="fields-card">
+        <div class="fields-card-header">Balança</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Msg.Qdo.Prod.Kg ou Balança Lançado s/Fração</div></td>
+              <td><span class="tag tag-opt">1-Apenas p/Produtos c/Unidade "KG"</span></td>
+              <td>Define para quais produtos o sistema exibe mensagem ao lançar um item pesável sem fração de quantidade. <strong>1-Apenas p/Produtos c/Unidade "KG":</strong> alerta somente para itens com unidade KG.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Sagres SMS -->
+      <div class="fields-card">
+        <div class="fields-card-header">Sagres SMS</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Módulo Sagres SMS (Check-Out)</div></td>
+              <td><span class="tag tag-opt">Não utilizar</span></td>
+              <td>Define se o módulo Sagres SMS é ativado no momento do checkout (fechamento de venda). <strong>Não utilizar:</strong> SMS desativado. Ativar somente se o módulo de SMS estiver contratado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Diretório do SagresSMS Dados</div></td>
+              <td><span class="tag tag-txt">Caminho</span></td>
+              <td>Caminho da pasta onde o módulo SagresSMS armazena seus arquivos de dados. Preencher somente se o módulo de SMS estiver ativo e configurado na estação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Módulo Sagres SMS (At.Ident)</div></td>
+              <td><span class="tag tag-opt">Não utilizar</span></td>
+              <td>Define se o módulo Sagres SMS é ativado no atendimento de identificação do cliente. <strong>Não utilizar:</strong> SMS desativado neste ponto. Ativar somente se o módulo estiver contratado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Adicionar Sagres SMS Mesmo Sem Telefone</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, o sistema tenta processar o envio de SMS mesmo para clientes sem telefone cadastrado. Manter N-Não para evitar erros de envio desnecessários.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Ocorrências e Clientes -->
+      <div class="fields-card">
+        <div class="fields-card-header">Ocorrências e Clientes</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Registrar nas Ocorrências do Caixa as Exclusões dos Pedidos Bloqueados</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, toda exclusão de pedido bloqueado fica registrada no log de ocorrências do caixa, permitindo auditoria posterior dos cancelamentos de pedidos bloqueados.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Atribuir Cat.Cliente Padrão p/Novos Clientes no PDV</div></td>
+              <td><span class="tag tag-opt">Não (continuar atribuindo o valor "1")</span></td>
+              <td>Define se o sistema atribui automaticamente uma categoria padrão a novos clientes cadastrados no PDV. <strong>Não (continuar atribuindo o valor "1"):</strong> mantém a categoria 1 como padrão.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Cat.Cliente Padrão</div></td>
+              <td><span class="tag tag-txt">1</span></td>
+              <td>Código da categoria de cliente atribuída automaticamente a novos clientes cadastrados no PDV. Alterar somente se o estabelecimento utilizar categorização de clientes personalizada.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Arquivos e Exportação -->
+      <div class="fields-card">
+        <div class="fields-card-header">Arquivos e Exportação</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Gerar Arquivo TXT de Terceiros no Fech.Caixa</div></td>
+              <td><span class="tag tag-opt">0-Não Gerar</span></td>
+              <td>Define se o sistema gera um arquivo TXT para integração com sistemas de terceiros ao fechar o caixa. <strong>0-Não Gerar:</strong> exportação desativada. Ativar somente se houver integração configurada.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Diretório p/Geração Arq.Terceiros</div></td>
+              <td><span class="tag tag-txt">Caminho</span></td>
+              <td>Caminho da pasta onde o arquivo TXT de terceiros será gerado. Preencher somente quando a opção "Gerar Arquivo TXT de Terceiros no Fech.Caixa" estiver ativa.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <!-- ══════════════ MODAL EXIBIR NA TELA ══════════════ -->
@@ -4613,7 +4906,8 @@
       'pdv-caixa': 'PDV / Caixa',
       'usuarios': 'Usuários / Permissões',
       'cad-empresas': 'Cadastro de Empresas',
-      'cad-empresas-op-gerais': 'Opções Gerais da Empresa'
+      'cad-empresas-op-gerais': 'Opções Gerais da Empresa',
+      'cad-empresas-op-gerais-2': 'Opções Gerais da Empresa 2'
     };
 
     function toggleNavSection(titleEl) {
@@ -5082,6 +5376,50 @@
         'Endereço para Relatórios (Linha 2)':            '86.3,0.7,68.2,3.3',
         // Operação
         'Horário Inicial Redução Z':                     '90.6,0.9,83.6,3.9',
+      },
+      'prints/cad_empresas_op_gerais_2.png': {
+        // Caixa e Troco
+        'Lançar troco inicial ao abrir o caixa':                                    '9.5,10.7,29.3,3.6',
+        'Sugerir Troco Inicial c/Valor do Total do Caixa Anterior':                 '9.3,40.5,40.8,4',
+        'Mensagem se já lançado troco inicial anteriormente':                       '27.7,1.4,38.5,3.6',
+        'Valor Máximo Permitido de Troco':                                          '50.3,11.2,30.9,3.8',
+        'Valor Máximo de Troco s/Mensagem':                                         '49.9,42.4,32,4.4',
+        // ECF e Vendas
+        'Botão "Receber" c/tamanho grande na tela de vendas do ECF':                '14.4,40.5,44.6,3.4',
+        'Permitir consulta/vendas de outras estações no ECF':                       '18.8,0.9,38.9,3.6',
+        'Permitir sangrias c/valores maiores do que apresenta no caixa':            '18.6,40.1,44.3,3.4',
+        'Exibir vendas futuras no ECF':                                             '32.3,14.2,25.7,3',
+        'Totalizar Vendas Futuras Apenas da Estação':                               '31.7,40.7,34.2,4.2',
+        // Produtos e Pesquisa
+        'Ocultar produtos inativos nas telas de pesquisa':                          '23.3,4.1,35.9,3.4',
+        'Ocultar produtos c/preço zero nas telas de pesquisa':                      '23.3,40.4,38,3.4',
+        'Permitir Estoque Negativo':                                                '45.5,15.8,42.4,4',
+        'Mensagem Prod.sem Aliq.Definida p/Cálc.Tributo':                           '41.4,2.7,52.4,3.4',
+        // Pedidos
+        'Imprimir identificação da conta nos adiantamentos':                        '27.3,40.3,37.8,3.8',
+        'Ordem dos Produtos na Conferência do Pedido':                              '36.8,4.2,50,3.2',
+        'Recriar Pedidos na Tela de "Consultar Vendas"':                            '77.2,3.4,36.5,3.4',
+        'Exibir Informação "Transf.De" na Tela de Lançamento de Produtos dos Pedidos': '77.6,40.5,54.9,3.4',
+        // Sangria e PDV
+        'Método de Sangria no PDV':                                                 '41.2,55.8,43.2,3.6',
+        'Lógica p/Registro de Produtos c/Valores Zerados':                          '72.5,2.7,63.9,4',
+        // Fiscal e Backup
+        'Gerar Sintegra Como Simples Nacional':                                     '14,8.5,31.5,3.8',
+        'Gravar XML NFe/NFCe/Sat em uma pasta Backup':                              '82,1.4,38.5,3.6',
+        // Balança
+        'Msg.Qdo.Prod.Kg ou Balança Lançado s/Fração':                              '81.8,40.5,55.5,4',
+        // Sagres SMS
+        'Módulo Sagres SMS (Check-Out)':                                            '54.3,10.9,51.4,3.4',
+        'Diretório do SagresSMS Dados':                                             '59,12.6,69.1,4',
+        'Módulo Sagres SMS (At.Ident)':                                             '64.1,13.1,48.6,3.4',
+        'Adicionar Sagres SMS Mesmo Sem Telefone':                                  '68.1,5.1,34.9,3.4',
+        // Ocorrências e Clientes
+        'Registrar nas Ocorrências do Caixa as Exclusões dos Pedidos Bloqueados':   '68.3,40.5,51.5,3',
+        'Atribuir Cat.Cliente Padrão p/Novos Clientes no PDV':                      '91.1,0.4,61.8,2.7',
+        'Cat.Cliente Padrão':                                                       '91.1,62.7,21.8,3.6',
+        // Arquivos e Exportação
+        'Gerar Arquivo TXT de Terceiros no Fech.Caixa':                             '86.7,3.6,43,3',
+        'Diretório p/Geração Arq.Terceiros':                                        '86.5,47,46.1,3.4',
       },
       'prints/cad_empresas_op_gerais.png': {
         // Senha e Painel
