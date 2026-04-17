@@ -987,6 +987,10 @@
             Opções Gerais da Empresa 3
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções Gerais 3</span>
           </a>
+          <a class="nav-item" onclick="showSection('cad-empresas-cupom-fiscal')">
+            Opções de Cupom Fiscal/NFe/SAT
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Cupom Fiscal/NFe/SAT</span>
+          </a>
         </div>
       </div>
     </div>
@@ -1138,6 +1142,11 @@
           <div class="icon">⚙️</div>
           <h3>Opções Gerais da Empresa 3</h3>
           <p>Recebimento automático, fechamento de caixa, combo, dashboard e impressão na saída livre.</p>
+        </div>
+        <div class="welcome-card empresa" onclick="showSection('cad-empresas-cupom-fiscal')">
+          <div class="icon">🧾</div>
+          <h3>Opções de Cupom Fiscal/NFe/SAT</h3>
+          <p>Cliente no cupom, gaveta fiscal, impostos, Danfe NFCe, CEST e configurações de impressão fiscal.</p>
         </div>
       </div>
     </section>
@@ -5008,6 +5017,340 @@
       </div>
     </section>
 
+    <!-- ══ OPÇÕES DE CUPOM FISCAL / NFe / SAT ══ -->
+    <section id="cad-empresas-cupom-fiscal" class="page-section" data-section-img="prints/cad_empresas_cupom_fiscal.png">
+      <div class="page-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções de Cupom Fiscal/NFe/SAT</div>
+        <h2>Opções de Cupom Fiscal / NFe / SAT</h2>
+        <p>Configurações de impressão fiscal: cliente no cupom, gaveta, comprovantes, impostos, Danfe NFCe e CEST.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_cupom_fiscal.png" alt="Tela Configurações da Empresa — Cupom Fiscal/NFe/SAT"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_cupom_fiscal.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções de Cupom Fiscal/NFe/SAT</strong>.
+      </div>
+
+      <!-- Cliente e Identificação no Cupom -->
+      <div class="fields-card">
+        <div class="fields-card-header">Cliente e Identificação no Cupom</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Cliente no Cupom Fiscal</div></td>
+              <td><span class="tag tag-nao">Não</span></td>
+              <td>Define se o nome do cliente é impresso no cupom fiscal. Ativar quando o estabelecimento precisar identificar o cliente no documento fiscal emitido.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Atendente no Cupom Fiscal</div></td>
+              <td><span class="tag tag-nao">Não</span></td>
+              <td>Define se o nome do atendente responsável pela venda é impresso no cupom fiscal.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">CNPJ no Cupom Fiscal</div></td>
+              <td><span class="tag tag-opt">Sim</span></td>
+              <td>Quando Sim, o CNPJ do cliente é impresso no cupom fiscal. Recomendado para ambientes B2B onde o cliente solicita o CNPJ no documento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Dados do Cliente no Cabeçário do Cupom Fiscal</div></td>
+              <td><span class="tag tag-opt">Sim</span></td>
+              <td>Quando Sim, os dados do cliente identificado são impressos no cabeçalho do cupom fiscal.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Dados do Cliente no Rodapé do Cupom Fiscal</div></td>
+              <td><span class="tag tag-opt">Sim</span></td>
+              <td>Quando Sim, os dados do cliente identificado são impressos no rodapé do cupom fiscal.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Dados do Cliente em Recebimentos Não Fiscais</div></td>
+              <td><span class="tag tag-opt">Sim</span></td>
+              <td>Quando Sim, os dados do cliente são incluídos nos comprovantes de recebimentos não fiscais (ex.: conta assinada, crediário).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Comprovantes -->
+      <div class="fields-card">
+        <div class="fields-card-header">Comprovantes</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Imprimir Comprovante de Conta Assinada</div></td>
+              <td><span class="tag tag-opt">Sim</span></td>
+              <td>Quando Sim, o sistema imprime automaticamente o comprovante ao registrar uma conta assinada.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Comprovante de Crediário</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, o sistema imprime automaticamente o comprovante ao registrar uma venda no crediário.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Gaveta Fiscal -->
+      <div class="fields-card">
+        <div class="fields-card-header">Gaveta Fiscal</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Abrir Gaveta Imp.Fiscal</div></td>
+              <td><span class="tag tag-opt">1-Ao entrar na tela de recebimento</span></td>
+              <td>Define o momento em que a gaveta da impressora fiscal é aberta automaticamente. <strong>1-Ao entrar na tela de recebimento:</strong> abre ao iniciar o processo de recebimento da venda.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Abrir Gaveta Imp.Fiscal nas Telas (Ctrl+F9)</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, o atalho Ctrl+F9 abre manualmente a gaveta da impressora fiscal a partir de qualquer tela do sistema.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Fidelidade e Pessoas -->
+      <div class="fields-card">
+        <div class="fields-card-header">Fidelidade e Pessoas</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Pode Recuperar Vendas</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, permite recuperar vendas iniciadas e não finalizadas. Ativar somente em ambientes onde há interrupção frequente do fluxo de venda.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Exibir NºPontos Fidelidade</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, o saldo de pontos do programa de fidelidade do cliente é exibido durante o atendimento no caixa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Chamar Tela Nº Pessoas Quando Venda Ckeck-Out</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, o sistema solicita a informação do número de pessoas ao finalizar uma venda via check-out. Útil para controle de cobertura em restaurantes.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Calcular Automaticamente NºPessoas</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, o sistema calcula automaticamente o número de pessoas com base nos produtos do pedido, sem necessidade de digitação manual.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Impressão e Mensagens -->
+      <div class="fields-card">
+        <div class="fields-card-header">Impressão e Mensagens</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Imprimir Item de Pedido Cancelado</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, itens cancelados do pedido são impressos no cupom fiscal com indicação de cancelamento, mantendo rastreabilidade do que foi removido.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem de Ajuste de Hora da Imp.Fiscal na Redução Z</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, o sistema exibe uma mensagem orientando o ajuste do horário da impressora fiscal durante o processo de Redução Z.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Forçar Tela de Recebimento no Fech.das Contas</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, o sistema abre obrigatoriamente a tela de recebimento ao fechar contas, independentemente da configuração padrão do fluxo de caixa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Horário de Tolerância p/Mensagem de Data do Caixa Diferente</div></td>
+              <td><span class="tag tag-txt">06:00:00</span></td>
+              <td>Define o horário limite até o qual o sistema não exibe aviso de data diferente no caixa. Útil para estabelecimentos que operam após meia-noite: caixas abertos antes deste horário são tratados como pertencentes ao dia anterior.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem Rodapé Cupom Fiscal (Linha 01)</div></td>
+              <td><span class="tag tag-txt">—</span></td>
+              <td>Texto da primeira linha da mensagem personalizada impressa no rodapé do cupom fiscal. Deixar em branco para não imprimir mensagem.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem Rodapé Cupom Fiscal (Linha 02)</div></td>
+              <td><span class="tag tag-txt">—</span></td>
+              <td>Texto da segunda linha da mensagem personalizada impressa no rodapé do cupom fiscal. Deixar em branco para não imprimir mensagem.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Mensagem no Receb.Não Fiscal</div></td>
+              <td><span class="tag tag-opt">Sim</span></td>
+              <td>Quando Sim, a mensagem de rodapé configurada é impressa também nos comprovantes de recebimentos não fiscais.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Operador no Cupom Fiscal</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, o nome do operador de caixa é impresso no cupom fiscal.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Atendente no Cupom Fiscal</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, o nome do atendente responsável pelo pedido é impresso no cupom fiscal.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Limpar Buffer de Teclado ao Receber Pedido</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, o buffer de teclado é limpo ao iniciar o recebimento de um pedido, evitando que teclas pressionadas anteriormente interfiram no processo de pagamento.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Vendas e Fiscal -->
+      <div class="fields-card">
+        <div class="fields-card-header">Vendas e Fiscal</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Atribuir Automaticamente Expresão "SemGTIN" ao Campo CEAN</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, o sistema preenche automaticamente o campo CEAN com "SemGTIN" para produtos sem código de barras GTIN cadastrado, atendendo ao requisito da NF-e/NFC-e.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Venda por Valor Total em Produtos por Kilo</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, permite que o operador informe o valor total da venda de um produto por quilo, calculando automaticamente a quantidade correspondente.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Cancelamento de Tx.Serviço c/Permissão Específica</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, o cancelamento da taxa de serviço exige uma permissão específica de operador ou supervisor, evitando isenções indevidas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Exibir Qtd.Itens na Tela de Vendas</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, a quantidade total de itens do pedido é exibida na tela de vendas, facilitando a conferência pelo operador.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir C.Fiscal c/Data Diferente do Caixa</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, permite emitir cupom fiscal com data diferente da data de abertura do caixa. Útil para operações que atravessam a virada de dia.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Impostos -->
+      <div class="fields-card">
+        <div class="fields-card-header">Impostos</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Imprimir Valor dos Impostos no C.Fiscal/NFCe</div></td>
+              <td><span class="tag tag-opt">Sim, por NCM (Federal/Estadual/Municipal)</span></td>
+              <td>Define se e como os valores de impostos são impressos no cupom fiscal ou NFC-e. <strong>Sim, por NCM:</strong> imprime o detalhamento federal, estadual e municipal conforme o NCM do produto.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Forçar Valor dos Impostos, Mesmo Zerado</div></td>
+              <td><span class="tag tag-opt">Sim</span></td>
+              <td>Quando Sim, o campo de impostos é impresso no documento fiscal mesmo quando o valor calculado é zero, garantindo conformidade com o leiaute exigido pela legislação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Perc.p/Calc.Imposto --> Federal (%)</div></td>
+              <td><span class="tag tag-txt">0</span></td>
+              <td>Percentual de imposto federal aplicado no cálculo de impostos impressos no cupom. Preencher somente quando o cálculo não for feito por NCM.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Estadual (%)</div></td>
+              <td><span class="tag tag-txt">0</span></td>
+              <td>Percentual de imposto estadual aplicado no cálculo de impostos impressos no cupom. Preencher somente quando o cálculo não for feito por NCM.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Municipal (%)</div></td>
+              <td><span class="tag tag-txt">0</span></td>
+              <td>Percentual de imposto municipal aplicado no cálculo de impostos impressos no cupom. Preencher somente quando o cálculo não for feito por NCM.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Danfe NFCe -->
+      <div class="fields-card">
+        <div class="fields-card-header">Danfe NFCe</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Impr.Desconto Individualmente por Produto no Danfe NFCe</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, o desconto concedido é detalhado por produto no Danfe da NFC-e, em vez de exibir apenas o desconto total.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Impr.Imposto na Nota por Produto na Danfe NFCe/Sat</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, o valor de imposto é detalhado por produto no Danfe da NFC-e e SAT, atendendo ao requisito legal de transparência fiscal.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Impr.Frete Individualmente por Produto no Danfe NFCe</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, o valor de frete rateado é detalhado por produto no Danfe da NFC-e.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Impr.Desp.Acess.Individualmente por Produto no Danfe NFCe</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, as despesas acessórias rateadas são detalhadas por produto no Danfe da NFC-e.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Forma de Impressão dos Produtos na NFCe</div></td>
+              <td><span class="tag tag-opt">3-Cortar Descr.Prod., caso exceda</span></td>
+              <td>Define como a descrição dos produtos é impressa no Danfe da NFC-e quando o texto ultrapassa o espaço disponível. <strong>3-Cortar:</strong> trunca o texto excedente.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Porta Alternativa p/Reimpressão Danfe</div></td>
+              <td><span class="tag tag-nao">Não</span></td>
+              <td>Define se o sistema utiliza uma porta alternativa de impressão ao reimprimir o Danfe. Configurar somente quando houver mais de uma impressora fiscal disponível.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Impr.Senha Painel Após Danfe</div></td>
+              <td><span class="tag tag-opt">Não Imprimir</span></td>
+              <td>Define se a senha do painel é impressa após a emissão do Danfe. <strong>Não Imprimir:</strong> a senha não é incluída no documento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Impr.Danfe NFCe Qdo Enviar Contingência</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, o Danfe da NFC-e é impresso automaticamente ao enviar uma nota em modo de contingência, garantindo que o cliente receba o comprovante mesmo sem conexão.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- CEST -->
+      <div class="fields-card">
+        <div class="fields-card-header">CEST</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Campo "CEST"</div></td>
+              <td><span class="tag tag-opt">Sempre Incluir</span></td>
+              <td>Define a regra para inclusão do código CEST (Código Especificador da Substituição Tributária) nas notas fiscais. <strong>Sempre Incluir:</strong> o campo CEST é incluído em todos os documentos, independentemente do produto ter substituição tributária.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">CEST Padrão</div></td>
+              <td><span class="tag tag-txt">0000000</span></td>
+              <td>Código CEST padrão atribuído quando o produto não possui CEST específico cadastrado. O valor 0000000 é utilizado como placeholder; ajustar conforme orientação contábil/fiscal do estabelecimento.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <!-- ══════════════ MODAL EXIBIR NA TELA ══════════════ -->
@@ -5060,7 +5403,8 @@
       'cad-empresas': 'Cadastro de Empresas',
       'cad-empresas-op-gerais': 'Opções Gerais da Empresa',
       'cad-empresas-op-gerais-2': 'Opções Gerais da Empresa 2',
-      'cad-empresas-op-gerais-3': 'Opções Gerais da Empresa 3'
+      'cad-empresas-op-gerais-3': 'Opções Gerais da Empresa 3',
+      'cad-empresas-cupom-fiscal': 'Opções de Cupom Fiscal/NFe/SAT'
     };
 
     function toggleNavSection(titleEl) {
@@ -5574,22 +5918,77 @@
         'Gerar Arquivo TXT de Terceiros no Fech.Caixa':                             '86.7,3.6,43,3',
         'Diretório p/Geração Arq.Terceiros':                                        '86.5,47,46.1,3.4',
       },
+      'prints/cad_empresas_cupom_fiscal.png': {
+        // Cliente e Identificação no Cupom
+        'Cliente no Cupom Fiscal':                                                  '8.7,21.4,30,3.6',
+        'Atendente no Cupom Fiscal':                                                '8.7,51.6,31.6,3.4',
+        'CNPJ no Cupom Fiscal':                                                     '12.6,22.3,21.5,3',
+        'Dados do Cliente no Cabeçário do Cupom Fiscal':                            '12.6,44.2,36.5,3.2',
+        'Dados do Cliente no Rodapé do Cupom Fiscal':                               '16.2,8.8,35.5,3.4',
+        'Dados do Cliente em Recebimentos Não Fiscais':                             '16.2,44.1,36.5,3.6',
+        // Comprovantes
+        'Imprimir Comprovante de Conta Assinada':                                   '20.2,10.8,37.7,3.4',
+        'Imprimir Comprovante de Crediário':                                        '19.8,48.6,29.6,3.4',
+        // Gaveta Fiscal
+        'Abrir Gaveta Imp.Fiscal':                                                  '24.1,21.6,38.6,3',
+        'Abrir Gaveta Imp.Fiscal nas Telas (Ctrl+F9)':                              '23.7,60.7,34.2,3.4',
+        // Fidelidade e Pessoas
+        'Pode Recuperar Vendas':                                                    '27.7,21.4,22.7,3',
+        'Exibir NºPontos Fidelidade':                                               '27.7,44.2,24.2,3.2',
+        'Chamar Tela Nº Pessoas Quando Venda Ckeck-Out':                            '31.5,5.1,38.9,3.2',
+        'Calcular Automaticamente NºPessoas':                                       '31.5,44.3,30.1,3',
+        // Impressão e Mensagens
+        'Imprimir Item de Pedido Cancelado':                                        '35.2,14.7,29.3,3.4',
+        'Mensagem de Ajuste de Hora da Imp.Fiscal na Redução Z':                    '35.2,44.3,42.6,3.6',
+        'Forçar Tela de Recebimento no Fech.das Contas':                            '39,6.9,37.2,2.8',
+        'Horário de Tolerância p/Mensagem de Data do Caixa Diferente':              '39,44.5,46.1,3.2',
+        'Mensagem Rodapé Cupom Fiscal (Linha 01)':                                  '42.7,9.3,64.7,3.2',
+        'Mensagem Rodapé Cupom Fiscal (Linha 02)':                                  '46.5,9.6,64.5,3',
+        'Imprimir Mensagem no Receb.Não Fiscal':                                    '50.5,11.2,32.8,3.2',
+        'Imprimir Operador no Cupom Fiscal':                                        '57.8,14.2,29.6,3.8',
+        'Imprimir Atendente no Cupom Fiscal':                                       '57.8,44.5,29.9,4',
+        'Limpar Buffer de Teclado ao Receber Pedido':                               '61.8,9.2,34.6,3',
+        // Vendas e Fiscal
+        'Atribuir Automaticamente Expresão "SemGTIN" ao Campo CEAN':                '50.7,44.5,47.6,3.2',
+        'Permitir Venda por Valor Total em Produtos por Kilo':                      '54.4,4.7,39.2,3.2',
+        'Cancelamento de Tx.Serviço c/Permissão Específica':                        '54,44.5,38.6,3.4',
+        'Exibir Qtd.Itens na Tela de Vendas':                                       '73.1,15.1,28.8,3.2',
+        'Permitir C.Fiscal c/Data Diferente do Caixa':                              '73.1,44.2,33.5,3.4',
+        // Impostos
+        'Imprimir Valor dos Impostos no C.Fiscal/NFCe':                             '65.5,8,57.7,3.4',
+        'Forçar Valor dos Impostos, Mesmo Zerado':                                  '65.3,65.9,33.5,3.2',
+        'Perc.p/Calc.Imposto --> Federal (%)':                                      '69.3,14.2,29.1,3',
+        'Estadual (%)':                                                             '69.1,43.6,14.2,3',
+        'Municipal (%)':                                                            '69.1,58.4,15.4,3.6',
+        // Danfe NFCe
+        'Impr.Desconto Individualmente por Produto no Danfe NFCe':                  '76.8,0.1,43.6,3',
+        'Impr.Imposto na Nota por Produto na Danfe NFCe/Sat':                       '77,44.3,39.9,3.2',
+        'Impr.Frete Individualmente por Produto no Danfe NFCe':                     '80.8,2.7,41.2,2.8',
+        'Impr.Desp.Acess.Individualmente por Produto no Danfe NFCe':                '80.8,44.2,45.1,2.6',
+        'Forma de Impressão dos Produtos na NFCe':                                  '84.4,9.7,55.4,3.2',
+        'Porta Alternativa p/Reimpressão Danfe':                                    '84.6,65,30.1,3.2',
+        'Impr.Senha Painel Após Danfe':                                             '88.1,17.8,46.9,3.4',
+        'Impr.Danfe NFCe Qdo Enviar Contingência':                                  '87.9,64.7,34.5,3.4',
+        // CEST
+        'Campo "CEST"':                                                             '91.9,26.1,34.1,3',
+        'CEST Padrão':                                                              '91.9,60.7,16.8,3.4',
+      },
       'prints/cad_empresas_op_gerais_3.png': {
         // Recebimento Automático
-        'Possui Forma Pagto p/Recebimento Automático':                              '18.4,14.7,42,6.1',
-        'Forma Pagto p/Recebimento Automático':                                     '26.8,19.3,35.4,7.4',
+        'Possui Forma Pagto p/Recebimento Automático':                              '0,0,0,0',
+        'Forma Pagto p/Recebimento Automático':                                     '0,0,0,0',
         // Fechamento de Caixa
-        'Atribuir Horário de Preparo dos Produtos nos Pedidos no Fech.Caixa':       '36.1,0.4,70.9,6.8',
-        'Utilizar Cancelamentos Efetivos no Fech.Caixa':                            '45.5,14.7,78.8,7.1',
+        'Atribuir Horário de Preparo dos Produtos nos Pedidos no Fech.Caixa':       '0,0,0,0',
+        'Utilizar Cancelamentos Efetivos no Fech.Caixa':                            '0,0,0,0',
         // Combo e Reimpressão
-        'Exibir Preço de Produtos na Tela do Combo':                                '54.8,17.2,39.7,6.5',
-        'Reimpressão de Sagrias/Suprimentos':                                       '63.5,21.1,38.9,7.1',
+        'Exibir Preço de Produtos na Tela do Combo':                                '0,0,0,0',
+        'Reimpressão de Sagrias/Suprimentos':                                       '0,0,0,0',
         // Dashboard e Campanhas
-        'Gerar Vendas Futuras p/o Dashboard':                                       '73.9,21.2,35.4,6.5',
-        'Imprimir Vouchers de Campanhas Promocionais':                              '73.2,57.2,42.2,6.8',
+        'Gerar Vendas Futuras p/o Dashboard':                                       '0,0,0,0',
+        'Imprimir Vouchers de Campanhas Promocionais':                              '0,0,0,0',
         // Saída Livre
-        'Imprimir Nome do Cliente no Saida Livre':                                  '83.2,18.5,38.2,5.8',
-        'Imprimir Sub-Identificação no Saida Livre':                                '83.2,56.9,38.4,6.1',
+        'Imprimir Nome do Cliente no Saida Livre':                                  '0,0,0,0',
+        'Imprimir Sub-Identificação no Saida Livre':                                '0,0,0,0',
       },
       'prints/cad_empresas_op_gerais.png': {
         // Senha e Painel
