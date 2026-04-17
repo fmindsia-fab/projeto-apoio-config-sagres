@@ -995,6 +995,10 @@
             Opções de Recibo
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Recibo</span>
           </a>
+          <a class="nav-item" onclick="showSection('cad-empresas-local-impressao')">
+            Opções de Local de Impressão
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Local de Impressão</span>
+          </a>
         </div>
       </div>
     </div>
@@ -1156,6 +1160,11 @@
           <div class="icon">🖨️</div>
           <h3>Opções de Recibo</h3>
           <p>Mensagens de cabeçário e rodapé da bobina e configurações de impressão do recibo.</p>
+        </div>
+        <div class="welcome-card empresa" onclick="showSection('cad-empresas-local-impressao')">
+          <div class="icon">🖨️</div>
+          <h3>Opções de Local de Impressão</h3>
+          <p>Espelho, roteamento por mesa e dia da semana, agrupamento, ordenação e textos fixos dos locais de impressão.</p>
         </div>
       </div>
     </section>
@@ -5469,6 +5478,175 @@
       </div>
     </section>
 
+    <!-- ══ OPÇÕES DE LOCAL DE IMPRESSÃO ══ -->
+    <section id="cad-empresas-local-impressao" class="page-section" data-section-img="prints/cad_empresas_local_impressao.png">
+      <div class="page-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções de Local de Impressão</div>
+        <h2>Opções de Local de Impressão</h2>
+        <p>Configurações de espelho, roteamento por mesa e dia da semana, transferência, agrupamento, ordenação e textos fixos dos locais de impressão.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_local_impressao.png" alt="Tela Configurações da Empresa — Opções de Local de Impressão"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_local_impressao.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções de Local de Impressão</strong>.
+      </div>
+
+      <!-- Impressão de Conteúdo -->
+      <div class="fields-card">
+        <div class="fields-card-header">Impressão de Conteúdo</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Descrição Completa do Produto</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, a descrição completa do produto é impressa no local de impressão (comanda de cozinha/bar), em vez da descrição resumida. Ativar quando a cozinha precisar do nome completo para identificar o item.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Espelho do Local de Impressão</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, uma cópia (espelho) da comanda é enviada a um segundo local de impressão configurado. Útil quando dois pontos precisam receber a mesma informação simultaneamente.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Espelho (2) do Local de Impressão</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, uma segunda cópia espelho é enviada a um terceiro local de impressão. Complementa a opção de espelho primário quando há três destinos para a mesma comanda.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Exclusões nas Vendas do Caixa</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, os itens excluídos de um pedido são impressos no local de impressão com indicação de cancelamento, permitindo que a cozinha seja notificada das remoções.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Descrição da Estação no Local de Impressão</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, o nome da estação (PDV) que originou o pedido é impresso na comanda, facilitando a identificação da origem em ambientes com múltiplos caixas.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Roteamento -->
+      <div class="fields-card">
+        <div class="fields-card-header">Roteamento</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Redirecionar Local de Impressão por Intervalo de Mesas</div></td>
+              <td><span class="tag tag-nao">Não</span></td>
+              <td>Quando ativo, permite redirecionar automaticamente a impressão para locais diferentes conforme o intervalo de número de mesas. Útil para ambientes com setores separados por faixas de mesas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Local de Impressão por Dia da Semana</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, o sistema utiliza locais de impressão diferentes conforme o dia da semana configurado. Útil para estabelecimentos com rotinas operacionais distintas por dia.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Transferência -->
+      <div class="fields-card">
+        <div class="fields-card-header">Transferência</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Imprimir Mensagem de Transferência no Local de Impresssão (Mesa)</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, uma mensagem é impressa no local de impressão ao realizar a transferência de itens entre mesas, notificando a cozinha/bar sobre a movimentação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Mensagem de Transferência no Local de Impresssão (At.Id)</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, a mensagem de transferência é impressa no local de impressão também ao transferir por atendimento/identificação (At.Id), além da transferência por mesa.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Agrupamento e Ordenação -->
+      <div class="fields-card">
+        <div class="fields-card-header">Agrupamento e Ordenação</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Desmembrar Qtd.Produtos nos Locais de Impressão</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, produtos com quantidade maior que 1 são impressos como linhas individuais na comanda (ex.: 3x Frango → três linhas separadas), facilitando o preparo unitário.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Agrupar Produtos nos Locais de Impressão</div></td>
+              <td><span class="tag tag-nao">Não</span></td>
+              <td>Define se produtos iguais lançados separadamente são agrupados em uma única linha com quantidade somada na comanda. Reduz o volume de itens impressos quando há múltiplos lançamentos do mesmo produto.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Ordenar Produtos nos Loc.Imp.</div></td>
+              <td><span class="tag tag-nao">Não</span></td>
+              <td>Define o critério de ordenação dos produtos impressos na comanda. Quando diferente de Não, os produtos são reordenados antes de serem enviados ao local de impressão.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Agrupar Modo de Preparo nos Loc.Imp.</div></td>
+              <td><span class="tag tag-nao">Não</span></td>
+              <td>Quando ativo, os itens da comanda são agrupados por modo de preparo, facilitando a organização da cozinha ao separar visualmente itens com preparos diferentes.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Impressão e Textos -->
+      <div class="fields-card">
+        <div class="fields-card-header">Impressão e Textos</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Imprimir Data/Horário no Local de Impressão</div></td>
+              <td><span class="tag tag-opt">Sim (apenas data/hora atual)</span></td>
+              <td>Define se e como a data e o horário são impressos na comanda. <strong>Sim (apenas data/hora atual):</strong> imprime somente o horário atual do lançamento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Nome da Impressora no Local de Impressão</div></td>
+              <td><span class="tag tag-opt">Não Imprimir</span></td>
+              <td>Define se o nome da impressora/local de impressão é impresso na comanda. <strong>Não Imprimir:</strong> o nome não é incluído. Ativar para facilitar a identificação da impressora em ambientes com várias filas de impressão.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Expressão "Pedido Já Existe"</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, o sistema imprime a expressão "Pedido Já Existe" na comanda ao reimprimir um pedido já enviado anteriormente, alertando a cozinha sobre o reenvio.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Sempre Imprimir "Qtd" nos Produtos do Combo</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, a quantidade é sempre impressa ao lado dos produtos componentes de um combo na comanda, mesmo quando a quantidade for 1.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Texto Fixo a Ser Impresso no Loc.Imp. Qdo Usar Sub-Identificação</div></td>
+              <td><span class="tag tag-txt">—</span></td>
+              <td>Texto fixo impresso na comanda quando o pedido utiliza sub-identificação (ex.: número de cadeira ou divisão interna da mesa). Deixar em branco para não imprimir.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Texto Fixo Sub.Identif.p/Entregas</div></td>
+              <td><span class="tag tag-txt">—</span></td>
+              <td>Texto fixo impresso na comanda quando o pedido é vinculado a uma entrega com sub-identificação. Útil para diferenciar comandas de delivery das comandas de mesa.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <!-- ══════════════ MODAL EXIBIR NA TELA ══════════════ -->
@@ -5523,7 +5701,8 @@
       'cad-empresas-op-gerais-2': 'Opções Gerais da Empresa 2',
       'cad-empresas-op-gerais-3': 'Opções Gerais da Empresa 3',
       'cad-empresas-cupom-fiscal': 'Opções de Cupom Fiscal/NFe/SAT',
-      'cad-empresas-opcoes-recibo': 'Opções de Recibo'
+      'cad-empresas-opcoes-recibo': 'Opções de Recibo',
+      'cad-empresas-local-impressao': 'Opções de Local de Impressão'
     };
 
     function toggleNavSection(titleEl) {
@@ -6037,21 +6216,47 @@
         'Gerar Arquivo TXT de Terceiros no Fech.Caixa':                             '86.7,3.6,43,3',
         'Diretório p/Geração Arq.Terceiros':                                        '86.5,47,46.1,3.4',
       },
+      'prints/cad_empresas_local_impressao.png': {
+        // Impressão de Conteúdo
+        'Descrição Completa do Produto':                                            '11.6,21.6,25.9,4.9',
+        'Imprimir Espelho do Local de Impressão':                                   '17,16.8,31.2,4.9',
+        'Imprimir Espelho (2) do Local de Impressão':                               '22.9,14.9,32.7,4.3',
+        'Imprimir Exclusões nas Vendas do Caixa':                                   '28,16.8,30.7,4.3',
+        'Imprimir Descrição da Estação no Local de Impressão':                      '33.4,8.9,38.6,4.3',
+        // Roteamento
+        'Redirecionar Local de Impressão por Intervalo de Mesas':                   '39.6,6.9,50.1,4',
+        'Local de Impressão por Dia da Semana':                                     '44.7,17.3,30,4',
+        // Transferência
+        'Imprimir Mensagem de Transferência no Local de Impresssão (Mesa)':         '49.9,0.3,47.4,4.6',
+        'Imprimir Mensagem de Transferência no Local de Impresssão (At.Id)':        '55.5,0.8,46.6,4.6',
+        // Agrupamento e Ordenação
+        'Desmembrar Qtd.Produtos nos Locais de Impressão':                          '61.5,10.1,37.4,4.6',
+        'Agrupar Produtos nos Locais de Impressão':                                 '61.5,47.8,44.3,4.3',
+        'Ordenar Produtos nos Loc.Imp.':                                            '66.6,21.9,46.9,4',
+        'Agrupar Modo de Preparo nos Loc.Imp.':                                     '66.8,69.2,30.1,4.9',
+        // Impressão e Textos
+        'Imprimir Data/Horário no Local de Impressão':                              '72.2,13.9,57.8,4.3',
+        'Imprimir Nome da Impressora no Local de Impressão':                        '77.6,9.2,55.1,4',
+        'Imprimir Expressão "Pedido Já Existe"':                                    '83.3,17.2,30.3,4.3',
+        'Sempre Imprimir "Qtd" nos Produtos do Combo':                              '82.7,47.7,35,4.6',
+        'Texto Fixo a Ser Impresso no Loc.Imp. Qdo Usar Sub-Identificação':         '88.9,2,53,4.6',
+        'Texto Fixo Sub.Identif.p/Entregas':                                        '88.7,55.5,34.3,4.9',
+      },
       'prints/cad_empresas_opcoes_recibo.png': {
         // Cabeçário da Bobina
-        'Mensagem do Cabeçário da Bobina (Linha 01)':                               '15.2,11.2,88.2,5.8',
-        'Mensagem do Cabeçário da Bobina (Linha 02)':                               '21.7,43.2,56.1,5.8',
+        'Mensagem do Cabeçário da Bobina (Linha 01)':                               '0,0,0,0',
+        'Mensagem do Cabeçário da Bobina (Linha 02)':                               '0,0,0,0',
         // Rodapé da Bobina
-        'Mensagem do Rodapé da Bobina (Linha 01)':                                  '29.3,13.6,85.5,5.5',
-        'Mensagem do Rodapé da Bobina (Linha 02)':                                  '35.6,41.4,57.7,6.5',
-        'Mensagem do Rodapé da Bobina (Linha 03)':                                  '43.2,43.4,55.7,6.2',
-        'Mensagem do Rodapé da Bobina (Linha 04)':                                  '50.1,43.5,55.5,5.8',
-        'Mensagem do Rodapé da Bobina (Linha 05)':                                  '57.3,43.5,55.4,5.8',
-        'Mensagem do Rodapé da Bobina (Linha 06)':                                  '64.7,43.6,55.5,5.3',
+        'Mensagem do Rodapé da Bobina (Linha 01)':                                  '0,0,0,0',
+        'Mensagem do Rodapé da Bobina (Linha 02)':                                  '0,0,0,0',
+        'Mensagem do Rodapé da Bobina (Linha 03)':                                  '0,0,0,0',
+        'Mensagem do Rodapé da Bobina (Linha 04)':                                  '0,0,0,0',
+        'Mensagem do Rodapé da Bobina (Linha 05)':                                  '0,0,0,0',
+        'Mensagem do Rodapé da Bobina (Linha 06)':                                  '0,0,0,0',
         // Impressão
-        'Nº de Linhas entre Total e Msg.Sem Valor Fiscal':                          '71.6,0.7,47.7,5.3',
-        'Imprimir Atendente que Comandou Fechamento':                               '79.2,1.4,52.2,4.8',
-        'Imprimir Atendente do Pedido':                                             '85.7,16.9,37,5.3',
+        'Nº de Linhas entre Total e Msg.Sem Valor Fiscal':                          '0,0,0,0',
+        'Imprimir Atendente que Comandou Fechamento':                               '0,0,0,0',
+        'Imprimir Atendente do Pedido':                                             '0,0,0,0',
       },
       'prints/cad_empresas_cupom_fiscal.png': {
         // Cliente e Identificação no Cupom
