@@ -983,6 +983,10 @@
             Opções Gerais da Empresa 2
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções Gerais 2</span>
           </a>
+          <a class="nav-item" onclick="showSection('cad-empresas-op-gerais-3')">
+            Opções Gerais da Empresa 3
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções Gerais 3</span>
+          </a>
         </div>
       </div>
     </div>
@@ -1129,6 +1133,11 @@
           <div class="icon">⚙️</div>
           <h3>Opções Gerais da Empresa 2</h3>
           <p>Caixa, troco, ECF, sangria, SMS, pedidos, fiscal e exportação de arquivos.</p>
+        </div>
+        <div class="welcome-card empresa" onclick="showSection('cad-empresas-op-gerais-3')">
+          <div class="icon">⚙️</div>
+          <h3>Opções Gerais da Empresa 3</h3>
+          <p>Recebimento automático, fechamento de caixa, combo, dashboard e impressão na saída livre.</p>
         </div>
       </div>
     </section>
@@ -4875,6 +4884,130 @@
       </div>
     </section>
 
+    <!-- ══ OPÇÕES GERAIS DA EMPRESA 3 ══ -->
+    <section id="cad-empresas-op-gerais-3" class="page-section" data-section-img="prints/cad_empresas_op_gerais_3.png">
+      <div class="page-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções Gerais 3</div>
+        <h2>Opções Gerais da Empresa 3</h2>
+        <p>Recebimento automático, horário de preparo, cancelamentos no fechamento de caixa, combo, dashboard e impressão na saída livre.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_op_gerais_3.png" alt="Tela Configurações da Empresa — Opções Gerais 3"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_op_gerais_3.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções Gerais 3</strong>.
+      </div>
+
+      <!-- Recebimento Automático -->
+      <div class="fields-card">
+        <div class="fields-card-header">Recebimento Automático</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Possui Forma Pagto p/Recebimento Automático</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, o sistema utiliza uma forma de pagamento padrão para processar recebimentos de forma automática. Ativar somente se o estabelecimento utilizar esse fluxo de recebimento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Forma Pagto p/Recebimento Automático</div></td>
+              <td><span class="tag tag-txt">—</span></td>
+              <td>Código da forma de pagamento utilizada no recebimento automático. Habilitado apenas quando "Possui Forma Pagto p/Recebimento Automático" estiver como S-Sim.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Fechamento de Caixa -->
+      <div class="fields-card">
+        <div class="fields-card-header">Fechamento de Caixa</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Atribuir Horário de Preparo dos Produtos nos Pedidos no Fech.Caixa</div></td>
+              <td><span class="tag tag-opt">Sim</span></td>
+              <td>Quando Sim, o sistema registra o horário de preparo dos produtos dos pedidos no momento do fechamento de caixa. Manter Sim para garantir rastreabilidade do tempo de produção.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Utilizar Cancelamentos Efetivos no Fech.Caixa</div></td>
+              <td><span class="tag tag-opt">Sim</span></td>
+              <td>Quando Sim, apenas os cancelamentos efetivamente confirmados são contabilizados no fechamento de caixa, evitando que cancelamentos parciais ou tentativas distorçam os totais.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Combo e Reimpressão -->
+      <div class="fields-card">
+        <div class="fields-card-header">Combo e Reimpressão</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Exibir Preço de Produtos na Tela do Combo</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, o preço de cada produto é exibido na tela de seleção de combos. Útil quando o cliente precisa visualizar os valores individuais dos itens do combo durante o atendimento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Reimpressão de Sagrias/Suprimentos</div></td>
+              <td><span class="tag tag-opt">Não Permitir</span></td>
+              <td>Define se o sistema permite reimprimir comprovantes de sangrias e suprimentos. <strong>Não Permitir:</strong> bloqueia a reimpressão. Ajustar conforme a política de controle do caixa do estabelecimento.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Dashboard e Campanhas -->
+      <div class="fields-card">
+        <div class="fields-card-header">Dashboard e Campanhas</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Gerar Vendas Futuras p/o Dashboard</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, as vendas antecipadas (futuras) são incluídas nos totais exibidos no dashboard gerencial. Manter S-Sim para que os indicadores reflitam também os pedidos agendados.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Vouchers de Campanhas Promocionais</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, o sistema imprime automaticamente vouchers de campanhas promocionais vinculadas à venda. Ativar somente se o estabelecimento utilizar campanhas com emissão de voucher físico.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Saída Livre -->
+      <div class="fields-card">
+        <div class="fields-card-header">Saída Livre</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Imprimir Nome do Cliente no Saida Livre</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, o nome do cliente identificado é impresso no comprovante de saída livre. Útil para ambientes que exigem identificação do cliente no documento de saída.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Sub-Identificação no Saida Livre</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, a sub-identificação (como número de mesa, comanda ou conta) é impressa no comprovante de saída livre, facilitando a conferência e o controle do atendimento.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <!-- ══════════════ MODAL EXIBIR NA TELA ══════════════ -->
@@ -4926,7 +5059,8 @@
       'usuarios': 'Usuários / Permissões',
       'cad-empresas': 'Cadastro de Empresas',
       'cad-empresas-op-gerais': 'Opções Gerais da Empresa',
-      'cad-empresas-op-gerais-2': 'Opções Gerais da Empresa 2'
+      'cad-empresas-op-gerais-2': 'Opções Gerais da Empresa 2',
+      'cad-empresas-op-gerais-3': 'Opções Gerais da Empresa 3'
     };
 
     function toggleNavSection(titleEl) {
@@ -5440,6 +5574,23 @@
         'Gerar Arquivo TXT de Terceiros no Fech.Caixa':                             '86.7,3.6,43,3',
         'Diretório p/Geração Arq.Terceiros':                                        '86.5,47,46.1,3.4',
       },
+      'prints/cad_empresas_op_gerais_3.png': {
+        // Recebimento Automático
+        'Possui Forma Pagto p/Recebimento Automático':                              '18.4,14.7,42,6.1',
+        'Forma Pagto p/Recebimento Automático':                                     '26.8,19.3,35.4,7.4',
+        // Fechamento de Caixa
+        'Atribuir Horário de Preparo dos Produtos nos Pedidos no Fech.Caixa':       '36.1,0.4,70.9,6.8',
+        'Utilizar Cancelamentos Efetivos no Fech.Caixa':                            '45.5,14.7,78.8,7.1',
+        // Combo e Reimpressão
+        'Exibir Preço de Produtos na Tela do Combo':                                '54.8,17.2,39.7,6.5',
+        'Reimpressão de Sagrias/Suprimentos':                                       '63.5,21.1,38.9,7.1',
+        // Dashboard e Campanhas
+        'Gerar Vendas Futuras p/o Dashboard':                                       '73.9,21.2,35.4,6.5',
+        'Imprimir Vouchers de Campanhas Promocionais':                              '73.2,57.2,42.2,6.8',
+        // Saída Livre
+        'Imprimir Nome do Cliente no Saida Livre':                                  '83.2,18.5,38.2,5.8',
+        'Imprimir Sub-Identificação no Saida Livre':                                '83.2,56.9,38.4,6.1',
+      },
       'prints/cad_empresas_op_gerais.png': {
         // Senha e Painel
         'Conceder Permissões com Cartão Cod.Barras':                                '9.6,7.3,49.3,3.9',
@@ -5565,9 +5716,10 @@
       document.getElementById('screen-modal').classList.add('open');
       document.body.style.overflow = 'hidden';
 
-      // Mostrar botão Compartilhar apenas quando Web Share API disponível (mobile)
+      // Mobile: Compartilhar — Desktop: Copiar (sempre visível)
       const shareBtn = document.getElementById('modal-share-btn');
-      shareBtn.style.display = navigator.share ? 'inline-block' : 'none';
+      shareBtn.textContent = navigator.share ? '⬆ Compartilhar' : '⎘ Copiar';
+      shareBtn.style.display = 'inline-block';
 
       // requestAnimationFrame garante que o modal já está no layout antes de desenhar
       const onReady = () => requestAnimationFrame(() => drawHighlight(row));
@@ -5577,18 +5729,27 @@
 
     function shareField(e) {
       e.stopPropagation();
-      if (!navigator.share) return;
 
-      // Descobre seção e breadcrumb a partir da linha atual
       const section = _currentRow?.closest('.page-section');
       const sectionId = section?.id || '';
       const sectionLabel = SECTION_LABELS[sectionId] || sectionId;
       const breadcrumb = section?.querySelector('.breadcrumb')?.textContent?.trim() || sectionLabel;
+      const text = `Campo: ${_currentName}\nTela: ${sectionLabel}\nCaminho: ${breadcrumb}`;
 
-      navigator.share({
-        title: _currentName,
-        text: `Campo: ${_currentName}\nTela: ${sectionLabel}\nCaminho: ${breadcrumb}`,
-      }).catch(() => {});
+      if (navigator.share) {
+        navigator.share({ title: _currentName, text }).catch(() => {});
+      } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => {
+          const btn = document.getElementById('modal-share-btn');
+          const prev = btn.textContent;
+          btn.textContent = '✓ Copiado!';
+          btn.style.background = 'rgba(37,211,102,.25)';
+          setTimeout(() => {
+            btn.textContent = prev;
+            btn.style.background = '';
+          }, 2000);
+        }).catch(() => {});
+      }
     }
 
     function drawHighlight(row) {
