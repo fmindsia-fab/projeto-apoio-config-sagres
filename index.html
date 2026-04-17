@@ -778,6 +778,200 @@
     }
 
     /* Animação do highlight via canvas (sem CSS animation) */
+
+    /* ── SYSTEM SWITCHER TABS ── */
+    .sys-tabs {
+      display: flex;
+      gap: 5px;
+      margin-top: 12px;
+    }
+
+    .sys-tab {
+      flex: 1;
+      padding: 6px 8px;
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text-dim);
+      font-size: .72rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      transition: all .15s;
+      letter-spacing: .6px;
+      font-family: inherit;
+      text-transform: uppercase;
+    }
+
+    .sys-tab:hover {
+      background: rgba(255, 255, 255, .08);
+      color: var(--text);
+    }
+
+    .sys-tab.gestao.active {
+      background: rgba(77, 144, 254, .14);
+      border-color: var(--azul-accent);
+      color: var(--azul-accent);
+    }
+
+    .sys-tab.pdv.active {
+      background: rgba(251, 146, 60, .14);
+      border-color: #fb923c;
+      color: #fb923c;
+    }
+
+    /* ── NAV PDV PLACEHOLDER ── */
+    #nav-pdv {
+      display: none;
+      padding: 20px 14px 24px;
+    }
+
+    #nav-pdv .pdv-soon-badge {
+      display: inline-block;
+      background: rgba(251, 146, 60, .12);
+      border: 1px solid rgba(251, 146, 60, .3);
+      color: #fb923c;
+      font-size: .6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    #nav-pdv .pdv-soon-title {
+      font-size: .84rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    #nav-pdv .pdv-soon-desc {
+      font-size: .75rem;
+      color: var(--text-faint);
+      line-height: 1.55;
+      margin-bottom: 18px;
+    }
+
+    #nav-pdv .pdv-cat-label {
+      font-size: .59rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.1px;
+      color: #fb923c;
+      opacity: .55;
+      padding: 10px 0 5px;
+      border-top: 1px solid var(--border-faint);
+      margin-top: 4px;
+    }
+
+    #nav-pdv .pdv-cat-label:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    #nav-pdv .pdv-cat-item {
+      font-size: .75rem;
+      color: var(--text-faint);
+      padding: 3px 0 3px 10px;
+      border-left: 2px solid var(--border-faint);
+      margin: 2px 0;
+      opacity: .7;
+    }
+
+    /* ── NAV SUB-LABEL (dentro de seções) ── */
+    .nav-sub-label {
+      font-size: .58rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.1px;
+      color: var(--verde-empresa);
+      padding: 10px 14px 2px 20px;
+      opacity: .55;
+    }
+
+    /* ── HOME SECTION GROUPS ── */
+    .home-group {
+      margin-bottom: 30px;
+    }
+
+    .home-group-header {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 13px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .home-group-header h3 {
+      font-size: .72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.1px;
+      color: var(--text-dim);
+    }
+
+    .sys-badge {
+      font-size: .59rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: .7px;
+      white-space: nowrap;
+    }
+
+    .sys-badge.gestao {
+      background: rgba(77, 144, 254, .1);
+      color: var(--azul-accent);
+      border: 1px solid rgba(77, 144, 254, .25);
+    }
+
+    .sys-badge.empresa {
+      background: var(--verde-empresa-dim);
+      color: var(--verde-empresa);
+      border: 1px solid rgba(45, 212, 191, .25);
+    }
+
+    .sys-badge.pdv {
+      background: rgba(251, 146, 60, .1);
+      color: #fb923c;
+      border: 1px solid rgba(251, 146, 60, .28);
+    }
+
+    .home-group .welcome-grid {
+      margin-top: 0;
+    }
+
+    /* ── PDV HOME PLACEHOLDER ── */
+    .pdv-home-placeholder {
+      background: var(--bg-card);
+      border: 1px dashed rgba(251, 146, 60, .28);
+      border-radius: 8px;
+      padding: 28px 24px;
+      text-align: center;
+    }
+
+    .pdv-home-placeholder .ph-icon {
+      font-size: 2rem;
+      opacity: .25;
+      margin-bottom: 10px;
+    }
+
+    .pdv-home-placeholder strong {
+      display: block;
+      font-size: .88rem;
+      color: #fb923c;
+      opacity: .55;
+      margin-bottom: 6px;
+    }
+
+    .pdv-home-placeholder p {
+      font-size: .78rem;
+      color: var(--text-faint);
+    }
   </style>
 </head>
 
@@ -793,6 +987,10 @@
           d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398l3.85 3.85a1 1 0 0 0 1.415-1.415l-3.868-3.833zm-5.242 1.156a5 5 0 1 1 0-10 5 5 0 0 1 0 10z" />
       </svg>
       <input id="search-bar" type="text" placeholder="Buscar configuração..." oninput="searchAll(this.value)" />
+      <div class="sys-tabs">
+        <button class="sys-tab gestao active" onclick="switchSystem('gestao')">Gestão</button>
+        <button class="sys-tab pdv" onclick="switchSystem('pdv')">PDV</button>
+      </div>
     </div>
 
     <!-- Resultados de busca (visível só durante pesquisa) -->
@@ -971,10 +1169,12 @@
       <div class="nav-section empresa collapsed">
         <div class="nav-section-title" onclick="toggleNavSection(this)">Empresa</div>
         <div class="nav-items">
+          <div class="nav-sub-label">Cadastro</div>
           <a class="nav-item" onclick="showSection('cad-empresas')">
             Empresas
             <span class="path-badge">Gestão › Cadastro › Empresas</span>
           </a>
+          <div class="nav-sub-label">Opções Gerais</div>
           <a class="nav-item" onclick="showSection('cad-empresas-op-gerais')">
             Opções Gerais da Empresa
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções Gerais</span>
@@ -987,6 +1187,7 @@
             Opções Gerais da Empresa 3
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções Gerais 3</span>
           </a>
+          <div class="nav-sub-label">Fiscal & Impressão</div>
           <a class="nav-item" onclick="showSection('cad-empresas-cupom-fiscal')">
             Opções de Cupom Fiscal/NFe/SAT
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Cupom Fiscal/NFe/SAT</span>
@@ -1006,6 +1207,55 @@
         </div>
       </div>
     </div>
+
+    <!-- Nav PDV (oculto até clicar na aba PDV) -->
+    <div id="nav-pdv">
+      <div class="pdv-soon-badge">Em construção</div>
+      <div class="pdv-soon-title">Squalus PDV</div>
+      <div class="pdv-soon-desc">As configurações do PDV serão mapeadas em breve. O menu abaixo reflete a estrutura prevista.</div>
+
+      <div class="pdv-cat-label">Impressão</div>
+      <div class="pdv-cat-item">Locais de Impressão</div>
+      <div class="pdv-cat-item">Impressão de Pré-Contas Externas</div>
+      <div class="pdv-cat-item">Impressora Fiscal</div>
+
+      <div class="pdv-cat-label">Aparência & Tela de Vendas</div>
+      <div class="pdv-cat-item">Aparência da Tela de Vendas</div>
+      <div class="pdv-cat-item">Touch Screen</div>
+      <div class="pdv-cat-item">Touch Screen (Outras Configurações)</div>
+      <div class="pdv-cat-item">Atendimento com Identificação</div>
+
+      <div class="pdv-cat-label">Hardware</div>
+      <div class="pdv-cat-item">Display de Torre</div>
+      <div class="pdv-cat-item">Display de Informações de Vendas</div>
+      <div class="pdv-cat-item">Gaveta de Dinheiro</div>
+      <div class="pdv-cat-item">Balança</div>
+
+      <div class="pdv-cat-label">Mesas</div>
+      <div class="pdv-cat-item">Qtd e Posicionamento das Mesas</div>
+      <div class="pdv-cat-item">Personalizar Aparência das Mesas</div>
+
+      <div class="pdv-cat-label">Fiscal & Certificado</div>
+      <div class="pdv-cat-item">Certificado Digital</div>
+      <div class="pdv-cat-item">Certificado Digital e Transmissão (v.4.00)</div>
+
+      <div class="pdv-cat-label">Caixa & Pagamento</div>
+      <div class="pdv-cat-item">Fechamento de Caixa</div>
+      <div class="pdv-cat-item">Bloqueio de Formas de Pagamento</div>
+      <div class="pdv-cat-item">Entregas</div>
+
+      <div class="pdv-cat-label">Integração & Cloud</div>
+      <div class="pdv-cat-item">Cloud (Integração c/Servidor Remoto)</div>
+      <div class="pdv-cat-item">Prato Digital/Prog.Fidelidade nas Nuvens</div>
+      <div class="pdv-cat-item">Servidor de Aplicativos Externos</div>
+      <div class="pdv-cat-item">Serviço de Requisição de Entregador</div>
+
+      <div class="pdv-cat-label">Sistema</div>
+      <div class="pdv-cat-item">Configurações Gerais</div>
+      <div class="pdv-cat-item">Configurar Opções de Servidor Local</div>
+      <div class="pdv-cat-item">Opções do Concentrador</div>
+      <div class="pdv-cat-item">TEF</div>
+    </div>
   </nav>
 
   <!-- ══════════════ MAIN ══════════════ -->
@@ -1019,163 +1269,244 @@
         <p>Referência rápida para a equipe de suporte — caminhos e campos de cada tela de configuração.</p>
       </div>
 
-      <div class="welcome-grid">
-        <div class="welcome-card" onclick="showSection('cfg-gerais')">
-          <div class="icon">⚙️</div>
+      <!-- Grupo: Configurações Gerais -->
+      <div class="home-group">
+        <div class="home-group-header">
+          <span class="sys-badge gestao">Gestão</span>
           <h3>Configurações Gerais</h3>
-          <p>Parâmetros globais do sistema, empresa, produtos e comportamento do PDV.</p>
         </div>
-        <div class="welcome-card" onclick="showSection('cfg-gerais-2')">
-          <div class="icon">⚙️</div>
-          <h3>Configurações Gerais 2</h3>
-          <p>Layout, brindes, adiantamentos, log de ocorrências e mensagens remotas.</p>
-        </div>
-        <div class="welcome-card" onclick="showSection('prog-fidelidade')">
-          <div class="icon">🎯</div>
-          <h3>Programa de Fidelidade</h3>
-          <p>Pontos, trocas, intervalos de acúmulo e bloqueios do programa de fidelidade.</p>
-        </div>
-        <div class="welcome-card" onclick="showSection('venda-antecipada')">
-          <div class="icon">🛒</div>
-          <h3>Venda Antecipada</h3>
-          <p>Configurações de preço por kg, saldo negativo e bloqueio de clientes.</p>
-        </div>
-        <div class="welcome-card" onclick="showSection('fech-caixa')">
-          <div class="icon">🧾</div>
-          <h3>Fechamento de Caixa</h3>
-          <p>O que imprimir no fechamento: brindes, fiados, produtos, ocorrências e mais.</p>
-        </div>
-        <div class="welcome-card" onclick="showSection('contas-pagar')">
-          <div class="icon">💰</div>
-          <h3>Contas a Pagar / Conta Corrente</h3>
-          <p>Bloqueio de contas, integração C/C, plano de contas e vencimento em dias úteis.</p>
-        </div>
-        <div class="welcome-card" onclick="showSection('cfg-taxas-cartoes')">
-          <div class="icon">💳</div>
-          <h3>Taxas Adm. de Cartões</h3>
-          <p>Plano de contas das taxas, diferenciação por empresa e parcelas no crédito.</p>
-        </div>
-        <div class="welcome-card" onclick="showSection('cfg-falta-caixa')">
-          <div class="icon">⚠️</div>
-          <h3>Dados p/ Lançamento de Falta de Caixa</h3>
-          <p>Credor, tipo de documento, despesa e grupo para lançamento automático de faltas.</p>
-        </div>
-        <div class="welcome-card" onclick="showSection('cfg-contas-pagar-nf')">
-          <div class="icon">🧾</div>
-          <h3>Dados de C.Pagar p/ NF de Compra</h3>
-          <p>Data de pagamento, tipo de documento, despesa, departamento e grupo para lançamento de NFs de compra.</p>
-        </div>
-        <div class="welcome-card" onclick="showSection('cfg-xml-email-contabilidade')">
-          <div class="icon">📧</div>
-          <h3>Envio de XMLs por Email</h3>
-          <p>Configuração do envio automático dos XMLs das notas fiscais para a contabilidade: e-mail, SMTP e SSL.</p>
-        </div>
-        <div class="welcome-card" onclick="showSection('cfg-cad-rapido')">
-          <div class="icon">👤</div>
-          <h3>Cadastro Rápido de Clientes</h3>
-          <p>Campos exibidos no cadastro rápido: DDD, CPF, RG, convênio, e-mail e observação.</p>
-        </div>
-        <div class="welcome-card" onclick="showSection('cfg-produtos-apoio')">
-          <div class="icon">🧂</div>
-          <h3>Produtos de Apoio</h3>
-          <p>Taxa de serviço, taxa de entrega, couvert e consumação mínima.</p>
-        </div>
-        <div class="welcome-card" onclick="showSection('cfg-prod-calc-pessoas')">
-          <div class="icon">👥</div>
-          <h3>Produtos p/ Calc. Nº de Pessoas</h3>
-          <p>Lista de produtos que definem o número de pessoas no fechamento da conta.</p>
-        </div>
-        <div class="welcome-card" onclick="showSection('cfg-locais-impressao')">
-          <div class="icon">🖨️</div>
-          <h3>Locais de Impressão</h3>
-          <p>Define se o sistema utiliza locais de impressão nos produtos e qual o modo: único, múltiplos ou múltiplos com espelhos.</p>
-        </div>
-        <div class="welcome-card" onclick="showSection('cfg-local-impressao-padrao')">
-          <div class="icon">🖨️</div>
-          <h3>Local de Impressão Padrão</h3>
-          <p>Define o local de impressão padrão para este computador específico.</p>
-        </div>
-        <div class="welcome-card" onclick="showSection('fiscal-nfe')">
-          <div class="icon">🧾</div>
-          <h3>Fiscal / NF-e / SAT</h3>
-          <p>Configurações de emissão de nota fiscal, SAT e NFC-e.</p>
-        </div>
-        <div class="welcome-card" onclick="showSection('cfg-sistema-backup')">
-          <div class="icon">💾</div>
-          <h3>Sistema de Backup</h3>
-          <p>Define se este computador atua como servidor de backup e configura a senha de acesso.</p>
-        </div>
-        <div class="welcome-card" onclick="showSection('cfg-gestao-remoto')">
-          <div class="icon">🌐</div>
-          <h3>Sistema de Gestão Remoto</h3>
-          <p>IP e porta do servidor para acesso remoto ao sistema de gestão.</p>
-        </div>
-        <div class="welcome-card" onclick="showSection('cfg-sagres-restserver')">
-          <div class="icon">🔌</div>
-          <h3>Sagres RestServer</h3>
-          <p>Lógica de acesso e tempos de expiração de sessão do servidor REST do Sagres.</p>
-        </div>
-        <div class="welcome-card" onclick="showSection('cfg-senha-internet')">
-          <div class="icon">🔐</div>
-          <h3>Senha Via Internet</h3>
-          <p>CNPJ do representante, senha e nome do responsável para acesso ao sistema via internet.</p>
-        </div>
-        <div class="welcome-card" onclick="showSection('cfg-otimizar-velocidade')">
-          <div class="icon">⚡</div>
-          <h3>Otimizar Velocidade do Sistema</h3>
-          <p>Define o tipo de otimização de velocidade para acesso aos dados do sistema de gestão.</p>
-        </div>
-        <div class="welcome-card" onclick="showSection('pdv-caixa')">
-          <div class="icon">🖥️</div>
-          <h3>PDV / Caixa</h3>
-          <p>Parâmetros de ponto de venda, operadores e abertura de caixa.</p>
-        </div>
-        <div class="welcome-card" onclick="showSection('usuarios')">
-          <div class="icon">👤</div>
-          <h3>Usuários / Permissões</h3>
-          <p>Cadastro de usuários, perfis de acesso e permissões.</p>
-        </div>
-        <div class="welcome-card empresa" onclick="showSection('cad-empresas')">
-          <div class="icon">🏢</div>
-          <h3>Empresas</h3>
-          <p>Cadastro das empresas do sistema: CNPJ, endereço, dados fiscais, regime de tributação e horários de redução Z.</p>
-        </div>
-        <div class="welcome-card empresa" onclick="showSection('cad-empresas-op-gerais')">
-          <div class="icon">⚙️</div>
-          <h3>Opções Gerais da Empresa</h3>
-          <p>Parâmetros operacionais da empresa: senha do painel, sincronização, cancelamentos, módulos NF e compatibilidade de terminais.</p>
-        </div>
-        <div class="welcome-card empresa" onclick="showSection('cad-empresas-op-gerais-2')">
-          <div class="icon">⚙️</div>
-          <h3>Opções Gerais da Empresa 2</h3>
-          <p>Caixa, troco, ECF, sangria, SMS, pedidos, fiscal e exportação de arquivos.</p>
-        </div>
-        <div class="welcome-card empresa" onclick="showSection('cad-empresas-op-gerais-3')">
-          <div class="icon">⚙️</div>
-          <h3>Opções Gerais da Empresa 3</h3>
-          <p>Recebimento automático, fechamento de caixa, combo, dashboard e impressão na saída livre.</p>
-        </div>
-        <div class="welcome-card empresa" onclick="showSection('cad-empresas-cupom-fiscal')">
-          <div class="icon">🧾</div>
-          <h3>Opções de Cupom Fiscal/NFe/SAT</h3>
-          <p>Cliente no cupom, gaveta fiscal, impostos, Danfe NFCe, CEST e configurações de impressão fiscal.</p>
-        </div>
-        <div class="welcome-card empresa" onclick="showSection('cad-empresas-opcoes-recibo')">
-          <div class="icon">🖨️</div>
-          <h3>Opções de Recibo</h3>
-          <p>Mensagens de cabeçário e rodapé da bobina e configurações de impressão do recibo.</p>
-        </div>
-        <div class="welcome-card empresa" onclick="showSection('cad-empresas-local-impressao')">
-          <div class="icon">🖨️</div>
-          <h3>Opções de Local de Impressão</h3>
-          <p>Espelho, roteamento por mesa e dia da semana, agrupamento, ordenação e textos fixos dos locais de impressão.</p>
-        </div>
-        <div class="welcome-card empresa" onclick="showSection('cad-empresas-pre-conta')">
-          <div class="icon">🧾</div>
-          <h3>Opções de Pré-Conta</h3>
-          <p>Ítens, divisão de valor, taxa de serviço, modo de preparo, espelho, impressão automática e mensagens da pré-conta.</p>
+        <div class="welcome-grid">
+          <div class="welcome-card" onclick="showSection('cfg-gerais')">
+            <div class="icon">⚙️</div>
+            <h3>Configurações Gerais</h3>
+            <p>Parâmetros globais do sistema, empresa, produtos e comportamento do PDV.</p>
+          </div>
+          <div class="welcome-card" onclick="showSection('cfg-gerais-2')">
+            <div class="icon">⚙️</div>
+            <h3>Configurações Gerais 2</h3>
+            <p>Layout, brindes, adiantamentos, log de ocorrências e mensagens remotas.</p>
+          </div>
+          <div class="welcome-card" onclick="showSection('prog-fidelidade')">
+            <div class="icon">🎯</div>
+            <h3>Programa de Fidelidade</h3>
+            <p>Pontos, trocas, intervalos de acúmulo e bloqueios do programa de fidelidade.</p>
+          </div>
+          <div class="welcome-card" onclick="showSection('venda-antecipada')">
+            <div class="icon">🛒</div>
+            <h3>Venda Antecipada</h3>
+            <p>Configurações de preço por kg, saldo negativo e bloqueio de clientes.</p>
+          </div>
+          <div class="welcome-card" onclick="showSection('fech-caixa')">
+            <div class="icon">🧾</div>
+            <h3>Fechamento de Caixa</h3>
+            <p>O que imprimir no fechamento: brindes, fiados, produtos, ocorrências e mais.</p>
+          </div>
         </div>
       </div>
+
+      <!-- Grupo: Financeiro -->
+      <div class="home-group">
+        <div class="home-group-header">
+          <span class="sys-badge gestao">Gestão</span>
+          <h3>Financeiro</h3>
+        </div>
+        <div class="welcome-grid">
+          <div class="welcome-card" onclick="showSection('contas-pagar')">
+            <div class="icon">💰</div>
+            <h3>Contas a Pagar / Conta Corrente</h3>
+            <p>Bloqueio de contas, integração C/C, plano de contas e vencimento em dias úteis.</p>
+          </div>
+          <div class="welcome-card" onclick="showSection('cfg-taxas-cartoes')">
+            <div class="icon">💳</div>
+            <h3>Taxas Adm. de Cartões</h3>
+            <p>Plano de contas das taxas, diferenciação por empresa e parcelas no crédito.</p>
+          </div>
+          <div class="welcome-card" onclick="showSection('cfg-falta-caixa')">
+            <div class="icon">⚠️</div>
+            <h3>Dados p/ Lançamento de Falta de Caixa</h3>
+            <p>Credor, tipo de documento, despesa e grupo para lançamento automático de faltas.</p>
+          </div>
+          <div class="welcome-card" onclick="showSection('cfg-contas-pagar-nf')">
+            <div class="icon">🧾</div>
+            <h3>Dados de C.Pagar p/ NF de Compra</h3>
+            <p>Data de pagamento, tipo de documento, despesa, departamento e grupo para lançamento de NFs de compra.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grupo: Clientes & Produtos -->
+      <div class="home-group">
+        <div class="home-group-header">
+          <span class="sys-badge gestao">Gestão</span>
+          <h3>Clientes & Produtos</h3>
+        </div>
+        <div class="welcome-grid">
+          <div class="welcome-card" onclick="showSection('cfg-cad-rapido')">
+            <div class="icon">👤</div>
+            <h3>Cadastro Rápido de Clientes</h3>
+            <p>Campos exibidos no cadastro rápido: DDD, CPF, RG, convênio, e-mail e observação.</p>
+          </div>
+          <div class="welcome-card" onclick="showSection('cfg-produtos-apoio')">
+            <div class="icon">🧂</div>
+            <h3>Produtos de Apoio</h3>
+            <p>Taxa de serviço, taxa de entrega, couvert e consumação mínima.</p>
+          </div>
+          <div class="welcome-card" onclick="showSection('cfg-prod-calc-pessoas')">
+            <div class="icon">👥</div>
+            <h3>Produtos p/ Calc. Nº de Pessoas</h3>
+            <p>Lista de produtos que definem o número de pessoas no fechamento da conta.</p>
+          </div>
+          <div class="welcome-card" onclick="showSection('cfg-locais-impressao')">
+            <div class="icon">🖨️</div>
+            <h3>Locais de Impressão</h3>
+            <p>Define se o sistema utiliza locais de impressão nos produtos e qual o modo: único, múltiplos ou múltiplos com espelhos.</p>
+          </div>
+          <div class="welcome-card" onclick="showSection('cfg-local-impressao-padrao')">
+            <div class="icon">🖨️</div>
+            <h3>Local de Impressão Padrão</h3>
+            <p>Define o local de impressão padrão para este computador específico.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grupo: Fiscal / NF-e / SAT -->
+      <div class="home-group">
+        <div class="home-group-header">
+          <span class="sys-badge gestao">Gestão</span>
+          <h3>Fiscal / NF-e / SAT</h3>
+        </div>
+        <div class="welcome-grid">
+          <div class="welcome-card" onclick="showSection('fiscal-nfe')">
+            <div class="icon">🧾</div>
+            <h3>Fiscal / NF-e / SAT</h3>
+            <p>Configurações de emissão de nota fiscal, SAT e NFC-e.</p>
+          </div>
+          <div class="welcome-card" onclick="showSection('cfg-xml-email-contabilidade')">
+            <div class="icon">📧</div>
+            <h3>Envio de XMLs por Email</h3>
+            <p>Configuração do envio automático dos XMLs das notas fiscais para a contabilidade: e-mail, SMTP e SSL.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grupo: Sistema, Backup & Integrações -->
+      <div class="home-group">
+        <div class="home-group-header">
+          <span class="sys-badge gestao">Gestão</span>
+          <h3>Sistema, Backup & Integrações</h3>
+        </div>
+        <div class="welcome-grid">
+          <div class="welcome-card" onclick="showSection('cfg-sistema-backup')">
+            <div class="icon">💾</div>
+            <h3>Sistema de Backup</h3>
+            <p>Define se este computador atua como servidor de backup e configura a senha de acesso.</p>
+          </div>
+          <div class="welcome-card" onclick="showSection('cfg-gestao-remoto')">
+            <div class="icon">🌐</div>
+            <h3>Sistema de Gestão Remoto</h3>
+            <p>IP e porta do servidor para acesso remoto ao sistema de gestão.</p>
+          </div>
+          <div class="welcome-card" onclick="showSection('cfg-sagres-restserver')">
+            <div class="icon">🔌</div>
+            <h3>Sagres RestServer</h3>
+            <p>Lógica de acesso e tempos de expiração de sessão do servidor REST do Sagres.</p>
+          </div>
+          <div class="welcome-card" onclick="showSection('cfg-senha-internet')">
+            <div class="icon">🔐</div>
+            <h3>Senha Via Internet</h3>
+            <p>CNPJ do representante, senha e nome do responsável para acesso ao sistema via internet.</p>
+          </div>
+          <div class="welcome-card" onclick="showSection('cfg-otimizar-velocidade')">
+            <div class="icon">⚡</div>
+            <h3>Otimizar Velocidade do Sistema</h3>
+            <p>Define o tipo de otimização de velocidade para acesso aos dados do sistema de gestão.</p>
+          </div>
+          <div class="welcome-card" onclick="showSection('pdv-caixa')">
+            <div class="icon">🖥️</div>
+            <h3>PDV / Caixa</h3>
+            <p>Parâmetros de ponto de venda, operadores e abertura de caixa.</p>
+          </div>
+          <div class="welcome-card" onclick="showSection('usuarios')">
+            <div class="icon">👤</div>
+            <h3>Usuários / Permissões</h3>
+            <p>Cadastro de usuários, perfis de acesso e permissões.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grupo: Empresa — Cadastro & Opções Gerais -->
+      <div class="home-group">
+        <div class="home-group-header">
+          <span class="sys-badge empresa">Empresa</span>
+          <h3>Cadastro & Opções Gerais</h3>
+        </div>
+        <div class="welcome-grid">
+          <div class="welcome-card empresa" onclick="showSection('cad-empresas')">
+            <div class="icon">🏢</div>
+            <h3>Empresas</h3>
+            <p>Cadastro das empresas do sistema: CNPJ, endereço, dados fiscais, regime de tributação e horários de redução Z.</p>
+          </div>
+          <div class="welcome-card empresa" onclick="showSection('cad-empresas-op-gerais')">
+            <div class="icon">⚙️</div>
+            <h3>Opções Gerais da Empresa</h3>
+            <p>Parâmetros operacionais da empresa: senha do painel, sincronização, cancelamentos, módulos NF e compatibilidade de terminais.</p>
+          </div>
+          <div class="welcome-card empresa" onclick="showSection('cad-empresas-op-gerais-2')">
+            <div class="icon">⚙️</div>
+            <h3>Opções Gerais da Empresa 2</h3>
+            <p>Caixa, troco, ECF, sangria, SMS, pedidos, fiscal e exportação de arquivos.</p>
+          </div>
+          <div class="welcome-card empresa" onclick="showSection('cad-empresas-op-gerais-3')">
+            <div class="icon">⚙️</div>
+            <h3>Opções Gerais da Empresa 3</h3>
+            <p>Recebimento automático, fechamento de caixa, combo, dashboard e impressão na saída livre.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grupo: Empresa — Fiscal & Impressão -->
+      <div class="home-group">
+        <div class="home-group-header">
+          <span class="sys-badge empresa">Empresa</span>
+          <h3>Fiscal & Impressão</h3>
+        </div>
+        <div class="welcome-grid">
+          <div class="welcome-card empresa" onclick="showSection('cad-empresas-cupom-fiscal')">
+            <div class="icon">🧾</div>
+            <h3>Opções de Cupom Fiscal/NFe/SAT</h3>
+            <p>Cliente no cupom, gaveta fiscal, impostos, Danfe NFCe, CEST e configurações de impressão fiscal.</p>
+          </div>
+          <div class="welcome-card empresa" onclick="showSection('cad-empresas-opcoes-recibo')">
+            <div class="icon">🖨️</div>
+            <h3>Opções de Recibo</h3>
+            <p>Mensagens de cabeçário e rodapé da bobina e configurações de impressão do recibo.</p>
+          </div>
+          <div class="welcome-card empresa" onclick="showSection('cad-empresas-local-impressao')">
+            <div class="icon">🖨️</div>
+            <h3>Opções de Local de Impressão</h3>
+            <p>Espelho, roteamento por mesa e dia da semana, agrupamento, ordenação e textos fixos dos locais de impressão.</p>
+          </div>
+          <div class="welcome-card empresa" onclick="showSection('cad-empresas-pre-conta')">
+            <div class="icon">🧾</div>
+            <h3>Opções de Pré-Conta</h3>
+            <p>Ítens, divisão de valor, taxa de serviço, modo de preparo, espelho, impressão automática e mensagens da pré-conta.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grupo: PDV — placeholder -->
+      <div class="home-group">
+        <div class="home-group-header">
+          <span class="sys-badge pdv">PDV</span>
+          <h3>Squalus PDV</h3>
+        </div>
+        <div class="pdv-home-placeholder">
+          <div class="ph-icon">🖥️</div>
+          <strong>Em construção</strong>
+          <p>As configurações do sistema PDV serão mapeadas em breve.</p>
+        </div>
+      </div>
+
     </section>
 
     <!-- ══ CONFIGURAÇÕES GERAIS ══ -->
@@ -5949,6 +6280,20 @@
       'cad-empresas-pre-conta': 'Opções de Pré-Conta'
     };
 
+    function switchSystem(system) {
+      document.querySelectorAll('.sys-tab').forEach(t => t.classList.remove('active'));
+      document.querySelector('.sys-tab.' + system).classList.add('active');
+      const navNormal = document.getElementById('nav-normal');
+      const navPdv = document.getElementById('nav-pdv');
+      if (system === 'pdv') {
+        navNormal.style.display = 'none';
+        navPdv.style.display = '';
+      } else {
+        navNormal.style.display = '';
+        navPdv.style.display = 'none';
+      }
+    }
+
     function toggleNavSection(titleEl) {
       titleEl.closest('.nav-section').classList.toggle('collapsed');
     }
@@ -5967,6 +6312,8 @@
         }
       });
       document.getElementById('main').scrollTop = 0;
+      // garante aba Gestão ativa ao navegar por seções do Gestão
+      if (id !== 'home') switchSystem('gestao');
     }
 
     function searchAll(query) {
