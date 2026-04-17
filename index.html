@@ -991,6 +991,10 @@
             Opções de Cupom Fiscal/NFe/SAT
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Cupom Fiscal/NFe/SAT</span>
           </a>
+          <a class="nav-item" onclick="showSection('cad-empresas-opcoes-recibo')">
+            Opções de Recibo
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Recibo</span>
+          </a>
         </div>
       </div>
     </div>
@@ -1147,6 +1151,11 @@
           <div class="icon">🧾</div>
           <h3>Opções de Cupom Fiscal/NFe/SAT</h3>
           <p>Cliente no cupom, gaveta fiscal, impostos, Danfe NFCe, CEST e configurações de impressão fiscal.</p>
+        </div>
+        <div class="welcome-card empresa" onclick="showSection('cad-empresas-opcoes-recibo')">
+          <div class="icon">🖨️</div>
+          <h3>Opções de Recibo</h3>
+          <p>Mensagens de cabeçário e rodapé da bobina e configurações de impressão do recibo.</p>
         </div>
       </div>
     </section>
@@ -5351,6 +5360,115 @@
       </div>
     </section>
 
+    <!-- ══ OPÇÕES DE RECIBO ══ -->
+    <section id="cad-empresas-opcoes-recibo" class="page-section" data-section-img="prints/cad_empresas_opcoes_recibo.png">
+      <div class="page-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções de Recibo</div>
+        <h2>Opções de Recibo</h2>
+        <p>Configurações de mensagens do cabeçário e rodapé da bobina e opções de impressão do recibo.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_opcoes_recibo.png" alt="Tela Configurações da Empresa — Opções de Recibo"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_opcoes_recibo.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções de Recibo</strong>.
+      </div>
+
+      <!-- Cabeçário da Bobina -->
+      <div class="fields-card">
+        <div class="fields-card-header">Cabeçário da Bobina</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Mensagem do Cabeçário da Bobina (Linha 01)</div></td>
+              <td><span class="tag tag-txt">—</span></td>
+              <td>Primeira linha da mensagem personalizada impressa no cabeçalho da bobina (recibo não fiscal). Deixar em branco para não imprimir mensagem no cabeçário.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem do Cabeçário da Bobina (Linha 02)</div></td>
+              <td><span class="tag tag-txt">—</span></td>
+              <td>Segunda linha da mensagem personalizada impressa no cabeçalho da bobina.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Rodapé da Bobina -->
+      <div class="fields-card">
+        <div class="fields-card-header">Rodapé da Bobina</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Mensagem do Rodapé da Bobina (Linha 01)</div></td>
+              <td><span class="tag tag-txt">—</span></td>
+              <td>Primeira linha da mensagem personalizada impressa no rodapé da bobina (recibo não fiscal). Utilizada para informações fixas como agradecimento, CNPJ ou promoções.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem do Rodapé da Bobina (Linha 02)</div></td>
+              <td><span class="tag tag-txt">—</span></td>
+              <td>Segunda linha do rodapé da bobina.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem do Rodapé da Bobina (Linha 03)</div></td>
+              <td><span class="tag tag-txt">—</span></td>
+              <td>Terceira linha do rodapé da bobina.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem do Rodapé da Bobina (Linha 04)</div></td>
+              <td><span class="tag tag-txt">—</span></td>
+              <td>Quarta linha do rodapé da bobina.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem do Rodapé da Bobina (Linha 05)</div></td>
+              <td><span class="tag tag-txt">—</span></td>
+              <td>Quinta linha do rodapé da bobina.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem do Rodapé da Bobina (Linha 06)</div></td>
+              <td><span class="tag tag-txt">—</span></td>
+              <td>Sexta linha do rodapé da bobina.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Impressão -->
+      <div class="fields-card">
+        <div class="fields-card-header">Impressão</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Nº de Linhas entre Total e Msg.Sem Valor Fiscal</div></td>
+              <td><span class="tag tag-txt">0</span></td>
+              <td>Define quantas linhas em branco são impressas entre o total da venda e a mensagem "Sem Valor Fiscal" no recibo. Aumentar quando houver necessidade de espaçamento visual entre esses elementos.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Atendente que Comandou Fechamento</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, o nome do atendente que realizou o fechamento da conta é impresso no recibo, facilitando a identificação de responsabilidade no atendimento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Atendente do Pedido</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, o nome do atendente que registrou o pedido é impresso no recibo. Útil quando o atendente do pedido é diferente do atendente que realizou o fechamento.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <!-- ══════════════ MODAL EXIBIR NA TELA ══════════════ -->
@@ -5404,7 +5522,8 @@
       'cad-empresas-op-gerais': 'Opções Gerais da Empresa',
       'cad-empresas-op-gerais-2': 'Opções Gerais da Empresa 2',
       'cad-empresas-op-gerais-3': 'Opções Gerais da Empresa 3',
-      'cad-empresas-cupom-fiscal': 'Opções de Cupom Fiscal/NFe/SAT'
+      'cad-empresas-cupom-fiscal': 'Opções de Cupom Fiscal/NFe/SAT',
+      'cad-empresas-opcoes-recibo': 'Opções de Recibo'
     };
 
     function toggleNavSection(titleEl) {
@@ -5918,60 +6037,76 @@
         'Gerar Arquivo TXT de Terceiros no Fech.Caixa':                             '86.7,3.6,43,3',
         'Diretório p/Geração Arq.Terceiros':                                        '86.5,47,46.1,3.4',
       },
+      'prints/cad_empresas_opcoes_recibo.png': {
+        // Cabeçário da Bobina
+        'Mensagem do Cabeçário da Bobina (Linha 01)':                               '15.2,11.2,88.2,5.8',
+        'Mensagem do Cabeçário da Bobina (Linha 02)':                               '21.7,43.2,56.1,5.8',
+        // Rodapé da Bobina
+        'Mensagem do Rodapé da Bobina (Linha 01)':                                  '29.3,13.6,85.5,5.5',
+        'Mensagem do Rodapé da Bobina (Linha 02)':                                  '35.6,41.4,57.7,6.5',
+        'Mensagem do Rodapé da Bobina (Linha 03)':                                  '43.2,43.4,55.7,6.2',
+        'Mensagem do Rodapé da Bobina (Linha 04)':                                  '50.1,43.5,55.5,5.8',
+        'Mensagem do Rodapé da Bobina (Linha 05)':                                  '57.3,43.5,55.4,5.8',
+        'Mensagem do Rodapé da Bobina (Linha 06)':                                  '64.7,43.6,55.5,5.3',
+        // Impressão
+        'Nº de Linhas entre Total e Msg.Sem Valor Fiscal':                          '71.6,0.7,47.7,5.3',
+        'Imprimir Atendente que Comandou Fechamento':                               '79.2,1.4,52.2,4.8',
+        'Imprimir Atendente do Pedido':                                             '85.7,16.9,37,5.3',
+      },
       'prints/cad_empresas_cupom_fiscal.png': {
         // Cliente e Identificação no Cupom
-        'Cliente no Cupom Fiscal':                                                  '8.7,21.4,30,3.6',
-        'Atendente no Cupom Fiscal':                                                '8.7,51.6,31.6,3.4',
-        'CNPJ no Cupom Fiscal':                                                     '12.6,22.3,21.5,3',
-        'Dados do Cliente no Cabeçário do Cupom Fiscal':                            '12.6,44.2,36.5,3.2',
-        'Dados do Cliente no Rodapé do Cupom Fiscal':                               '16.2,8.8,35.5,3.4',
-        'Dados do Cliente em Recebimentos Não Fiscais':                             '16.2,44.1,36.5,3.6',
+        'Cliente no Cupom Fiscal':                                                  '0,0,0,0',
+        'Atendente no Cupom Fiscal':                                                '0,0,0,0',
+        'CNPJ no Cupom Fiscal':                                                     '0,0,0,0',
+        'Dados do Cliente no Cabeçário do Cupom Fiscal':                            '0,0,0,0',
+        'Dados do Cliente no Rodapé do Cupom Fiscal':                               '0,0,0,0',
+        'Dados do Cliente em Recebimentos Não Fiscais':                             '0,0,0,0',
         // Comprovantes
-        'Imprimir Comprovante de Conta Assinada':                                   '20.2,10.8,37.7,3.4',
-        'Imprimir Comprovante de Crediário':                                        '19.8,48.6,29.6,3.4',
+        'Imprimir Comprovante de Conta Assinada':                                   '0,0,0,0',
+        'Imprimir Comprovante de Crediário':                                        '0,0,0,0',
         // Gaveta Fiscal
-        'Abrir Gaveta Imp.Fiscal':                                                  '24.1,21.6,38.6,3',
-        'Abrir Gaveta Imp.Fiscal nas Telas (Ctrl+F9)':                              '23.7,60.7,34.2,3.4',
+        'Abrir Gaveta Imp.Fiscal':                                                  '0,0,0,0',
+        'Abrir Gaveta Imp.Fiscal nas Telas (Ctrl+F9)':                              '0,0,0,0',
         // Fidelidade e Pessoas
-        'Pode Recuperar Vendas':                                                    '27.7,21.4,22.7,3',
-        'Exibir NºPontos Fidelidade':                                               '27.7,44.2,24.2,3.2',
-        'Chamar Tela Nº Pessoas Quando Venda Ckeck-Out':                            '31.5,5.1,38.9,3.2',
-        'Calcular Automaticamente NºPessoas':                                       '31.5,44.3,30.1,3',
+        'Pode Recuperar Vendas':                                                    '0,0,0,0',
+        'Exibir NºPontos Fidelidade':                                               '0,0,0,0',
+        'Chamar Tela Nº Pessoas Quando Venda Ckeck-Out':                            '0,0,0,0',
+        'Calcular Automaticamente NºPessoas':                                       '0,0,0,0',
         // Impressão e Mensagens
-        'Imprimir Item de Pedido Cancelado':                                        '35.2,14.7,29.3,3.4',
-        'Mensagem de Ajuste de Hora da Imp.Fiscal na Redução Z':                    '35.2,44.3,42.6,3.6',
-        'Forçar Tela de Recebimento no Fech.das Contas':                            '39,6.9,37.2,2.8',
-        'Horário de Tolerância p/Mensagem de Data do Caixa Diferente':              '39,44.5,46.1,3.2',
-        'Mensagem Rodapé Cupom Fiscal (Linha 01)':                                  '42.7,9.3,64.7,3.2',
-        'Mensagem Rodapé Cupom Fiscal (Linha 02)':                                  '46.5,9.6,64.5,3',
-        'Imprimir Mensagem no Receb.Não Fiscal':                                    '50.5,11.2,32.8,3.2',
-        'Imprimir Operador no Cupom Fiscal':                                        '57.8,14.2,29.6,3.8',
-        'Imprimir Atendente no Cupom Fiscal':                                       '57.8,44.5,29.9,4',
-        'Limpar Buffer de Teclado ao Receber Pedido':                               '61.8,9.2,34.6,3',
+        'Imprimir Item de Pedido Cancelado':                                        '0,0,0,0',
+        'Mensagem de Ajuste de Hora da Imp.Fiscal na Redução Z':                    '0,0,0,0',
+        'Forçar Tela de Recebimento no Fech.das Contas':                            '0,0,0,0',
+        'Horário de Tolerância p/Mensagem de Data do Caixa Diferente':              '0,0,0,0',
+        'Mensagem Rodapé Cupom Fiscal (Linha 01)':                                  '0,0,0,0',
+        'Mensagem Rodapé Cupom Fiscal (Linha 02)':                                  '0,0,0,0',
+        'Imprimir Mensagem no Receb.Não Fiscal':                                    '0,0,0,0',
+        'Imprimir Operador no Cupom Fiscal':                                        '0,0,0,0',
+        'Imprimir Atendente no Cupom Fiscal':                                       '0,0,0,0',
+        'Limpar Buffer de Teclado ao Receber Pedido':                               '0,0,0,0',
         // Vendas e Fiscal
-        'Atribuir Automaticamente Expresão "SemGTIN" ao Campo CEAN':                '50.7,44.5,47.6,3.2',
-        'Permitir Venda por Valor Total em Produtos por Kilo':                      '54.4,4.7,39.2,3.2',
-        'Cancelamento de Tx.Serviço c/Permissão Específica':                        '54,44.5,38.6,3.4',
-        'Exibir Qtd.Itens na Tela de Vendas':                                       '73.1,15.1,28.8,3.2',
-        'Permitir C.Fiscal c/Data Diferente do Caixa':                              '73.1,44.2,33.5,3.4',
+        'Atribuir Automaticamente Expresão "SemGTIN" ao Campo CEAN':                '0,0,0,0',
+        'Permitir Venda por Valor Total em Produtos por Kilo':                      '0,0,0,0',
+        'Cancelamento de Tx.Serviço c/Permissão Específica':                        '0,0,0,0',
+        'Exibir Qtd.Itens na Tela de Vendas':                                       '0,0,0,0',
+        'Permitir C.Fiscal c/Data Diferente do Caixa':                              '0,0,0,0',
         // Impostos
-        'Imprimir Valor dos Impostos no C.Fiscal/NFCe':                             '65.5,8,57.7,3.4',
-        'Forçar Valor dos Impostos, Mesmo Zerado':                                  '65.3,65.9,33.5,3.2',
-        'Perc.p/Calc.Imposto --> Federal (%)':                                      '69.3,14.2,29.1,3',
-        'Estadual (%)':                                                             '69.1,43.6,14.2,3',
-        'Municipal (%)':                                                            '69.1,58.4,15.4,3.6',
+        'Imprimir Valor dos Impostos no C.Fiscal/NFCe':                             '0,0,0,0',
+        'Forçar Valor dos Impostos, Mesmo Zerado':                                  '0,0,0,0',
+        'Perc.p/Calc.Imposto --> Federal (%)':                                      '0,0,0,0',
+        'Estadual (%)':                                                             '0,0,0,0',
+        'Municipal (%)':                                                            '0,0,0,0',
         // Danfe NFCe
-        'Impr.Desconto Individualmente por Produto no Danfe NFCe':                  '76.8,0.1,43.6,3',
-        'Impr.Imposto na Nota por Produto na Danfe NFCe/Sat':                       '77,44.3,39.9,3.2',
-        'Impr.Frete Individualmente por Produto no Danfe NFCe':                     '80.8,2.7,41.2,2.8',
-        'Impr.Desp.Acess.Individualmente por Produto no Danfe NFCe':                '80.8,44.2,45.1,2.6',
-        'Forma de Impressão dos Produtos na NFCe':                                  '84.4,9.7,55.4,3.2',
-        'Porta Alternativa p/Reimpressão Danfe':                                    '84.6,65,30.1,3.2',
-        'Impr.Senha Painel Após Danfe':                                             '88.1,17.8,46.9,3.4',
-        'Impr.Danfe NFCe Qdo Enviar Contingência':                                  '87.9,64.7,34.5,3.4',
+        'Impr.Desconto Individualmente por Produto no Danfe NFCe':                  '0,0,0,0',
+        'Impr.Imposto na Nota por Produto na Danfe NFCe/Sat':                       '0,0,0,0',
+        'Impr.Frete Individualmente por Produto no Danfe NFCe':                     '0,0,0,0',
+        'Impr.Desp.Acess.Individualmente por Produto no Danfe NFCe':                '0,0,0,0',
+        'Forma de Impressão dos Produtos na NFCe':                                  '0,0,0,0',
+        'Porta Alternativa p/Reimpressão Danfe':                                    '0,0,0,0',
+        'Impr.Senha Painel Após Danfe':                                             '0,0,0,0',
+        'Impr.Danfe NFCe Qdo Enviar Contingência':                                  '0,0,0,0',
         // CEST
-        'Campo "CEST"':                                                             '91.9,26.1,34.1,3',
-        'CEST Padrão':                                                              '91.9,60.7,16.8,3.4',
+        'Campo "CEST"':                                                             '0,0,0,0',
+        'CEST Padrão':                                                              '0,0,0,0',
       },
       'prints/cad_empresas_op_gerais_3.png': {
         // Recebimento Automático
