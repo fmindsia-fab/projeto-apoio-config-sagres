@@ -999,6 +999,10 @@
             Opções de Local de Impressão
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Local de Impressão</span>
           </a>
+          <a class="nav-item" onclick="showSection('cad-empresas-pre-conta')">
+            Opções de Pré-Conta
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Pré Conta</span>
+          </a>
         </div>
       </div>
     </div>
@@ -1165,6 +1169,11 @@
           <div class="icon">🖨️</div>
           <h3>Opções de Local de Impressão</h3>
           <p>Espelho, roteamento por mesa e dia da semana, agrupamento, ordenação e textos fixos dos locais de impressão.</p>
+        </div>
+        <div class="welcome-card empresa" onclick="showSection('cad-empresas-pre-conta')">
+          <div class="icon">🧾</div>
+          <h3>Opções de Pré-Conta</h3>
+          <p>Ítens, divisão de valor, taxa de serviço, modo de preparo, espelho, impressão automática e mensagens da pré-conta.</p>
         </div>
       </div>
     </section>
@@ -5647,6 +5656,240 @@
       </div>
     </section>
 
+    <!-- ══ OPÇÕES DE PRÉ-CONTA ══ -->
+    <section id="cad-empresas-pre-conta" class="page-section" data-section-img="prints/cad_empresas_pre_conta.png">
+      <div class="page-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções de Pré Conta</div>
+        <h2>Opções de Pré-Conta</h2>
+        <p>Configurações de exibição de ítens, divisão de valor, taxa de serviço, modo de preparo, espelho de pré-conta, impressão automática e mensagens de cabeçário e rodapé.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_pre_conta.png" alt="Tela Configurações da Empresa — Opções de Pré-Conta"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_pre_conta.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções de Pré Conta</strong>.
+      </div>
+
+      <!-- Exibição dos Ítens -->
+      <div class="fields-card">
+        <div class="fields-card-header">Exibição dos Ítens</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Ítens da Pré-Conta Numa Única Linha</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se cada ítem da pré-conta é exibido em uma única linha ou com quebra. Use S-Sim para layout mais compacto.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Agrupar Ítens na Pré-Conta</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando ativo, produtos iguais são agrupados na pré-conta em vez de listados individualmente.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Ítens Cancelados na Pré-Conta</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Controla se produtos cancelados aparecem na pré-conta. N-Não omite os cancelados da impressão.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Forma de Impressão da Unidade do Produto na Pré Conta</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define como a unidade de medida do produto é exibida na pré-conta (ex.: Não Imprimir, sigla, nome completo).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Qtd.Itens na Pré Conta</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Controla se a quantidade de ítens é impressa no cabeçário ou corpo da pré-conta.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Forma de Impessão dos Ítens da Pré Conta c/Valores Zerados (Entrega)</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define como ítens com valor zero são tratados na pré-conta de entregas (Não Imprimir, imprimir, etc.).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Forma de Impessão dos Ítens da Pré Conta c/Valores Zerados (Mesa)</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define como ítens com valor zero são tratados na pré-conta de mesas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Forma de Impessão dos Ítens da Pré Conta c/Valores Zerados (At.Id)</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define como ítens com valor zero são tratados na pré-conta de atendimento identificado.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Valores e Taxa de Serviço -->
+      <div class="fields-card">
+        <div class="fields-card-header">Valores e Taxa de Serviço</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Imprimir Divisão do Valor a Pagar por Pessoa</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando ativo, a pré-conta exibe o valor total dividido pelo número de pessoas da mesa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Nº Linhas a Imprimir Depois do "Valor a Pagar"</div></td>
+              <td><span class="tag tag-txt">Número</span></td>
+              <td>Quantidade de linhas em branco impressas após o campo "Valor a Pagar" na pré-conta, útil para assinatura.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Tipo de Expressão Usada Para a "Taxa de Serviço"</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define o texto exibido na pré-conta referente à taxa de serviço (ex.: "Taxa de Serviço", "Serviço", etc.).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Sublinhar Produtos Sem Taxa de Serviço</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando S-Sim, produtos que não incluem taxa de serviço são sublinhados na pré-conta para facilitar identificação.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Modo de Preparo e Dados Complementares -->
+      <div class="fields-card">
+        <div class="fields-card-header">Modo de Preparo e Dados Complementares</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Imprimir Modo de Preparo na Pré-Conta das Mesas</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Controla se o modo de preparo dos produtos é impresso na pré-conta das mesas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Modo de Preparo na Pré-Conta do At.Id.</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Controla se o modo de preparo dos produtos é impresso na pré-conta do atendimento identificado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Modo de Preparo na Pré-Conta das Entregas</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Controla se o modo de preparo dos produtos é impresso na pré-conta das entregas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Cód.Produto na Pré-Conta</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando ativo, o código do produto é exibido junto ao nome na pré-conta.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Ofuscar CPF na Pré-Conta</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define como o CPF do cliente é exibido na pré-conta (Não Imprimir, exibir parcial, exibir completo).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Espelho e Impressão Especial -->
+      <div class="fields-card">
+        <div class="fields-card-header">Espelho e Impressão Especial</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Permitir Impressão de Pré-Conta na Tela "Consultar Vendas" do PDV</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando N-Não, o botão de pré-conta fica desabilitado na tela "Consultar Vendas" do PDV.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Pré-Conta Compacta</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando ativo, imprime versão reduzida da pré-conta com menos informações para economizar papel.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Impressão Automática de Pré-Conta no Atend.Identificado</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se a pré-conta é impressa automaticamente ao fechar um atendimento identificado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Impr.Espelho da Pré-Conta na Entrega</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Configura se e onde é impresso o espelho (cópia) da pré-conta nas entregas (Não, local específico).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Impr.Espelho da Pré-Conta no At.Id.</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Configura se e onde é impresso o espelho (cópia) da pré-conta no atendimento identificado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir QRCode Endereço de Entrega</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando S-Sim, imprime um QRCode com o endereço de entrega na pré-conta, facilitando navegação para o entregador.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Mensagens -->
+      <div class="fields-card">
+        <div class="fields-card-header">Mensagens</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Mensagem do Cabeçário da Pré-Conta (Linha 01)</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Primeira linha da mensagem impressa no cabeçário da pré-conta. Aparece acima dos ítens.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem do Cabeçário da Pré-Conta (Linha 02)</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Segunda linha da mensagem do cabeçário da pré-conta.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem do Rodapé da Pré-Conta (Linha 01)</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Primeira linha da mensagem impressa no rodapé da pré-conta. Aparece abaixo dos totais.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem do Rodapé da Pré-Conta (Linha 02)</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Segunda linha do rodapé da pré-conta.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem do Rodapé da Pré-Conta (Linha 03)</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Terceira linha do rodapé da pré-conta.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem do Rodapé da Pré-Conta (Linha 04)</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Quarta linha do rodapé da pré-conta.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem do Rodapé da Pré-Conta (Linha 05)</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Quinta linha do rodapé da pré-conta.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem do Rodapé da Pré-Conta (Linha 06)</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Sexta linha do rodapé da pré-conta.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem do Rodapé da Pré-Conta (Linha 07)</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Sétima linha do rodapé da pré-conta.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <!-- ══════════════ MODAL EXIBIR NA TELA ══════════════ -->
@@ -5702,7 +5945,8 @@
       'cad-empresas-op-gerais-3': 'Opções Gerais da Empresa 3',
       'cad-empresas-cupom-fiscal': 'Opções de Cupom Fiscal/NFe/SAT',
       'cad-empresas-opcoes-recibo': 'Opções de Recibo',
-      'cad-empresas-local-impressao': 'Opções de Local de Impressão'
+      'cad-empresas-local-impressao': 'Opções de Local de Impressão',
+      'cad-empresas-pre-conta': 'Opções de Pré-Conta'
     };
 
     function toggleNavSection(titleEl) {
@@ -6329,6 +6573,45 @@
         // Saída Livre
         'Imprimir Nome do Cliente no Saida Livre':                                  '0,0,0,0',
         'Imprimir Sub-Identificação no Saida Livre':                                '0,0,0,0',
+      },
+      'prints/cad_empresas_pre_conta.png': {
+        // Exibição dos Ítens
+        'Ítens da Pré-Conta Numa Única Linha':                                      '8.5,17.7,28.4,3.7',
+        'Agrupar Ítens na Pré-Conta':                                               '8.7,45.9,33.1,3.5',
+        'Imprimir Ítens Cancelados na Pré-Conta':                                   '12.3,16.6,48.4,3.3',
+        'Forma de Impressão da Unidade do Produto na Pré Conta':                    '20,7.8,53,3.5',
+        'Imprimir Qtd.Itens na Pré Conta':                                          '27.9,46.2,24.9,3.1',
+        'Forma de Impessão dos Ítens da Pré Conta c/Valores Zerados (Entrega)':     '31.4,0.3,64.6,3.3',
+        'Forma de Impessão dos Ítens da Pré Conta c/Valores Zerados (Mesa)':        '35.3,1.1,63.5,3.1',
+        'Forma de Impessão dos Ítens da Pré Conta c/Valores Zerados (At.Id)':       '39.1,1.6,63.4,3.5',
+        // Valores e Taxa de Serviço
+        'Imprimir Divisão do Valor a Pagar por Pessoa':                             '16.4,14.3,31.6,3.1',
+        'Nº Linhas a Imprimir Depois do "Valor a Pagar"':                           '16.2,46.4,30.8,3.1',
+        'Tipo de Expressão Usada Para a "Taxa de Serviço"':                         '23.5,11.4,41.1,3.3',
+        'Sublinhar Produtos Sem Taxa de Serviço':                                   '27.7,16.8,29.3,3.5',
+        // Modo de Preparo e Dados Complementares
+        'Imprimir Modo de Preparo na Pré-Conta das Mesas':                          '42.4,10.7,35.1,3.5',
+        'Imprimir Modo de Preparo na Pré-Conta do At.Id.':                          '43,46.1,34.5,2.9',
+        'Imprimir Modo de Preparo na Pré-Conta das Entregas':                       '46.6,9.6,35.9,2.9',
+        'Imprimir Cód.Produto na Pré-Conta':                                        '46.4,46.1,26.4,3.5',
+        'Ofuscar CPF na Pré-Conta':                                                 '23.5,53,25.5,3.5',
+        // Espelho e Impressão Especial
+        'Permitir Impressão de Pré-Conta na Tela "Consultar Vendas" do PDV':        '50.3,1.2,44.9,2.9',
+        'Imprimir Pré-Conta Compacta':                                              '49.9,46.2,23.6,3.5',
+        'Impressão Automática de Pré-Conta no Atend.Identificado':                  '53.6,7.4,38.4,3.3',
+        'Impr.Espelho da Pré-Conta na Entrega':                                     '58,18,41.2,2.9',
+        'Impr.Espelho da Pré-Conta no At.Id.':                                      '57.8,59.6,39.9,3.5',
+        'Imprimir QRCode Endereço de Entrega':                                      '61.7,17.2,28.8,3.3',
+        // Mensagens
+        'Mensagem do Cabeçário da Pré-Conta (Linha 01)':                            '65.7,18.1,55.5,2.9',
+        'Mensagem do Cabeçário da Pré-Conta (Linha 02)':                            '69.4,39.6,33.9,2.9',
+        'Mensagem do Rodapé da Pré-Conta (Linha 01)':                               '72.8,19.1,54.1,3.3',
+        'Mensagem do Rodapé da Pré-Conta (Linha 02)':                               '76.1,39.9,33.1,4',
+        'Mensagem do Rodapé da Pré-Conta (Linha 03)':                               '80.7,40,32.8,3.1',
+        'Mensagem do Rodapé da Pré-Conta (Linha 04)':                               '84,40.3,32.8,3.5',
+        'Mensagem do Rodapé da Pré-Conta (Linha 05)':                               '88.1,40,33,3.1',
+        'Mensagem do Rodapé da Pré-Conta (Linha 06)':                               '91.9,40.1,33.1,2.9',
+        'Mensagem do Rodapé da Pré-Conta (Linha 07)':                               '91.7,39.7,33.4,3.3',
       },
       'prints/cad_empresas_op_gerais.png': {
         // Senha e Painel
