@@ -27,11 +27,11 @@
       --amarelo:     #e8b830;
       --amarelo-dim: rgba(232, 184, 48, .10);
 
-      --text:        #d8e3ef;
-      --text-dim:    #6b80a0;
-      --text-faint:  #32404f;
-      --border:      #1a2535;
-      --border-faint: #111a24;
+      --text:        #e4eef8;
+      --text-dim:    #a8c4e0;
+      --text-faint:  #6080a0;
+      --border:      #1f2e42;
+      --border-faint: #162030;
 
       --tag-sim-bg: #051810;
       --tag-sim:    #3ecf80;
@@ -182,7 +182,7 @@
       display: block;
       padding: 7px 12px 7px 17px;
       margin: 1px 8px;
-      color: #7a91b0;
+      color: #9ab4ce;
       text-decoration: none;
       font-size: .79rem;
       font-weight: 400;
@@ -210,13 +210,13 @@
     .nav-item .path-badge {
       display: block;
       font-size: .61rem;
-      color: #2d3f53;
+      color: #607898;
       margin-top: 2px;
       font-family: 'JetBrains Mono', monospace;
     }
 
     .nav-item:hover .path-badge,
-    .nav-item.active .path-badge { color: #4a6280; }
+    .nav-item.active .path-badge { color: #98b8d8; }
 
     /* ── MAIN ── */
     #main {
@@ -238,13 +238,14 @@
 
     .page-header .breadcrumb {
       font-size: .63rem;
-      color: var(--text-dim);
+      color: #96b4d4;
       font-family: 'JetBrains Mono', monospace;
       background: var(--bg-card);
-      border: 1px solid var(--border-faint);
+      border: 1px solid var(--border);
+      border-left: 2px solid rgba(92, 158, 248, .45);
       display: inline-flex;
       align-items: center;
-      padding: 3px 10px;
+      padding: 3px 10px 3px 9px;
       border-radius: var(--radius-sm);
       margin-bottom: 12px;
       letter-spacing: .1px;
@@ -308,12 +309,13 @@
     }
 
     .fields-card-header {
-      background: var(--azul-dark);
-      color: var(--text);
+      background: #0e2248;
+      color: #c8daf0;
       padding: 10px 18px;
       font-weight: 600;
       font-size: .78rem;
       border-bottom: 1px solid var(--border);
+      border-left: 3px solid rgba(92, 158, 248, .40);
       letter-spacing: .3px;
     }
 
@@ -332,7 +334,7 @@
     table.fields-table th {
       text-align: left;
       padding: 9px 14px;
-      color: var(--text-faint);
+      color: #6888a8;
       font-weight: 600;
       font-size: .63rem;
       text-transform: uppercase;
@@ -355,8 +357,8 @@
       vertical-align: top;
       word-wrap: break-word;
       overflow-wrap: break-word;
-      line-height: 1.55;
-      color: var(--text-dim);
+      line-height: 1.58;
+      color: #a0bcd8;
     }
 
     table.fields-table tr:last-child td { border-bottom: none; }
@@ -384,25 +386,25 @@
       white-space: nowrap;
     }
 
-    .tag-sim  { background: var(--tag-sim-bg); color: var(--tag-sim); border: 1px solid rgba(62,207,128,.15); }
-    .tag-nao  { background: var(--tag-nao-bg); color: var(--tag-nao); border: 1px solid rgba(239,101,101,.15); }
-    .tag-opt  { background: var(--tag-opt-bg); color: var(--tag-opt); border: 1px solid rgba(92,158,248,.15); font-size: .62rem; white-space: normal; }
-    .tag-text { background: var(--tag-txt-bg); color: var(--tag-txt); border: 1px solid rgba(242,181,40,.15); }
+    .tag-sim  { background: var(--tag-sim-bg); color: var(--tag-sim); border: 1px solid rgba(62,207,128,.28); }
+    .tag-nao  { background: var(--tag-nao-bg); color: var(--tag-nao); border: 1px solid rgba(239,101,101,.28); }
+    .tag-opt  { background: var(--tag-opt-bg); color: var(--tag-opt); border: 1px solid rgba(92,158,248,.28); font-size: .62rem; white-space: normal; }
+    .tag-text { background: var(--tag-txt-bg); color: var(--tag-txt); border: 1px solid rgba(242,181,40,.28); }
 
     /* ── NOTE BOX ── */
     .note-box {
-      background: rgba(232, 184, 48, .05);
-      border: 1px solid rgba(232, 184, 48, .16);
+      background: rgba(232, 184, 48, .06);
+      border: 1px solid rgba(232, 184, 48, .22);
       border-left: 3px solid var(--amarelo);
       border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
       padding: 11px 16px;
       font-size: .79rem;
-      color: #aa8f3a;
+      color: #c8a840;
       margin-bottom: 20px;
       line-height: 1.55;
     }
 
-    .note-box strong { color: var(--amarelo); }
+    .note-box strong { color: #f0c840; }
 
     /* ── WELCOME CARDS ── */
     .welcome-grid {
@@ -499,14 +501,15 @@
     #search-bar {
       width: 100%;
       padding: 7px 32px 7px 11px;
-      background: rgba(255,255,255,.03);
-      border: 1px solid var(--border);
+      background: rgba(92, 158, 248, .05);
+      border: 1px solid rgba(92, 158, 248, .30);
       border-radius: var(--radius-sm);
       color: var(--text);
       font-size: .77rem;
       font-family: 'DM Sans', sans-serif;
       margin: 11px 0 3px;
       transition: border-color .15s, box-shadow .15s, background .15s;
+      box-shadow: 0 0 0 1px rgba(92, 158, 248, .08) inset;
     }
 
     #search-icon {
@@ -515,17 +518,18 @@
       bottom: 52px;
       width: 13px;
       height: 13px;
-      color: var(--text-dim);
+      color: var(--azul-accent);
       pointer-events: none;
+      opacity: .7;
     }
 
-    #search-bar::placeholder { color: var(--text-faint); }
+    #search-bar::placeholder { color: #607898; }
 
     #search-bar:focus {
       outline: none;
-      border-color: rgba(92, 158, 248, .45);
-      background: rgba(92, 158, 248, .04);
-      box-shadow: 0 0 0 3px rgba(92, 158, 248, .10);
+      border-color: rgba(92, 158, 248, .70);
+      background: rgba(92, 158, 248, .07);
+      box-shadow: 0 0 0 3px rgba(92, 158, 248, .15);
     }
 
     /* ── SEARCH RESULTS ── */
@@ -862,7 +866,7 @@
       letter-spacing: 1.1px;
       color: var(--verde-empresa);
       padding: 10px 14px 2px 20px;
-      opacity: .48;
+      opacity: .65;
     }
 
     /* ── HOME SECTION GROUPS ── */
@@ -1170,6 +1174,10 @@
             Opções de Pré-Conta
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Pré Conta</span>
           </a>
+          <a class="nav-item" onclick="showSection('cad-empresas-check-out')">
+            Opções de Check-Out
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Check-Out</span>
+          </a>
         </div>
       </div>
     </div>
@@ -1456,6 +1464,11 @@
             <div class="icon">🧾</div>
             <h3>Opções de Pré-Conta</h3>
             <p>Ítens, divisão de valor, taxa de serviço, modo de preparo, espelho, impressão automática e mensagens da pré-conta.</p>
+          </div>
+          <div class="welcome-card empresa" onclick="showSection('cad-empresas-check-out')">
+            <div class="icon">🏁</div>
+            <h3>Opções de Check-Out</h3>
+            <p>Configuração de sub-identificação e identificação no momento do check-out (fechamento de venda).</p>
           </div>
         </div>
       </div>
@@ -6187,6 +6200,45 @@
       </div>
     </section>
 
+    <!-- ══ OPÇÕES DE CHECK-OUT ══ -->
+    <section id="cad-empresas-check-out" class="page-section" data-section-img="prints/cad_empresas_check_out.png">
+      <div class="page-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções de Check-Out</div>
+        <h2>Opções de Check-Out</h2>
+        <p>Configuração de sub-identificação e identificação no momento do check-out (fechamento de venda).</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_check_out.png" alt="Tela Configurações da Empresa — Opções de Check-Out"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_check_out.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções de Check-Out</strong>.
+      </div>
+
+      <!-- Check-Out -->
+      <div class="fields-card">
+        <div class="fields-card-header">Check-Out</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Utilizar Sub-Identificação e/ou Identificação no Check-Out</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Define se o sistema solicita sub-identificação e/ou identificação do cliente no momento do check-out (fechamento de venda). Ativar conforme necessidade operacional do estabelecimento.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <!-- ══════════════ MODAL EXIBIR NA TELA ══════════════ -->
@@ -6243,7 +6295,8 @@
       'cad-empresas-cupom-fiscal': 'Opções de Cupom Fiscal/NFe/SAT',
       'cad-empresas-opcoes-recibo': 'Opções de Recibo',
       'cad-empresas-local-impressao': 'Opções de Local de Impressão',
-      'cad-empresas-pre-conta': 'Opções de Pré-Conta'
+      'cad-empresas-pre-conta': 'Opções de Pré-Conta',
+      'cad-empresas-check-out': 'Opções de Check-Out'
     };
 
     function switchSystem(system) {
@@ -6765,6 +6818,10 @@
         'Mensagem do Rodapé da Pré-Conta (Linha 05)':                               '87.9,40,33.4,3.3',
         'Mensagem do Rodapé da Pré-Conta (Linha 06)':                               '92.1,39.9,33.2,3.3',
         'Mensagem do Rodapé da Pré-Conta (Linha 07)':                               '',
+      },
+      'prints/cad_empresas_check_out.png': {
+        // Check-Out
+        'Utilizar Sub-Identificação e/ou Identificação no Check-Out':               '47.8,0,99.3,22.1',
       },
       'prints/cad_empresas_opcoes_recibo.png': {
         // Cabeçário da Bobina
