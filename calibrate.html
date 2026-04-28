@@ -53,6 +53,7 @@
     .img-btn.active { background: #1a3060; color: #fff; border-left: 3px solid #4d90fe; }
     .img-btn .img-prog { font-size: 0.68rem; color: #8b9ab5; margin-top: 2px; }
     .img-btn.active .img-prog { color: #9ab5e0; }
+    .img-cal { font-size: 0.65rem; color: #4ade80; margin-top: 2px; }
 
     /* ── CENTER — canvas area ── */
     #canvas-wrap {
@@ -218,6 +219,7 @@ const IMAGES = [
   {
     file: 'prints/cfg_gerais.png',
     label: 'Configurações Gerais',
+    calibrated: true,
     groups: [
       { group: 'Dados da Empresa', fields: [
         'Nome da Empresa (p/Relatórios)',
@@ -268,6 +270,7 @@ const IMAGES = [
   {
     file: 'prints/cfg_gerais2.png',
     label: 'Configurações Gerais 2',
+    calibrated: true,
     groups: [
       { group: 'Layout e Interface', fields: [
         'Layout das Telas do Sistema',
@@ -293,6 +296,7 @@ const IMAGES = [
   {
     file: 'prints/prog_fidelidade.png',
     label: 'Programa de Fidelidade',
+    calibrated: true,
     groups: [
       { group: 'Configuração Base', fields: [
         'Utilizar Programa de Fidelidade',
@@ -331,6 +335,7 @@ const IMAGES = [
   {
     file: 'prints/venda_antecipada.png',
     label: 'Venda Antecipada',
+    calibrated: true,
     groups: [
       { group: 'Configurações', fields: [
         'Utilizar Venda Antecipada',
@@ -346,6 +351,7 @@ const IMAGES = [
   {
     file: 'prints/fech_caixa.png',
     label: 'Fechamento de Caixa',
+    calibrated: true,
     groups: [
       { group: 'Formas de Pagamento', fields: [
         'Informar Valores de Formas de Pagamento',
@@ -386,6 +392,7 @@ const IMAGES = [
   {
     file: 'prints/estoque.png',
     label: 'Configurações de Estoque',
+    calibrated: true,
     groups: [
       { group: 'Custo e Entradas de Produtos', fields: [
         'Custo a ser atribuído no lançamento da saída de produtos',
@@ -426,6 +433,7 @@ const IMAGES = [
   {
     file: 'prints/contas_pagar.png',
     label: 'Contas a Pagar / Conta Corrente',
+    calibrated: true,
     groups: [
       { group: 'Configurações Gerais', fields: [
         'Usar Grupo de Despesa Interligado ao Tipo de Despesa',
@@ -469,6 +477,7 @@ const IMAGES = [
   {
     file: 'prints/produtos_apoio.png',
     label: 'Produtos de Apoio',
+    calibrated: true,
     groups: [
       { group: 'Produtos de Apoio', fields: [
         'Utilizar Produto "Taxa de Serviço"',
@@ -485,6 +494,7 @@ const IMAGES = [
   {
     file: 'prints/config_falta_caixa.png',
     label: 'Falta de Caixa',
+    calibrated: true,
     groups: [
       { group: 'Dados p/ Lançamento de Falta de Caixa', fields: [
         'Credor',
@@ -498,6 +508,7 @@ const IMAGES = [
   {
     file: 'prints/taxas_cartoes.png',
     label: 'Taxas Adm. de Cartões',
+    calibrated: true,
     groups: [
       { group: 'Campos — Taxas Adm de Cartões e Outras Opções', fields: [
         'Tipo de Documento de Cobrança',
@@ -523,6 +534,7 @@ const IMAGES = [
   {
     file: 'prints/cad_rapido_clientes.png',
     label: 'Cadastro Rápido de Clientes',
+    calibrated: true,
     groups: [
       { group: 'Campos do Cadastro Rápido', fields: [
         'Campo Código Interno c/Apenas Dígitos Numéricos',
@@ -540,6 +552,7 @@ const IMAGES = [
   {
     file: 'prints/contas_pagar_nf_compra.png',
     label: 'Dados C.Pagar p/ NF de Compra',
+    calibrated: true,
     groups: [
       { group: 'Campos da Tela', fields: [
         'Campo "Data Pagto" do C.Pagar vazio na importação pelo XML',
@@ -554,6 +567,7 @@ const IMAGES = [
   {
     file: 'prints/cfg_sistema_backup.png',
     label: 'Sistema de Backup',
+    calibrated: true,
     groups: [
       { group: 'Campos da Tela', fields: [
         'Usar Esse Computador Como "Sistema de Backup"',
@@ -564,6 +578,7 @@ const IMAGES = [
   {
     file: 'prints/cfg_gestao_remoto.png',
     label: 'Sistema de Gestão Remoto',
+    calibrated: true,
     groups: [
       { group: 'Campos da Tela', fields: [
         'IP do Sistema de Gestão Remoto',
@@ -574,6 +589,7 @@ const IMAGES = [
   {
     file: 'prints/cfg_sagres_restserver.png',
     label: 'Sagres RestServer',
+    calibrated: true,
     groups: [
       { group: 'Campos da Tela', fields: [
         'Lógica de Acesso ao SagresRestServer',
@@ -585,6 +601,7 @@ const IMAGES = [
   {
     file: 'prints/cfg_senha_internet.png',
     label: 'Senha Via Internet (Sistema Gestão)',
+    calibrated: true,
     groups: [
       { group: 'Campos da Tela', fields: [
         'CNPJ do Representante',
@@ -596,6 +613,7 @@ const IMAGES = [
   {
     file: 'prints/cfg_otimizar_velocidade.png',
     label: 'Otimizar Velocidade do Sistema',
+    calibrated: true,
     groups: [
       { group: 'Campos da Tela', fields: [
         'Tipo de Velocidade',
@@ -605,6 +623,7 @@ const IMAGES = [
   {
     file: 'prints/cfg_local_impressao_padrao.png',
     label: 'Definir Local de Impressão Padrão',
+    calibrated: true,
     groups: [
       { group: 'Campos da Tela', fields: [
         'Local de Impressão Padrão',
@@ -614,6 +633,7 @@ const IMAGES = [
   {
     file: 'prints/cfg_locais_impressao.png',
     label: 'Locais de Impressão',
+    calibrated: true,
     groups: [
       { group: 'Campos da Tela', fields: [
         'Utilizar Locais de Impressão nos Produtos',
@@ -623,6 +643,7 @@ const IMAGES = [
   {
     file: 'prints/cfg_xml_email_contabilidade.png',
     label: 'Envio de XMLs por Email para a Contabilidade',
+    calibrated: true,
     groups: [
       { group: 'Campos da Tela', fields: [
         'Enviar XML das Notas por EMail para o Contador',
@@ -640,6 +661,7 @@ const IMAGES = [
   {
     file: 'prints/cfg_xml_email_outras_opcoes.png',
     label: 'Envio de XMLs por Email — Outras Opções',
+    calibrated: true,
     groups: [
       { group: 'Campos da Tela', fields: [
         'Incluir Relatório de Produtos Totalizados por CFOP na Gravação dos Arquivos XML',
@@ -649,6 +671,7 @@ const IMAGES = [
   {
     file: 'prints/cad_empresas_local_impressao.png',
     label: 'Opções de Local de Impressão',
+    calibrated: true,
     groups: [
       { group: 'Impressão de Conteúdo', fields: [
         'Descrição Completa do Produto',
@@ -684,6 +707,7 @@ const IMAGES = [
   {
     file: 'prints/cad_empresas_pre_conta.png',
     label: 'Opções de Pré-Conta',
+    calibrated: true,
     groups: [
       { group: 'Exibição dos Ítens', fields: [
         'Ítens da Pré-Conta Numa Única Linha',
@@ -732,6 +756,7 @@ const IMAGES = [
   {
     file: 'prints/cad_empresas_opcoes_recibo.png',
     label: 'Opções de Recibo',
+    calibrated: true,
     groups: [
       { group: 'Cabeçário da Bobina', fields: [
         'Mensagem do Cabeçário da Bobina (Linha 01)',
@@ -755,6 +780,7 @@ const IMAGES = [
   {
     file: 'prints/cad_empresas_cupom_fiscal.png',
     label: 'Opções de Cupom Fiscal/NFe/SAT',
+    calibrated: true,
     groups: [
       { group: 'Cliente e Identificação no Cupom', fields: [
         'Cliente no Cupom Fiscal',
@@ -823,6 +849,7 @@ const IMAGES = [
   {
     file: 'prints/cad_empresas_op_gerais_3.png',
     label: 'Opções Gerais da Empresa 3',
+    calibrated: true,
     groups: [
       { group: 'Recebimento Automático', fields: [
         'Possui Forma Pagto p/Recebimento Automático',
@@ -849,6 +876,7 @@ const IMAGES = [
   {
     file: 'prints/cad_empresas_op_gerais_2.png',
     label: 'Opções Gerais da Empresa 2',
+    calibrated: true,
     groups: [
       { group: 'Caixa e Troco', fields: [
         'Lançar troco inicial ao abrir o caixa',
@@ -907,6 +935,7 @@ const IMAGES = [
   {
     file: 'prints/cad_empresas.png',
     label: 'Cadastro de Empresas',
+    calibrated: true,
     groups: [
       { group: 'Identificação', fields: [
         'Nome',
@@ -953,6 +982,7 @@ const IMAGES = [
   {
     file: 'prints/cad_empresas_op_gerais.png',
     label: 'Opções Gerais da Empresa',
+    calibrated: true,
     groups: [
       { group: 'Senha e Painel', fields: [
         'Conceder Permissões com Cartão Cod.Barras',
@@ -1385,7 +1415,8 @@ function buildImgPanel() {
   IMAGES.forEach((img, i) => {
     const btn = document.createElement('button');
     btn.className = 'img-btn';
-    btn.innerHTML = `<div>${img.label}</div><div class="img-prog">${img.file.split('/')[1]}</div>`;
+    const calBadge = img.calibrated ? `<div class="img-cal">✓ calibrado</div>` : '';
+    btn.innerHTML = `<div>${img.label}</div><div class="img-prog">${img.file.split('/')[1]}</div>${calBadge}`;
     btn.dataset.idx = i;
     btn.addEventListener('click', () => selectImage(i));
     panel.appendChild(btn);

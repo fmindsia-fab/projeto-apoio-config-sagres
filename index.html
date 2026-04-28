@@ -6,44 +6,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Squalus Gestão — Guia de Configurações</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap');
+
     :root {
-      /* Dark theme palette */
-      --bg-page: #0d1117;
-      --bg-card: #161b22;
-      --bg-card2: #1c2333;
-      --bg-thead: #1e2a3a;
-      --bg-hover: #1f2d40;
-      --bg-stripe: #131920;
+      /* Palette — deep refined dark */
+      --bg-page:   #07090e;
+      --bg-card:   #0c0f17;
+      --bg-card2:  #10141d;
+      --bg-thead:  #0d1120;
+      --bg-hover:  #131828;
+      --bg-stripe: #090c14;
 
-      --sidebar-bg: #0a0f1a;
-      --sidebar-hdr: #0d1626;
-      --sidebar-act: rgba(77, 144, 254, .13);
-      --sidebar-act-border: #4d90fe;
+      --sidebar-bg:         #050609;
+      --sidebar-hdr:        #07090e;
+      --sidebar-act:        rgba(92, 158, 248, .09);
+      --sidebar-act-border: #5c9ef8;
 
-      --azul-accent: #4d90fe;
-      --azul-dark: #1a3a6b;
-      --amarelo: #f0c040;
-      --amarelo-dim: rgba(240, 192, 64, .15);
+      --azul-accent: #5c9ef8;
+      --azul-dark:   #0c1e3d;
+      --amarelo:     #e8b830;
+      --amarelo-dim: rgba(232, 184, 48, .10);
 
-      --text: #e2e8f0;
-      --text-dim: #8b9ab5;
-      --text-faint: #4a5568;
-      --border: #2d3748;
-      --border-faint: #1e2a38;
+      --text:        #d8e3ef;
+      --text-dim:    #6b80a0;
+      --text-faint:  #32404f;
+      --border:      #1a2535;
+      --border-faint: #111a24;
 
-      --tag-sim-bg: #0d2e1a;
-      --tag-sim: #4ade80;
-      --tag-nao-bg: #2d1515;
-      --tag-nao: #f87171;
-      --tag-opt-bg: #0f1f3d;
-      --tag-opt: #60a5fa;
-      --tag-txt-bg: #2d2300;
-      --tag-txt: #fbbf24;
+      --tag-sim-bg: #051810;
+      --tag-sim:    #3ecf80;
+      --tag-nao-bg: #1c0d0d;
+      --tag-nao:    #ef6565;
+      --tag-opt-bg: #061228;
+      --tag-opt:    #5c9ef8;
+      --tag-txt-bg: #1a1200;
+      --tag-txt:    #f2b528;
 
-      --verde-empresa: #2dd4bf;
-      --verde-empresa-dim: rgba(45, 212, 191, .12);
+      --verde-empresa:     #2dd4c8;
+      --verde-empresa-dim: rgba(45, 212, 200, .10);
 
-      --sidebar-w: 290px;
+      --sidebar-w: 272px;
+      --radius-sm: 4px;
+      --radius-md: 8px;
     }
 
     * {
@@ -53,38 +57,37 @@
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'DM Sans', 'Segoe UI', sans-serif;
       background: var(--bg-page);
       color: var(--text);
       display: flex;
       min-height: 100vh;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    code {
+      font-family: 'JetBrains Mono', 'Consolas', monospace;
+      font-size: .80em;
+      background: var(--bg-card2);
+      border: 1px solid var(--border-faint);
+      padding: 1px 5px;
+      border-radius: 3px;
+      color: var(--azul-accent);
     }
 
     /* ── SCROLLBAR ── */
-    ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--bg-page);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #2d3748;
-      border-radius: 3px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: #4a5568;
-    }
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #1b2636; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #283a52; }
 
     /* ── SIDEBAR ── */
     #sidebar {
       width: var(--sidebar-w);
       min-width: var(--sidebar-w);
       background: var(--sidebar-bg);
-      border-right: 1px solid var(--border);
+      border-right: 1px solid var(--border-faint);
       display: flex;
       flex-direction: column;
       position: sticky;
@@ -96,46 +99,69 @@
     #sidebar-header {
       background: var(--sidebar-hdr);
       padding: 20px 16px 14px;
-      border-bottom: 2px solid var(--amarelo);
+      border-bottom: 1px solid var(--border-faint);
+      position: relative;
+    }
+
+    #sidebar-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--azul-accent) 0%, transparent 70%);
+      opacity: .5;
     }
 
     #sidebar-header h1 {
       color: var(--text);
-      font-size: 1.05rem;
+      font-size: .93rem;
       font-weight: 700;
-      letter-spacing: .4px;
+      letter-spacing: .1px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    #sidebar-header h1::before {
+      content: '◈';
+      color: var(--azul-accent);
+      font-size: 1rem;
     }
 
     #sidebar-header p {
       color: var(--text-dim);
-      font-size: .72rem;
-      margin-top: 3px;
+      font-size: .67rem;
+      margin-top: 4px;
+      padding-left: 22px;
+      letter-spacing: .2px;
     }
 
     .nav-section {
-      padding: 6px 0;
+      padding: 3px 0;
       border-bottom: 1px solid var(--border-faint);
     }
 
     .nav-section-title {
-      color: var(--amarelo);
-      font-size: .63rem;
-      font-weight: 700;
+      color: var(--text-dim);
+      font-size: .62rem;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 1.4px;
-      padding: 12px 14px 4px 16px;
-      opacity: .85;
+      letter-spacing: 1.1px;
+      padding: 10px 14px 10px 16px;
       cursor: pointer;
       user-select: none;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      transition: color .15s;
     }
+
+    .nav-section-title:hover { color: var(--text); }
 
     .nav-section-title::after {
       content: '▾';
-      font-size: .78rem;
-      opacity: .55;
+      font-size: .70rem;
+      opacity: .4;
       transition: transform .22s ease;
       flex-shrink: 0;
     }
@@ -146,158 +172,156 @@
 
     .nav-items {
       overflow: hidden;
-      max-height: 600px;
+      max-height: 800px;
       transition: max-height .28s ease;
     }
 
-    .nav-section.collapsed .nav-items {
-      max-height: 0;
-    }
+    .nav-section.collapsed .nav-items { max-height: 0; }
 
     .nav-item {
       display: block;
-      padding: 9px 14px 9px 18px;
-      margin: 2px 8px;
-      color: #a8b8d0;
+      padding: 7px 12px 7px 17px;
+      margin: 1px 8px;
+      color: #7a91b0;
       text-decoration: none;
-      font-size: .84rem;
-      font-weight: 500;
-      border-left: 3px solid transparent;
-      border-radius: 6px;
-      transition: all .18s;
+      font-size: .79rem;
+      font-weight: 400;
+      border-left: 2px solid transparent;
+      border-radius: 5px;
+      transition: color .15s, background .15s, border-color .15s, padding-left .15s;
       cursor: pointer;
     }
 
     .nav-item:hover {
       background: var(--sidebar-act);
       color: var(--text);
-      border-left-color: var(--sidebar-act-border);
-      padding-left: 21px;
+      border-left-color: rgba(92, 158, 248, .35);
+      padding-left: 20px;
     }
 
     .nav-item.active {
-      background: rgba(240, 192, 64, .12);
-      color: #fff;
+      background: rgba(232, 184, 48, .08);
+      color: #f0d060;
       border-left-color: var(--amarelo);
-      font-weight: 600;
-      padding-left: 21px;
+      font-weight: 500;
+      padding-left: 20px;
     }
 
     .nav-item .path-badge {
       display: block;
-      font-size: .67rem;
-      color: #5a6e8a;
+      font-size: .61rem;
+      color: #2d3f53;
       margin-top: 2px;
-      font-family: monospace;
+      font-family: 'JetBrains Mono', monospace;
     }
 
     .nav-item:hover .path-badge,
-    .nav-item.active .path-badge {
-      color: #8b9ab5;
-    }
+    .nav-item.active .path-badge { color: #4a6280; }
 
     /* ── MAIN ── */
     #main {
       flex: 1;
-      padding: 32px 36px;
+      padding: 36px 40px;
       overflow-y: auto;
       min-width: 0;
     }
 
-    .page-section {
-      display: none;
-    }
-
-    .page-section.visible {
-      display: block;
-    }
+    .page-section { display: none; }
+    .page-section.visible { display: block; }
 
     /* ── PAGE HEADER ── */
     .page-header {
-      margin-bottom: 24px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--border);
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-faint);
     }
 
     .page-header .breadcrumb {
-      font-size: .72rem;
+      font-size: .63rem;
       color: var(--text-dim);
-      font-family: monospace;
-      background: var(--bg-card2);
-      border: 1px solid var(--border);
-      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      background: var(--bg-card);
+      border: 1px solid var(--border-faint);
+      display: inline-flex;
+      align-items: center;
       padding: 3px 10px;
-      border-radius: 4px;
-      margin-bottom: 10px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 12px;
+      letter-spacing: .1px;
     }
 
     .page-header h2 {
-      font-size: 1.45rem;
+      font-size: 1.38rem;
       color: var(--text);
       font-weight: 700;
+      letter-spacing: -.3px;
     }
 
     .page-header p {
       color: var(--text-dim);
-      font-size: .88rem;
-      margin-top: 5px;
+      font-size: .84rem;
+      margin-top: 6px;
+      line-height: 1.55;
     }
 
     /* ── SCREEN PRINT ── */
     .screen-print {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 16px;
-      margin-bottom: 28px;
+      border-radius: var(--radius-md);
+      padding: 14px;
+      margin-bottom: 24px;
       text-align: center;
     }
 
     .screen-print img {
       max-width: 100%;
-      border-radius: 4px;
+      border-radius: var(--radius-sm);
       border: 1px solid var(--border);
     }
 
     .screen-print-placeholder {
       background: var(--bg-card2);
-      border: 2px dashed var(--border);
-      border-radius: 6px;
-      padding: 32px;
+      border: 1.5px dashed var(--border);
+      border-radius: var(--radius-sm);
+      padding: 36px 24px;
       color: var(--text-dim);
-      font-size: .85rem;
+      font-size: .82rem;
+      line-height: 1.55;
     }
 
     .screen-print-placeholder strong {
       display: block;
-      font-size: 1rem;
-      margin-bottom: 6px;
+      font-size: .90rem;
+      margin-bottom: 7px;
       color: var(--azul-accent);
+      font-weight: 600;
     }
 
     /* ── FIELDS CARD ── */
     .fields-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: var(--radius-md);
       overflow: hidden;
-      margin-bottom: 24px;
+      margin-bottom: 18px;
     }
 
     .fields-card-header {
       background: var(--azul-dark);
       color: var(--text);
-      padding: 11px 18px;
+      padding: 10px 18px;
       font-weight: 600;
-      font-size: .88rem;
+      font-size: .78rem;
       border-bottom: 1px solid var(--border);
+      letter-spacing: .3px;
     }
 
     /* ── TABLE ── */
     table.fields-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: .84rem;
+      font-size: .81rem;
       table-layout: fixed;
     }
 
@@ -308,29 +332,22 @@
     table.fields-table th {
       text-align: left;
       padding: 9px 14px;
-      color: var(--azul-accent);
+      color: var(--text-faint);
       font-weight: 600;
-      font-size: .72rem;
+      font-size: .63rem;
       text-transform: uppercase;
-      letter-spacing: .6px;
+      letter-spacing: .9px;
       border-bottom: 1px solid var(--border);
     }
 
-    /* Larguras fixas para não cortar texto */
     table.fields-table th:nth-child(1),
-    table.fields-table td:nth-child(1) {
-      width: 42%;
-    }
+    table.fields-table td:nth-child(1) { width: 42%; }
 
     table.fields-table th:nth-child(2),
-    table.fields-table td:nth-child(2) {
-      width: 16%;
-    }
+    table.fields-table td:nth-child(2) { width: 16%; }
 
     table.fields-table th:nth-child(3),
-    table.fields-table td:nth-child(3) {
-      width: 42%;
-    }
+    table.fields-table td:nth-child(3) { width: 42%; }
 
     table.fields-table td {
       padding: 11px 14px;
@@ -338,197 +355,189 @@
       vertical-align: top;
       word-wrap: break-word;
       overflow-wrap: break-word;
-      line-height: 1.5;
+      line-height: 1.55;
+      color: var(--text-dim);
     }
 
-    table.fields-table tr:last-child td {
-      border-bottom: none;
-    }
+    table.fields-table tr:last-child td { border-bottom: none; }
 
     table.fields-table tr:hover td {
       background: var(--bg-hover);
+      color: var(--text);
     }
 
     .field-name {
       font-weight: 600;
       color: var(--text);
+      font-size: .81rem;
       line-height: 1.4;
     }
 
     /* ── TAGS ── */
     .tag {
       display: inline-block;
-      padding: 3px 9px;
-      border-radius: 10px;
-      font-size: .72rem;
+      padding: 2px 8px;
+      border-radius: 99px;
+      font-size: .65rem;
       font-weight: 700;
+      letter-spacing: .2px;
       white-space: nowrap;
     }
 
-    .tag-sim {
-      background: var(--tag-sim-bg);
-      color: var(--tag-sim);
-    }
-
-    .tag-nao {
-      background: var(--tag-nao-bg);
-      color: var(--tag-nao);
-    }
-
-    .tag-opt {
-      background: var(--tag-opt-bg);
-      color: var(--tag-opt);
-      font-size: .68rem;
-      white-space: normal;
-    }
-
-    .tag-text {
-      background: var(--tag-txt-bg);
-      color: var(--tag-txt);
-    }
+    .tag-sim  { background: var(--tag-sim-bg); color: var(--tag-sim); border: 1px solid rgba(62,207,128,.15); }
+    .tag-nao  { background: var(--tag-nao-bg); color: var(--tag-nao); border: 1px solid rgba(239,101,101,.15); }
+    .tag-opt  { background: var(--tag-opt-bg); color: var(--tag-opt); border: 1px solid rgba(92,158,248,.15); font-size: .62rem; white-space: normal; }
+    .tag-text { background: var(--tag-txt-bg); color: var(--tag-txt); border: 1px solid rgba(242,181,40,.15); }
 
     /* ── NOTE BOX ── */
     .note-box {
-      background: var(--amarelo-dim);
-      border-left: 4px solid var(--amarelo);
-      border-radius: 0 6px 6px 0;
-      padding: 12px 16px;
-      font-size: .83rem;
-      color: #d4b96a;
+      background: rgba(232, 184, 48, .05);
+      border: 1px solid rgba(232, 184, 48, .16);
+      border-left: 3px solid var(--amarelo);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 11px 16px;
+      font-size: .79rem;
+      color: #aa8f3a;
       margin-bottom: 20px;
+      line-height: 1.55;
     }
 
-    .note-box strong {
-      color: var(--amarelo);
-    }
+    .note-box strong { color: var(--amarelo); }
 
     /* ── WELCOME CARDS ── */
     .welcome-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 16px;
-      margin-top: 24px;
+      grid-template-columns: repeat(auto-fill, minmax(188px, 1fr));
+      gap: 11px;
+      margin-top: 14px;
     }
 
     .welcome-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 20px;
+      border-radius: var(--radius-md);
+      padding: 16px 15px;
       cursor: pointer;
-      transition: all .15s;
-      border-top: 3px solid var(--azul-accent);
+      transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .welcome-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--azul-accent), transparent 60%);
+      opacity: .55;
     }
 
     .welcome-card:hover {
-      background: var(--bg-card2);
-      border-color: var(--azul-accent);
+      border-color: rgba(92, 158, 248, .3);
       transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,.35);
     }
 
     .welcome-card .icon {
-      font-size: 1.7rem;
-      margin-bottom: 10px;
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+      display: block;
     }
 
     .welcome-card h3 {
-      font-size: .92rem;
+      font-size: .84rem;
+      font-weight: 600;
       color: var(--azul-accent);
-      margin-bottom: 4px;
+      margin-bottom: 5px;
+      line-height: 1.35;
     }
 
     .welcome-card p {
-      font-size: .78rem;
+      font-size: .73rem;
       color: var(--text-dim);
-      line-height: 1.4;
+      line-height: 1.5;
     }
 
-    .welcome-card.empresa {
-      border-top-color: var(--verde-empresa);
+    .welcome-card.empresa::before {
+      background: linear-gradient(90deg, var(--verde-empresa), transparent 60%);
     }
-    .welcome-card.empresa h3 {
-      color: var(--verde-empresa);
-    }
+    .welcome-card.empresa h3 { color: var(--verde-empresa); }
     .welcome-card.empresa:hover {
-      border-color: var(--verde-empresa);
-      background: var(--verde-empresa-dim);
+      border-color: rgba(45, 212, 200, .28);
     }
 
     .nav-separator {
-      margin: 14px 14px 6px;
+      margin: 10px 14px 3px;
       border: none;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid var(--border-faint);
       position: relative;
     }
     .nav-separator::after {
       content: 'EMPRESA';
       position: absolute;
-      top: -9px;
+      top: -8px;
       left: 50%;
       transform: translateX(-50%);
       background: var(--sidebar-bg);
       padding: 0 8px;
-      font-size: .6rem;
+      font-size: .56rem;
       letter-spacing: .12em;
       color: var(--verde-empresa);
-      font-weight: 600;
+      font-weight: 700;
+      opacity: .65;
     }
 
     .nav-section.empresa > .nav-section-title {
+      color: rgba(45, 212, 200, .55);
+    }
+
+    .nav-section.empresa > .nav-section-title:hover {
       color: var(--verde-empresa);
     }
 
     /* ── SEARCH BAR ── */
     #search-bar {
       width: 100%;
-      padding: 8px 34px 8px 12px;
-      background: rgba(77, 144, 254, .07);
-      border: 2px solid rgba(77, 144, 254, .6);
-      border-radius: 6px;
+      padding: 7px 32px 7px 11px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
       color: var(--text);
-      font-size: .82rem;
-      margin: 12px 0 4px;
-      box-shadow: 0 0 0 3px rgba(77, 144, 254, .12);
+      font-size: .77rem;
+      font-family: 'DM Sans', sans-serif;
+      margin: 11px 0 3px;
       transition: border-color .15s, box-shadow .15s, background .15s;
-    }
-
-    #sidebar-header {
-      position: relative;
     }
 
     #search-icon {
       position: absolute;
-      right: 28px;
-      bottom: 16px;
-      width: 14px;
-      height: 14px;
-      color: rgba(77, 144, 254, .8);
+      right: 26px;
+      bottom: 52px;
+      width: 13px;
+      height: 13px;
+      color: var(--text-dim);
       pointer-events: none;
     }
 
-    #search-bar::placeholder {
-      color: var(--text-dim);
-    }
+    #search-bar::placeholder { color: var(--text-faint); }
 
     #search-bar:focus {
       outline: none;
-      border-color: var(--azul-accent);
-      background: rgba(77, 144, 254, .12);
-      box-shadow: 0 0 0 4px rgba(77, 144, 254, .22);
+      border-color: rgba(92, 158, 248, .45);
+      background: rgba(92, 158, 248, .04);
+      box-shadow: 0 0 0 3px rgba(92, 158, 248, .10);
     }
 
     /* ── SEARCH RESULTS ── */
-    #search-results {
-      padding: 4px 0 8px;
-    }
+    #search-results { padding: 4px 0 8px; }
 
     .search-result-item {
       display: block;
-      padding: 9px 14px 9px 20px;
+      padding: 8px 12px 8px 18px;
       color: var(--text-dim);
-      font-size: .8rem;
+      font-size: .77rem;
       cursor: pointer;
-      border-left: 3px solid transparent;
+      border-left: 2px solid transparent;
       transition: all .15s;
       text-decoration: none;
     }
@@ -539,7 +548,6 @@
       border-left-color: var(--amarelo);
     }
 
-    /* Corrigido: permite quebra de linha, sem corte */
     .search-result-item .res-field {
       display: block;
       font-weight: 600;
@@ -550,22 +558,22 @@
 
     .search-result-item .res-section {
       display: block;
-      font-size: .67rem;
+      font-size: .61rem;
       color: var(--text-faint);
-      font-family: monospace;
-      margin-top: 3px;
+      font-family: 'JetBrains Mono', monospace;
+      margin-top: 2px;
     }
 
     .search-result-empty {
       padding: 12px 16px;
       color: var(--text-faint);
-      font-size: .8rem;
+      font-size: .77rem;
       font-style: italic;
     }
 
     .search-results-title {
-      color: var(--amarelo);
-      font-size: .64rem;
+      color: var(--text-dim);
+      font-size: .60rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1.2px;
@@ -574,12 +582,12 @@
 
     /* ── HIGHLIGHT ── */
     tr.row-highlight td {
-      background: rgba(240, 192, 64, .08) !important;
+      background: rgba(232, 184, 48, .06) !important;
       transition: background .4s;
     }
 
     mark.search-mark {
-      background: rgba(240, 192, 64, .35);
+      background: rgba(232, 184, 48, .28);
       color: var(--amarelo);
       border-radius: 2px;
       padding: 0 2px;
@@ -587,24 +595,10 @@
     }
 
     @media (max-width: 768px) {
-      body {
-        flex-direction: column;
-      }
-
-      #sidebar {
-        width: 100%;
-        min-width: unset;
-        height: auto;
-        position: static;
-      }
-
-      #main {
-        padding: 20px 16px;
-      }
-
-      table.fields-table {
-        table-layout: auto;
-      }
+      body { flex-direction: column; }
+      #sidebar { width: 100%; min-width: unset; height: auto; position: static; }
+      #main { padding: 20px 16px; }
+      table.fields-table { table-layout: auto; }
     }
 
     /* ── BOTÃO EXIBIR NA TELA ── */
@@ -612,12 +606,12 @@
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      background: rgba(77, 144, 254, .1);
-      border: 1px solid rgba(77, 144, 254, .25);
+      background: rgba(92, 158, 248, .08);
+      border: 1px solid rgba(92, 158, 248, .20);
       color: var(--azul-accent);
-      font-size: .68rem;
+      font-size: .64rem;
       padding: 2px 8px 2px 6px;
-      border-radius: 4px;
+      border-radius: 3px;
       cursor: pointer;
       margin-left: 8px;
       vertical-align: middle;
@@ -627,31 +621,28 @@
     }
 
     .btn-exibir:hover {
-      background: rgba(77, 144, 254, .25);
-      border-color: rgba(77, 144, 254, .5);
+      background: rgba(92, 158, 248, .18);
+      border-color: rgba(92, 158, 248, .38);
     }
 
-    .btn-exibir svg {
-      flex-shrink: 0;
-    }
+    .btn-exibir svg { flex-shrink: 0; }
 
     /* ── MODAL DE TELA ── */
     #screen-modal {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, .88);
+      background: rgba(0,0,0,.90);
       z-index: 9999;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 20px;
       gap: 12px;
+      backdrop-filter: blur(4px);
     }
 
-    #screen-modal.open {
-      display: flex;
-    }
+    #screen-modal.open { display: flex; }
 
     #modal-header {
       width: 100%;
@@ -664,102 +655,93 @@
     }
 
     #modal-field-name {
-      font-size: .95rem;
-      font-weight: 700;
+      font-size: .88rem;
+      font-weight: 600;
       color: var(--text);
       background: var(--bg-card2);
       border: 1px solid var(--border);
       padding: 5px 14px;
-      border-radius: 6px;
+      border-radius: var(--radius-sm);
       max-width: 70%;
     }
 
-    #modal-actions {
-      display: flex;
-      gap: 8px;
-    }
+    #modal-actions { display: flex; gap: 8px; }
 
     #modal-calibrate-btn {
-      background: rgba(240, 192, 64, .1);
-      border: 1px solid rgba(240, 192, 64, .3);
+      background: rgba(232, 184, 48, .08);
+      border: 1px solid rgba(232, 184, 48, .22);
       color: var(--amarelo);
       padding: 5px 12px;
-      border-radius: 4px;
+      border-radius: var(--radius-sm);
       cursor: pointer;
-      font-size: .78rem;
+      font-size: .74rem;
       font-family: inherit;
       transition: all .15s;
     }
 
     #modal-calibrate-btn.active {
-      background: rgba(240, 192, 64, .25);
+      background: rgba(232, 184, 48, .18);
       border-color: var(--amarelo);
     }
 
     #modal-share-btn {
-      background: rgba(37, 211, 102, .12);
-      border: 1px solid rgba(37, 211, 102, .35);
+      background: rgba(37, 211, 102, .08);
+      border: 1px solid rgba(37, 211, 102, .22);
       color: #25d366;
       padding: 5px 12px;
-      border-radius: 4px;
+      border-radius: var(--radius-sm);
       cursor: pointer;
-      font-size: .78rem;
+      font-size: .74rem;
       font-family: inherit;
       transition: all .15s;
       display: none;
     }
 
     #modal-share-btn:hover {
-      background: rgba(37, 211, 102, .25);
+      background: rgba(37, 211, 102, .18);
       border-color: #25d366;
     }
 
     #modal-calibrate-hint {
-      font-size: .72rem;
+      font-size: .68rem;
       color: var(--amarelo);
       display: none;
       margin-top: 4px;
     }
 
-    #modal-calibrate-btn.active~#modal-calibrate-hint {
-      display: block;
-    }
+    #modal-calibrate-btn.active~#modal-calibrate-hint { display: block; }
 
     #modal-close {
-      background: rgba(255, 255, 255, .08);
+      background: rgba(255,255,255,.05);
       border: 1px solid var(--border);
-      color: var(--text);
+      color: var(--text-dim);
       padding: 5px 14px;
-      border-radius: 4px;
+      border-radius: var(--radius-sm);
       cursor: pointer;
-      font-size: .82rem;
+      font-size: .78rem;
       font-family: inherit;
+      transition: all .15s;
     }
 
     #modal-close:hover {
-      background: rgba(255, 255, 255, .15);
+      background: rgba(255,255,255,.10);
+      color: var(--text);
     }
 
     #modal-img-wrap {
       position: relative;
       max-width: 1160px;
       width: 100%;
-      border-radius: 6px;
+      border-radius: var(--radius-sm);
       overflow: hidden;
       border: 1px solid var(--border);
       cursor: default;
     }
 
-    #modal-img-wrap.calibrate-mode {
-      cursor: crosshair;
-    }
+    #modal-img-wrap.calibrate-mode { cursor: crosshair; }
 
-    /* img fica oculto — usado só como fonte para o canvas */
-    #modal-img {
-      display: none;
-    }
+    #modal-img { display: none; }
 
-    /* Canvas exibe a imagem + destaque; escala via CSS, coordena em px naturais */
     #modal-canvas {
       width: 100%;
       display: block;
@@ -767,209 +749,193 @@
     }
 
     #modal-coords-info {
-      font-size: .72rem;
+      font-size: .68rem;
       color: var(--text-dim);
-      font-family: monospace;
+      font-family: 'JetBrains Mono', monospace;
       background: var(--bg-card2);
       border: 1px solid var(--border);
       padding: 4px 10px;
-      border-radius: 4px;
+      border-radius: var(--radius-sm);
       display: none;
     }
-
-    /* Animação do highlight via canvas (sem CSS animation) */
 
     /* ── SYSTEM SWITCHER TABS ── */
     .sys-tabs {
       display: flex;
-      gap: 5px;
-      margin-top: 12px;
+      gap: 4px;
+      margin-top: 10px;
     }
 
     .sys-tab {
       flex: 1;
-      padding: 6px 8px;
-      background: rgba(255, 255, 255, .04);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      color: var(--text-dim);
-      font-size: .72rem;
+      padding: 5px 6px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--border-faint);
+      border-radius: var(--radius-sm);
+      color: var(--text-faint);
+      font-size: .64rem;
       font-weight: 700;
       cursor: pointer;
       text-align: center;
       transition: all .15s;
-      letter-spacing: .6px;
+      letter-spacing: .5px;
       font-family: inherit;
       text-transform: uppercase;
     }
 
     .sys-tab:hover {
-      background: rgba(255, 255, 255, .08);
-      color: var(--text);
+      background: rgba(255,255,255,.06);
+      color: var(--text-dim);
     }
 
     .sys-tab.gestao.active {
-      background: rgba(77, 144, 254, .14);
-      border-color: var(--azul-accent);
+      background: rgba(92, 158, 248, .11);
+      border-color: rgba(92, 158, 248, .3);
       color: var(--azul-accent);
     }
 
     .sys-tab.pdv.active {
-      background: rgba(251, 146, 60, .14);
-      border-color: #fb923c;
+      background: rgba(251, 146, 60, .11);
+      border-color: rgba(251, 146, 60, .3);
       color: #fb923c;
     }
 
     /* ── NAV PDV PLACEHOLDER ── */
-    #nav-pdv {
-      display: none;
-      padding: 20px 14px 24px;
-    }
+    #nav-pdv { display: none; padding: 18px 14px 22px; }
 
     #nav-pdv .pdv-soon-badge {
       display: inline-block;
-      background: rgba(251, 146, 60, .12);
-      border: 1px solid rgba(251, 146, 60, .3);
+      background: rgba(251, 146, 60, .10);
+      border: 1px solid rgba(251, 146, 60, .22);
       color: #fb923c;
-      font-size: .6rem;
+      font-size: .58rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
       padding: 2px 8px;
-      border-radius: 10px;
+      border-radius: 99px;
       margin-bottom: 10px;
     }
 
     #nav-pdv .pdv-soon-title {
-      font-size: .84rem;
+      font-size: .82rem;
       font-weight: 700;
       color: var(--text);
       margin-bottom: 6px;
     }
 
     #nav-pdv .pdv-soon-desc {
-      font-size: .75rem;
+      font-size: .72rem;
       color: var(--text-faint);
       line-height: 1.55;
       margin-bottom: 18px;
     }
 
     #nav-pdv .pdv-cat-label {
-      font-size: .59rem;
+      font-size: .57rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1.1px;
       color: #fb923c;
-      opacity: .55;
+      opacity: .5;
       padding: 10px 0 5px;
       border-top: 1px solid var(--border-faint);
       margin-top: 4px;
     }
 
-    #nav-pdv .pdv-cat-label:first-of-type {
-      border-top: none;
-      padding-top: 0;
-    }
+    #nav-pdv .pdv-cat-label:first-of-type { border-top: none; padding-top: 0; }
 
     #nav-pdv .pdv-cat-item {
-      font-size: .75rem;
+      font-size: .72rem;
       color: var(--text-faint);
       padding: 3px 0 3px 10px;
-      border-left: 2px solid var(--border-faint);
+      border-left: 1px solid var(--border-faint);
       margin: 2px 0;
-      opacity: .7;
+      opacity: .65;
     }
 
-    /* ── NAV SUB-LABEL (dentro de seções) ── */
+    /* ── NAV SUB-LABEL ── */
     .nav-sub-label {
-      font-size: .58rem;
+      font-size: .56rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1.1px;
       color: var(--verde-empresa);
       padding: 10px 14px 2px 20px;
-      opacity: .55;
+      opacity: .48;
     }
 
     /* ── HOME SECTION GROUPS ── */
-    .home-group {
-      margin-bottom: 30px;
-    }
+    .home-group { margin-bottom: 30px; }
 
     .home-group-header {
       display: flex;
       align-items: center;
-      gap: 9px;
-      margin-bottom: 13px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--border);
+      gap: 8px;
+      margin-bottom: 12px;
+      padding-bottom: 9px;
+      border-bottom: 1px solid var(--border-faint);
     }
 
     .home-group-header h3 {
-      font-size: .72rem;
+      font-size: .68rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1.1px;
-      color: var(--text-dim);
+      letter-spacing: 1px;
+      color: var(--text-faint);
     }
 
     .sys-badge {
-      font-size: .59rem;
+      font-size: .57rem;
       font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 10px;
+      padding: 2px 7px;
+      border-radius: 99px;
       text-transform: uppercase;
-      letter-spacing: .7px;
+      letter-spacing: .5px;
       white-space: nowrap;
     }
 
     .sys-badge.gestao {
-      background: rgba(77, 144, 254, .1);
+      background: rgba(92, 158, 248, .10);
       color: var(--azul-accent);
-      border: 1px solid rgba(77, 144, 254, .25);
+      border: 1px solid rgba(92, 158, 248, .22);
     }
 
     .sys-badge.empresa {
       background: var(--verde-empresa-dim);
       color: var(--verde-empresa);
-      border: 1px solid rgba(45, 212, 191, .25);
+      border: 1px solid rgba(45, 212, 200, .22);
     }
 
     .sys-badge.pdv {
-      background: rgba(251, 146, 60, .1);
+      background: rgba(251, 146, 60, .10);
       color: #fb923c;
-      border: 1px solid rgba(251, 146, 60, .28);
+      border: 1px solid rgba(251, 146, 60, .25);
     }
 
-    .home-group .welcome-grid {
-      margin-top: 0;
-    }
+    .home-group .welcome-grid { margin-top: 0; }
 
     /* ── PDV HOME PLACEHOLDER ── */
     .pdv-home-placeholder {
       background: var(--bg-card);
-      border: 1px dashed rgba(251, 146, 60, .28);
-      border-radius: 8px;
+      border: 1px dashed rgba(251, 146, 60, .20);
+      border-radius: var(--radius-md);
       padding: 28px 24px;
       text-align: center;
     }
 
-    .pdv-home-placeholder .ph-icon {
-      font-size: 2rem;
-      opacity: .25;
-      margin-bottom: 10px;
-    }
+    .pdv-home-placeholder .ph-icon { font-size: 1.8rem; opacity: .20; margin-bottom: 10px; }
 
     .pdv-home-placeholder strong {
       display: block;
-      font-size: .88rem;
+      font-size: .84rem;
       color: #fb923c;
-      opacity: .55;
+      opacity: .5;
       margin-bottom: 6px;
     }
 
     .pdv-home-placeholder p {
-      font-size: .78rem;
+      font-size: .75rem;
       color: var(--text-faint);
     }
   </style>
@@ -6438,285 +6404,243 @@
     const FIELD_COORDS = {
       'prints/cfg_gerais.png': {
         // Dados da Empresa
-        'Nome da Empresa (p/Relatórios)': '11.2,42.4,35.7,3.9',
-        'Endereço - Linha 1': '15.7,42.5,35.4,3.9',
-        'Endereço - Linha 2': '19.8,42.7,35.4,4.2',
-        'Diretório do Sistema Gestão (indicar caminho via rede)': '90.7,42.8,35.2,3.7',
+        'Nome da Empresa (p/Relatórios)':                                           '11.2,42.4,35.7,3.9',
+        'Endereço - Linha 1':                                                       '15.7,42.5,35.4,3.9',
+        'Endereço - Linha 2':                                                       '19.8,42.7,35.4,4.2',
+        'Diretório do Sistema Gestão (indicar caminho via rede)':                   '90.7,42.8,35.2,3.7',
         // Cadastro de Produtos
-        'Usar Filtro no campo "Descrição" p/o Cad. Produtos': '24.3,42.5,6.8,4.2',
-        'Usar Campo "Cobrar Tx. Serviço" no Cadastro de Produtos': '33.4,42.8,6.3,3.4',
-        'Usar Campo "Balança Alternativa" p/os Produtos': '33.4,78.5,6.6,3.5',
-        'Usar Agrupamento Interligado ao Grupos de Produtos': '42,42.7,6.5,3.9',
-        'Utilizar "Combo" p/Produtos': '41.7,67,22.2,4.5',
-        'Permitir Exclusão de "Outros Códigos" dos Produtos': '72.9,81.2,6.2,3.7',
+        'Usar Filtro no campo "Descrição" p/o Cad. Produtos':                       '24.3,42.5,6.8,4.2',
+        'Usar Campo "Cobrar Tx. Serviço" no Cadastro de Produtos':                  '33.4,42.8,6.3,3.4',
+        'Usar Campo "Balança Alternativa" p/os Produtos':                           '33.4,78.5,6.6,3.5',
+        'Usar Agrupamento Interligado ao Grupos de Produtos':                       '42,42.7,6.5,3.9',
+        'Utilizar "Combo" p/Produtos':                                              '41.7,67,22.2,4.5',
+        'Permitir Exclusão de "Outros Códigos" dos Produtos':                       '72.9,81.2,6.2,3.7',
         // Clientes e Entregas
-        'Utilizar Campo "Número" nos Endereços': '29.1,42.5,6.7,3.7',
-        'Usar Campo "Celular p/SMS" no Cad. de Clientes': '28.6,78.8,6.5,4.2',
-        'Utilizar Código de Clientes nas Reservas': '37.6,42.7,6.4,3.9',
-        'Apenas Dígitos nos Telefones das Entregas': '37.7,75.5,6.5,3.2',
-        'Usar Campo "Tx. Entrega p/Repasse"': '59.8,42.5,6.6,3.9',
-        'Validar Telefone Celular nas Entregas': '59.6,72.1,6.8,4',
-        'Obrigar Bloqueio "Compras a Prazo" ou "Venda Antecipada" p/Clientes': '64.3,42.6,6.3,3.4',
-        'Valor Padrão p/Clientes Campo "Bloqueado p/Compras a Prazo"': '64.1,87.3,6.3,4',
+        'Utilizar Campo "Número" nos Endereços':                                    '29.1,42.5,6.7,3.7',
+        'Usar Campo "Celular p/SMS" no Cad. de Clientes':                           '28.6,78.8,6.5,4.2',
+        'Utilizar Código de Clientes nas Reservas':                                 '37.6,42.7,6.4,3.9',
+        'Apenas Dígitos nos Telefones das Entregas':                                '37.7,75.5,6.5,3.2',
+        'Usar Campo "Tx. Entrega p/Repasse"':                                       '59.8,42.5,6.6,3.9',
+        'Validar Telefone Celular nas Entregas':                                    '59.6,72.1,6.8,4',
+        'Obrigar Bloqueio "Compras a Prazo" ou "Venda Antecipada" p/Clientes':      '64.3,42.6,6.3,3.4',
+        'Valor Padrão p/Clientes Campo "Bloqueado p/Compras a Prazo"':              '64.1,87.3,6.3,4',
         // Preços e Tabelas
-        'Escolher Empresa na Alteração de Preços de Produtos': '46.4,42.7,6.3,4.2',
-        'Pode Alterar Preços c/Base Em Outra Tabela': '50.8,42.5,6.6,3.9',
-        'Pode Alterar Preços c/Base no Markup': '50.8,73.1,18.6,4',
+        'Escolher Empresa na Alteração de Preços de Produtos':                      '46.4,42.7,6.3,4.2',
+        'Pode Alterar Preços c/Base Em Outra Tabela':                               '50.8,42.5,6.6,3.9',
+        'Pode Alterar Preços c/Base no Markup':                                     '50.8,73.1,18.6,4',
         // Financeiro e Contas
-        'Permitir Recebimento de Contas Assinadas no Gestão': '55.5,42.7,6.5,3.9',
-        'Receber Conta Assinada de Quais Empresas no ECF': '68.7,42.5,35.6,3.7',
-        'Permitir Alterar Valores das Formas de Pagamento dos Caixas no Gestão': '73.1,42.6,6.6,3.4',
+        'Permitir Recebimento de Contas Assinadas no Gestão':                       '55.5,42.7,6.5,3.9',
+        'Receber Conta Assinada de Quais Empresas no ECF':                          '68.7,42.5,35.6,3.7',
+        'Permitir Alterar Valores das Formas de Pagamento dos Caixas no Gestão':    '73.1,42.6,6.6,3.4',
         // PDV e Operação
-        'Módulo de Biometria': '55.3,62.8,6.4,3.4',
-        'Ajustar Configurações de Internet ao Entrar no Sistema': '46.7,82.2,6.6,3.2',
-        'Registrar Itens no Cancelamento Total nas Ocorrências do Caixa': '77.2,42.8,6.2,4',
-        'Checar Valores de Pré-Conta (sempre deixar como S-Sim)': '77.2,84,6.2,3.7',
-        'Ação a Ser Tomada Quando Operador Abrir Mais de Um PDV': '82,42.7,17.8,3.9',
-        'Criptografar Senha do Operador no Cartão Cód. Barras': '81.7,93,6.4,4',
-        'Mensagem de Backup Preventivo': '86.3,42.7,6.2,3.2',
-        'Tecla de Atalho (Shift+F10) p/Relatórios': '86,73.5,10.9,3.9',
+        'Módulo de Biometria':                                                      '55.3,62.8,6.4,3.4',
+        'Ajustar Configurações de Internet ao Entrar no Sistema':                   '46.7,82.2,6.6,3.2',
+        'Registrar Itens no Cancelamento Total nas Ocorrências do Caixa':           '77.2,42.8,6.2,4',
+        'Checar Valores de Pré-Conta (sempre deixar como S-Sim)':                   '77.2,84,6.2,3.7',
+        'Ação a Ser Tomada Quando Operador Abrir Mais de Um PDV':                   '82,42.7,17.8,3.9',
+        'Criptografar Senha do Operador no Cartão Cód. Barras':                     '81.7,93,6.4,4',
+        'Mensagem de Backup Preventivo':                                            '86.3,42.7,6.2,3.2',
+        'Tecla de Atalho (Shift+F10) p/Relatórios':                                 '86,73.5,10.9,3.9',
       },
       'prints/cfg_gerais2.png': {
         // Layout e Interface
-        'Layout das Telas do Sistema': '8.8,45.8,13.6,6',
-        'Alterar Registro do Windows p/Padrão da Automação Comercial': '16.4,45.6,8.3,5.8',
+        'Layout das Telas do Sistema':                                              '8.8,45.8,13.6,6',
+        'Alterar Registro do Windows p/Padrão da Automação Comercial':              '16.4,45.6,8.3,5.8',
         // Brindes e Adiantamentos
-        'Permitir Brinde no Conta Assinada': '24.4,45.8,53.5,5.8',
-        'Permitir Brinde no Adiantamento': '31.9,45.5,8.6,5.2',
-        'Bloquear Adiantamentos em Sangrias e Suprimentos': '39.1,45.8,8,5.8',
+        'Permitir Brinde no Conta Assinada':                                        '24.4,45.8,53.5,5.8',
+        'Permitir Brinde no Adiantamento':                                          '31.9,45.5,8.6,5.2',
+        'Bloquear Adiantamentos em Sangrias e Suprimentos':                         '39.1,45.8,8,5.8',
         // Conta Assinada e Convênios
-        'Permitir Cancelamento de Registros de Conta Assinada': '47.3,45.6,8.4,5.6',
-        'Utilizar Limite Diário por Convênio p/Conta Assinada de Clientes': '54.6,45.5,8.1,5.6',
+        'Permitir Cancelamento de Registros de Conta Assinada':                     '47.3,45.6,8.4,5.6',
+        'Utilizar Limite Diário por Convênio p/Conta Assinada de Clientes':         '54.6,45.5,8.1,5.6',
         // Operação e Sistema
-        'Utilizar "Log de Ocorrências"': '62,45.8,24.7,6.4',
-        'Atribuir Path Temporário em Operações (Ex.:Backup)': '69.6,45.8,8,6',
-        'Utilizar Rotas p/os Bairros': '76.8,45.7,8.2,5.8',
-        'Exibir Mensagens Remotas do Fornecedor do Sistema': '84.9,45.5,17.4,5.6',
+        'Utilizar "Log de Ocorrências"':                                            '62,45.8,24.7,6.4',
+        'Atribuir Path Temporário em Operações (Ex.:Backup)':                       '69.6,45.8,8,6',
+        'Utilizar Rotas p/os Bairros':                                              '76.8,45.7,8.2,5.8',
+        'Exibir Mensagens Remotas do Fornecedor do Sistema':                        '84.9,45.5,17.4,5.6',
       },
       'prints/prog_fidelidade.png': {
         // Configuração Base
-        'Utilizar Programa de Fidelidade': '15.5,42.1,31,4.1',
-        'Valor': '20.2,41.7,12.9,4.2',
-        'Nº Pontos': '25.4,41.8,5.8,3.9',
-        'Usar Fração no Calc do Nº de Pontos': '25.2,68.4,30.8,3.9',
-        'Na troca, cada ponto equivale a quantos Reais (R$)': '29.6,42.1,10.7,4.7',
+        'Utilizar Programa de Fidelidade':                                          '15.5,42.1,31,4.1',
+        'Valor':                                                                    '20.2,41.7,12.9,4.2',
+        'Nº Pontos':                                                                '25.4,41.8,5.8,3.9',
+        'Usar Fração no Calc do Nº de Pontos':                                      '25.2,68.4,30.8,3.9',
+        'Na troca, cada ponto equivale a quantos Reais (R$)':                       '29.6,42.1,10.7,4.7',
         // Produtos e Pontuação
-        'Poder Definir Produtos do Progr.Fidelidade?': '35.3,41.9,44.2,4.2',
-        'Calcular Pontos de Troca por Produtos': '40.5,42,6.4,3.4',
-        'Nº de Pontos para Aviso de Brinde Disponível': '45.2,42,5.6,4.1',
-        'NºPontos Padrão ao Inserir Produtos Quando Fidelidade por Produtos': '45,85.8,9.3,4.2',
+        'Poder Definir Produtos do Progr.Fidelidade?':                              '35.3,41.9,44.2,4.2',
+        'Calcular Pontos de Troca por Produtos':                                    '40.5,42,6.4,3.4',
+        'Nº de Pontos para Aviso de Brinde Disponível':                             '45.2,42,5.6,4.1',
+        'NºPontos Padrão ao Inserir Produtos Quando Fidelidade por Produtos':       '45,85.8,9.3,4.2',
         // Clientes e Intervalo de Acúmulo
-        'Valor Padrão Para Novos Clientes': '49.9,42.1,26.3,4.2',
-        'Considerar "Qtd=1" quando venda de produtos por "kg" for menor do que 1': '55.3,41.9,6.6,3.6',
-        'Usar Intervalo de Data p/o Programa de Fidelidade': '60.3,41.8,6.7,3.6',
-        'Data Inicial p/Acúmulo de Pontos': '65,42.2,8.7,4.2',
-        'Data Final p/Acúmulo': '64.4,63.8,9.3,4.7',
-        'Data Final p/Troca de Pontos': '65,89.8,9.2,4.4',
+        'Valor Padrão Para Novos Clientes':                                         '49.9,42.1,26.3,4.2',
+        'Considerar "Qtd=1" quando venda de produtos por "kg" for menor do que 1':  '55.3,41.9,6.6,3.6',
+        'Usar Intervalo de Data p/o Programa de Fidelidade':                        '60.3,41.8,6.7,3.6',
+        'Data Inicial p/Acúmulo de Pontos':                                         '65,42.2,8.7,4.2',
+        'Data Final p/Acúmulo':                                                     '64.4,63.8,9.3,4.7',
+        'Data Final p/Troca de Pontos':                                             '65,89.8,9.2,4.4',
         // Troca de Pontos
-        'Permitir Inserção Manual de Pontos no Progr.Fidelidade': '70,42.1,6.3,3.7',
-        'Cálculo Automático de Pontos na Troca dos Pontos': '75.2,42,6.3,3.4',
-        'Mínimo de Pontos Cliente Precisa ter para Troca': '79.8,42.1,5.5,4.1',
-        'Máximo de Pontos Cliente Pode Usar na Troca': '79.6,74,5.6,4.7',
+        'Permitir Inserção Manual de Pontos no Progr.Fidelidade':                   '70,42.1,6.3,3.7',
+        'Cálculo Automático de Pontos na Troca dos Pontos':                         '75.2,42,6.3,3.4',
+        'Mínimo de Pontos Cliente Precisa ter para Troca':                          '79.8,42.1,5.5,4.1',
+        'Máximo de Pontos Cliente Pode Usar na Troca':                              '79.6,74,5.6,4.7',
         // Bloqueios
-        'Bloquear Acúmulo de Pontos no Fidelidade nas Entregas': '84.8,42.1,6.1,3.9',
-        'Bloquear Acúmulo de Pontos no Fidelidade p/Conta Assinada': '89.8,42.1,6.3,3.9',
-        'Bloquear Acúmulo de Pontos no Fidelidade p/Vnd.Antecipada': '90.2,82.3,6.4,3.7',
+        'Bloquear Acúmulo de Pontos no Fidelidade nas Entregas':                    '84.8,42.1,6.1,3.9',
+        'Bloquear Acúmulo de Pontos no Fidelidade p/Conta Assinada':                '89.8,42.1,6.3,3.9',
+        'Bloquear Acúmulo de Pontos no Fidelidade p/Vnd.Antecipada':                '90.2,82.3,6.4,3.7',
       },
       'prints/venda_antecipada.png': {
         // Configurações
-        'Utilizar Venda Antecipada': '12.2,60.6,36.8,8.8',
-        'Preço do Kilo na Venda Antecipada': '23.5,60.4,21.4,7.9',
-        'Se o cliente comprar menos de (Kgs)': '34,60.7,9.1,8.6',
-        'O preço do Kg. será então': '45.8,60.7,20.8,7.4',
-        'Usar Saldo Negativo Máximo na Venda Antecipada': '56.7,60.9,10,7.4',
-        'Valor Máximo do Saldo Negativo': '68.3,60.6,19.2,7',
-        'Valor Padrão para "Bloq.p/Vnd.Antecip." no Cadastro de Clientes': '79,60.7,37.7,7.4',
+        'Utilizar Venda Antecipada':                                                '12.2,60.6,36.8,8.8',
+        'Preço do Kilo na Venda Antecipada':                                        '23.5,60.4,21.4,7.9',
+        'Se o cliente comprar menos de (Kgs)':                                      '34,60.7,9.1,8.6',
+        'O preço do Kg. será então':                                                '45.8,60.7,20.8,7.4',
+        'Usar Saldo Negativo Máximo na Venda Antecipada':                           '56.7,60.9,10,7.4',
+        'Valor Máximo do Saldo Negativo':                                           '68.3,60.6,19.2,7',
+        'Valor Padrão para "Bloq.p/Vnd.Antecip." no Cadastro de Clientes':          '79,60.7,37.7,7.4',
       },
       'prints/fech_caixa.png': {
         // Formas de Pagamento
-        'Informar Valores de Formas de Pagamento': '4.7,53.3,7.5,2.6',
+        'Informar Valores de Formas de Pagamento':                                  '4.7,53.3,7.5,2.6',
         // Detalhamentos
-        'Imprimir Detalhamento dos Brindes no Fechamento do Caixa': '8.9,53.2,8.1,3.1',
-        'Imprimir Detalhamento dos Crediários no Fechamento do Caixa': '13,53.3,7.7,2.8',
-        'Imprimir Detalhamento dos Fiados no Fechamento do Caixa': '17.2,53.6,7.5,3.1',
-        'Separar Fiados por Vendas no Fechamento do Caixa': '21.1,53.3,7.5,3.1',
-        'Imprimir Detalhamento das Vendas Antecipadas no Fechamento do Caixa': '25.5,53.4,7.5,2.8',
-        'Imprimir Vendas de Atendendes no Fechamento do Caixa': '29.7,53.4,7.5,2.6',
-        'Imprimir Taxas de Entrega no Fechamento do Caixa': '34,53.4,7.5,2.5',
+        'Imprimir Detalhamento dos Brindes no Fechamento do Caixa':                 '8.9,53.2,8.1,3.1',
+        'Imprimir Detalhamento dos Crediários no Fechamento do Caixa':              '13,53.3,7.7,2.8',
+        'Imprimir Detalhamento dos Fiados no Fechamento do Caixa':                  '17.2,53.6,7.5,3.1',
+        'Separar Fiados por Vendas no Fechamento do Caixa':                         '21.1,53.3,7.5,3.1',
+        'Imprimir Detalhamento das Vendas Antecipadas no Fechamento do Caixa':      '25.5,53.4,7.5,2.8',
+        'Imprimir Vendas de Atendendes no Fechamento do Caixa':                     '29.7,53.4,7.5,2.6',
+        'Imprimir Taxas de Entrega no Fechamento do Caixa':                         '34,53.4,7.5,2.5',
         // Produtos
-        'Imprimir Vendas de Produtos no Fechamento do Caixa': '37.7,53.3,23.4,3.1',
-        'Imprimir Vendas de Grupos de Produtos no Fechamento do Caixa': '41.7,53.6,7.4,2.8',
-        'Imprimir Vendas de Classes de Produtos no Fechamento do Caixa': '45.7,53.1,8.1,4.3',
-        'Imprimir Vendas de Departamentos de Produtos no Fechamento do Caixa': '50.4,53.2,7.7,3.2',
-        'Imprimir Vendas de Marcas de Produtos no Fechamento do Caixa': '54.4,53.6,7.4,3.1',
+        'Imprimir Vendas de Produtos no Fechamento do Caixa':                       '37.7,53.3,23.4,3.1',
+        'Imprimir Vendas de Grupos de Produtos no Fechamento do Caixa':             '41.7,53.6,7.4,2.8',
+        'Imprimir Vendas de Classes de Produtos no Fechamento do Caixa':            '45.7,53.1,8.1,4.3',
+        'Imprimir Vendas de Departamentos de Produtos no Fechamento do Caixa':      '50.4,53.2,7.7,3.2',
+        'Imprimir Vendas de Marcas de Produtos no Fechamento do Caixa':             '54.4,53.6,7.4,3.1',
         // Ocorrências e Contas
-        'Imprimir Ocorrências do Caixa de Descontos no Fechamento do Caixa': '58.6,53.4,7.8,3.2',
-        'Imprimir Ocorrências do Caixa de Transferências no Fechamento do Caixa': '62.6,53.4,7.7,3.4',
-        'Imprimir Informações de Ocorrências no Fechamento de Caixa': '66.7,53.2,32.3,3.2',
+        'Imprimir Ocorrências do Caixa de Descontos no Fechamento do Caixa':        '58.6,53.4,7.8,3.2',
+        'Imprimir Ocorrências do Caixa de Transferências no Fechamento do Caixa':   '62.6,53.4,7.7,3.4',
+        'Imprimir Informações de Ocorrências no Fechamento de Caixa':               '66.7,53.2,32.3,3.2',
         'Imprimir Ctas.Assinadas Recebidas/Realizadas por Departamentos no Fech.Caixa': '71.4,53.3,7.7,2.5',
         // Avançadas
-        'Imprimir Formas Pagto s/Retiradas e Troco Inicial no Fech.Caixa': '75.4,53.6,7.4,2.6',
-        'Imprimir Vendas de Produtos por Kilo': '75.1,86.3,8.1,3.4',
-        'Pode Exibir Totalizações de Outros Caixas no Ecf': '79.1,53.6,7.7,3.1',
-        'Nível Exibição das Ocorrências do Caixa': '79.7,88.2,10.8,3.2',
-        'Pode Imprimir Resumo do Caixa Antes do Fechamento': '83.4,53.4,7.5,2.9',
-        'Ordem de Digitação das Formas Pagto no Fech.Caixa': '87.4,53.4,33.6,3.4',
-        'Nº Máximo de Cópias no Fechamento do Caixa': '91.7,53.3,3.9,3.2',
+        'Imprimir Formas Pagto s/Retiradas e Troco Inicial no Fech.Caixa':          '75.4,53.6,7.4,2.6',
+        'Imprimir Vendas de Produtos por Kilo':                                     '75.1,86.3,8.1,3.4',
+        'Pode Exibir Totalizações de Outros Caixas no Ecf':                         '79.1,53.6,7.7,3.1',
+        'Nível Exibição das Ocorrências do Caixa':                                  '79.7,88.2,10.8,3.2',
+        'Pode Imprimir Resumo do Caixa Antes do Fechamento':                        '83.4,53.4,7.5,2.9',
+        'Ordem de Digitação das Formas Pagto no Fech.Caixa':                        '87.4,53.4,33.6,3.4',
+        'Nº Máximo de Cópias no Fechamento do Caixa':                               '91.7,53.3,3.9,3.2',
       },
       'prints/estoque.png': {
         // Custo e Entradas de Produtos
-        'Custo a ser atribuído no lançamento da saída de produtos': '5.2,48.5,28.2,4',
-        'Custo a ser atribuído no lançamento da entrada de produtos': '9.8,48.5,14.5,4',
+        'Custo a ser atribuído no lançamento da saída de produtos':                 '5.2,48.5,28.2,4',
+        'Custo a ser atribuído no lançamento da entrada de produtos':               '9.8,48.5,14.5,4',
         'Chamar Tela de "Condições de Pagamento" Após Lançamento da Nota de Compra': '14.5,48.5,6.7,4.2',
-        'Exibir Botão "Alterar Preço" em "Outras Entradas de Estoque"': '19.3,48.3,6.8,4.2',
-        'Campo "Validade" nas Entradas de Estoque dos Produtos': '18.9,89.1,7.3,4.2',
-        'Informar Último Preço no Lançamento das Entradas': '24.5,48.5,6.7,3.3',
-        'Percentual de Variação Permitido nas Entradas': '29.1,48.3,5.3,3.3',
+        'Exibir Botão "Alterar Preço" em "Outras Entradas de Estoque"':             '19.3,48.3,6.8,4.2',
+        'Campo "Validade" nas Entradas de Estoque dos Produtos':                    '18.9,89.1,7.3,4.2',
+        'Informar Último Preço no Lançamento das Entradas':                         '24.5,48.5,6.7,3.3',
+        'Percentual de Variação Permitido nas Entradas':                            '29.1,48.3,5.3,3.3',
         // Contagem de Estoque
-        'Ocultar Campos Informativos na Contagem de Estoque': '33.4,48.4,6.7,4',
-        'Usar Campo "Compensação" na Contagem de Estoque': '33.4,87.7,7,3.9',
-        'Método p/Contagem de Estoque': '38.4,48.4,28.1,3.5',
-        'Permitir Alterar Custo de Produtos na Contagem': '43.2,48.2,7.1,3.5',
-        'Data Padrão p/Contagem do Estoque': '42.6,77.7,21.5,4.2',
-        'Tipo Mov.Estoque p/Contagem': '71.3,48.3,6.3,3.9',
-        'Cliente p/Contagem': '76.1,48.4,6,3.9',
-        'Fornecedor p/Contagem': '80.9,48.3,6.1,3.7',
+        'Ocultar Campos Informativos na Contagem de Estoque':                       '33.4,48.4,6.7,4',
+        'Usar Campo "Compensação" na Contagem de Estoque':                          '33.4,87.7,7,3.9',
+        'Método p/Contagem de Estoque':                                             '38.4,48.4,28.1,3.5',
+        'Permitir Alterar Custo de Produtos na Contagem':                           '43.2,48.2,7.1,3.5',
+        'Data Padrão p/Contagem do Estoque':                                        '42.6,77.7,21.5,4.2',
+        'Tipo Mov.Estoque p/Contagem':                                              '71.3,48.3,6.3,3.9',
+        'Cliente p/Contagem':                                                       '76.1,48.4,6,3.9',
+        'Fornecedor p/Contagem':                                                    '80.9,48.3,6.1,3.7',
         // Pedidos de Compra
-        'Tipo de Cálculo p/Qtd.Vendida nos Pedidos de Compra': '48,48.2,37.8,3.5',
-        'Informar Operador c/Senha nos Pedidos de Compra': '52.6,48.4,6.8,3.9',
-        'Desabilitar Campo Data nos Pedidos de Compra': '52.6,83.9,7.4,3.7',
-        'Permitir Exclusão de Itens nos Pedidos de Compra': '57.4,48.4,6.7,3.3',
-        'Usar Preço Máximo para Produtos nas Compra': '57.2,83.5,6.6,3.5',
-        'Forma de Inserir Produto Específico no Pedido de Compra': '61.9,48.5,46.9,3.9',
+        'Tipo de Cálculo p/Qtd.Vendida nos Pedidos de Compra':                      '48,48.2,37.8,3.5',
+        'Informar Operador c/Senha nos Pedidos de Compra':                          '52.6,48.4,6.8,3.9',
+        'Desabilitar Campo Data nos Pedidos de Compra':                             '52.6,83.9,7.4,3.7',
+        'Permitir Exclusão de Itens nos Pedidos de Compra':                         '57.4,48.4,6.7,3.3',
+        'Usar Preço Máximo para Produtos nas Compra':                               '57.2,83.5,6.6,3.5',
+        'Forma de Inserir Produto Específico no Pedido de Compra':                  '61.9,48.5,46.9,3.9',
         // Outras Entradas/Saídas e Fiscal
-        'Método de Uso de Outras Entradas/Saídas': '70,42,25,5',
-        'Permitir Alterar Data de Emissão NFe de Terceiros': '84,42,10,5',
-        'Fator de Conversão ao Importar XML da NFe': '84,60,20,5',
-        'Usar Campo "Conferido" para Outras Entradas/Saídas': '91,42,10,5',
-        'Permitir Alterar Outras Entradas/Saídas Conferidas': '91,60,10,5',
+        'Método de Uso de Outras Entradas/Saídas':                                  '70,42,25,5',
+        'Permitir Alterar Data de Emissão NFe de Terceiros':                        '84,42,10,5',
+        'Fator de Conversão ao Importar XML da NFe':                                '84,60,20,5',
+        'Usar Campo "Conferido" para Outras Entradas/Saídas':                       '91,42,10,5',
+        'Permitir Alterar Outras Entradas/Saídas Conferidas':                       '91,60,10,5',
       },
       'prints/contas_pagar.png': {
         // Configurações Gerais
-        'Usar Grupo de Despesa Interligado ao Tipo de Despesa': '5,35.3,7.6,3.5',
-        'Utilizar Detalhamento de Tipos de Despesa': '4.8,70.3,7.2,4.1',
-        'Chamar Tela Detalhamento Tipo Desp. Automaticamente': '9.5,35.7,7,3.7',
-        'Campo "Nº de Dias p/Pagto" no Contas a Pagar': '9.5,73,7.4,3.5',
-        'Campo "Lançamento Conferido" no Contas a Pagar': '14.1,35.4,27.2,3.9',
-        'Integrar Caixa c/C.Corrente Tot.por Dia': '14.1,88,7.4,3.7',
+        'Usar Grupo de Despesa Interligado ao Tipo de Despesa':                     '5,35.3,7.6,3.5',
+        'Utilizar Detalhamento de Tipos de Despesa':                                '4.8,70.3,7.2,4.1',
+        'Chamar Tela Detalhamento Tipo Desp. Automaticamente':                      '9.5,35.7,7,3.7',
+        'Campo "Nº de Dias p/Pagto" no Contas a Pagar':                             '9.5,73,7.4,3.5',
+        'Campo "Lançamento Conferido" no Contas a Pagar':                           '14.1,35.4,27.2,3.9',
+        'Integrar Caixa c/C.Corrente Tot.por Dia':                                  '14.1,88,7.4,3.7',
         // Bloqueio de Contas
-        'Bloquear Contas a Pagar/Conta Corrente': '18.7,35.5,19.8,3.5',
-        'Lógica p/Bloqueio de Contas': '18.7,74.2,10.3,3.5',
-        'Data para Bloqueio das Contas': '23.4,35.7,10.4,3.3',
-        'Nº de Dias para Bloqueio de Contas': '23.2,68.8,4.3,3.5',
-        'Bloquear por Data de Consolidação': '27.8,35.5,7.3,3.3',
-        'Bloquear Contas se Estiverem Consolidadas e Integradas': '27.8,78.6,7.4,3.1',
-        'Chamar Tela de Permissão Quando Conta Bloqueada': '32,35.5,7.2,3.5',
+        'Bloquear Contas a Pagar/Conta Corrente':                                   '18.7,35.5,19.8,3.5',
+        'Lógica p/Bloqueio de Contas':                                              '18.7,74.2,10.3,3.5',
+        'Data para Bloqueio das Contas':                                            '23.4,35.7,10.4,3.3',
+        'Nº de Dias para Bloqueio de Contas':                                       '23.2,68.8,4.3,3.5',
+        'Bloquear por Data de Consolidação':                                        '27.8,35.5,7.3,3.3',
+        'Bloquear Contas se Estiverem Consolidadas e Integradas':                   '27.8,78.6,7.4,3.1',
+        'Chamar Tela de Permissão Quando Conta Bloqueada':                          '32,35.5,7.2,3.5',
         // Integração com Conta Corrente
         'Alterar Data de Lancto da Cond.Pagto Quando Alterar Data da Nota de Entrada': '32,92.2,7.2,3.9',
-        'Ordem de Preenchimento da Descr. na Integração C/C': '36.5,35.7,31.5,3.7',
-        'Sub-Ordem por Nome nos Relatórios': '36.9,91,7.3,3.3',
-        'Atribuir Valor Digitado Ao Informado na Integração C/C': '40.9,35.5,7.2,3.9',
-        'Data de Vencimento de Contas a Pagar Apenas em Dias Úteis': '41.1,81.9,7,3.7',
+        'Ordem de Preenchimento da Descr. na Integração C/C':                       '36.5,35.7,31.5,3.7',
+        'Sub-Ordem por Nome nos Relatórios':                                        '36.9,91,7.3,3.3',
+        'Atribuir Valor Digitado Ao Informado na Integração C/C':                   '40.9,35.5,7.2,3.9',
+        'Data de Vencimento de Contas a Pagar Apenas em Dias Úteis':                '41.1,81.9,7,3.7',
         // Plano de Contas
-        'Utilizar Plano de Contas': '45.9,35.7,7,2.7',
-        'Plano de Contas Padrão p/C.Receber': '50,35.3,9.7,3.9',
-        'Plano de Contas Padrão p/Créditos': '54.8,35.7,9.1,3.7',
-        'Plano de Contas Padrão p/Débitos': '59.3,35.7,9.1,3.3',
-        'Plano de Contas Padrão p/C.Pagar Não Existentes': '63.7,35.7,9.1,3.7',
-        'Plano de Contas Padrão p/Créditos Não Existentes': '68,35.7,9.3,3.9',
-        'Plano de Contas Padrão p/Débitos Não Existentes': '72.8,35.7,8.9,3.7',
-        'Plano de Contas para Cálculo do Percentual': '77.2,35.7,9.1,3.7',
-        'Plano de Contas Padrão p/Transf.(Crédito)': '82,35.3,9.3,3.5',
-        'Plano de Contas Padrão p/Transf.(Débito)': '86.3,35.7,8.9,3.5',
-        'Plano de Contas Padrão p/Falta de Caixa (Crédito)': '90.9,35.7,9.1,3.3',
+        'Utilizar Plano de Contas':                                                 '45.9,35.7,7,2.7',
+        'Plano de Contas Padrão p/C.Receber':                                       '50,35.3,9.7,3.9',
+        'Plano de Contas Padrão p/Créditos':                                        '54.8,35.7,9.1,3.7',
+        'Plano de Contas Padrão p/Débitos':                                         '59.3,35.7,9.1,3.3',
+        'Plano de Contas Padrão p/C.Pagar Não Existentes':                          '63.7,35.7,9.1,3.7',
+        'Plano de Contas Padrão p/Créditos Não Existentes':                         '68,35.7,9.3,3.9',
+        'Plano de Contas Padrão p/Débitos Não Existentes':                          '72.8,35.7,8.9,3.7',
+        'Plano de Contas para Cálculo do Percentual':                               '77.2,35.7,9.1,3.7',
+        'Plano de Contas Padrão p/Transf.(Crédito)':                                '82,35.3,9.3,3.5',
+        'Plano de Contas Padrão p/Transf.(Débito)':                                 '86.3,35.7,8.9,3.5',
+        'Plano de Contas Padrão p/Falta de Caixa (Crédito)':                        '90.9,35.7,9.1,3.3',
       },
       'prints/produtos_apoio.png': {
         // Produtos de Apoio
-        'Utilizar Produto "Taxa de Serviço"': '10.9,32,9.1,7.3',
-        'Produto "Taxa de Serviço"': '20.8,31.9,17.8,8',
-        'Utilizar Produto "Taxa de Entrega"': '30.7,32,9.1,7',
-        'Produto "Taxa de Entrega"': '41.5,32,18,6.7',
-        'Utilizar Produto "Couvert"': '51.1,32,8.9,7',
-        'Produto "Couvert"': '61,31.9,18,6.7',
-        'Utilizar Produto "Consumação Mínima"': '70.6,31.9,9.3,7',
-        'Produto "Cons.Mínima"': '80.5,31.8,17.7,7.3',
+        'Utilizar Produto "Taxa de Serviço"':                                       '10.9,32,9.1,7.3',
+        'Produto "Taxa de Serviço"':                                                '20.8,31.9,17.8,8',
+        'Utilizar Produto "Taxa de Entrega"':                                       '30.7,32,9.1,7',
+        'Produto "Taxa de Entrega"':                                                '41.5,32,18,6.7',
+        'Utilizar Produto "Couvert"':                                               '51.1,32,8.9,7',
+        'Produto "Couvert"':                                                        '61,31.9,18,6.7',
+        'Utilizar Produto "Consumação Mínima"':                                     '70.6,31.9,9.3,7',
+        'Produto "Cons.Mínima"':                                                    '80.5,31.8,17.7,7.3',
       },
       'prints/config_falta_caixa.png': {
         // Dados p/ Lançamento de Falta de Caixa
-        'Credor':                        '31.4,22.6,32,8.7',
-        'Tipo de Documento de Cobrança': '43.8,0.4,56.6,6.8',
-        'Tipo de Despesa':               '56.2,14.5,44.9,5.6',
-        'Departamento da Despesa':       '66.8,5.5,43.5,6.8',
-        'Grupo de Despesa':              '78.9,12.7,53.6,5.9',
+        'Credor':                                                                   '31.4,22.6,32,8.7',
+        'Tipo de Documento de Cobrança':                                            '43.8,0.4,56.6,6.8',
+        'Tipo de Despesa':                                                          '56.2,14.5,44.9,5.6',
+        'Departamento da Despesa':                                                  '66.8,5.5,43.5,6.8',
+        'Grupo de Despesa':                                                         '78.9,12.7,53.6,5.9',
       },
       'prints/taxas_cartoes.png': {
         // Campos — Taxas Adm de Cartões e Outras Opções
-        'Tipo de Documento de Cobrança': '27.4,52.2,8.8,7.3',
-        'Tipo de Despesa': '36.4,52.6,8.2,7.1',
-        'Departamento da Despesa': '46.3,52.6,8.1,6.2',
-        'Grupo de Despesa': '55.1,52.6,8,6.8',
-        'Taxas Administrativas Diferenciadas por Empresas': '64.4,52.6,9.5,6.5',
-        'Tipo de Despesa das Taxas Adm. Diferenciadas por Formas Pagto': '73.7,52.3,9.6,5.9',
-        'Permitir o Uso de Parcelas nos Cartões de Crédito': '82.8,52.6,44.7,5.9',
+        'Tipo de Documento de Cobrança':                                            '27.4,52.2,8.8,7.3',
+        'Tipo de Despesa':                                                          '36.4,52.6,8.2,7.1',
+        'Departamento da Despesa':                                                  '46.3,52.6,8.1,6.2',
+        'Grupo de Despesa':                                                         '55.1,52.6,8,6.8',
+        'Taxas Administrativas Diferenciadas por Empresas':                         '64.4,52.6,9.5,6.5',
+        'Tipo de Despesa das Taxas Adm. Diferenciadas por Formas Pagto':            '73.7,52.3,9.6,5.9',
+        'Permitir o Uso de Parcelas nos Cartões de Crédito':                        '82.8,52.6,44.7,5.9',
       },
       'prints/prod_calc_pessoas.png': {
         // Colunas da Grade
-        'Código': '0,0,0,0',
-        'Produto': '0,0,0,0',
+        'Código':                                                                   '0,0,0,0',
+        'Produto':                                                                  '2.3,0.3,5.9,5.6',
       },
       'prints/cad_rapido_clientes.png': {
         // Campos do Cadastro Rápido
-        'Campo Código Interno c/Apenas Dígitos Numéricos': '11.3,45.5,10.7,6.2',
-        'Campo DDD': '20.8,45.7,21.9,7.6',
-        'Campo Data de Nascimento': '31.5,45.8,21.9,6.2',
-        'Campo Convênio': '40.6,45.7,21.4,7',
-        'Campo CPF': '50.7,45.9,21.4,6.8',
-        'Checar CPF Duplicado': '50.4,88.1,10.9,7.9',
-        'Campo RG': '61.1,45.7,21.8,6.2',
-        'Campo eMail': '71.3,46.1,21.2,6.2',
-        'Campo Observação': '81.1,45.8,21.2,5.9',
-      },
-      'prints/cfg_sistema_backup.png': {
-        'Usar Esse Computador Como "Sistema de Backup"': '28,0.7,74.9,18.5',
-        'Senha de Acesso ao Servidor para Backup':       '53.4,11.2,88,18',
-      },
-      'prints/cfg_gestao_remoto.png': {
-        'IP do Sistema de Gestão Remoto':    '28.5,3,96.5,17.7',
-        'Porta do Sistema de Gestão Remoto': '53.2,0.7,46.2,19',
-      },
-      'prints/cfg_sagres_restserver.png': {
-        'Lógica de Acesso ao SagresRestServer':                                              '20.8,24.7,74.7,15.3',
-        'Tempo p/Expiração da Sessão a Partir do Último Horário de Acesso (min.)':           '43.1,2,58.2,13.9',
-        'Tempo p/Expiração da Sessão a Partir do Primeiro Horário de Acesso (min.)':         '63.9,0.8,59.2,13.9',
-      },
-      'prints/cfg_senha_internet.png': {
-        'CNPJ do Representante': '20.1,1,73.1,16.7',
-        'Senha':                 '43.5,23.9,74.8,13.8',
-        'Nome do Responsável':   '64,3.3,95.6,13',
-      },
-      
-      'prints/cfg_locais_impressao.png': {
-        'Utilizar Locais de Impressão nos Produtos': '28.2,0.7,97.4,17.5',
-      },
-      'prints/cfg_xml_email_contabilidade.png': {
-        'Enviar XML das Notas por EMail para o Contador': '15.7,0.3,62.7,7.7',
-        'Enviar XML para o seguinte eMail':               '24.7,10.1,89.3,7.1',
-        'Dia p/Envio dos XMLs':                           '32.7,18.1,23.1,6.8',
-        'Servidor SMTP':                                  '42,22.2,67,6.8',
-        'Porta do Servidor SMTP':                         '50,16.9,25.4,6.8',
-        'Usuário SMTP':                                   '58.6,23.8,65.5,7.1',
-        'Senha SMTP':                                     '67.3,24.6,53.9,7.1',
-        'SSL no Envio do EMail':                          '75.9,18,25.4,5.9',
-        'Título Padrão do eMail':                         '84,18.2,70.9,7.1',
-      },
-      'prints/cfg_xml_email_outras_opcoes.png': {
-        'Incluir Relatório de Produtos Totalizados por CFOP na Gravação dos Arquivos XML': '11,0.5,99.1,39.6',
-      },
-      'prints/cfg_otimizar_velocidade.png': {
-        'Tipo de Velocidade': '36.6,0.9,98.2,25.4',
-      },
-      'prints/cfg_local_impressao_padrao.png': {
-        'Local de Impressão Padrão': '39.9,0.9,65.5,21.7',
+        'Campo Código Interno c/Apenas Dígitos Numéricos':                          '11.3,45.5,10.7,6.2',
+        'Campo DDD':                                                                '20.8,45.7,21.9,7.6',
+        'Campo Data de Nascimento':                                                 '31.5,45.8,21.9,6.2',
+        'Campo Convênio':                                                           '40.6,45.7,21.4,7',
+        'Campo CPF':                                                                '50.7,45.9,21.4,6.8',
+        'Checar CPF Duplicado':                                                     '50.4,88.1,10.9,7.9',
+        'Campo RG':                                                                 '61.1,45.7,21.8,6.2',
+        'Campo eMail':                                                              '71.3,46.1,21.2,6.2',
+        'Campo Observação':                                                         '81.1,45.8,21.2,5.9',
       },
       'prints/contas_pagar_nf_compra.png': {
         // Campos da Tela
@@ -6727,41 +6651,208 @@
         'Departamento da Despesa':                                                  '70.6,37.8,33.9,5.7',
         'Grupo de Despesa':                                                         '80.3,43.4,43.6,6.8',
       },
-      'prints/cad_empresas.png': {
-        // Identificação
-        'Nome':                                          '9.4,19.7,33,4.7',
-        'Nome Resumido':                                 '15.1,12.4,21.9,3.5',
-        'Razão Social':                                  '19,14.7,54.5,3.9',
-        'CNPJ':                                          '24.1,19.5,25.7,3.9',
-        'Inscr.Estadual':                                '24.1,45.7,30.9,4.3',
-        'Inscr.Municipal':                               '29,13.1,32,3.9',
-        'Cnae Fiscal':                                   '57.3,63.6,17.3,4.1',
-        // Endereço
-        'Logradouro':                                    '33.5,15.9,46.8,3.9',
-        'Número':                                        '33.3,62.8,12.7,4.3',
-        'Complemento':                                   '38.6,14.3,35.1,3.5',
-        'Bairro':                                        '43.1,19.2,22.6,3.9',
-        'CEP':                                           '43.1,42.3,14.6,3.5',
-        'Latitude':                                      '43.1,57.3,18.4,4.1',
-        'Longitude':                                     '42.7,76.1,19.3,4.3',
-        'Cód.Município':                                 '48.2,13.6,18.5,3.7',
-        // Contato
-        'Contato':                                       '52.9,18.2,37.8,3.5',
-        'DDD':                                           '57.3,20,8.9,3.9',
-        'Telefone':                                      '57.5,29.2,18.6,4.1',
-        'Fax':                                           '57.1,48.1,15.1,4.1',
-        'EMail':                                         '71.6,19.5,49.3,3.9',
-        // Fiscal
-        'Perfil (Sped)':                                 '62.2,15.3,13.5,3.5',
-        'Tipo de Atividade (Sped)':                      '62.2,29.3,39.7,3.5',
-        'Regime de Tributação':                          '67.1,8.9,49.2,3.5',
-        'Empresa é "Simples Nacional" (Nfe/NFCe/Sat)':   '66.7,58.8,40.3,4.1',
-        // Relatórios
-        'Nome para Relatórios':                          '76.3,8.9,60.3,4.1',
-        'Endereço para Relatórios (Linha 1)':            '80.8,0.5,68.5,3.7',
-        'Endereço para Relatórios (Linha 2)':            '86.3,0.7,68.2,3.3',
-        // Operação
-        'Horário Inicial Redução Z':                     '90.6,0.9,83.6,3.9',
+      'prints/cfg_sistema_backup.png': {
+        // Campos da Tela
+        'Usar Esse Computador Como "Sistema de Backup"':                            '28,0.7,74.9,18.5',
+        'Senha de Acesso ao Servidor para Backup':                                  '53.4,11.2,88,18',
+      },
+      'prints/cfg_gestao_remoto.png': {
+        // Campos da Tela
+        'IP do Sistema de Gestão Remoto':                                           '28.5,3,96.5,17.7',
+        'Porta do Sistema de Gestão Remoto':                                        '53.2,0.7,46.2,19',
+      },
+      'prints/cfg_sagres_restserver.png': {
+        // Campos da Tela
+        'Lógica de Acesso ao SagresRestServer':                                     '20.8,24.7,74.7,15.3',
+        'Tempo p/Expiração da Sessão a Partir do Último Horário de Acesso (min.)':  '43.1,2,58.2,13.9',
+        'Tempo p/Expiração da Sessão a Partir do Primeiro Horário de Acesso (min.)': '63.9,0.8,59.2,13.9',
+      },
+      'prints/cfg_senha_internet.png': {
+        // Campos da Tela
+        'CNPJ do Representante':                                                    '21.8,0.7,73.3,14.2',
+        'Senha':                                                                    '41.8,23.6,74.8,14.6',
+        'Nome do Responsável':                                                      '62.3,3.1,95.6,12.6',
+      },
+      'prints/cfg_otimizar_velocidade.png': {
+        // Campos da Tela
+        'Tipo de Velocidade':                                                       '37.3,0.5,98.5,23.2',
+      },
+      'prints/cfg_local_impressao_padrao.png': {
+        // Campos da Tela
+        'Local de Impressão Padrão':                                                '35.5,0.5,66.5,24.6',
+      },
+      'prints/cfg_locais_impressao.png': {
+        // Campos da Tela
+        'Utilizar Locais de Impressão nos Produtos':                                '28.2,0.7,97.4,17.6',
+      },
+      'prints/cfg_xml_email_contabilidade.png': {
+        // Campos da Tela
+        'Enviar XML das Notas por EMail para o Contador':                           '15.4,0.5,61.6,7.4',
+        'Enviar XML para o seguinte eMail':                                         '24.4,10.1,89.3,6.8',
+        'Dia p/Envio dos XMLs':                                                     '34,18.2,22.2,5.6',
+        'Servidor SMTP':                                                            '42,23.1,65.7,6.5',
+        'Porta do Servidor SMTP':                                                   '50,17.2,24.7,5.9',
+        'Usuário SMTP':                                                             '58,23.2,65.4,6.8',
+        'Senha SMTP':                                                               '67,24.6,53.6,6.2',
+        'SSL no Envio do EMail':                                                    '75.3,18.1,24.5,5.9',
+        'Título Padrão do eMail':                                                   '83.6,17.7,71.2,6.5',
+      },
+      'prints/cfg_xml_email_outras_opcoes.png': {
+        // Campos da Tela
+        'Incluir Relatório de Produtos Totalizados por CFOP na Gravação dos Arquivos XML': '11,0.5,99.1,39.6',
+      },
+      'prints/cad_empresas_local_impressao.png': {
+        // Impressão de Conteúdo
+        'Descrição Completa do Produto':                                            '11.3,21.8,26.1,4.3',
+        'Imprimir Espelho do Local de Impressão':                                   '17.5,16.5,31.2,3.8',
+        'Imprimir Espelho (2) do Local de Impressão':                               '22.6,15,32.4,4.3',
+        'Imprimir Exclusões nas Vendas do Caixa':                                   '27.8,16.6,30.9,4.6',
+        'Imprimir Descrição da Estação no Local de Impressão':                      '33.2,9.1,38.5,4.6',
+        // Roteamento
+        'Redirecionar Local de Impressão por Intervalo de Mesas':                   '38.8,7.4,49.5,4.9',
+        'Local de Impressão por Dia da Semana':                                     '45,17.4,30.1,3.5',
+        // Transferência
+        'Imprimir Mensagem de Transferência no Local de Impresssão (Mesa)':         '49.9,0.4,47.2,4.6',
+        'Imprimir Mensagem de Transferência no Local de Impresssão (At.Id)':        '55.8,0.5,46.9,4',
+        // Agrupamento e Ordenação
+        'Desmembrar Qtd.Produtos nos Locais de Impressão':                          '60.9,10,37.6,4.3',
+        'Agrupar Produtos nos Locais de Impressão':                                 '61.2,47.7,44.5,4.3',
+        'Ordenar Produtos nos Loc.Imp.':                                            '67.1,21.9,46.6,3.8',
+        'Agrupar Modo de Preparo nos Loc.Imp.':                                     '66.6,68.9,30.5,4.9',
+        // Impressão e Textos
+        'Imprimir Data/Horário no Local de Impressão':                              '72.2,13.6,57.7,4.3',
+        'Imprimir Nome da Impressora no Local de Impressão':                        '77.6,9.6,54.9,4.3',
+        'Imprimir Expressão "Pedido Já Existe"':                                    '82.7,17,30.3,4.6',
+        'Sempre Imprimir "Qtd" nos Produtos do Combo':                              '83,48,34.9,3.8',
+        'Texto Fixo a Ser Impresso no Loc.Imp. Qdo Usar Sub-Identificação':         '88.4,2,53.1,5.1',
+        'Texto Fixo Sub.Identif.p/Entregas':                                        '88.4,55.5,34.2,5.4',
+      },
+      'prints/cad_empresas_pre_conta.png': {
+        // Exibição dos Ítens
+        'Ítens da Pré-Conta Numa Única Linha':                                      '8.5,17.8,28.2,3.5',
+        'Agrupar Ítens na Pré-Conta':                                               '8.3,46.4,33,3.5',
+        'Imprimir Ítens Cancelados na Pré-Conta':                                   '12.5,17,48.1,3.3',
+        'Forma de Impressão da Unidade do Produto na Pré Conta':                    '20.2,7.7,53,2.9',
+        'Imprimir Qtd.Itens na Pré Conta':                                          '27.4,46.2,25,3.3',
+        'Forma de Impessão dos Ítens da Pré Conta c/Valores Zerados (Entrega)':     '31.2,0.1,65,3.1',
+        'Forma de Impessão dos Ítens da Pré Conta c/Valores Zerados (Mesa)':        '35.1,1.4,63.6,3.1',
+        'Forma de Impessão dos Ítens da Pré Conta c/Valores Zerados (At.Id)':       '39.3,1.6,63.4,3.1',
+        // Valores e Taxa de Serviço
+        'Imprimir Divisão do Valor a Pagar por Pessoa':                             '16.2,14.2,31.8,3.3',
+        'Nº Linhas a Imprimir Depois do "Valor a Pagar"':                           '16,46.4,30.4,3.5',
+        'Tipo de Expressão Usada Para a "Taxa de Serviço"':                         '23.7,11.2,40.9,3.5',
+        'Sublinhar Produtos Sem Taxa de Serviço':                                   '27.7,16.9,29.2,2.9',
+        // Modo de Preparo e Dados Complementares
+        'Imprimir Modo de Preparo na Pré-Conta das Mesas':                          '43,10.9,35,2.9',
+        'Imprimir Modo de Preparo na Pré-Conta do At.Id.':                          '42.6,46.2,34.3,3.7',
+        'Imprimir Modo de Preparo na Pré-Conta das Entregas':                       '46.4,9.3,36.5,3.5',
+        'Imprimir Cód.Produto na Pré-Conta':                                        '46.6,46.2,26.8,3.7',
+        'Ofuscar CPF na Pré-Conta':                                                 '23.9,52.7,25.8,3.5',
+        // Espelho e Impressão Especial
+        'Permitir Impressão de Pré-Conta na Tela "Consultar Vendas" do PDV':        '50.1,1.2,44.3,3.5',
+        'Imprimir Pré-Conta Compacta':                                              '50.5,45.9,24.1,3.3',
+        'Impressão Automática de Pré-Conta no Atend.Identificado':                  '54.3,7.3,38.6,2.7',
+        'Impr.Espelho da Pré-Conta na Entrega':                                     '57.8,18.1,41.1,3.5',
+        'Impr.Espelho da Pré-Conta no At.Id.':                                      '57.8,59.6,39.9,3.1',
+        'Imprimir QRCode Endereço de Entrega':                                      '62,17,28.9,3.1',
+        // Mensagens
+        'Mensagem do Cabeçário da Pré-Conta (Linha 01)':                            '65.7,18.1,55.1,3.1',
+        'Mensagem do Cabeçário da Pré-Conta (Linha 02)':                            '68.8,38.9,34.3,3.5',
+        'Mensagem do Rodapé da Pré-Conta (Linha 01)':                               '72.8,19.3,54.1,3.1',
+        'Mensagem do Rodapé da Pré-Conta (Linha 02)':                               '77.3,39.9,33.2,2.9',
+        'Mensagem do Rodapé da Pré-Conta (Linha 03)':                               '80.5,40.3,32.8,2.9',
+        'Mensagem do Rodapé da Pré-Conta (Linha 04)':                               '84.6,40.3,32.7,2.3',
+        'Mensagem do Rodapé da Pré-Conta (Linha 05)':                               '87.9,40,33.4,3.3',
+        'Mensagem do Rodapé da Pré-Conta (Linha 06)':                               '92.1,39.9,33.2,3.3',
+        'Mensagem do Rodapé da Pré-Conta (Linha 07)':                               '',
+      },
+      'prints/cad_empresas_opcoes_recibo.png': {
+        // Cabeçário da Bobina
+        'Mensagem do Cabeçário da Bobina (Linha 01)':                               '14.8,11.5,87.7,6',
+        'Mensagem do Cabeçário da Bobina (Linha 02)':                               '21.9,41.4,57.6,5.5',
+        // Rodapé da Bobina
+        'Mensagem do Rodapé da Bobina (Linha 01)':                                  '29.8,13.6,85.4,5.1',
+        'Mensagem do Rodapé da Bobina (Linha 02)':                                  '35.8,41.5,57.6,6.5',
+        'Mensagem do Rodapé da Bobina (Linha 03)':                                  '42.7,41.9,57.3,6',
+        'Mensagem do Rodapé da Bobina (Linha 04)':                                  '49.7,41.5,57.4,6.7',
+        'Mensagem do Rodapé da Bobina (Linha 05)':                                  '57,41.2,58,6',
+        'Mensagem do Rodapé da Bobina (Linha 06)':                                  '64.2,43.6,55.5,6',
+        // Impressão
+        'Nº de Linhas entre Total e Msg.Sem Valor Fiscal':                          '70.7,0,48.1,6.7',
+        'Imprimir Atendente que Comandou Fechamento':                               '78.8,1.8,51.6,5.1',
+        'Imprimir Atendente do Pedido':                                             '86.1,16.5,37.2,5.3',
+      },
+      'prints/cad_empresas_cupom_fiscal.png': {
+        // Cliente e Identificação no Cupom
+        'Cliente no Cupom Fiscal':                                                  '7.9,20.9,30.1,4',
+        'Atendente no Cupom Fiscal':                                                '8.5,51.4,31.8,3.4',
+        'CNPJ no Cupom Fiscal':                                                     '12.6,21.8,22.3,2.6',
+        'Dados do Cliente no Cabeçário do Cupom Fiscal':                            '13.4,43.9,36.6,2.4',
+        'Dados do Cliente no Rodapé do Cupom Fiscal':                               '16.2,8.6,35.4,3',
+        'Dados do Cliente em Recebimentos Não Fiscais':                             '16,44.2,36.5,3.4',
+        // Comprovantes
+        'Imprimir Comprovante de Conta Assinada':                                   '20.2,10.7,37.8,3',
+        'Imprimir Comprovante de Crediário':                                        '20.2,48.4,29.6,3',
+        // Gaveta Fiscal
+        'Abrir Gaveta Imp.Fiscal':                                                  '24.1,21.6,38.8,2.4',
+        'Abrir Gaveta Imp.Fiscal nas Telas (Ctrl+F9)':                              '23.5,60.7,34.2,3.4',
+        // Fidelidade e Pessoas
+        'Pode Recuperar Vendas':                                                    '27.7,21.4,22.2,2.8',
+        'Exibir NºPontos Fidelidade':                                               '27.1,44.1,24.2,3.8',
+        'Chamar Tela Nº Pessoas Quando Venda Ckeck-Out':                            '31.5,5,38.9,2.8',
+        'Calcular Automaticamente NºPessoas':                                       '31.3,44.2,30.1,3.6',
+        // Impressão e Mensagens
+        'Imprimir Item de Pedido Cancelado':                                        '35.4,14.6,29.5,2.8',
+        'Mensagem de Ajuste de Hora da Imp.Fiscal na Redução Z':                    '35,44.2,42.7,3.4',
+        'Forçar Tela de Recebimento no Fech.das Contas':                            '39.4,6.9,36.8,2.4',
+        'Horário de Tolerância p/Mensagem de Data do Caixa Diferente':              '39.2,44.2,46.4,2.8',
+        'Mensagem Rodapé Cupom Fiscal (Linha 01)':                                  '42.9,9.5,64.7,2.8',
+        'Mensagem Rodapé Cupom Fiscal (Linha 02)':                                  '46.9,9.3,64.7,3.2',
+        'Imprimir Mensagem no Receb.Não Fiscal':                                    '50.7,10.8,33,3.2',
+        'Imprimir Operador no Cupom Fiscal':                                        '57.8,13.9,30.1,3.4',
+        'Imprimir Atendente no Cupom Fiscal':                                       '57.8,44.3,29.9,3.4',
+        'Limpar Buffer de Teclado ao Receber Pedido':                               '62,9.2,34.7,2.8',
+        // Vendas e Fiscal
+        'Atribuir Automaticamente Expresão "SemGTIN" ao Campo CEAN':                '50.1,44.3,47.4,4',
+        'Permitir Venda por Valor Total em Produtos por Kilo':                      '54.4,4.6,39.5,3.2',
+        'Cancelamento de Tx.Serviço c/Permissão Específica':                        '54.4,44.2,39.1,3',
+        'Exibir Qtd.Itens na Tela de Vendas':                                       '73.1,15.1,28.6,2.8',
+        'Permitir C.Fiscal c/Data Diferente do Caixa':                              '73.1,43.5,34.3,3.2',
+        // Impostos
+        'Imprimir Valor dos Impostos no C.Fiscal/NFCe':                             '65.2,7.7,57.8,3.6',
+        'Forçar Valor dos Impostos, Mesmo Zerado':                                  '65.2,65.9,33.5,3.8',
+        'Perc.p/Calc.Imposto --> Federal (%)':                                      '69.1,13.8,29.3,3.2',
+        'Estadual (%)':                                                             '68.7,43.5,14.9,3.6',
+        'Municipal (%)':                                                            '68.5,58.2,15.9,4',
+        // Danfe NFCe
+        'Impr.Desconto Individualmente por Produto no Danfe NFCe':                  '76.6,0.4,43.4,3.6',
+        'Impr.Imposto na Nota por Produto na Danfe NFCe/Sat':                       '77,44.3,39.9,3.2',
+        'Impr.Frete Individualmente por Produto no Danfe NFCe':                     '80.6,2.6,41.2,3',
+        'Impr.Desp.Acess.Individualmente por Produto no Danfe NFCe':                '81,44.3,44.9,2.6',
+        'Forma de Impressão dos Produtos na NFCe':                                  '84.2,10,54.6,2.8',
+        'Porta Alternativa p/Reimpressão Danfe':                                    '84.2,65,30.3,3.2',
+        'Impr.Senha Painel Após Danfe':                                             '88.3,17.8,46.8,2.8',
+        'Impr.Danfe NFCe Qdo Enviar Contingência':                                  '88.1,64.9,34.2,3.6',
+        // CEST
+        'Campo "CEST"':                                                             '92.3,26.2,33.8,2.8',
+        'CEST Padrão':                                                              '92.1,60.3,17,2.8',
+      },
+      'prints/cad_empresas_op_gerais_3.png': {
+        // Recebimento Automático
+        'Possui Forma Pagto p/Recebimento Automático':                              '17.7,14.6,42.4,6.8',
+        'Forma Pagto p/Recebimento Automático':                                     '27.4,19.5,35,6.5',
+        // Fechamento de Caixa
+        'Atribuir Horário de Preparo dos Produtos nos Pedidos no Fech.Caixa':       '37.1,0,70.9,5.8',
+        'Utilizar Cancelamentos Efetivos no Fech.Caixa':                            '46.1,14.9,79.1,6.1',
+        // Combo e Reimpressão
+        'Exibir Preço de Produtos na Tela do Combo':                                '55.2,16.9,39.6,5.8',
+        'Reimpressão de Sagrias/Suprimentos':                                       '63.5,21.2,38.6,7.1',
+        // Dashboard e Campanhas
+        'Gerar Vendas Futuras p/o Dashboard':                                       '73.9,21.2,35.9,5.5',
+        'Imprimir Vouchers de Campanhas Promocionais':                              '72.9,56.5,42.4,7.1',
+        // Saída Livre
+        'Imprimir Nome do Cliente no Saida Livre':                                  '82.3,18.1,38.2,7.4',
+        'Imprimir Sub-Identificação no Saida Livre':                                '82.3,57.4,37.6,6.5',
       },
       'prints/cad_empresas_op_gerais_2.png': {
         // Caixa e Troco
@@ -6807,158 +6898,41 @@
         'Gerar Arquivo TXT de Terceiros no Fech.Caixa':                             '86.7,3.6,43,3',
         'Diretório p/Geração Arq.Terceiros':                                        '86.5,47,46.1,3.4',
       },
-      'prints/cad_empresas_local_impressao.png': {
-        // Impressão de Conteúdo
-        'Descrição Completa do Produto':                                            '11.6,21.6,25.9,4.9',
-        'Imprimir Espelho do Local de Impressão':                                   '17,16.8,31.2,4.9',
-        'Imprimir Espelho (2) do Local de Impressão':                               '22.9,14.9,32.7,4.3',
-        'Imprimir Exclusões nas Vendas do Caixa':                                   '28,16.8,30.7,4.3',
-        'Imprimir Descrição da Estação no Local de Impressão':                      '33.4,8.9,38.6,4.3',
-        // Roteamento
-        'Redirecionar Local de Impressão por Intervalo de Mesas':                   '39.6,6.9,50.1,4',
-        'Local de Impressão por Dia da Semana':                                     '44.7,17.3,30,4',
-        // Transferência
-        'Imprimir Mensagem de Transferência no Local de Impresssão (Mesa)':         '49.9,0.3,47.4,4.6',
-        'Imprimir Mensagem de Transferência no Local de Impresssão (At.Id)':        '55.5,0.8,46.6,4.6',
-        // Agrupamento e Ordenação
-        'Desmembrar Qtd.Produtos nos Locais de Impressão':                          '61.5,10.1,37.4,4.6',
-        'Agrupar Produtos nos Locais de Impressão':                                 '61.5,47.8,44.3,4.3',
-        'Ordenar Produtos nos Loc.Imp.':                                            '66.6,21.9,46.9,4',
-        'Agrupar Modo de Preparo nos Loc.Imp.':                                     '66.8,69.2,30.1,4.9',
-        // Impressão e Textos
-        'Imprimir Data/Horário no Local de Impressão':                              '72.2,13.9,57.8,4.3',
-        'Imprimir Nome da Impressora no Local de Impressão':                        '77.6,9.2,55.1,4',
-        'Imprimir Expressão "Pedido Já Existe"':                                    '83.3,17.2,30.3,4.3',
-        'Sempre Imprimir "Qtd" nos Produtos do Combo':                              '82.7,47.7,35,4.6',
-        'Texto Fixo a Ser Impresso no Loc.Imp. Qdo Usar Sub-Identificação':         '88.9,2,53,4.6',
-        'Texto Fixo Sub.Identif.p/Entregas':                                        '88.7,55.5,34.3,4.9',
-      },
-      'prints/cad_empresas_opcoes_recibo.png': {
-        // Cabeçário da Bobina
-        'Mensagem do Cabeçário da Bobina (Linha 01)':                               '0,0,0,0',
-        'Mensagem do Cabeçário da Bobina (Linha 02)':                               '0,0,0,0',
-        // Rodapé da Bobina
-        'Mensagem do Rodapé da Bobina (Linha 01)':                                  '0,0,0,0',
-        'Mensagem do Rodapé da Bobina (Linha 02)':                                  '0,0,0,0',
-        'Mensagem do Rodapé da Bobina (Linha 03)':                                  '0,0,0,0',
-        'Mensagem do Rodapé da Bobina (Linha 04)':                                  '0,0,0,0',
-        'Mensagem do Rodapé da Bobina (Linha 05)':                                  '0,0,0,0',
-        'Mensagem do Rodapé da Bobina (Linha 06)':                                  '0,0,0,0',
-        // Impressão
-        'Nº de Linhas entre Total e Msg.Sem Valor Fiscal':                          '0,0,0,0',
-        'Imprimir Atendente que Comandou Fechamento':                               '0,0,0,0',
-        'Imprimir Atendente do Pedido':                                             '0,0,0,0',
-      },
-      'prints/cad_empresas_cupom_fiscal.png': {
-        // Cliente e Identificação no Cupom
-        'Cliente no Cupom Fiscal':                                                  '0,0,0,0',
-        'Atendente no Cupom Fiscal':                                                '0,0,0,0',
-        'CNPJ no Cupom Fiscal':                                                     '0,0,0,0',
-        'Dados do Cliente no Cabeçário do Cupom Fiscal':                            '0,0,0,0',
-        'Dados do Cliente no Rodapé do Cupom Fiscal':                               '0,0,0,0',
-        'Dados do Cliente em Recebimentos Não Fiscais':                             '0,0,0,0',
-        // Comprovantes
-        'Imprimir Comprovante de Conta Assinada':                                   '0,0,0,0',
-        'Imprimir Comprovante de Crediário':                                        '0,0,0,0',
-        // Gaveta Fiscal
-        'Abrir Gaveta Imp.Fiscal':                                                  '0,0,0,0',
-        'Abrir Gaveta Imp.Fiscal nas Telas (Ctrl+F9)':                              '0,0,0,0',
-        // Fidelidade e Pessoas
-        'Pode Recuperar Vendas':                                                    '0,0,0,0',
-        'Exibir NºPontos Fidelidade':                                               '0,0,0,0',
-        'Chamar Tela Nº Pessoas Quando Venda Ckeck-Out':                            '0,0,0,0',
-        'Calcular Automaticamente NºPessoas':                                       '0,0,0,0',
-        // Impressão e Mensagens
-        'Imprimir Item de Pedido Cancelado':                                        '0,0,0,0',
-        'Mensagem de Ajuste de Hora da Imp.Fiscal na Redução Z':                    '0,0,0,0',
-        'Forçar Tela de Recebimento no Fech.das Contas':                            '0,0,0,0',
-        'Horário de Tolerância p/Mensagem de Data do Caixa Diferente':              '0,0,0,0',
-        'Mensagem Rodapé Cupom Fiscal (Linha 01)':                                  '0,0,0,0',
-        'Mensagem Rodapé Cupom Fiscal (Linha 02)':                                  '0,0,0,0',
-        'Imprimir Mensagem no Receb.Não Fiscal':                                    '0,0,0,0',
-        'Imprimir Operador no Cupom Fiscal':                                        '0,0,0,0',
-        'Imprimir Atendente no Cupom Fiscal':                                       '0,0,0,0',
-        'Limpar Buffer de Teclado ao Receber Pedido':                               '0,0,0,0',
-        // Vendas e Fiscal
-        'Atribuir Automaticamente Expresão "SemGTIN" ao Campo CEAN':                '0,0,0,0',
-        'Permitir Venda por Valor Total em Produtos por Kilo':                      '0,0,0,0',
-        'Cancelamento de Tx.Serviço c/Permissão Específica':                        '0,0,0,0',
-        'Exibir Qtd.Itens na Tela de Vendas':                                       '0,0,0,0',
-        'Permitir C.Fiscal c/Data Diferente do Caixa':                              '0,0,0,0',
-        // Impostos
-        'Imprimir Valor dos Impostos no C.Fiscal/NFCe':                             '0,0,0,0',
-        'Forçar Valor dos Impostos, Mesmo Zerado':                                  '0,0,0,0',
-        'Perc.p/Calc.Imposto --> Federal (%)':                                      '0,0,0,0',
-        'Estadual (%)':                                                             '0,0,0,0',
-        'Municipal (%)':                                                            '0,0,0,0',
-        // Danfe NFCe
-        'Impr.Desconto Individualmente por Produto no Danfe NFCe':                  '0,0,0,0',
-        'Impr.Imposto na Nota por Produto na Danfe NFCe/Sat':                       '0,0,0,0',
-        'Impr.Frete Individualmente por Produto no Danfe NFCe':                     '0,0,0,0',
-        'Impr.Desp.Acess.Individualmente por Produto no Danfe NFCe':                '0,0,0,0',
-        'Forma de Impressão dos Produtos na NFCe':                                  '0,0,0,0',
-        'Porta Alternativa p/Reimpressão Danfe':                                    '0,0,0,0',
-        'Impr.Senha Painel Após Danfe':                                             '0,0,0,0',
-        'Impr.Danfe NFCe Qdo Enviar Contingência':                                  '0,0,0,0',
-        // CEST
-        'Campo "CEST"':                                                             '0,0,0,0',
-        'CEST Padrão':                                                              '0,0,0,0',
-      },
-      'prints/cad_empresas_op_gerais_3.png': {
-        // Recebimento Automático
-        'Possui Forma Pagto p/Recebimento Automático':                              '0,0,0,0',
-        'Forma Pagto p/Recebimento Automático':                                     '0,0,0,0',
-        // Fechamento de Caixa
-        'Atribuir Horário de Preparo dos Produtos nos Pedidos no Fech.Caixa':       '0,0,0,0',
-        'Utilizar Cancelamentos Efetivos no Fech.Caixa':                            '0,0,0,0',
-        // Combo e Reimpressão
-        'Exibir Preço de Produtos na Tela do Combo':                                '0,0,0,0',
-        'Reimpressão de Sagrias/Suprimentos':                                       '0,0,0,0',
-        // Dashboard e Campanhas
-        'Gerar Vendas Futuras p/o Dashboard':                                       '0,0,0,0',
-        'Imprimir Vouchers de Campanhas Promocionais':                              '0,0,0,0',
-        // Saída Livre
-        'Imprimir Nome do Cliente no Saida Livre':                                  '0,0,0,0',
-        'Imprimir Sub-Identificação no Saida Livre':                                '0,0,0,0',
-      },
-      'prints/cad_empresas_pre_conta.png': {
-        // Exibição dos Ítens
-        'Ítens da Pré-Conta Numa Única Linha':                                      '8.5,17.7,28.4,3.7',
-        'Agrupar Ítens na Pré-Conta':                                               '8.7,45.9,33.1,3.5',
-        'Imprimir Ítens Cancelados na Pré-Conta':                                   '12.3,16.6,48.4,3.3',
-        'Forma de Impressão da Unidade do Produto na Pré Conta':                    '20,7.8,53,3.5',
-        'Imprimir Qtd.Itens na Pré Conta':                                          '27.9,46.2,24.9,3.1',
-        'Forma de Impessão dos Ítens da Pré Conta c/Valores Zerados (Entrega)':     '31.4,0.3,64.6,3.3',
-        'Forma de Impessão dos Ítens da Pré Conta c/Valores Zerados (Mesa)':        '35.3,1.1,63.5,3.1',
-        'Forma de Impessão dos Ítens da Pré Conta c/Valores Zerados (At.Id)':       '39.1,1.6,63.4,3.5',
-        // Valores e Taxa de Serviço
-        'Imprimir Divisão do Valor a Pagar por Pessoa':                             '16.4,14.3,31.6,3.1',
-        'Nº Linhas a Imprimir Depois do "Valor a Pagar"':                           '16.2,46.4,30.8,3.1',
-        'Tipo de Expressão Usada Para a "Taxa de Serviço"':                         '23.5,11.4,41.1,3.3',
-        'Sublinhar Produtos Sem Taxa de Serviço':                                   '27.7,16.8,29.3,3.5',
-        // Modo de Preparo e Dados Complementares
-        'Imprimir Modo de Preparo na Pré-Conta das Mesas':                          '42.4,10.7,35.1,3.5',
-        'Imprimir Modo de Preparo na Pré-Conta do At.Id.':                          '43,46.1,34.5,2.9',
-        'Imprimir Modo de Preparo na Pré-Conta das Entregas':                       '46.6,9.6,35.9,2.9',
-        'Imprimir Cód.Produto na Pré-Conta':                                        '46.4,46.1,26.4,3.5',
-        'Ofuscar CPF na Pré-Conta':                                                 '23.5,53,25.5,3.5',
-        // Espelho e Impressão Especial
-        'Permitir Impressão de Pré-Conta na Tela "Consultar Vendas" do PDV':        '50.3,1.2,44.9,2.9',
-        'Imprimir Pré-Conta Compacta':                                              '49.9,46.2,23.6,3.5',
-        'Impressão Automática de Pré-Conta no Atend.Identificado':                  '53.6,7.4,38.4,3.3',
-        'Impr.Espelho da Pré-Conta na Entrega':                                     '58,18,41.2,2.9',
-        'Impr.Espelho da Pré-Conta no At.Id.':                                      '57.8,59.6,39.9,3.5',
-        'Imprimir QRCode Endereço de Entrega':                                      '61.7,17.2,28.8,3.3',
-        // Mensagens
-        'Mensagem do Cabeçário da Pré-Conta (Linha 01)':                            '65.7,18.1,55.5,2.9',
-        'Mensagem do Cabeçário da Pré-Conta (Linha 02)':                            '69.4,39.6,33.9,2.9',
-        'Mensagem do Rodapé da Pré-Conta (Linha 01)':                               '72.8,19.1,54.1,3.3',
-        'Mensagem do Rodapé da Pré-Conta (Linha 02)':                               '76.1,39.9,33.1,4',
-        'Mensagem do Rodapé da Pré-Conta (Linha 03)':                               '80.7,40,32.8,3.1',
-        'Mensagem do Rodapé da Pré-Conta (Linha 04)':                               '84,40.3,32.8,3.5',
-        'Mensagem do Rodapé da Pré-Conta (Linha 05)':                               '88.1,40,33,3.1',
-        'Mensagem do Rodapé da Pré-Conta (Linha 06)':                               '91.9,40.1,33.1,2.9',
-        'Mensagem do Rodapé da Pré-Conta (Linha 07)':                               '91.7,39.7,33.4,3.3',
+      'prints/cad_empresas.png': {
+        // Identificação
+        'Nome':                                                                     '10,19.5,33.5,3.7',
+        'Nome Resumido':                                                            '14.7,12.6,21.9,3.7',
+        'Razão Social':                                                             '19.8,14.6,54.5,3.7',
+        'CNPJ':                                                                     '24.3,19.6,25.4,3.5',
+        'Inscr.Estadual':                                                           '24.1,45.5,30.7,4.1',
+        'Inscr.Municipal':                                                          '28.8,12.7,32.4,3.9',
+        'Cnae Fiscal':                                                              '57.1,63.8,17.4,4.3',
+        // Endereço
+        'Logradouro':                                                               '33.5,15.4,46.9,3.9',
+        'Número':                                                                   '33.1,62.6,13,4.3',
+        'Complemento':                                                              '38.6,14.5,35,3.3',
+        'Bairro':                                                                   '42.5,18.9,23,3.9',
+        'CEP':                                                                      '42.9,42.3,14.3,3.9',
+        'Latitude':                                                                 '43.3,57.3,18.4,4.1',
+        'Longitude':                                                                '42.7,75.5,19.7,4.1',
+        'Cód.Município':                                                            '48,13.4,18.8,3.3',
+        // Contato
+        'Contato':                                                                  '52.7,17.8,37.8,3.9',
+        'DDD':                                                                      '57.3,19.6,9.2,3.9',
+        'Telefone':                                                                 '57.1,28.9,18.6,3.9',
+        'Fax':                                                                      '57.3,47.8,15.5,4.1',
+        'EMail':                                                                    '71.8,19.1,50.3,3.9',
+        // Fiscal
+        'Perfil (Sped)':                                                            '62.4,14.6,14.3,3.1',
+        'Tipo de Atividade (Sped)':                                                 '62.5,29.3,39.7,3.1',
+        'Regime de Tributação':                                                     '66.5,8.8,49.3,3.5',
+        'Empresa é "Simples Nacional" (Nfe/NFCe/Sat)':                              '66.5,58.8,40.3,3.7',
+        // Relatórios
+        'Nome para Relatórios':                                                     '76.7,8.5,60.4,3.5',
+        'Endereço para Relatórios (Linha 1)':                                       '81.4,0.5,68.5,3.5',
+        'Endereço para Relatórios (Linha 2)':                                       '86.1,0.4,68.2,3.5',
+        // Operação
+        'Horário Inicial Redução Z':                                                '90.6,0.4,84.3,3.7',
       },
       'prints/cad_empresas_op_gerais.png': {
         // Senha e Painel
@@ -7003,7 +6977,7 @@
         'Desconto por Convênios':                                                   '81.8,20.1,51.2,3.1',
         // Outras Configurações
         'Mensagem no Fech.Caixa Caso Não Haja Troco Inicial':                       '72.6,44.1,41.9,4.1',
-      },
+      }
     };
 
     // ── Auto-adiciona botões "Exibir na tela" em todas as linhas com coordenadas ──
