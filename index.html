@@ -1178,6 +1178,10 @@
             Opções de Check-Out
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Check-Out</span>
           </a>
+          <a class="nav-item" onclick="showSection('cad-empresas-opcoes-entregas')">
+            Opções de Entregas
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Entregas</span>
+          </a>
         </div>
       </div>
     </div>
@@ -1469,6 +1473,11 @@
             <div class="icon">🏁</div>
             <h3>Opções de Check-Out</h3>
             <p>Configuração de sub-identificação e identificação no momento do check-out (fechamento de venda).</p>
+          </div>
+          <div class="welcome-card empresa" onclick="showSection('cad-empresas-opcoes-entregas')">
+            <div class="icon">🛵</div>
+            <h3>Opções de Entregas</h3>
+            <p>Desconto, cobrança meio a meio, impressão, caixa, cupom fiscal, município padrão, observações e taxa de entrega.</p>
           </div>
         </div>
       </div>
@@ -6239,6 +6248,304 @@
       </div>
     </section>
 
+    <section id="cad-empresas-opcoes-entregas" class="page-section" data-section-img="prints/cad_empresas_opcoes_entregas.png">
+      <div class="page-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções de Entregas</div>
+        <h2>Opções de Entregas</h2>
+        <p>Configurações de desconto, cobrança, impressão, caixa, cupom fiscal, município padrão, observações e taxa de entrega.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_opcoes_entregas.png" alt="Tela Configurações da Empresa — Opções de Entregas"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_opcoes_entregas.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções de Entregas</strong>.
+      </div>
+
+      <!-- Desconto, Quantidade e Cobrança -->
+      <div class="fields-card">
+        <div class="fields-card-header">Desconto, Quantidade e Cobrança</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Habilitar Campo Desconto</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando N-Não, o campo de desconto fica oculto na tela de entregas. Ativar apenas quando o estabelecimento permite conceder desconto diretamente na entrega.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Habilitar Campo Qtde</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Exibe o campo de quantidade de itens na tela de entregas. Manter S-Sim na maioria dos casos.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Desconto Padrão</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, aplica o desconto padrão configurado no produto às entregas. Desativar se o estabelecimento não trabalha com desconto padrão em delivery.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Forma de Cobrança de Produto Meio a Meio</div></td>
+              <td><span class="tag tag-opt">Normal</span></td>
+              <td>Define como o sistema calcula o valor de produtos meio a meio nas entregas. Opções comuns: Normal, Maior Valor.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Identificar Atendente</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Quando ativo, solicita a identificação do atendente no lançamento da entrega. Usar em estabelecimentos que controlam comissão ou produtividade por atendente.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Impressão e Pré-Conta -->
+      <div class="fields-card">
+        <div class="fields-card-header">Impressão e Pré-Conta</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Imprimir Dados do Cliente no Local de Impressão</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, imprime os dados do cliente (nome, endereço, telefone) na comanda do local de impressão da entrega. Ativar em operações de delivery com roteamento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Digitar Forma Pagto</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Define se a forma de pagamento deve ser informada no momento do lançamento da entrega. Útil para controle antecipado de pagamento no delivery.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Impressão de Pré-Conta</div></td>
+              <td><span class="tag tag-opt">Sim</span></td>
+              <td>Controla se é possível imprimir a pré-conta em entregas. Manter Sim para operações de delivery que entregam comprovante antes do pagamento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem de Advertência Se Pré-Conta Já Impressa</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, exibe aviso ao tentar reimprimir uma pré-conta já impressa anteriormente. Ajuda a evitar reimpressões acidentais.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Entregador na Pré-Conta</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, inclui o nome do entregador na pré-conta impressa. Ativar quando o cliente precisa identificar quem irá receber o pedido.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Entregador no Cupom Fiscal</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, inclui o nome do entregador no cupom fiscal emitido. Útil para controle de entregas vinculado ao documento fiscal.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Caixa e Sequência -->
+      <div class="fields-card">
+        <div class="fields-card-header">Caixa e Sequência</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Fechar Caixa c/Entregas Pendentes</div></td>
+              <td><span class="tag tag-opt">Apenas Quando Não For o Último do Dia</span></td>
+              <td>Define o comportamento do fechamento de caixa quando existem entregas em aberto. A opção "Apenas Quando Não For o Último do Dia" permite fechar caixas intermediários mas bloqueia o último do dia.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Adiantamentos em Entregas</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, habilita o registro de adiantamentos de pagamento para entregas. Ativar em operações que recebem sinal antecipado no pedido.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Como Tratar Nº Seq.no Fechamento do Último Caixa do Dia</div></td>
+              <td><span class="tag tag-opt">1-Zerar n°seq.apenas se não tiver entregas abertas</span></td>
+              <td>Define como o número sequencial de entregas é tratado no fechamento do último caixa do dia. A opção 1 zera a sequência apenas quando não há entregas abertas, evitando conflito com pedidos em andamento.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Cupom Fiscal e Confirmações -->
+      <div class="fields-card">
+        <div class="fields-card-header">Cupom Fiscal e Confirmações</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Imprimir Controle de Entrega Após Emissão do Cup.Fiscal</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Quando ativo, emite automaticamente o controle de entrega logo após a emissão do cupom fiscal. Usar quando o fluxo operacional exige impressão do controle junto ao fiscal.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Campo "CPF na Nota" na Entrega</div></td>
+              <td><span class="tag tag-opt">Sim, c/valor padrão "S"</span></td>
+              <td>Define se o campo CPF na nota é exibido e qual o valor padrão na tela de entregas. "Sim, c/valor padrão S" pré-marca a opção para solicitar CPF por padrão.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem de Confirmação para Impressão do Cup.Fiscal</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, exibe uma mensagem de confirmação antes de emitir o cupom fiscal na entrega. Ajuda a evitar emissões acidentais.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Exibir Entregas Fechadas Na Tela</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, mantém visíveis na tela de entregas os pedidos já encerrados. Facilita consultas e confirmações de entrega realizada.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Fidelidade e Controle -->
+      <div class="fields-card">
+        <div class="fields-card-header">Fidelidade e Controle</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Exibir NºPontos Fidelidade</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, exibe o saldo de pontos do programa de fidelidade do cliente na tela de entregas. Manter ativo quando o estabelecimento utiliza fidelidade em delivery.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Chamar Rel.Últimos Pedidos Na Tela de Entregas</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, exibe automaticamente o relatório dos últimos pedidos do cliente ao abrir a tela de entregas. Útil para agilizar reordens e confirmar histórico.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Módulo de Controle de Entregas</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Habilita o módulo completo de controle de entregas com acompanhamento de tempo de preparo e chegada. Requer configuração dos campos de tempo (Max.Minutos) abaixo.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Destacar Impressão da Entrega no Local de Impressão</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Quando ativo, realça visualmente a impressão de pedidos de entrega no local de impressão configurado. Útil para diferenciar entregas dos pedidos internos na cozinha.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Tempos e Município -->
+      <div class="fields-card">
+        <div class="fields-card-header">Tempos e Município</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Max.Minutos de Preparo das Entregas</div></td>
+              <td><span class="tag tag-txt">15</span></td>
+              <td>Tempo máximo em minutos para o preparo da entrega antes de acionar alerta. Disponível apenas quando o Módulo de Controle de Entregas está ativo.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Max.Minutos de Chegada das Entregas</div></td>
+              <td><span class="tag tag-txt">40</span></td>
+              <td>Tempo máximo em minutos para o entregador chegar ao destino antes de acionar alerta. Disponível apenas quando o Módulo de Controle de Entregas está ativo.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Utilizar Município Padrão para Entregas</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, preenche automaticamente o município nas entregas com o município padrão configurado. Indicado para estabelecimentos que entregam majoritariamente em uma cidade.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Cód.Município Padrão</div></td>
+              <td><span class="tag tag-txt">1</span></td>
+              <td>Código do município padrão utilizado nas entregas. Habilitado quando "Utilizar Município Padrão para Entregas" está ativo. O sistema exibe o nome do município ao lado do código.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Últimos Pedidos e Estações -->
+      <div class="fields-card">
+        <div class="fields-card-header">Últimos Pedidos e Estações</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Incluir Modo de Preparo nos Último Pedidos da Entrega</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, exibe o modo de preparo dos produtos no relatório de últimos pedidos da entrega. Facilita a confirmação de pedidos com preparações especiais.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Reimprimir Local de Impressão Total Se Entrega Alterada</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, reimprime automaticamente todos os locais de impressão quando a entrega é alterada. Ativar quando qualquer alteração no pedido precisa ser comunicada a todas as estações.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Incluir Todas as Estações nos Últimos Pedidos da Entrega</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Define se todas as estações de trabalho são incluídas no relatório de últimos pedidos da entrega. Usar quando múltiplas estações precisam acompanhar o histórico completo.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Bairros, Desconto e Observação -->
+      <div class="fields-card">
+        <div class="fields-card-header">Bairros, Desconto e Observação</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Proibir Cadastro de Novos Bairros na Tela de Entregas</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Quando ativo, impede que novos bairros sejam cadastrados diretamente pela tela de entregas. Ativar quando o cadastro de bairros deve ser controlado centralmente pelo administrador.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Aplicar Desconto nos Produtos p/ser Igual a um Valor Total</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, o sistema aplica desconto proporcional nos produtos para que o total da entrega bata com um valor fechado informado. Útil para arredondamentos e promoções com valor fixo.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Exibir Qtd.Ítens na Tela de Lançamentos</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, exibe a quantidade de itens do pedido na tela de lançamentos de entrega. Facilita a conferência rápida do volume do pedido.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Apagar Observação de Cliente nas Entregas</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, limpa automaticamente a observação do cliente ao finalizar a entrega. Usar com cautela — pode apagar informações relevantes para pedidos recorrentes.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Utilizar Obs.Padrão p/Novas Entregas</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, preenche automaticamente a observação de novas entregas com o texto definido no campo "Obs.Padrão". Útil para incluir instruções fixas em todos os pedidos de delivery.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Obs.Padrão</div></td>
+              <td><span class="tag tag-txt">—</span></td>
+              <td>Texto de observação padrão aplicado automaticamente a novas entregas. Disponível apenas quando "Utilizar Obs.Padrão p/Novas Entregas" está ativo.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- SMS e Taxa de Entrega -->
+      <div class="fields-card">
+        <div class="fields-card-header">SMS e Taxa de Entrega</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Usar Campo "Telefone p/SMS" nas Entregas</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, habilita um campo específico para telefone celular destinado ao envio de SMS nas entregas. Ativar quando o estabelecimento utiliza notificação por SMS para o cliente.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Lógica de Alteração Tx.Entrega</div></td>
+              <td><span class="tag tag-opt">Permitir na alt.da entrega apenas c/permissão</span></td>
+              <td>Define a regra de permissão para alterar a taxa de entrega. A opção "Permitir na alt.da entrega apenas c/permissão" exige que o operador tenha permissão específica para modificar o valor da taxa.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <!-- ══════════════ MODAL EXIBIR NA TELA ══════════════ -->
@@ -6247,12 +6554,10 @@
       <div id="modal-field-name"></div>
       <div id="modal-actions">
         <button id="modal-share-btn" onclick="shareField(event)">⬆ Compartilhar</button>
-        <button id="modal-calibrate-btn" onclick="toggleCalibrate(event)">✎ Calibrar</button>
         <button id="modal-close" onclick="closeScreenModal()">✕ Fechar</button>
       </div>
     </div>
-    <div id="modal-calibrate-hint">Clique no canto superior esquerdo do campo, depois no canto inferior direito</div>
-    <div id="modal-img-wrap" onclick="handleImgClick(event)">
+    <div id="modal-img-wrap">
       <img id="modal-img" src="" alt="Tela do sistema" draggable="false" />
       <canvas id="modal-canvas"></canvas>
     </div>
@@ -6296,7 +6601,8 @@
       'cad-empresas-opcoes-recibo': 'Opções de Recibo',
       'cad-empresas-local-impressao': 'Opções de Local de Impressão',
       'cad-empresas-pre-conta': 'Opções de Pré-Conta',
-      'cad-empresas-check-out': 'Opções de Check-Out'
+      'cad-empresas-check-out': 'Opções de Check-Out',
+      'cad-empresas-opcoes-entregas': 'Opções de Entregas'
     };
 
     function switchSystem(system) {
@@ -6823,6 +7129,54 @@
         // Check-Out
         'Utilizar Sub-Identificação e/ou Identificação no Check-Out':               '47.8,0,99.3,22.1',
       },
+      'prints/cad_empresas_opcoes_entregas.png': {
+        // Desconto, Quantidade e Cobrança
+        'Habilitar Campo Desconto':                                                  '9,20.4,25.5,3.6',
+        'Habilitar Campo Qtde':                                                      '8.8,46.5,22.4,3.8',
+        'Permitir Desconto Padrão':                                                  '9,69.3,25,3.8',
+        'Forma de Cobrança de Produto Meio a Meio':                                 '13.8,9.3,55.3,2.9',
+        'Identificar Atendente':                                                     '13.6,64.9,32.3,3.3',
+        // Impressão e Pré-Conta
+        'Imprimir Dados do Cliente no Local de Impressão':                           '18,6.4,39.6,2.9',
+        'Digitar Forma Pagto':                                                       '17.8,46.2,31.9,3.4',
+        'Permitir Impressão de Pré-Conta':                                           '22.2,16.9,57.6,3.4',
+        'Mensagem de Advertência Se Pré-Conta Já Impressa':                         '26.4,3.9,42.3,3.3',
+        'Imprimir Entregador na Pré-Conta':                                         '30.6,15.7,30.7,3.3',
+        'Imprimir Entregador no Cupom Fiscal':                                      '30.6,46.6,31.9,3.4',
+        // Caixa e Sequência
+        'Fechar Caixa c/Entregas Pendentes':                                        '34.6,15.4,54.2,3.4',
+        'Adiantamentos em Entregas':                                                 '35,69.7,26.6,3.6',
+        'Como Tratar Nº Seq.no Fechamento do Último Caixa do Dia':                  '39.2,0.1,74.9,3.8',
+        // Cupom Fiscal e Confirmações
+        'Imprimir Controle de Entrega Após Emissão do Cup.Fiscal':                  '44,1.2,56.9,3.1',
+        'Campo "CPF na Nota" na Entrega':                                           '44,58.8,40.3,3.1',
+        'Mensagem de Confirmação para Impressão do Cup.Fiscal':                     '47.8,1.5,44.9,3.4',
+        'Exibir Entregas Fechadas Na Tela':                                         '48,46.8,30.1,3.6',
+        // Fidelidade e Controle
+        'Exibir NºPontos Fidelidade':                                               '52.4,20.4,25.8,3.3',
+        'Chamar Rel.Últimos Pedidos Na Tela de Entregas':                           '52.4,46.8,39.7,3.3',
+        'Módulo de Controle de Entregas':                                           '56.4,16.6,29.7,3.4',
+        'Destacar Impressão da Entrega no Local de Impressão':                      '56.8,46.8,51.4,3.4',
+        // Tempos e Município
+        'Max.Minutos de Preparo das Entregas':                                      '61.2,13.1,29.9,3.1',
+        'Max.Minutos de Chegada das Entregas':                                      '60.8,43.2,30.9,4.2',
+        'Utilizar Município Padrão para Entregas':                                  '65.4,12.4,33.4,2.7',
+        'Cód.Município Padrão':                                                     '65.2,46.2,31.2,4.6',
+        // Últimos Pedidos e Estações
+        'Incluir Modo de Preparo nos Último Pedidos da Entrega':                    '69.4,2.4,43.8,3.4',
+        'Reimprimir Local de Impressão Total Se Entrega Alterada':                  '69.8,46.8,45,2.9',
+        'Incluir Todas as Estações nos Últimos Pedidos da Entrega':                 '74,1.6,78.4,2.9',
+        // Bairros, Desconto e Observação
+        'Proibir Cadastro de Novos Bairros na Tela de Entregas':                    '78.2,2.7,41.5,3.1',
+        'Aplicar Desconto nos Produtos p/ser Igual a um Valor Total':               '78.2,44.7,45.4,3.6',
+        'Exibir Qtd.Ítens na Tela de Lançamentos':                                  '82.2,11.6,34.6,3.4',
+        'Apagar Observação de Cliente nas Entregas':                                 '82.6,46.8,36.2,3.3',
+        'Utilizar Obs.Padrão p/Novas Entregas':                                     '87.2,13.5,32.6,3.3',
+        'Obs.Padrão':                                                                '86.6,46.9,39.1,4',
+        // SMS e Taxa de Entrega
+        'Usar Campo "Telefone p/SMS" nas Entregas':                                 '90.6,8.6,37.3,4',
+        'Lógica de Alteração Tx.Entrega':                                           '91,46.5,52.3,3.6',
+      },
       'prints/cad_empresas_opcoes_recibo.png': {
         // Cabeçário da Bobina
         'Mensagem do Cabeçário da Bobina (Linha 01)':                               '14.8,11.5,87.7,6',
@@ -7110,15 +7464,12 @@
       document.getElementById('modal-field-name').textContent = name;
       const img = document.getElementById('modal-img');
       img.src = imgSrc;
-      document.getElementById('modal-calibrate-btn')?.classList.remove('active');
-      document.getElementById('modal-img-wrap').classList.remove('calibrate-mode');
       document.getElementById('modal-coords-info').style.display = 'none';
       document.getElementById('screen-modal').classList.add('open');
       document.body.style.overflow = 'hidden';
 
-      // Mobile: Compartilhar — Desktop: Copiar (sempre visível)
       const shareBtn = document.getElementById('modal-share-btn');
-      shareBtn.textContent = navigator.share ? '⬆ Compartilhar' : '⎘ Copiar';
+      shareBtn.textContent = '⬆ Compartilhar';
       shareBtn.style.display = 'inline-block';
 
       // requestAnimationFrame garante que o modal já está no layout antes de desenhar
@@ -7129,27 +7480,93 @@
 
     function shareField(e) {
       e.stopPropagation();
+      const btn = document.getElementById('modal-share-btn');
+      const origText = btn.textContent;
+      const safeName = (_currentName || 'campo').replace(/[^a-z0-9]/gi, '_');
+      const fileName = `campo_${safeName}.png`;
+      const coords = _currentRow && _currentRow.dataset.coords;
 
-      const section = _currentRow?.closest('.page-section');
-      const sectionId = section?.id || '';
-      const sectionLabel = SECTION_LABELS[sectionId] || sectionId;
-      const breadcrumb = section?.querySelector('.breadcrumb')?.textContent?.trim() || sectionLabel;
-      const text = `Campo: ${_currentName}\nTela: ${sectionLabel}\nCaminho: ${breadcrumb}`;
+      if (!_currentImgSrc || !coords) return;
 
-      if (navigator.share) {
-        navigator.share({ title: _currentName, text }).catch(() => {});
-      } else if (navigator.clipboard) {
-        navigator.clipboard.writeText(text).then(() => {
-          const btn = document.getElementById('modal-share-btn');
-          const prev = btn.textContent;
-          btn.textContent = '✓ Copiado!';
-          btn.style.background = 'rgba(37,211,102,.25)';
-          setTimeout(() => {
-            btn.textContent = prev;
-            btn.style.background = '';
-          }, 2000);
-        }).catch(() => {});
+      btn.textContent = '…';
+      btn.disabled = true;
+
+      function _feedback(msg) {
+        btn.disabled = false;
+        btn.textContent = msg;
+        btn.style.background = 'rgba(37,211,102,.25)';
+        setTimeout(() => { btn.textContent = origText; btn.style.background = ''; }, 2200);
       }
+
+      function _distribute(dataUrl) {
+        const bytes = Uint8Array.from(atob(dataUrl.split(',')[1]), c => c.charCodeAt(0));
+        const blob = new Blob([bytes], { type: 'image/png' });
+        const file = new File([blob], fileName, { type: 'image/png' });
+
+        function _dl() {
+          const a = document.createElement('a');
+          a.href = dataUrl; a.download = fileName;
+          a.style.display = 'none';
+          document.body.appendChild(a); a.click(); document.body.removeChild(a);
+          _feedback('✓ Salvo!');
+        }
+
+        // Mobile: share nativo com arquivo
+        try {
+          if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+            navigator.share({ title: _currentName, files: [file] })
+              .catch(err => { if (err.name !== 'AbortError') _dl(); });
+            btn.disabled = false; btn.textContent = origText;
+            return;
+          }
+        } catch (_) {}
+
+        // Desktop: clipboard (HTTPS/localhost)
+        if (window.ClipboardItem && navigator.clipboard && navigator.clipboard.write) {
+          navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })])
+            .then(() => _feedback('✓ Imagem copiada!'))
+            .catch(() => _dl());
+          return;
+        }
+
+        _dl();
+      }
+
+      // Renderiza o highlight em canvas limpo via fetch + ImageBitmap (sem canvas taint)
+      const [top, left, width, height] = coords.split(',').map(Number);
+
+      fetch(_currentImgSrc)
+        .then(r => r.blob())
+        .then(b => createImageBitmap(b))
+        .then(bm => {
+          const W = bm.width, H = bm.height;
+          const fx = left/100*W, fy = top/100*H, fw = width/100*W, fh = height/100*H;
+          const pad = Math.max(fh*2.5, H*0.10);
+          const cropY = Math.max(0, fy-pad);
+          const cropH = Math.min(H-cropY, fh+pad*2);
+          const oc = document.createElement('canvas');
+          oc.width = W; oc.height = cropH;
+          const ctx = oc.getContext('2d');
+          const relY = fy-cropY, r = 4;
+          ctx.drawImage(bm, 0,cropY,W,cropH, 0,0,W,cropH);
+          ctx.fillStyle = 'rgba(0,0,0,0.58)'; ctx.fillRect(0,0,W,cropH);
+          ctx.save(); ctx.globalCompositeOperation = 'destination-out';
+          _roundRect(ctx,fx,relY,fw,fh,r); ctx.fill(); ctx.restore();
+          ctx.save(); _roundRect(ctx,fx,relY,fw,fh,r); ctx.clip();
+          ctx.drawImage(bm, 0,cropY,W,cropH, 0,0,W,cropH); ctx.restore();
+          ctx.lineWidth = Math.max(3,W*0.003);
+          ctx.strokeStyle = '#f0c040'; ctx.fillStyle = 'rgba(240,192,64,0.18)';
+          _roundRect(ctx,fx,relY,fw,fh,r); ctx.fill(); ctx.stroke();
+          const fs = Math.max(14,cropH*0.10);
+          ctx.font = `bold ${fs}px Segoe UI,sans-serif`;
+          ctx.textAlign = 'center'; ctx.fillStyle = '#f0c040';
+          ctx.shadowColor = 'rgba(0,0,0,0.9)'; ctx.shadowBlur = 5;
+          const lY = relY>cropH*0.4 ? relY-fs*0.4 : relY+fh+fs*1.2;
+          ctx.fillText('▼ campo', fx+fw/2, lY); ctx.shadowBlur = 0;
+          bm.close();
+          _distribute(oc.toDataURL('image/png'));
+        })
+        .catch(() => _feedback('⚠ Erro ao exportar'));
     }
 
     function drawHighlight(row) {
