@@ -1182,6 +1182,10 @@
             Opções de Entregas
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Entregas</span>
           </a>
+          <a class="nav-item" onclick="showSection('cad-empresas-opcoes-entregas-outras')">
+            Opções de Entregas — Outras Opções
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Entregas - Outras Opções</span>
+          </a>
         </div>
       </div>
     </div>
@@ -1478,6 +1482,11 @@
             <div class="icon">🛵</div>
             <h3>Opções de Entregas</h3>
             <p>Desconto, cobrança meio a meio, impressão, caixa, cupom fiscal, município padrão, observações e taxa de entrega.</p>
+          </div>
+          <div class="welcome-card empresa" onclick="showSection('cad-empresas-opcoes-entregas-outras')">
+            <div class="icon">📦</div>
+            <h3>Opções de Entregas — Outras Opções</h3>
+            <p>Previsão de entrega, agendamento, sub-identificação, troco, cancelamento de taxa, entregador, logradouros e serviço de requisição.</p>
           </div>
         </div>
       </div>
@@ -6546,6 +6555,199 @@
       </div>
     </section>
 
+    <section id="cad-empresas-opcoes-entregas-outras" class="page-section" data-section-img="prints/cad_empresas_opcoes_entregas_outras.png">
+      <div class="page-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções de Entregas - Outras Opções</div>
+        <h2>Opções de Entregas — Outras Opções</h2>
+        <p>Previsão de entrega, agendamento, sub-identificação, troco, cancelamento de taxa, permissões de entregador, logradouros e serviço de requisição.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_opcoes_entregas_outras.png" alt="Tela Configurações da Empresa — Opções de Entregas - Outras Opções"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_opcoes_entregas_outras.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções de Entregas - Outras Opções</strong>.
+      </div>
+
+      <!-- Previsão de Entrega e Agendamento -->
+      <div class="fields-card">
+        <div class="fields-card-header">Previsão de Entrega e Agendamento</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Utilizar Campo "Data de Previsão de Entrega"</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Quando ativo, habilita o campo de data de previsão de entrega na tela de entregas. Usar em operações que combinam data/hora de entrega com o cliente antecipadamente.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Utilizar Índice "Data Prev.Entrega" como Padrão</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, utiliza a data de previsão de entrega como critério padrão de ordenação na tela de entregas. Disponível apenas quando o campo de previsão está ativo.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Agendamento ==> Hor.Inicial</div></td>
+              <td><span class="tag tag-txt">08:00</span></td>
+              <td>Hora de início do intervalo de agendamento de entregas. Junto com Hor.Final e Intervalo define as faixas horárias disponíveis para o cliente escolher.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Hor.Final</div></td>
+              <td><span class="tag tag-txt">19:00</span></td>
+              <td>Hora de término do intervalo de agendamento de entregas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Intervalo p/Exibição Agendamento</div></td>
+              <td><span class="tag tag-opt">30 minutos</span></td>
+              <td>Define o espaçamento entre as faixas horárias exibidas no agendamento. Ex.: 30 minutos gera opções 08:00, 08:30, 09:00, etc.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Sub-Identificação e Bairro -->
+      <div class="fields-card">
+        <div class="fields-card-header">Sub-Identificação e Bairro</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Utilizar Sub-Identificação nas Entregas</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Habilita o uso de sub-identificação (complemento de endereço ou código adicional) no cadastro de entregas. Ativar quando o estabelecimento precisa de um segundo nível de identificação por entrega.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Exibir Campo "Sub-Identificação" na Tela das Entregas</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, exibe o campo de sub-identificação na tela de entregas para preenchimento pelo operador. Depende de "Utilizar Sub-Identificação nas Entregas" estar ativo.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Informar Campo Bairro Obrigatório nas Entregas</div></td>
+              <td><span class="tag tag-sim">S-Sim</span></td>
+              <td>Quando S-Sim, o campo bairro passa a ser obrigatório no cadastro de entregas. Recomendado quando o cálculo da taxa de entrega depende do bairro do cliente.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Tabela de Preços, Troco e Fidelidade -->
+      <div class="fields-card">
+        <div class="fields-card-header">Tabela de Preços, Troco e Fidelidade</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Permitir Selecionar Tabela de Preços nas Entregas</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, permite que o operador escolha uma tabela de preços diferente da padrão ao registrar uma entrega. Usar em estabelecimentos com tabelas diferenciadas por região ou canal.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Exibir Tela de Troco Após Receber Entrega</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Quando ativo, exibe uma tela de troco ao confirmar o recebimento de entrega. Útil para operações em que o entregador recebe em dinheiro e precisa calcular o troco na volta.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Atribuir Cód.Interno ou Fidelidade do Cliente na Entrega</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Quando ativo, vincula o código interno ou de fidelidade do cliente ao registro da entrega. Ativar quando o estabelecimento utiliza programa de fidelidade no delivery.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Cancelamento, Permissão e Entregador -->
+      <div class="fields-card">
+        <div class="fields-card-header">Cancelamento, Permissão e Entregador</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Permitir Cancelamento da Tx.Entrega no Check-Out ao Receber</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, permite cancelar a taxa de entrega no momento do check-out ao receber o pedido. Usar apenas em operações com regras específicas de dispensa de taxa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Usar Permissão p/Manutenir (Alterar) Entregas</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, exige permissão específica do operador para alterar dados de uma entrega já registrada. Recomendado para controle rigoroso de alterações pós-lançamento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Receber Entregas s/Entregador Definido</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, permite confirmar o recebimento de entrega sem que um entregador esteja associado ao pedido. Ativar apenas em operações sem controle de entregador.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Alterar Entregador Após Finalizado</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, permite trocar o entregador mesmo após a entrega ser marcada como finalizada. Usar com cautela para não impactar relatórios de comissão e controle.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Descontos e Taxa de Entrega -->
+      <div class="fields-card">
+        <div class="fields-card-header">Descontos e Taxa de Entrega</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Atribuir Desconto na Taxa de Entrega</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, permite aplicar desconto diretamente sobre a taxa de entrega. Ativar somente quando o estabelecimento pratica desconto na taxa como política comercial.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Descontar Valores de Pré Pagtos/Vouchers no Acerto c/Entregadores</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Quando ativo, abate do acerto do entregador os valores de pré-pagamentos e vouchers utilizados pelo cliente. Ativar quando o estabelecimento repassa essas deduções ao entregador.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Desabilitar Campo Tx.Entrega</div></td>
+              <td><span class="tag tag-opt">0-Não desabilitar</span></td>
+              <td>Define se e quando o campo de taxa de entrega fica desabilitado para edição. A opção "0-Não desabilitar" mantém o campo sempre editável.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Alterar Tx.Entrega p/Mais Quando Necessário</div></td>
+              <td><span class="tag tag-opt">0-Não alterar</span></td>
+              <td>Controla se o sistema pode aumentar automaticamente a taxa de entrega quando necessário (ex.: endereço fora da área padrão). A opção "0-Não alterar" desativa esse ajuste automático.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Logradouros, Senha e Serviço de Requisição -->
+      <div class="fields-card">
+        <div class="fields-card-header">Logradouros, Senha e Serviço de Requisição</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Usar Cadastro de Logradouros nas Entregas</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, utiliza o cadastro de logradouros do sistema para preencher o endereço nas entregas. Recomendado quando há integração com base de ruas e CEP cadastrada.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Usar Senha p/Entregadores no programa "Controle de Entregas"</div></td>
+              <td><span class="tag tag-nao">N-Não</span></td>
+              <td>Quando S-Sim, exige que os entregadores se autentiquem com senha ao acessar o programa de controle de entregas. Ativar para aumentar o controle de acesso dos entregadores.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Cód.Entregador p/Serviço de Requisição de Entregas</div></td>
+              <td><span class="tag tag-txt">1</span></td>
+              <td>Código do entregador padrão utilizado pelo serviço de requisição de entregas (integração com apps ou sistemas externos). Informar o código correspondente ao entregador configurado para esse serviço.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <!-- ══════════════ MODAL EXIBIR NA TELA ══════════════ -->
@@ -6602,7 +6804,8 @@
       'cad-empresas-local-impressao': 'Opções de Local de Impressão',
       'cad-empresas-pre-conta': 'Opções de Pré-Conta',
       'cad-empresas-check-out': 'Opções de Check-Out',
-      'cad-empresas-opcoes-entregas': 'Opções de Entregas'
+      'cad-empresas-opcoes-entregas': 'Opções de Entregas',
+      'cad-empresas-opcoes-entregas-outras': 'Opções de Entregas — Outras Opções'
     };
 
     function switchSystem(system) {
@@ -7176,6 +7379,36 @@
         // SMS e Taxa de Entrega
         'Usar Campo "Telefone p/SMS" nas Entregas':                                 '90.6,8.6,37.3,4',
         'Lógica de Alteração Tx.Entrega':                                           '91,46.5,52.3,3.6',
+      },
+      'prints/cad_empresas_opcoes_entregas_outras.png': {
+        // Previsão de Entrega e Agendamento
+        'Utilizar Campo "Data de Previsão de Entrega"':                             '10.3,12.7,49.2,5.9',
+        'Utilizar Índice "Data Prev.Entrega" como Padrão':                          '11.9,62,37.3,4.1',
+        'Agendamento ==> Hor.Inicial':                                              '16.5,22.8,24.5,5.4',
+        'Hor.Final':                                                                '16.5,47.2,12.6,4.9',
+        'Intervalo p/Exibição Agendamento':                                         '17,59.6,33.8,4.4',
+        // Sub-Identificação e Bairro
+        'Utilizar Sub-Identificação nas Entregas':                                  '22.4,17.8,53.5,4.6',
+        'Exibir Campo "Sub-Identificação" na Tela das Entregas':                    '27.8,7.6,41.6,4.4',
+        'Informar Campo Bairro Obrigatório nas Entregas':                           '28.4,49.2,38,4.4',
+        // Tabela de Preços, Troco e Fidelidade
+        'Permitir Selecionar Tabela de Preços nas Entregas':                        '33.5,11.1,38,4.4',
+        'Exibir Tela de Troco Após Receber Entrega':                                '39.2,15.3,51.4,4.1',
+        'Atribuir Cód.Interno ou Fidelidade do Cliente na Entrega':                 '44.6,7.3,59.3,4.4',
+        // Cancelamento, Permissão e Entregador
+        'Permitir Cancelamento da Tx.Entrega no Check-Out ao Receber':              '50,2.8,46.5,4.4',
+        'Usar Permissão p/Manutenir (Alterar) Entregas':                            '49.7,49.5,36.5,4.6',
+        'Permitir Receber Entregas s/Entregador Definido':                          '55.9,11.6,37.6,4.1',
+        'Permitir Alterar Entregador Após Finalizado':                              '55.2,49.5,34.3,5.2',
+        // Descontos e Taxa de Entrega
+        'Atribuir Desconto na Taxa de Entrega':                                     '61.3,18.5,30.8,4.1',
+        'Descontar Valores de Pré Pagtos/Vouchers no Acerto c/Entregadores':        '65.7,0.5,70.9,5.2',
+        'Desabilitar Campo Tx.Entrega':                                             '72.2,22.8,67.8,4.1',
+        'Alterar Tx.Entrega p/Mais Quando Necessário':                              '77.6,13.2,68,4.6',
+        // Logradouros, Senha e Serviço de Requisição
+        'Usar Cadastro de Logradouros nas Entregas':                                '83.5,14.5,34.7,3.9',
+        'Usar Senha p/Entregadores no programa "Controle de Entregas"':             '83.5,49.9,46.2,3.9',
+        'Cód.Entregador p/Serviço de Requisição de Entregas':                       '88.7,9.1,39.1,4.9',
       },
       'prints/cad_empresas_opcoes_recibo.png': {
         // Cabeçário da Bobina
