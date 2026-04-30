@@ -683,6 +683,13 @@
       gap: 8px;
     }
 
+    #modal-field-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      max-width: 70%;
+    }
+
     #modal-field-name {
       font-size: .88rem;
       font-weight: 600;
@@ -691,7 +698,13 @@
       border: 1px solid var(--border);
       padding: 5px 14px;
       border-radius: var(--radius-sm);
-      max-width: 70%;
+    }
+
+    #modal-field-path {
+      font-size: .72rem;
+      color: #6888a8;
+      padding: 0 2px;
+      line-height: 1.4;
     }
 
     #modal-actions { display: flex; gap: 8px; }
@@ -1236,6 +1249,10 @@
           </a>
           <div class="nav-sub-label mesas">Mesas</div>
           <div class="nav-sub-label atid">Atendimento c/ Identificação</div>
+          <a class="nav-item" onclick="showSection('cad-empresas-opcoes-atid')">
+            Opções de Atendimento c/ Identificação
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Atendimento c/ Identificação</span>
+          </a>
         </div>
       </div>
     </div>
@@ -1575,10 +1592,12 @@
           <span class="sys-badge atid">Atendimento c/ Identificação</span>
           <h3>Configurações de Atendimento c/ Identificação</h3>
         </div>
-        <div class="pdv-home-placeholder" style="border-color: rgba(244, 114, 182, .20);">
-          <div class="ph-icon">👤</div>
-          <strong style="color: var(--cor-atid);">Em construção</strong>
-          <p>As configurações de Atendimento c/ Identificação serão mapeadas em breve.</p>
+        <div class="cards-grid">
+          <div class="welcome-card atid" onclick="showSection('cad-empresas-opcoes-atid')">
+            <div class="icon">👤</div>
+            <h3>Opções de Atendimento c/ Identificação</h3>
+            <p>Identificação de cliente e atendente, descontos, gasto máximo, consumação mínima, taxa de serviço, transferências e muito mais.</p>
+          </div>
         </div>
       </div>
 
@@ -6912,12 +6931,348 @@
       </div>
     </section>
 
+    <section id="cad-empresas-opcoes-atid" class="page-section" data-section-img="prints/cad_empresas_opcoes_atid.png">
+      <div class="page-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções de Atendimento c/ Identificação</div>
+        <h2>Opções de Atendimento c/ Identificação</h2>
+        <p>Configurações do módulo de atendimento com identificação de cliente: comportamento de abertura, descontos, gasto máximo, consumação mínima, taxa de serviço, ingressos, transferências e impressão.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_opcoes_atid.png" alt="Tela Configurações da Empresa — Opções de Atendimento c/ Identificação"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_opcoes_atid.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções de Atendimento c/ Identificação</strong>.
+      </div>
+
+      <!-- Identificação -->
+      <div class="fields-card">
+        <div class="fields-card-header">Identificação</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Identificar Cliente</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Define se o sistema solicita a identificação do cliente ao abrir um atendimento com identificação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Identificar Atendente</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Define se o sistema solicita a identificação do atendente ao abrir o atendimento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Cód.do Cliente é a Própria Identificação no At.Ident.</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, o código do cliente cadastrado é usado diretamente como identificação no atendimento, sem necessidade de campo separado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Sempre Exibir Botão "Alterar Cliente" na Tela de Lançamentos</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Exibe o botão para troca de cliente durante o lançamento, mesmo quando não seria exibido por padrão.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Identificação Repetida</div></td>
+              <td><span class="tag tag-opt">Sim</span></td>
+              <td>Permite abrir mais de um atendimento com a mesma identificação de cliente.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Cliente Repetido</div></td>
+              <td><span class="tag tag-opt">Sim</span></td>
+              <td>Permite associar o mesmo cliente a múltiplos atendimentos simultaneamente.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Identificação em Branco</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Permite abrir um atendimento com identificação sem informar o nome ou código do cliente.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Alterar a Identificação no At.Id</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Permite alterar os dados de identificação de um atendimento já aberto.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Campos e Descontos -->
+      <div class="fields-card">
+        <div class="fields-card-header">Campos e Descontos</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Habilitar Campo Desconto</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Exibe o campo de desconto na tela de lançamentos do atendimento com identificação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Habilitar Campo Qtde</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Exibe o campo de quantidade na tela de lançamentos.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Desconto Padrão</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Aplica automaticamente o desconto padrão configurado no cadastro do cliente durante o atendimento.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Entrega e Pessoas -->
+      <div class="fields-card">
+        <div class="fields-card-header">Entrega e Pessoas</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Utilizar Conceito de "Entregar no Local Nº"</div></td>
+              <td><span class="tag tag-opt">Sim, opcional</span></td>
+              <td>Define se o sistema usa o conceito de local numerado para entrega durante o atendimento com identificação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Chamar Tela "Entregar Em"</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Abre automaticamente a tela de destino de entrega ao iniciar um atendimento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Chamar Tela NºPessoas</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Abre automaticamente a tela de informação do número de pessoas ao abrir o atendimento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Calcular Automaticamente NºPessoas</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>O sistema calcula automaticamente o número de pessoas sem solicitar confirmação do operador.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Verificação e Restrições -->
+      <div class="fields-card">
+        <div class="fields-card-header">Verificação e Restrições</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Utilizar Digito Verificador</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Valida o código de identificação do cliente usando dígito verificador, evitando erros de digitação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Checar Produtos Obrigatórios</div></td>
+              <td><span class="tag tag-opt">Não Checar</span></td>
+              <td>Define se o sistema verifica a obrigatoriedade de lançar determinados produtos antes de fechar o atendimento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Bloqueio de Contas</div></td>
+              <td><span class="tag tag-opt">Sim</span></td>
+              <td>Permite bloquear atendimentos com identificação para impedir novos lançamentos.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Gasto Máximo e Consumação Mínima -->
+      <div class="fields-card">
+        <div class="fields-card-header">Gasto Máximo e Consumação Mínima</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Utilizar Gasto Máximo</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Ativa o controle de limite máximo de consumo por atendimento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Valor Padrão Gasto Máx.</div></td>
+              <td><span class="tag tag-txt">0,00</span></td>
+              <td>Valor padrão do limite máximo de consumo aplicado aos atendimentos quando o gasto máximo está ativado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Chamar Tela de Gasto Máx.</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Abre automaticamente a tela de configuração do gasto máximo ao iniciar o atendimento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Utilizar Consumação Mínima</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Ativa o controle de consumação mínima obrigatória por atendimento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Valor Padrão Cons.Mínima</div></td>
+              <td><span class="tag tag-txt">R$ 0,00</span></td>
+              <td>Valor padrão da consumação mínima exigida por atendimento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Chamar Tela Cons.Mínima</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Abre automaticamente a tela de consumação mínima ao iniciar o atendimento.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Taxa de Serviço e Cobrança -->
+      <div class="fields-card">
+        <div class="fields-card-header">Taxa de Serviço e Cobrança</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Forma de Cobrança de Produto Meio a Meio</div></td>
+              <td><span class="tag tag-opt">Normal</span></td>
+              <td>Define como os produtos divididos meio a meio são cobrados no atendimento com identificação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem de Aviso p/Reabrir At.Id</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Exibe uma mensagem de aviso ao operador quando tenta reabrir um atendimento com identificação já encerrado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Taxa de Serviço (%)</div></td>
+              <td><span class="tag tag-txt">0</span></td>
+              <td>Percentual de taxa de serviço aplicado automaticamente ao total do atendimento com identificação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Incluir Tx.Serv.Posteriormente pela Tecla "Alt+F9"</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Permite incluir a taxa de serviço manualmente durante o atendimento pressionando Alt+F9, em vez de aplicá-la automaticamente.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Msg.Cobr.Tx.Serv.Receb.Mesa</div></td>
+              <td><span class="tag tag-opt">Não exibir mensagem (recomendável)</span></td>
+              <td>Define se o sistema exibe mensagem sobre cobrança de taxa de serviço ao receber mesa no atendimento com identificação.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Ingressos e Painel -->
+      <div class="fields-card">
+        <div class="fields-card-header">Ingressos e Painel</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Módulo de Ingressos</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Ativa o módulo de ingressos integrado ao atendimento com identificação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Alterar Ingressos Já Lançados</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Permite editar ou cancelar ingressos que já foram lançados no atendimento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Utilizar Senha Painel</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Exige senha do painel para autorizar determinadas operações no atendimento com identificação.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Operações de Caixa e Transferências -->
+      <div class="fields-card">
+        <div class="fields-card-header">Operações de Caixa e Transferências</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Permitir Transf.Vendas no Caixa p/At.Id.</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Permite transferir vendas realizadas no caixa para um atendimento com identificação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Abrir At.Id.Mesmo Se Sem Produtos</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Permite abrir um atendimento com identificação mesmo que ainda não existam produtos lançados.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Fechar Caixa c/At.Id.Pendente</div></td>
+              <td><span class="tag tag-opt">Apenas Quando Não For o Último do Dia</span></td>
+              <td>Define o comportamento do sistema ao tentar fechar o caixa com atendimentos com identificação ainda em aberto.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Adiantamentos no At.Ident.</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Permite registrar adiantamentos de pagamento durante o atendimento com identificação antes do fechamento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Exibir Qtd.Itens na Tela de Lançamentos</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Exibe a quantidade de itens lançados diretamente na tela de lançamentos do atendimento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Transferência de At.Id.p/Mesas</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Permite transferir um atendimento com identificação para uma mesa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Transf.de At.Id.p/Entregas</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Permite transferir um atendimento com identificação para o módulo de entregas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Transferência de At.Id.Total</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Permite transferir o atendimento completo com identificação para outro operador ou destino.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Impressão e Fidelidade -->
+      <div class="fields-card">
+        <div class="fields-card-header">Impressão e Fidelidade</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Mensagem de Confirmação p/Impr.do Cupom Fiscal</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Exibe uma mensagem de confirmação antes de imprimir o cupom fiscal no fechamento do atendimento com identificação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Usar Tipo de Atendimento em At.Id</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Habilita o uso de tipo de atendimento (ex: balcão, delivery) no módulo de atendimento com identificação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Exibir NºPontos Fidelidade</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Exibe o saldo de pontos de fidelidade do cliente na tela de lançamentos do atendimento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Saida Livre</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Imprime automaticamente um comprovante de saída livre ao fechar o atendimento com identificação.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <!-- ══════════════ MODAL EXIBIR NA TELA ══════════════ -->
   <div id="screen-modal" onclick="handleModalClick(event)">
     <div id="modal-header">
-      <div id="modal-field-name"></div>
+      <div id="modal-field-info">
+        <div id="modal-field-name"></div>
+        <div id="modal-field-path"></div>
+      </div>
       <div id="modal-actions">
         <button id="modal-share-btn" onclick="shareField(event)">⬆ Compartilhar</button>
         <button id="modal-close" onclick="closeScreenModal()">✕ Fechar</button>
@@ -6970,7 +7325,8 @@
       'cad-empresas-check-out': 'Opções de Check-Out',
       'cad-empresas-opcoes-entregas': 'Opções de Entregas',
       'cad-empresas-opcoes-entregas-outras': 'Opções de Entregas — Outras Opções',
-      'cad-empresas-opcoes-entregas-msg-operador': 'Opções de Entregas — Mensagem para Operador'
+      'cad-empresas-opcoes-entregas-msg-operador': 'Opções de Entregas — Mensagem para Operador',
+      'cad-empresas-opcoes-atid': 'Opções de Atendimento c/ Identificação'
     };
 
     function switchSystem(system) {
@@ -7585,6 +7941,61 @@
         'Mensagem para Operador (Linha 4)':                                         '66.8,45.1,54.1,8.6',
         'Mensagem para Operador (Linha 5)':                                         '78.7,45,54.3,7.8',
       },
+      'prints/cad_empresas_opcoes_atid.png': {
+        // Identificação
+        'Identificar Cliente':                                                       '9.2,18.9,30.7,4.2',
+        'Identificar Atendente':                                                     '9.2,49.9,32.4,4.2',
+        'Cód.do Cliente é a Própria Identificação no At.Ident.':                     '13.6,0.3,37.2,4',
+        'Sempre Exibir Botão "Alterar Cliente" na Tela de Lançamentos':              '13.4,38.1,44.3,4.4',
+        'Permitir Identificação Repetida':                                           '36.3,45.5,24.7,3.7',
+        'Permitir Cliente Repetido':                                                 '36.7,70.5,21.5,3.7',
+        'Permitir Identificação em Branco':                                          '81.1,10.5,44.1,4',
+        'Permitir Alterar a Identificação no At.Id':                                 '81.3,54.7,30.4,4.2',
+        // Campos e Descontos
+        'Habilitar Campo Desconto':                                                  '18.7,14.6,22.8,3.5',
+        'Habilitar Campo Qtde':                                                      '18.2,38.1,20.4,3.7',
+        'Permitir Desconto Padrão':                                                  '18,58.6,22.8,4.2',
+        // Entrega e Pessoas
+        'Utilizar Conceito de "Entregar no Local Nº"':                               '23.1,4.5,40.7,3.3',
+        'Chamar Tela "Entregar Em"':                                                 '22.9,45.4,36.6,4',
+        'Chamar Tela NºPessoas':                                                     '27.3,16.1,38.2,4',
+        'Calcular Automaticamente NºPessoas':                                        '27.5,54.9,29.2,4.2',
+        // Verificação e Restrições
+        'Utilizar Digito Verificador':                                               '31.6,15,30,3.7',
+        'Checar Produtos Obrigatórios':                                              '31.6,45.4,41.4,4',
+        'Permitir Bloqueio de Contas':                                               '36.7,13.4,31.5,3.7',
+        // Gasto Máximo e Consumação Mínima
+        'Utilizar Gasto Máximo':                                                     '41.5,16.4,21.6,3.1',
+        'Valor Padrão Gasto Máx.':                                                   '40.9,38.1,26.2,3.3',
+        'Chamar Tela de Gasto Máx.':                                                 '40.9,64.6,24.2,3.7',
+        'Utilizar Consumação Mínima':                                                '45.5,12.7,25,3.5',
+        'Valor Padrão Cons.Mínima':                                                  '45.5,37.8,27.2,4',
+        'Chamar Tela Cons.Mínima':                                                   '45.7,65.3,23.9,4',
+        // Taxa de Serviço e Cobrança
+        'Forma de Cobrança de Produto Meio a Meio':                                  '50.1,3.9,55,3.7',
+        'Mensagem de Aviso p/Reabrir At.Id':                                         '49.7,59.3,28.4,4.4',
+        'Taxa de Serviço (%)':                                                       '54.5,17.8,19.1,4',
+        'Incluir Tx.Serv.Posteriormente pela Tecla "Alt+F9"':                        '54.1,37.2,61.9,4.4',
+        'Msg.Cobr.Tx.Serv.Receb.Mesa':                                               '85.9,11.2,50.4,3.5',
+        // Ingressos e Painel
+        'Módulo de Ingressos':                                                       '59.1,17,20.9,3.7',
+        'Alterar Ingressos Já Lançados':                                             '58.9,38.1,25.4,3.5',
+        'Utilizar Senha Painel':                                                     '58.9,63.8,28.9,4',
+        // Operações de Caixa e Transferências
+        'Permitir Transf.Vendas no Caixa p/At.Id.':                                 '63.3,6.4,31.2,4',
+        'Abrir At.Id.Mesmo Se Sem Produtos':                                         '63.7,38.4,28.5,3.7',
+        'Fechar Caixa c/At.Id.Pendente':                                             '68.6,12.3,46.8,3.3',
+        'Adiantamentos no At.Ident.':                                                '68.1,59.3,23.6,3.7',
+        'Exibir Qtd.Itens na Tela de Lançamentos':                                   '90.8,5.9,31.6,3.1',
+        'Permitir Transferência de At.Id.p/Mesas':                                   '90.8,38.4,30.7,3.3',
+        'Transf.de At.Id.p/Entregas':                                                '90.3,69.3,23,4.2',
+        'Permitir Transferência de At.Id.Total':                                     '86.2,62.4,28.5,3.7',
+        // Impressão e Fidelidade
+        'Mensagem de Confirmação p/Impr.do Cupom Fiscal':                            '73,0.5,36.9,3.3',
+        'Usar Tipo de Atendimento em At.Id':                                         '72.3,38.2,35,4.2',
+        'Exibir NºPontos Fidelidade':                                                '77.4,13.8,23.8,3.7',
+        'Imprimir Saida Livre':                                                      '76.9,38.1,36.6,3.5',
+      },
       'prints/cad_empresas_opcoes_recibo.png': {
         // Cabeçário da Bobina
         'Mensagem do Cabeçário da Bobina (Linha 01)':                               '14.8,11.5,87.7,6',
@@ -7870,6 +8281,9 @@
       _calibrateStep = 0;
 
       document.getElementById('modal-field-name').textContent = name;
+      const section = document.querySelector(`[data-section-img="${imgSrc}"]`);
+      const bc = section ? section.querySelector('.breadcrumb') : null;
+      document.getElementById('modal-field-path').textContent = bc ? bc.textContent : '';
       const img = document.getElementById('modal-img');
       img.src = imgSrc;
       document.getElementById('modal-coords-info').style.display = 'none';
