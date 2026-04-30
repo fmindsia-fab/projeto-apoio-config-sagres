@@ -1253,6 +1253,10 @@
             Opções de Atendimento c/ Identificação
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Atendimento c/ Identificação</span>
           </a>
+          <a class="nav-item" onclick="showSection('cad-empresas-opcoes-atid-2')">
+            Opções de Atendimento c/ Identificação (2)
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Atendimento c/ Identificação (2)</span>
+          </a>
         </div>
       </div>
     </div>
@@ -1597,6 +1601,11 @@
             <div class="icon">👤</div>
             <h3>Opções de Atendimento c/ Identificação</h3>
             <p>Identificação de cliente e atendente, descontos, gasto máximo, consumação mínima, taxa de serviço, transferências e muito mais.</p>
+          </div>
+          <div class="welcome-card atid" onclick="showSection('cad-empresas-opcoes-atid-2')">
+            <div class="icon">👤</div>
+            <h3>Opções de Atendimento c/ Identificação (2)</h3>
+            <p>Sub-identificação, fidelidade, cadastro rápido, produto padrão, restrição de taxa de serviço e outras opções complementares.</p>
           </div>
         </div>
       </div>
@@ -7264,6 +7273,184 @@
       </div>
     </section>
 
+    <section id="cad-empresas-opcoes-atid-2" class="page-section" data-section-img="prints/cad_empresas_opcoes_atid_2.png">
+      <div class="page-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções de Atendimento c/ Identificação (2)</div>
+        <h2>Opções de Atendimento c/ Identificação (2)</h2>
+        <p>Configurações complementares do atendimento com identificação: sub-identificação, fidelidade, cadastro rápido, produto padrão, restrição de taxa de serviço e consulta.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_opcoes_atid_2.png" alt="Tela Configurações da Empresa — Opções de Atendimento c/ Identificação (2)"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_opcoes_atid_2.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções de Atendimento c/ Identificação (2)</strong>.
+      </div>
+
+      <!-- Descontos, Tabela de Preços e Sub-Identificação -->
+      <div class="fields-card">
+        <div class="fields-card-header">Descontos, Tabela de Preços e Sub-Identificação</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Aplicar Desconto nos Produtos p/ser Igual a um Valor Total</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Quando ativado, o sistema aplica desconto proporcional nos produtos para que o total do atendimento com identificação bata com um valor específico informado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Utilizar Sub-Identificação no At.Id.</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Permite registrar uma sub-identificação dentro do atendimento com identificação, útil para dividir o consumo entre grupos ou acompanhantes.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Selecionar Tabela de Preços no At.Id.</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Permite ao operador escolher manualmente a tabela de preços a ser aplicada ao abrir ou durante o atendimento com identificação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Proibir Transferência de Produtos para At.Identificado Bloqueado</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Impede transferir produtos para um atendimento com identificação que esteja bloqueado, evitando lançamentos indevidos.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Fidelidade e Cadastro Rápido -->
+      <div class="fields-card">
+        <div class="fields-card-header">Fidelidade e Cadastro Rápido</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Informar Cliente p/Fidelidade no At.Id.</div></td>
+              <td><span class="tag tag-opt">0-Não informar</span></td>
+              <td>Define se o sistema solicita a informação do cliente para acúmulo de pontos de fidelidade ao abrir ou fechar o atendimento com identificação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Cadastro Rápido de Cliente no Progr.Fidelidade Quando Não Existir</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Quando o cliente não está cadastrado no programa de fidelidade, o sistema abre automaticamente o cadastro rápido para registrá-lo.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Atribuir Código Fidelidade do Cliente no At.Id</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Vincula automaticamente o código de fidelidade do cliente ao atendimento com identificação ao identificá-lo.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Pesquisar Cliente por Código Interno Antes de Chamar a Tela do Cadastro Rápido</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Antes de abrir o cadastro rápido, o sistema tenta localizar o cliente pelo código interno, evitando duplicatas.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Troco, Transferência e Impressão -->
+      <div class="fields-card">
+        <div class="fields-card-header">Troco, Transferência e Impressão</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Exibir Tela de Troco Após Receber At.Id</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Exibe automaticamente a tela de cálculo de troco após registrar o recebimento de um atendimento com identificação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Criar Registro de Venda ao Transferir At.Identificado</div></td>
+              <td><span class="tag tag-opt">Sim, p/Transf.Múltiplas e Transf.</span></td>
+              <td>Define quando o sistema cria um registro de venda ao realizar transferência de atendimento com identificação: nunca, apenas em transferências simples, ou em transferências múltiplas também.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Impressão de Parcial</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Permite imprimir a pré-conta parcial do atendimento com identificação antes do fechamento definitivo.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Produto Padrão e Identificação -->
+      <div class="fields-card">
+        <div class="fields-card-header">Produto Padrão e Identificação</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Inserir Produto Padrão na Abert.At.Id.</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Lança automaticamente um produto padrão ao abrir o atendimento com identificação (ex.: taxa de couvert ou entrada).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Qual Produto Padrão A Inserir</div></td>
+              <td><span class="tag tag-txt">0</span></td>
+              <td>Código do produto a ser inserido automaticamente ao abrir o atendimento. Informar apenas quando "Inserir Produto Padrão na Abert.At.Id." estiver ativado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Tam.Max.da Identificação p/Retirar Zeros à Esquerda</div></td>
+              <td><span class="tag tag-txt">10</span></td>
+              <td>Define o tamanho máximo do código de identificação a partir do qual o sistema remove zeros à esquerda na exibição.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Checar Digito Verificador Apenas Se Numérico</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Limita a validação por dígito verificador apenas quando o código de identificação for composto exclusivamente por dígitos numéricos.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Ordem Padrão na Tela de Consulta de At.Id.</div></td>
+              <td><span class="tag tag-opt">0-Padrão do Sistema</span></td>
+              <td>Define a ordenação padrão dos atendimentos exibidos na tela de consulta do módulo de atendimento com identificação.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Restrição de Taxa de Serviço -->
+      <div class="fields-card">
+        <div class="fields-card-header">Restrição de Taxa de Serviço</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Restringir Cobrança Tx.Serv.no At.Id.</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Permite configurar janelas de horário ou faixa de atendimentos onde a taxa de serviço não será cobrada automaticamente.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Hor.Inicial p/Não Cobrança da Tx.Serv.</div></td>
+              <td><span class="tag tag-txt">00:00</span></td>
+              <td>Horário de início do período em que a taxa de serviço não será cobrada nos atendimentos com identificação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Hor.Final p/Não Cobrança da Tx.Serv.</div></td>
+              <td><span class="tag tag-txt">00:00</span></td>
+              <td>Horário de término do período em que a taxa de serviço não será cobrada.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">At.Id.Inicial p/Não Cobrança da Tx.Serv.</div></td>
+              <td><span class="tag tag-txt">0</span></td>
+              <td>Número inicial da faixa de atendimentos com identificação isentos de taxa de serviço (quando a restrição é por número de atendimento).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">At.Id.Final p/Não Cobrança da Tx.Serv.</div></td>
+              <td><span class="tag tag-txt">0</span></td>
+              <td>Número final da faixa de atendimentos com identificação isentos de taxa de serviço.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <!-- ══════════════ MODAL EXIBIR NA TELA ══════════════ -->
@@ -7326,7 +7513,8 @@
       'cad-empresas-opcoes-entregas': 'Opções de Entregas',
       'cad-empresas-opcoes-entregas-outras': 'Opções de Entregas — Outras Opções',
       'cad-empresas-opcoes-entregas-msg-operador': 'Opções de Entregas — Mensagem para Operador',
-      'cad-empresas-opcoes-atid': 'Opções de Atendimento c/ Identificação'
+      'cad-empresas-opcoes-atid': 'Opções de Atendimento c/ Identificação',
+      'cad-empresas-opcoes-atid-2': 'Opções de Atendimento c/ Identificação (2)'
     };
 
     function switchSystem(system) {
@@ -7995,6 +8183,34 @@
         'Usar Tipo de Atendimento em At.Id':                                         '72.3,38.2,35,4.2',
         'Exibir NºPontos Fidelidade':                                                '77.4,13.8,23.8,3.7',
         'Imprimir Saida Livre':                                                      '76.9,38.1,36.6,3.5',
+      },
+      'prints/cad_empresas_opcoes_atid_2.png': {
+        // Descontos, Tabela de Preços e Sub-Identificação
+        'Aplicar Desconto nos Produtos p/ser Igual a um Valor Total':               '9.6,10.4,33.4,5.1',
+        'Utilizar Sub-Identificação no At.Id.':                                     '15,21.6,47.2,4.5',
+        'Permitir Selecionar Tabela de Preços no At.Id.':                           '20.4,16.2,27.6,3.9',
+        'Proibir Transferência de Produtos para At.Identificado Bloqueado':         '24.6,7.7,36.2,5.1',
+        // Fidelidade e Cadastro Rápido
+        'Informar Cliente p/Fidelidade no At.Id.':                                  '30,19.6,49.2,4.5',
+        'Cadastro Rápido de Cliente no Progr.Fidelidade Quando Não Existir':        '35.1,6.4,58.5,4.2',
+        'Atribuir Código Fidelidade do Cliente no At.Id':                           '49.5,16.6,40.7,4.5',
+        'Pesquisar Cliente por Código Interno Antes de Chamar a Tela do Cadastro Rápido': '44.4,0.4,43.5,4.8',
+        // Troco, Transferência e Impressão
+        'Exibir Tela de Troco Após Receber At.Id':                                  '40.2,18.9,38.6,3.9',
+        'Criar Registro de Venda ao Transferir At.Identificado':                    '55.3,13.1,44.1,4.2',
+        'Permitir Impressão de Parcial':                                            '60.1,23.4,20.8,4.2',
+        // Produto Padrão e Identificação
+        'Inserir Produto Padrão na Abert.At.Id.':                                   '64.9,19.7,24.1,3.9',
+        'Qual Produto Padrão A Inserir':                                            '64.9,44.5,19.6,4.2',
+        'Tam.Max.da Identificação p/Retirar Zeros à Esquerda':                      '70,12.7,33.8,4.2',
+        'Checar Digito Verificador Apenas Se Numérico':                             '89.5,15.5,28.6,4.5',
+        'Ordem Padrão na Tela de Consulta de At.Id.':                               '74.8,17.3,36.4,4.2',
+        // Restrição de Taxa de Serviço
+        'Restringir Cobrança Tx.Serv.no At.Id.':                                    '79.9,19.7,34.1,4.8',
+        'Hor.Inicial p/Não Cobrança da Tx.Serv.':                                   '79.3,53.4,23.4,5.4',
+        'Hor.Final p/Não Cobrança da Tx.Serv.':                                     '79.6,77.2,22.4,4.8',
+        'At.Id.Inicial p/Não Cobrança da Tx.Serv.':                                 '85.3,18.6,27.4,4.2',
+        'At.Id.Final p/Não Cobrança da Tx.Serv.':                                   '85,46.4,26.8,4.5',
       },
       'prints/cad_empresas_opcoes_recibo.png': {
         // Cabeçário da Bobina
