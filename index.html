@@ -8883,6 +8883,7 @@
       const origText = btn.textContent;
       const safeName = (_currentName || 'campo').replace(/[^a-z0-9]/gi, '_');
       const fileName = `campo_${safeName}.png`;
+      const currentPath = document.getElementById('modal-field-path').textContent || '';
       const coords = _currentRow && _currentRow.dataset.coords;
 
       if (!_currentImgSrc || !coords) return;
@@ -8913,7 +8914,7 @@
         // Mobile: share nativo com arquivo
         try {
           if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
-            navigator.share({ title: _currentName, files: [file] })
+            navigator.share({ title: _currentName, text: (_currentName || '') + (currentPath ? '\n' + currentPath : ''), files: [file] })
               .catch(err => { if (err.name !== 'AbortError') _dl(); });
             btn.disabled = false; btn.textContent = origText;
             return;
@@ -8962,8 +8963,27 @@
           ctx.shadowColor = 'rgba(0,0,0,0.9)'; ctx.shadowBlur = 5;
           const lY = relY>cropH*0.4 ? relY-fs*0.4 : relY+fh+fs*1.2;
           ctx.fillText('▼ campo', fx+fw/2, lY); ctx.shadowBlur = 0;
+          // Barra de label com nome do campo e caminho
+          const barH = Math.max(40, cropH * 0.13);
+          const nc = document.createElement('canvas');
+          nc.width = W; nc.height = cropH + barH;
+          const nctx = nc.getContext('2d');
+          nctx.drawImage(oc, 0, 0);
+          nctx.fillStyle = '#0d1117';
+          nctx.fillRect(0, cropH, W, barH);
+          const fSize = Math.max(13, barH * 0.36);
+          nctx.font = `bold ${fSize}px Segoe UI,sans-serif`;
+          nctx.fillStyle = '#f0c040';
+          nctx.textAlign = 'left';
+          nctx.fillText(_currentName || '', 14, cropH + barH * 0.44);
+          if (currentPath) {
+            const pSize = Math.max(10, barH * 0.26);
+            nctx.font = `${pSize}px Segoe UI,sans-serif`;
+            nctx.fillStyle = '#6888a8';
+            nctx.fillText(currentPath, 14, cropH + barH * 0.82);
+          }
           bm.close();
-          _distribute(oc.toDataURL('image/png'));
+          _distribute(nc.toDataURL('image/png'));
         })
         .catch(() => _feedback('⚠ Erro ao exportar'));
     }
