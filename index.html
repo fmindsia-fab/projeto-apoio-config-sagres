@@ -1248,6 +1248,10 @@
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Entregas - Mensagem para Operador</span>
           </a>
           <div class="nav-sub-label mesas">Mesas</div>
+          <a class="nav-item" onclick="showSection('cad-empresas-opcoes-mesas')">
+            Opções de Mesas
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Mesas</span>
+          </a>
           <div class="nav-sub-label atid">Atendimento c/ Identificação</div>
           <a class="nav-item" onclick="showSection('cad-empresas-opcoes-atid')">
             Opções de Atendimento c/ Identificação
@@ -1583,10 +1587,12 @@
           <span class="sys-badge mesas">Mesas</span>
           <h3>Configurações de Mesas</h3>
         </div>
-        <div class="pdv-home-placeholder" style="border-color: rgba(129, 140, 248, .20);">
-          <div class="ph-icon">🍽️</div>
-          <strong style="color: var(--cor-mesas);">Em construção</strong>
-          <p>As configurações de Mesas serão mapeadas em breve.</p>
+        <div class="welcome-grid">
+          <div class="welcome-card mesas" onclick="showSection('cad-empresas-opcoes-mesas')">
+            <div class="icon">🍽️</div>
+            <h3>Opções de Mesas</h3>
+            <p>Identificação, descontos, gasto máximo, consumação mínima, taxa de serviço, bloqueio, transferência e sub-identificação de mesas.</p>
+          </div>
         </div>
       </div>
 
@@ -1596,7 +1602,7 @@
           <span class="sys-badge atid">Atendimento c/ Identificação</span>
           <h3>Configurações de Atendimento c/ Identificação</h3>
         </div>
-        <div class="cards-grid">
+        <div class="welcome-grid">
           <div class="welcome-card atid" onclick="showSection('cad-empresas-opcoes-atid')">
             <div class="icon">👤</div>
             <h3>Opções de Atendimento c/ Identificação</h3>
@@ -7451,6 +7457,299 @@
       </div>
     </section>
 
+    <section id="cad-empresas-opcoes-mesas" class="page-section" data-section-img="prints/cad_empresas_opcoes_mesas.png">
+      <div class="page-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções de Mesas</div>
+        <h2>Opções de Mesas</h2>
+        <p>Configurações do módulo de mesas: identificação de cliente e atendente, descontos, gasto máximo, consumação mínima, taxa de serviço, adiantamentos, bloqueio, transferências e sub-identificação.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_opcoes_mesas.png" alt="Tela Configurações da Empresa — Opções de Mesas"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_opcoes_mesas.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções de Mesas</strong>.
+      </div>
+
+      <!-- Identificação e Campos -->
+      <div class="fields-card">
+        <div class="fields-card-header">Identificação e Campos</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Identificar Cliente</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Define se o sistema solicita a identificação do cliente ao abrir uma mesa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Identificar Atendente</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Define se o sistema solicita a identificação do atendente ao abrir a mesa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Habilitar Campo Desconto</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Exibe o campo de desconto na tela de lançamentos das mesas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Habilitar Campo Qtde</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Exibe o campo de quantidade na tela de lançamentos das mesas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Desconto Padrão</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Aplica automaticamente o desconto padrão do cliente cadastrado durante o atendimento na mesa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Sempre Exibir Botão "Alterar Cliente" na Tela de Lançamentos</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Exibe o botão para troca de cliente durante o lançamento da mesa, mesmo quando não seria exibido por padrão.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pessoas e Produtos -->
+      <div class="fields-card">
+        <div class="fields-card-header">Pessoas e Produtos</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Chamar Tela NºPessoas</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Abre automaticamente a tela de informação do número de pessoas ao abrir a mesa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Calcular Automaticamente NºPessoas</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>O sistema calcula automaticamente o número de pessoas sem solicitar confirmação do operador.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Checar Produtos Obrigatórios</div></td>
+              <td><span class="tag tag-opt">Não Checar</span></td>
+              <td>Define se o sistema verifica a obrigatoriedade de lançar determinados produtos antes de fechar a mesa.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Gasto Máximo e Consumação Mínima -->
+      <div class="fields-card">
+        <div class="fields-card-header">Gasto Máximo e Consumação Mínima</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Utilizar Gasto Máximo</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Ativa o controle de limite máximo de consumo por mesa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Valor Padrão Gasto Máx.</div></td>
+              <td><span class="tag tag-txt">0,00</span></td>
+              <td>Valor padrão do limite máximo de consumo aplicado às mesas quando o gasto máximo está ativado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Chamar Tela de Gasto Máx.</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Abre automaticamente a tela de configuração do gasto máximo ao abrir a mesa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Utilizar Consumação Mínima</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Ativa o controle de consumação mínima obrigatória por mesa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Valor Padrão Cons.Mínima</div></td>
+              <td><span class="tag tag-txt">R$ 0,00</span></td>
+              <td>Valor padrão da consumação mínima exigida por mesa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Chamar Tela Cons.Mínima</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Abre automaticamente a tela de consumação mínima ao abrir a mesa.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Taxa de Serviço e Cobrança -->
+      <div class="fields-card">
+        <div class="fields-card-header">Taxa de Serviço e Cobrança</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Mensagem ao Refechar a Mesa</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Exibe uma mensagem ao operador quando a mesa é refechada após já ter sido fechada anteriormente.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Forma de Cobrança de Produto Meio a Meio</div></td>
+              <td><span class="tag tag-opt">Normal</span></td>
+              <td>Define como os produtos divididos meio a meio são cobrados nas mesas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Taxa de Serviço (%)</div></td>
+              <td><span class="tag tag-txt">0</span></td>
+              <td>Percentual de taxa de serviço aplicado automaticamente ao total da mesa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Incluir Taxa de Serviço Posteriormente pela Tecla "Alt+F9"</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Permite incluir a taxa de serviço manualmente pressionando Alt+F9, em vez de aplicá-la automaticamente.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Restringir Cobrança Tx.Serv.nas Mesas</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Permite configurar janela de horário em que a taxa de serviço não será cobrada nas mesas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Hor.Inicial p/Não Cobrança da Tx.Serv.</div></td>
+              <td><span class="tag tag-txt">00:00</span></td>
+              <td>Horário de início do período em que a taxa de serviço não será cobrada nas mesas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Hor.Final p/Não Cobrança da Tx.Serv.</div></td>
+              <td><span class="tag tag-txt">00:00</span></td>
+              <td>Horário de término do período em que a taxa de serviço não será cobrada nas mesas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Msg.Cobr.Tx.Serv.Receb.Mesa</div></td>
+              <td><span class="tag tag-opt">Não exibir mensagem (recomendável)</span></td>
+              <td>Define se o sistema exibe mensagem sobre cobrança de taxa de serviço ao receber a mesa.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Adiantamentos, Impressão e Descontos -->
+      <div class="fields-card">
+        <div class="fields-card-header">Adiantamentos, Impressão e Descontos</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Adiantamentos em Mesas</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Permite registrar adiantamentos de pagamento durante o atendimento na mesa antes do fechamento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Impressão de Parcial</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Permite imprimir a pré-conta parcial da mesa antes do fechamento definitivo.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Aplicar Desconto nos Produtos p/ser Igual a um Valor Total</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Aplica desconto proporcional nos produtos para que o total da mesa bata com um valor específico informado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Saida Livre</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Imprime automaticamente um comprovante de saída livre ao fechar a mesa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Transf.Parcial c/Recebimento Automático</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Permite transferir parcialmente itens de uma mesa com recebimento automático dos valores já pagos.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Exibir Qtd.Ítens na Tela Lanctos</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Exibe a quantidade de itens lançados diretamente na tela de lançamentos da mesa.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Fechamento, Bloqueio e Transferência -->
+      <div class="fields-card">
+        <div class="fields-card-header">Fechamento, Bloqueio e Transferência</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Fechar Caixa c/Mesas Pendentes</div></td>
+              <td><span class="tag tag-opt">Apenas Quando Não For o Último do Dia</span></td>
+              <td>Define o comportamento do sistema ao tentar fechar o caixa com mesas ainda em aberto.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Usar Tipo de Atendimento nas Mesas</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Habilita o uso de tipo de atendimento (ex: jantar, almoço) no módulo de mesas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Exibir NºPontos Fidelidade</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Exibe o saldo de pontos de fidelidade do cliente na tela de lançamentos da mesa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Transferência de Mesa p/At.Id</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Permite transferir uma mesa para um atendimento com identificação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Bloqueio de Mesas</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Permite bloquear mesas para impedir novos lançamentos.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Desbloquear Mesa ao Receber</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Desbloqueia automaticamente a mesa ao registrar o recebimento, liberando-a para novo atendimento.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Posição, Sub-Identificação e Tabela de Preços -->
+      <div class="fields-card">
+        <div class="fields-card-header">Posição, Sub-Identificação e Tabela de Preços</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Utilizar Posição p/Mesas</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Ativa o controle de posição (lugar numerado) dentro da mesa, útil para organizar o atendimento por assento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Exibir Valores Totais no Resumo das Mesas</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Exibe os valores totais consumidos na tela de resumo geral das mesas abertas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Utilizar Sub-Identificação nas Mesas</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Permite registrar uma sub-identificação dentro da mesa, útil para separar o consumo entre grupos ou acompanhantes.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Selecionar Tabela de Preços nas Mesas</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Permite ao operador escolher manualmente a tabela de preços a ser aplicada na mesa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Exibir Tela de Troco Após Receber Mesa</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Exibe automaticamente a tela de cálculo de troco após registrar o recebimento da mesa.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <!-- ══════════════ MODAL EXIBIR NA TELA ══════════════ -->
@@ -7514,7 +7813,8 @@
       'cad-empresas-opcoes-entregas-outras': 'Opções de Entregas — Outras Opções',
       'cad-empresas-opcoes-entregas-msg-operador': 'Opções de Entregas — Mensagem para Operador',
       'cad-empresas-opcoes-atid': 'Opções de Atendimento c/ Identificação',
-      'cad-empresas-opcoes-atid-2': 'Opções de Atendimento c/ Identificação (2)'
+      'cad-empresas-opcoes-atid-2': 'Opções de Atendimento c/ Identificação (2)',
+      'cad-empresas-opcoes-mesas': 'Opções de Mesas'
     };
 
     function switchSystem(system) {
@@ -7575,18 +7875,30 @@
       const qLow = q.toLowerCase();
       const results = [];
 
+      // Palavras sem valor semântico que são ignoradas na busca por tokens
+      const STOP = new Set(['de','do','da','dos','das','no','na','nos','nas','e','a','o','em','ao','à','por','para','com','que','se','as','os','um','uma','pelo','pela','pelos','pelas','ou','mas','mais','são','é','p']);
+
+      // Divide a query em tokens significativos (comprimento >= 2 e não stop word)
+      const tokens = qLow.split(/[\s/()]+/).map(t => t.replace(/["""''.,;:!?]/g, '')).filter(t => t.length >= 2 && !STOP.has(t));
+
+      // Fallback: se não sobrou nenhum token, usa a query inteira como substring
+      const matchFn = tokens.length > 0
+        ? (haystack) => tokens.every(t => haystack.includes(t))
+        : (haystack) => haystack.includes(qLow);
+
       // Percorre todas as linhas de todas as tabelas em todas as seções
       document.querySelectorAll('.page-section').forEach(section => {
         const sectionId = section.id;
         const sectionLabel = SECTION_LABELS[sectionId] || sectionId;
+        const sectionLow = sectionLabel.toLowerCase();
 
-        // Busca em linhas de tabela
+        // Busca em linhas de tabela — combina texto da linha + nome da tela
         section.querySelectorAll('table.fields-table tbody tr').forEach(row => {
           const fieldEl = row.querySelector('.field-name');
-          const cells = row.querySelectorAll('td');
           const rowText = row.textContent.toLowerCase();
+          const combined = rowText + ' ' + sectionLow;
 
-          if (rowText.includes(qLow)) {
+          if (matchFn(combined)) {
             const fieldName = fieldEl ? fieldEl.textContent.trim() : row.cells[0]?.textContent.trim() || '—';
             results.push({ sectionId, sectionLabel, fieldName, row });
           }
@@ -7594,8 +7906,8 @@
 
         // Busca em note-box e cabeçalhos de card
         section.querySelectorAll('.note-box, .fields-card-header, .page-header h2, .page-header p').forEach(el => {
-          if (el.textContent.toLowerCase().includes(qLow) && !el.closest('tr')) {
-            // evita duplicatas — só adiciona se não é dentro de uma linha já capturada
+          const elCombined = el.textContent.toLowerCase() + ' ' + sectionLow;
+          if (matchFn(elCombined) && !el.closest('tr')) {
             const label = el.classList.contains('fields-card-header')
               ? 'Grupo: ' + el.textContent.trim()
               : el.textContent.trim().slice(0, 60);
@@ -8211,6 +8523,55 @@
         'Hor.Final p/Não Cobrança da Tx.Serv.':                                     '79.6,77.2,22.4,4.8',
         'At.Id.Inicial p/Não Cobrança da Tx.Serv.':                                 '85.3,18.6,27.4,4.2',
         'At.Id.Final p/Não Cobrança da Tx.Serv.':                                   '85,46.4,26.8,4.5',
+      },
+      'prints/cad_empresas_opcoes_mesas.png': {
+        // Identificação e Campos
+        'Identificar Cliente':                                                     '10,16.6,29.5,3.6',
+        'Identificar Atendente':                                                   '9.8,46.2,31.1,4.3',
+        'Habilitar Campo Desconto':                                                '14.3,12,22.2,4',
+        'Habilitar Campo Qtde':                                                    '13.8,34.5,20.1,4.5',
+        'Permitir Desconto Padrão':                                                '14.3,55,21.5,4.3',
+        'Sempre Exibir Botão "Alterar Cliente" na Tela de Lançamentos':            '23.8,50.9,42.7,4',
+        // Pessoas e Produtos
+        'Chamar Tela NºPessoas':                                                   '19.3,13.2,37.4,3.6',
+        'Calcular Automaticamente NºPessoas':                                      '19,50.7,28.6,4',
+        'Checar Produtos Obrigatórios':                                            '24.3,10.4,40,3.6',
+        // Gasto Máximo e Consumação Mínima
+        'Utilizar Gasto Máximo':                                                   '28.6,14.1,20.5,3.8',
+        'Valor Padrão Gasto Máx.':                                                 '29,34.7,25.3,3.6',
+        'Chamar Tela de Gasto Máx.':                                               '28.6,60.7,23.5,3.8',
+        'Utilizar Consumação Mínima':                                              '33.6,10.8,23.6,3.6',
+        'Valor Padrão Cons.Mínima':                                                '33.6,34.5,26.6,3.6',
+        'Chamar Tela Cons.Mínima':                                                 '33.8,61.4,22.8,3.3',
+        // Taxa de Serviço e Cobrança
+        'Mensagem ao Refechar a Mesa':                                             '38.3,8.8,25.7,3.6',
+        'Forma de Cobrança de Produto Meio a Meio':                                '38.6,34.5,48.9,3.8',
+        'Taxa de Serviço (%)':                                                     '42.9,15.3,18.2,3.8',
+        'Incluir Taxa de Serviço Posteriormente pela Tecla "Alt+F9"':              '43.1,33.9,65.4,3.3',
+        'Restringir Cobrança Tx.Serv.nas Mesas':                                   '47.9,4.6,29.6,3.1',
+        'Hor.Inicial p/Não Cobrança da Tx.Serv.':                                  '47.4,34.9,27.4,4.3',
+        'Hor.Final p/Não Cobrança da Tx.Serv.':                                    '47.4,62.7,26.8,4.5',
+        'Msg.Cobr.Tx.Serv.Receb.Mesa':                                             '71,8.6,48.9,4.3',
+        // Adiantamentos, Impressão e Descontos
+        'Adiantamentos em Mesas':                                                  '52.1,12.4,22,4.3',
+        'Permitir Impressão de Parcial':                                           '52.6,34.6,24.1,3.8',
+        'Aplicar Desconto nos Produtos p/ser Igual a um Valor Total':              '52.6,59.1,40,3.8',
+        'Imprimir Saida Livre':                                                    '66.7,15.1,19.2,3.8',
+        'Permitir Transf.Parcial c/Recebimento Automático':                        '66.2,35,34.7,4.3',
+        'Exibir Qtd.Ítens na Tela Lanctos':                                        '71,58.2,25.3,4',
+        // Fechamento, Bloqueio e Transferência
+        'Fechar Caixa c/Mesas Pendentes':                                          '57.1,8,46.9,3.8',
+        'Usar Tipo de Atendimento nas Mesas':                                      '57.1,55.3,35.7,4.3',
+        'Exibir NºPontos Fidelidade':                                              '61.9,11.8,22.6,3.8',
+        'Permitir Transferência de Mesa p/At.Id':                                  '61.7,34.6,29.3,4',
+        'Permitir Bloqueio de Mesas':                                              '76,11.2,38.6,3.8',
+        'Desbloquear Mesa ao Receber':                                             '75.7,50.3,25,4',
+        // Posição, Sub-Identificação e Tabela de Preços
+        'Utilizar Posição p/Mesas':                                                '80.7,12.7,28.9,4.3',
+        'Exibir Valores Totais no Resumo das Mesas':                               '80.7,42.2,31.9,3.8',
+        'Utilizar Sub-Identificação nas Mesas':                                    '85.7,6.5,48.4,3.8',
+        'Permitir Selecionar Tabela de Preços nas Mesas':                          '90.2,0.4,34.1,3.3',
+        'Exibir Tela de Troco Após Receber Mesa':                                  '90,34.9,46.5,4',
       },
       'prints/cad_empresas_opcoes_recibo.png': {
         // Cabeçário da Bobina
