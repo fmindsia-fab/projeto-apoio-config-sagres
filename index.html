@@ -45,6 +45,13 @@
       --verde-empresa:     #2dd4c8;
       --verde-empresa-dim: rgba(45, 212, 200, .10);
 
+      --cor-entregas:     #f59e0b;
+      --cor-entregas-dim: rgba(245, 158, 11, .10);
+      --cor-mesas:        #818cf8;
+      --cor-mesas-dim:    rgba(129, 140, 248, .10);
+      --cor-atid:         #f472b6;
+      --cor-atid-dim:     rgba(244, 114, 182, .10);
+
       --sidebar-w: 272px;
       --radius-sm: 4px;
       --radius-md: 8px;
@@ -172,7 +179,7 @@
 
     .nav-items {
       overflow: hidden;
-      max-height: 800px;
+      max-height: 1400px;
       transition: max-height .28s ease;
     }
 
@@ -467,6 +474,24 @@
     .welcome-card.empresa:hover {
       border-color: rgba(45, 212, 200, .28);
     }
+
+    .welcome-card.entregas::before {
+      background: linear-gradient(90deg, var(--cor-entregas), transparent 60%);
+    }
+    .welcome-card.entregas h3 { color: var(--cor-entregas); }
+    .welcome-card.entregas:hover { border-color: rgba(245, 158, 11, .28); }
+
+    .welcome-card.mesas::before {
+      background: linear-gradient(90deg, var(--cor-mesas), transparent 60%);
+    }
+    .welcome-card.mesas h3 { color: var(--cor-mesas); }
+    .welcome-card.mesas:hover { border-color: rgba(129, 140, 248, .28); }
+
+    .welcome-card.atid::before {
+      background: linear-gradient(90deg, var(--cor-atid), transparent 60%);
+    }
+    .welcome-card.atid h3 { color: var(--cor-atid); }
+    .welcome-card.atid:hover { border-color: rgba(244, 114, 182, .28); }
 
     .nav-separator {
       margin: 10px 14px 3px;
@@ -868,6 +893,9 @@
       padding: 10px 14px 2px 20px;
       opacity: .65;
     }
+    .nav-sub-label.entregas { color: var(--cor-entregas); }
+    .nav-sub-label.mesas    { color: var(--cor-mesas); }
+    .nav-sub-label.atid     { color: var(--cor-atid); }
 
     /* ── HOME SECTION GROUPS ── */
     .home-group { margin-bottom: 30px; }
@@ -915,6 +943,21 @@
       background: rgba(251, 146, 60, .10);
       color: #fb923c;
       border: 1px solid rgba(251, 146, 60, .25);
+    }
+    .sys-badge.entregas {
+      background: var(--cor-entregas-dim);
+      color: var(--cor-entregas);
+      border: 1px solid rgba(245, 158, 11, .22);
+    }
+    .sys-badge.mesas {
+      background: var(--cor-mesas-dim);
+      color: var(--cor-mesas);
+      border: 1px solid rgba(129, 140, 248, .22);
+    }
+    .sys-badge.atid {
+      background: var(--cor-atid-dim);
+      color: var(--cor-atid);
+      border: 1px solid rgba(244, 114, 182, .22);
     }
 
     .home-group .welcome-grid { margin-top: 0; }
@@ -1178,6 +1221,7 @@
             Opções de Check-Out
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Check-Out</span>
           </a>
+          <div class="nav-sub-label entregas">Entregas</div>
           <a class="nav-item" onclick="showSection('cad-empresas-opcoes-entregas')">
             Opções de Entregas
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Entregas</span>
@@ -1186,6 +1230,12 @@
             Opções de Entregas — Outras Opções
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Entregas - Outras Opções</span>
           </a>
+          <a class="nav-item" onclick="showSection('cad-empresas-opcoes-entregas-msg-operador')">
+            Opções de Entregas — Mensagem para Operador
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Entregas - Mensagem para Operador</span>
+          </a>
+          <div class="nav-sub-label mesas">Mesas</div>
+          <div class="nav-sub-label atid">Atendimento c/ Identificação</div>
         </div>
       </div>
     </div>
@@ -1478,16 +1528,57 @@
             <h3>Opções de Check-Out</h3>
             <p>Configuração de sub-identificação e identificação no momento do check-out (fechamento de venda).</p>
           </div>
-          <div class="welcome-card empresa" onclick="showSection('cad-empresas-opcoes-entregas')">
+        </div>
+      </div>
+
+      <!-- Grupo: Empresa — Entregas -->
+      <div class="home-group">
+        <div class="home-group-header">
+          <span class="sys-badge entregas">Entregas</span>
+          <h3>Configurações de Entregas</h3>
+        </div>
+        <div class="welcome-grid">
+          <div class="welcome-card entregas" onclick="showSection('cad-empresas-opcoes-entregas')">
             <div class="icon">🛵</div>
             <h3>Opções de Entregas</h3>
             <p>Desconto, cobrança meio a meio, impressão, caixa, cupom fiscal, município padrão, observações e taxa de entrega.</p>
           </div>
-          <div class="welcome-card empresa" onclick="showSection('cad-empresas-opcoes-entregas-outras')">
+          <div class="welcome-card entregas" onclick="showSection('cad-empresas-opcoes-entregas-outras')">
             <div class="icon">📦</div>
             <h3>Opções de Entregas — Outras Opções</h3>
             <p>Previsão de entrega, agendamento, sub-identificação, troco, cancelamento de taxa, entregador, logradouros e serviço de requisição.</p>
           </div>
+          <div class="welcome-card entregas" onclick="showSection('cad-empresas-opcoes-entregas-msg-operador')">
+            <div class="icon">💬</div>
+            <h3>Opções de Entregas — Mensagem para Operador</h3>
+            <p>Configuração da mensagem exibida ao operador durante a entrega pelo concentrador.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grupo: Empresa — Mesas -->
+      <div class="home-group">
+        <div class="home-group-header">
+          <span class="sys-badge mesas">Mesas</span>
+          <h3>Configurações de Mesas</h3>
+        </div>
+        <div class="pdv-home-placeholder" style="border-color: rgba(129, 140, 248, .20);">
+          <div class="ph-icon">🍽️</div>
+          <strong style="color: var(--cor-mesas);">Em construção</strong>
+          <p>As configurações de Mesas serão mapeadas em breve.</p>
+        </div>
+      </div>
+
+      <!-- Grupo: Empresa — Atendimento c/ Identificação -->
+      <div class="home-group">
+        <div class="home-group-header">
+          <span class="sys-badge atid">Atendimento c/ Identificação</span>
+          <h3>Configurações de Atendimento c/ Identificação</h3>
+        </div>
+        <div class="pdv-home-placeholder" style="border-color: rgba(244, 114, 182, .20);">
+          <div class="ph-icon">👤</div>
+          <strong style="color: var(--cor-atid);">Em construção</strong>
+          <p>As configurações de Atendimento c/ Identificação serão mapeadas em breve.</p>
         </div>
       </div>
 
@@ -6748,6 +6839,79 @@
       </div>
     </section>
 
+    <section id="cad-empresas-opcoes-entregas-msg-operador" class="page-section" data-section-img="prints/cad_empresas_opcoes_entregas_msg_operador.png">
+      <div class="page-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções de Entregas - Mensagem para Operador</div>
+        <h2>Opções de Entregas — Mensagem para Operador</h2>
+        <p>Configuração da mensagem exibida ao operador no momento da entrega pelo concentrador.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_opcoes_entregas_msg_operador.png" alt="Tela Configurações da Empresa — Opções de Entregas - Mensagem para Operador"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_opcoes_entregas_msg_operador.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções de Entregas - Mensagem para Operador</strong>.
+      </div>
+
+      <!-- Configuração do Concentrador -->
+      <div class="fields-card">
+        <div class="fields-card-header">Configuração do Concentrador</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Configuração da Mens.p/Operador na Entrega Pelo Concentrador</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Define se o sistema exibe uma mensagem ao operador durante a entrega processada pelo concentrador. Ativar quando for necessário comunicar instruções específicas ao operador no momento da entrega.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Mensagem para Operador -->
+      <div class="fields-card">
+        <div class="fields-card-header">Mensagem para Operador</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Mensagem para Operador (Linha 1)</div></td>
+              <td><span class="tag tag-txt">—</span></td>
+              <td>Primeira linha da mensagem exibida ao operador durante a entrega pelo concentrador. Preencher com o texto inicial da instrução ou aviso.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem para Operador (Linha 2)</div></td>
+              <td><span class="tag tag-txt">—</span></td>
+              <td>Segunda linha da mensagem para o operador. Usar para complementar a linha 1.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem para Operador (Linha 3)</div></td>
+              <td><span class="tag tag-txt">—</span></td>
+              <td>Terceira linha da mensagem para o operador.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem para Operador (Linha 4)</div></td>
+              <td><span class="tag tag-txt">—</span></td>
+              <td>Quarta linha da mensagem para o operador.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem para Operador (Linha 5)</div></td>
+              <td><span class="tag tag-txt">—</span></td>
+              <td>Quinta linha da mensagem para o operador.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <!-- ══════════════ MODAL EXIBIR NA TELA ══════════════ -->
@@ -6805,7 +6969,8 @@
       'cad-empresas-pre-conta': 'Opções de Pré-Conta',
       'cad-empresas-check-out': 'Opções de Check-Out',
       'cad-empresas-opcoes-entregas': 'Opções de Entregas',
-      'cad-empresas-opcoes-entregas-outras': 'Opções de Entregas — Outras Opções'
+      'cad-empresas-opcoes-entregas-outras': 'Opções de Entregas — Outras Opções',
+      'cad-empresas-opcoes-entregas-msg-operador': 'Opções de Entregas — Mensagem para Operador'
     };
 
     function switchSystem(system) {
@@ -7409,6 +7574,16 @@
         'Usar Cadastro de Logradouros nas Entregas':                                '83.5,14.5,34.7,3.9',
         'Usar Senha p/Entregadores no programa "Controle de Entregas"':             '83.5,49.9,46.2,3.9',
         'Cód.Entregador p/Serviço de Requisição de Entregas':                       '88.7,9.1,39.1,4.9',
+      },
+      'prints/cad_empresas_opcoes_entregas_msg_operador.png': {
+        // Configuração do Concentrador
+        'Configuração da Mens.p/Operador na Entrega Pelo Concentrador':             '21.3,0.3,52.7,8.6',
+        // Mensagem para Operador
+        'Mensagem para Operador (Linha 1)':                                         '33.2,26.2,73.1,8.2',
+        'Mensagem para Operador (Linha 2)':                                         '44.7,44.6,54.7,8.2',
+        'Mensagem para Operador (Linha 3)':                                         '55.7,45.1,54.3,8.6',
+        'Mensagem para Operador (Linha 4)':                                         '66.8,45.1,54.1,8.6',
+        'Mensagem para Operador (Linha 5)':                                         '78.7,45,54.3,7.8',
       },
       'prints/cad_empresas_opcoes_recibo.png': {
         // Cabeçário da Bobina
