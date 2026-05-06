@@ -1141,12 +1141,58 @@ const IMAGES = [
   {
     file: 'prints/cad_empresas_opcoes_biometria.png',
     label: 'Opções de Biometria',
-    calibrated: false,
+    calibrated: true,
     groups: [
       { group: 'Biometria', fields: [
         'Utilizar Biometria p/Conta Assinada',
         'Utilizar Biometria p/Venda Antecipada',
         'Utilizar Biometria em Desconto por Convênios',
+      ]},
+    ]
+  },
+  {
+    file: 'prints/cad_empresas_opcoes_precos.png',
+    label: 'Opções de Preços',
+    calibrated: true,
+    groups: [
+      { group: 'Tabelas de Preços', fields: [
+        'Diferenciar Tabela de Preços',
+        'Tabela de Preços a Usar',
+        'Tabela de Preços para o Caixa',
+        'Tabela de Preços para o At.Ident.',
+        'Tabela de Preços para as Mesas',
+        'Tabela de Preços para as Entregas',
+        'Tabela de Preços para Orçamentos',
+        'Utilizar Tabela de Preços Nº 1 Quando Preço for R$ 0,00',
+      ]},
+      { group: 'Preço Promocional', fields: [
+        'Preço Promocional Como Desconto',
+        'Ativar Preço Promocional para o Caixa',
+        'Ativar Preço Promocional para o At.Ident.',
+        'Ativar Preço Promocional para as Mesas',
+        'Ativar Preço Promocional para as Entregas',
+        'Ativar Preço Promocional para os Orçamentos',
+        'Ativar Preço Promocional por Faixa Horária',
+        'Dias da Semana da Faixa Horária',
+        'Faixa Horária p/Preço Promocional — Das',
+        'Faixa Horária p/Preço Promocional — Às',
+        'Ativar Preço Promocional por Dia da Semana',
+        'Dias da Semana com Preço Promocional',
+        'Permitir Ativação de Preço Promocional pelo Operador',
+      ]},
+      { group: 'Alteração de Preços', fields: [
+        'Permitir Alteração de Preços no PDV',
+        'Permitir Alteração de Preços p/Mais no Ecf Sem Senha',
+      ]},
+      { group: 'Promoção de Produto Grátis', fields: [
+        'Promoção de Produto Grátis (At.Id)',
+        'Promoção de Produto Grátis (Mesas)',
+        'Promoção de Produto Grátis (Entregas)',
+      ]},
+      { group: 'Desconto e Promoção por Quantidade', fields: [
+        'Utilizar Desconto Máximo Permitido',
+        'Desconto Máximo Permitido (%)',
+        'Utilizar Lógica de Promoção de Quantidade p/Produtos',
       ]},
     ]
   },

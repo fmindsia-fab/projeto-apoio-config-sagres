@@ -1441,6 +1441,11 @@
             Opções de Biometria
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Biometria</span>
           </a>
+          <div class="nav-sub-label vprazo">Preços</div>
+          <a class="nav-item" onclick="showSection('cad-empresas-opcoes-precos')">
+            Opções de Preços
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Preço</span>
+          </a>
         </div>
       </div>
     </div>
@@ -1878,6 +1883,21 @@
             <div class="icon">🖐️</div>
             <h3>Opções de Biometria</h3>
             <p>Uso de biometria para autenticação em Conta Assinada, Venda Antecipada e Desconto por Convênios.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grupo: Empresa — Preços -->
+      <div class="home-group" data-tab="vendas">
+        <div class="home-group-header">
+          <span class="sys-badge vprazo">Preços</span>
+          <h3>Configurações de Preços</h3>
+        </div>
+        <div class="welcome-grid">
+          <div class="welcome-card vprazo" onclick="showSection('cad-empresas-opcoes-precos')">
+            <div class="icon">🏷️</div>
+            <h3>Opções de Preços</h3>
+            <p>Tabelas de preços por contexto, preço promocional, faixa horária, promoção de produto grátis e desconto máximo permitido.</p>
           </div>
         </div>
       </div>
@@ -8694,6 +8714,224 @@
       </div>
     </section>
 
+    <section id="cad-empresas-opcoes-precos" class="page-section" data-section-img="prints/cad_empresas_opcoes_precos.png">
+      <div class="section-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções de Preço</div>
+        <h2>Opções de Preços</h2>
+        <p>Define qual tabela de preços é usada em cada contexto de venda, configura o preço promocional por faixa horária ou dia da semana, controla alterações de preço no PDV e define promoções de produto grátis e desconto máximo.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_opcoes_precos.png" alt="Tela Configurações da Empresa — Opções de Preços"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_opcoes_precos.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções de Preço</strong>.
+      </div>
+
+      <!-- Tabelas de Preços -->
+      <div class="fields-card">
+        <div class="fields-card-header">Tabelas de Preços</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Diferenciar Tabela de Preços</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, permite configurar tabelas de preços diferentes para cada contexto de venda (caixa, mesas, entregas etc.).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Tabela de Preços a Usar</div></td>
+              <td><span class="tag tag-opt">1</span></td>
+              <td>Tabela de preços padrão utilizada quando não há diferenciação por contexto ativada.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Tabela de Preços para o Caixa</div></td>
+              <td><span class="tag tag-opt">1</span></td>
+              <td>Tabela de preços aplicada nas vendas realizadas pelo caixa (PDV/ECF).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Tabela de Preços para o At.Ident.</div></td>
+              <td><span class="tag tag-opt">1</span></td>
+              <td>Tabela de preços aplicada nos atendimentos com identificação de cliente.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Tabela de Preços para as Mesas</div></td>
+              <td><span class="tag tag-opt">1</span></td>
+              <td>Tabela de preços aplicada nos atendimentos por mesas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Tabela de Preços para as Entregas</div></td>
+              <td><span class="tag tag-opt">1</span></td>
+              <td>Tabela de preços aplicada nas vendas registradas como entregas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Tabela de Preços para Orçamentos</div></td>
+              <td><span class="tag tag-opt">1</span></td>
+              <td>Tabela de preços aplicada nos orçamentos.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Utilizar Tabela de Preços Nº 1 Quando Preço for R$ 0,00</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Quando ativado, se o preço do produto na tabela selecionada for R$ 0,00, o sistema utiliza automaticamente o preço da Tabela 1 como fallback.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Preço Promocional -->
+      <div class="fields-card">
+        <div class="fields-card-header">Preço Promocional</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Preço Promocional Como Desconto</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, o preço promocional é aplicado como desconto no cupom em vez de alterar o preço unitário do produto.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Ativar Preço Promocional para o Caixa</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Habilita o uso do preço promocional nas vendas pelo caixa (PDV/ECF).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Ativar Preço Promocional para o At.Ident.</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Habilita o uso do preço promocional nos atendimentos com identificação de cliente.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Ativar Preço Promocional para as Mesas</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Habilita o uso do preço promocional nos atendimentos por mesas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Ativar Preço Promocional para as Entregas</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Habilita o uso do preço promocional nas vendas registradas como entregas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Ativar Preço Promocional para os Orçamentos</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Habilita o uso do preço promocional nos orçamentos.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Ativar Preço Promocional por Faixa Horária</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Quando ativado, o preço promocional é aplicado apenas dentro de um intervalo de horário definido nos campos abaixo.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Dias da Semana da Faixa Horária</div></td>
+              <td><span class="tag tag-text">1234567</span></td>
+              <td>Define em quais dias da semana a faixa horária promocional está ativa. Cada dígito representa um dia (1=segunda ... 7=domingo).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Faixa Horária p/Preço Promocional — Das</div></td>
+              <td><span class="tag tag-text">00:00:00</span></td>
+              <td>Horário de início da faixa promocional. Formato HH:MM:SS.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Faixa Horária p/Preço Promocional — Às</div></td>
+              <td><span class="tag tag-text">23:59:59</span></td>
+              <td>Horário de término da faixa promocional. Formato HH:MM:SS.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Ativar Preço Promocional por Dia da Semana</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, o preço promocional é aplicado apenas nos dias da semana informados no campo ao lado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Dias da Semana com Preço Promocional</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Lista os dias da semana em que o preço promocional por dia da semana estará ativo.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Ativação de Preço Promocional pelo Operador</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, o operador pode ativar ou desativar manualmente o preço promocional durante o atendimento.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Alteração de Preços -->
+      <div class="fields-card">
+        <div class="fields-card-header">Alteração de Preços</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Permitir Alteração de Preços no PDV</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, o operador pode alterar o preço de produtos diretamente no PDV durante o lançamento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Alteração de Preços p/Mais no Ecf Sem Senha</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, permite aumentar o preço de um produto no ECF sem exigir senha de autorização.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Promoção de Produto Grátis -->
+      <div class="fields-card">
+        <div class="fields-card-header">Promoção de Produto Grátis</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Promoção de Produto Grátis (At.Id)</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, permite configurar promoções de produto grátis no contexto de atendimento identificado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Promoção de Produto Grátis (Mesas)</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, permite configurar promoções de produto grátis no contexto de mesas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Promoção de Produto Grátis (Entregas)</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, permite configurar promoções de produto grátis no contexto de entregas.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Desconto e Promoção por Quantidade -->
+      <div class="fields-card">
+        <div class="fields-card-header">Desconto e Promoção por Quantidade</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Utilizar Desconto Máximo Permitido</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, limita o desconto que o operador pode conceder a um percentual máximo definido no campo abaixo.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Desconto Máximo Permitido (%)</div></td>
+              <td><span class="tag tag-text">0</span></td>
+              <td>Percentual máximo de desconto que o operador pode aplicar em uma venda. Ativo somente quando "Utilizar Desconto Máximo Permitido" estiver habilitado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Utilizar Lógica de Promoção de Quantidade p/Produtos</div></td>
+              <td><span class="tag tag-opt">—</span></td>
+              <td>Define a lógica de promoção por quantidade de produtos aplicada automaticamente nas vendas, conforme regras cadastradas no sistema.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <!-- ══════════════ MODAL EXIBIR NA TELA ══════════════ -->
@@ -8768,7 +9006,8 @@
       'cad-empresas-opcoes-contra-vales': 'Opções de Contra-Vales',
       'cad-empresas-opcoes-caixinha': 'Opções de Caixinha',
       'cad-empresas-opcoes-balanca': 'Opções de Balança',
-      'cad-empresas-opcoes-biometria': 'Opções de Biometria'
+      'cad-empresas-opcoes-biometria': 'Opções de Biometria',
+      'cad-empresas-opcoes-precos': 'Opções de Preços'
     };
 
     function switchSystem(system) {
@@ -9657,6 +9896,42 @@
         'Utilizar Biometria p/Conta Assinada':                                      '34.6,17.8,80.6,10.4',
         'Utilizar Biometria p/Venda Antecipada':                                    '51.8,14.3,83.9,10',
         'Utilizar Biometria em Desconto por Convênios':                             '68.9,1.2,97.1,10',
+      },
+      'prints/cad_empresas_opcoes_precos.png': {
+        // Tabelas de Preços
+        'Diferenciar Tabela de Preços':                                             '13.3,18.2,30.8,3.9',
+        'Tabela de Preços a Usar':                                                  '18.1,21.4,24.2,4.1',
+        'Tabela de Preços para o Caixa':                                            '17.8,46.1,27.8,4.7',
+        'Tabela de Preços para o At.Ident.':                                        '23.2,15.4,29.9,3.2',
+        'Tabela de Preços para as Mesas':                                           '23.2,46.1,29.2,3.9',
+        'Tabela de Preços para as Entregas':                                        '28.2,14.2,31.2,3.2',
+        'Tabela de Preços para Orçamentos':                                         '28.2,45.9,31.2,3.4',
+        'Utilizar Tabela de Preços Nº 1 Quando Preço for R$ 0,00':                 '32.7,49.5,49.5,3.9',
+        // Preço Promocional
+        'Preço Promocional Como Desconto':                                          '32.9,13.8,35,3.7',
+        'Ativar Preço Promocional para o Caixa':                                    '37.8,11.2,38,3',
+        'Ativar Preço Promocional para o At.Ident.':                                '37.4,49.3,39.3,4.1',
+        'Ativar Preço Promocional para as Mesas':                                   '42.6,10,38.9,3.7',
+        'Ativar Preço Promocional para as Entregas':                                '42.2,49.1,40.8,3.9',
+        'Ativar Preço Promocional para os Orçamentos':                              '47.3,6.4,42.7,3.7',
+        'Ativar Preço Promocional por Faixa Horária':                               '51.8,7.4,56.6,3.9',
+        'Dias da Semana da Faixa Horária':                                          '51.4,64.6,34.7,4.5',
+        'Faixa Horária p/Preço Promocional — Das':                                  '56.4,6.2,43.9,4.5',
+        'Faixa Horária p/Preço Promocional — Às':                                   '56.6,50.7,13.2,4.1',
+        'Ativar Preço Promocional por Dia da Semana':                               '61.7,6.9,41.6,3.4',
+        'Dias da Semana com Preço Promocional':                                     '61.5,49.2,39.3,4.1',
+        'Permitir Ativação de Preço Promocional pelo Operador':                     '66.7,49.2,48.5,3.6',
+        // Alteração de Preços
+        'Permitir Alteração de Preços no PDV':                                      '66.2,12.3,36.5,4.1',
+        'Permitir Alteração de Preços p/Mais no Ecf Sem Senha':                     '71,0.5,48.5,3.9',
+        // Promoção de Produto Grátis
+        'Promoção de Produto Grátis (At.Id)':                                       '76.4,13.8,35.4,3.4',
+        'Promoção de Produto Grátis (Mesas)':                                       '75.9,49.5,36.1,3.9',
+        'Promoção de Produto Grátis (Entregas)':                                    '80.9,11.1,38.1,3.4',
+        // Desconto e Promoção por Quantidade
+        'Utilizar Desconto Máximo Permitido':                                       '85.2,13.1,35.9,3.9',
+        'Desconto Máximo Permitido (%)':                                            '85.4,49.3,32.4,3.9',
+        'Utilizar Lógica de Promoção de Quantidade p/Produtos':                     '90.3,0.7,69.1,3.9',
       },
       'prints/cad_empresas_opcoes_recibo.png': {
         // Cabeçário da Bobina
