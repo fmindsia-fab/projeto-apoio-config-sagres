@@ -1437,6 +1437,10 @@
             Opções de Balança
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Balança</span>
           </a>
+          <a class="nav-item" onclick="showSection('cad-empresas-opcoes-biometria')">
+            Opções de Biometria
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Biometria</span>
+          </a>
         </div>
       </div>
     </div>
@@ -1508,7 +1512,7 @@
         <button class="home-tab"        data-tab="empresa"    onclick="showHomeTab('empresa')">Empresa</button>
         <button class="home-tab"        data-tab="entregas"   onclick="showHomeTab('entregas')">Entregas</button>
         <button class="home-tab"        data-tab="mesas"      onclick="showHomeTab('mesas')">Mesas</button>
-        <button class="home-tab"        data-tab="atid"       onclick="showHomeTab('atid')">Atendimento</button>
+        <button class="home-tab"        data-tab="atid"       onclick="showHomeTab('atid')">Atend. c/ Identificação</button>
         <button class="home-tab"        data-tab="vendas"     onclick="showHomeTab('vendas')">Vendas</button>
         <button class="home-tab"        data-tab="pdv"        onclick="showHomeTab('pdv')">PDV</button>
       </div>
@@ -1869,6 +1873,11 @@
             <div class="icon">⚖️</div>
             <h3>Opções de Balança</h3>
             <p>Configuração do desconto de peso excedente de produtos na pesagem.</p>
+          </div>
+          <div class="welcome-card vprazo" onclick="showSection('cad-empresas-opcoes-biometria')">
+            <div class="icon">🖐️</div>
+            <h3>Opções de Biometria</h3>
+            <p>Uso de biometria para autenticação em Conta Assinada, Venda Antecipada e Desconto por Convênios.</p>
           </div>
         </div>
       </div>
@@ -8637,6 +8646,54 @@
       </div>
     </section>
 
+    <section id="cad-empresas-opcoes-biometria" class="page-section" data-section-img="prints/cad_empresas_opcoes_biometria.png">
+      <div class="section-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções de Biometria</div>
+        <h2>Opções de Biometria</h2>
+        <p>Define em quais contextos o sistema exige autenticação por biometria: conta assinada, venda antecipada e desconto por convênios.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_opcoes_biometria.png" alt="Tela Configurações da Empresa — Opções de Biometria"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_opcoes_biometria.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções de Biometria</strong>.
+      </div>
+
+      <!-- Biometria -->
+      <div class="fields-card">
+        <div class="fields-card-header">Biometria</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Utilizar Biometria p/Conta Assinada</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, exige autenticação biométrica do cliente para registrar operações de conta assinada. Requer hardware de biometria instalado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Utilizar Biometria p/Venda Antecipada</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, exige autenticação biométrica do cliente para realizar uma venda antecipada. Requer hardware de biometria instalado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Utilizar Biometria em Desconto por Convênios</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, exige autenticação biométrica do cliente para aplicar descontos vinculados a convênios. Requer hardware de biometria instalado.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <!-- ══════════════ MODAL EXIBIR NA TELA ══════════════ -->
@@ -8710,7 +8767,8 @@
       'cad-empresas-opcoes-conta-assinada': 'Opções de Conta Assinada',
       'cad-empresas-opcoes-contra-vales': 'Opções de Contra-Vales',
       'cad-empresas-opcoes-caixinha': 'Opções de Caixinha',
-      'cad-empresas-opcoes-balanca': 'Opções de Balança'
+      'cad-empresas-opcoes-balanca': 'Opções de Balança',
+      'cad-empresas-opcoes-biometria': 'Opções de Biometria'
     };
 
     function switchSystem(system) {
@@ -9593,6 +9651,12 @@
       'prints/cad_empresas_opcoes_balanca.png': {
         // Balança
         'Descontar Peso Excedente de Produtos na Pesagem':                          '52.4,0.6,97.9,16.2',
+      },
+      'prints/cad_empresas_opcoes_biometria.png': {
+        // Biometria
+        'Utilizar Biometria p/Conta Assinada':                                      '34.6,17.8,80.6,10.4',
+        'Utilizar Biometria p/Venda Antecipada':                                    '51.8,14.3,83.9,10',
+        'Utilizar Biometria em Desconto por Convênios':                             '68.9,1.2,97.1,10',
       },
       'prints/cad_empresas_opcoes_recibo.png': {
         // Cabeçário da Bobina
