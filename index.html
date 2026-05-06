@@ -1433,6 +1433,10 @@
             Opções de Caixinha
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Caixinha</span>
           </a>
+          <a class="nav-item" onclick="showSection('cad-empresas-opcoes-balanca')">
+            Opções de Balança
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Balança</span>
+          </a>
         </div>
       </div>
     </div>
@@ -1860,6 +1864,11 @@
             <div class="icon">💰</div>
             <h3>Opções de Caixinha</h3>
             <p>Ativação do módulo Caixinha e configuração da mensagem de troco como caixinha nas Mesas e no Atendimento Identificado.</p>
+          </div>
+          <div class="welcome-card vprazo" onclick="showSection('cad-empresas-opcoes-balanca')">
+            <div class="icon">⚖️</div>
+            <h3>Opções de Balança</h3>
+            <p>Configuração do desconto de peso excedente de produtos na pesagem.</p>
           </div>
         </div>
       </div>
@@ -8590,6 +8599,44 @@
       </div>
     </section>
 
+    <section id="cad-empresas-opcoes-balanca" class="page-section" data-section-img="prints/cad_empresas_opcoes_balanca.png">
+      <div class="section-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções de Balança</div>
+        <h2>Opções de Balança</h2>
+        <p>Configuração do comportamento do sistema na pesagem de produtos com balança integrada.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_opcoes_balanca.png" alt="Tela Configurações da Empresa — Opções de Balança"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_opcoes_balanca.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções de Balança</strong>.
+      </div>
+
+      <!-- Balança -->
+      <div class="fields-card">
+        <div class="fields-card-header">Balança</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Descontar Peso Excedente de Produtos na Pesagem</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, o sistema desconta automaticamente o peso excedente ao limite configurado para o produto no momento da pesagem na balança.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <!-- ══════════════ MODAL EXIBIR NA TELA ══════════════ -->
@@ -8662,7 +8709,8 @@
       'cad-empresas-opcoes-vendas-prazo': 'Opções de Vendas à Prazo',
       'cad-empresas-opcoes-conta-assinada': 'Opções de Conta Assinada',
       'cad-empresas-opcoes-contra-vales': 'Opções de Contra-Vales',
-      'cad-empresas-opcoes-caixinha': 'Opções de Caixinha'
+      'cad-empresas-opcoes-caixinha': 'Opções de Caixinha',
+      'cad-empresas-opcoes-balanca': 'Opções de Balança'
     };
 
     function switchSystem(system) {
@@ -9541,6 +9589,10 @@
         'Utilizar Caixinha':                                                        '33.9,49.3,49.3,11.4',
         'Mensagem de Troco Como Caixinha nas Mesas':                                '51.4,0.6,97.8,10.4',
         'Mensagem de Troco Como Caixinha no At.Id.:':                               '68.2,4.5,93.7,10.7',
+      },
+      'prints/cad_empresas_opcoes_balanca.png': {
+        // Balança
+        'Descontar Peso Excedente de Produtos na Pesagem':                          '52.4,0.6,97.9,16.2',
       },
       'prints/cad_empresas_opcoes_recibo.png': {
         // Cabeçário da Bobina
