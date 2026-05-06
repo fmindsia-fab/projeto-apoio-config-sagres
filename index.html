@@ -58,6 +58,9 @@
       --cor-pedidos:     #38bdf8;
       --cor-pedidos-dim: rgba(56, 189, 248, .10);
 
+      --cor-pre-venda:     #a78bfa;
+      --cor-pre-venda-dim: rgba(167, 139, 250, .10);
+
       --sidebar-w: 272px;
       --radius-sm: 4px;
       --radius-md: 8px;
@@ -185,7 +188,7 @@
 
     .nav-items {
       overflow: hidden;
-      max-height: 1400px;
+      max-height: 2200px;
       transition: max-height .28s ease;
     }
 
@@ -509,6 +512,11 @@
     }
     .welcome-card.pedidos h3 { color: var(--cor-pedidos); }
     .welcome-card.pedidos:hover { border-color: rgba(56, 189, 248, .28); }
+    .welcome-card.pre-venda::before {
+      background: linear-gradient(90deg, var(--cor-pre-venda), transparent 60%);
+    }
+    .welcome-card.pre-venda h3 { color: var(--cor-pre-venda); }
+    .welcome-card.pre-venda:hover { border-color: rgba(167, 139, 250, .28); }
 
     .nav-separator {
       margin: 10px 14px 3px;
@@ -928,6 +936,7 @@
     .nav-sub-label.atid       { color: var(--cor-atid); }
     .nav-sub-label.orcamento  { color: var(--cor-orcamento); }
     .nav-sub-label.pedidos    { color: var(--cor-pedidos); }
+    .nav-sub-label.pre-venda  { color: var(--cor-pre-venda); }
 
     /* ── HOME SECTION GROUPS ── */
     .home-group { margin-bottom: 30px; }
@@ -1001,8 +1010,70 @@
       color: var(--cor-pedidos);
       border: 1px solid rgba(56, 189, 248, .22);
     }
+    .sys-badge.pre-venda {
+      background: var(--cor-pre-venda-dim);
+      color: var(--cor-pre-venda);
+      border: 1px solid rgba(167, 139, 250, .22);
+    }
 
     .home-group .welcome-grid { margin-top: 0; }
+
+    /* ── BACK TO HOME ── */
+    .back-to-home {
+      display: flex;
+      justify-content: center;
+      margin: 40px 0 16px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-faint);
+    }
+    .back-to-home button {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 22px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: #8b9ab5;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .back-to-home button:hover {
+      border-color: #4d90fe;
+      color: #4d90fe;
+      background: rgba(77,144,254,.08);
+    }
+
+    /* ── HOME TABS ── */
+    .home-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-faint);
+    }
+    .home-tab {
+      padding: 5px 15px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: #8b9ab5;
+      cursor: pointer;
+      font-size: 0.80rem;
+      font-weight: 600;
+      letter-spacing: .02em;
+      transition: all .15s;
+      white-space: nowrap;
+    }
+    .home-tab:hover { border-color: #8b9ab5; color: #e4eef8; }
+    .home-tab.active {
+      background: #4d90fe;
+      border-color: #4d90fe;
+      color: #fff;
+    }
 
     /* ── PDV HOME PLACEHOLDER ── */
     .pdv-home-placeholder {
@@ -1304,6 +1375,11 @@
             Opções de Pedidos
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Pedidos</span>
           </a>
+          <div class="nav-sub-label pre-venda">Pré-Venda</div>
+          <a class="nav-item" onclick="showSection('cad-empresas-opcoes-pre-venda')">
+            Opções de Pré-Venda
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Pré-Venda</span>
+          </a>
         </div>
       </div>
     </div>
@@ -1369,8 +1445,19 @@
         <p>Referência rápida para a equipe de suporte — caminhos e campos de cada tela de configuração.</p>
       </div>
 
+      <div class="home-tabs">
+        <button class="home-tab active" data-tab="tudo"       onclick="showHomeTab('tudo')">Tudo</button>
+        <button class="home-tab"        data-tab="gestao"     onclick="showHomeTab('gestao')">Gestão</button>
+        <button class="home-tab"        data-tab="empresa"    onclick="showHomeTab('empresa')">Empresa</button>
+        <button class="home-tab"        data-tab="entregas"   onclick="showHomeTab('entregas')">Entregas</button>
+        <button class="home-tab"        data-tab="mesas"      onclick="showHomeTab('mesas')">Mesas</button>
+        <button class="home-tab"        data-tab="atid"       onclick="showHomeTab('atid')">Atendimento</button>
+        <button class="home-tab"        data-tab="vendas"     onclick="showHomeTab('vendas')">Vendas</button>
+        <button class="home-tab"        data-tab="pdv"        onclick="showHomeTab('pdv')">PDV</button>
+      </div>
+
       <!-- Grupo: Configurações Gerais -->
-      <div class="home-group">
+      <div class="home-group" data-tab="gestao">
         <div class="home-group-header">
           <span class="sys-badge gestao">Gestão</span>
           <h3>Configurações Gerais</h3>
@@ -1405,7 +1492,7 @@
       </div>
 
       <!-- Grupo: Financeiro -->
-      <div class="home-group">
+      <div class="home-group" data-tab="gestao">
         <div class="home-group-header">
           <span class="sys-badge gestao">Gestão</span>
           <h3>Financeiro</h3>
@@ -1435,7 +1522,7 @@
       </div>
 
       <!-- Grupo: Clientes & Produtos -->
-      <div class="home-group">
+      <div class="home-group" data-tab="gestao">
         <div class="home-group-header">
           <span class="sys-badge gestao">Gestão</span>
           <h3>Clientes & Produtos</h3>
@@ -1470,7 +1557,7 @@
       </div>
 
       <!-- Grupo: Fiscal / NF-e / SAT -->
-      <div class="home-group">
+      <div class="home-group" data-tab="gestao">
         <div class="home-group-header">
           <span class="sys-badge gestao">Gestão</span>
           <h3>Fiscal / NF-e / SAT</h3>
@@ -1490,7 +1577,7 @@
       </div>
 
       <!-- Grupo: Sistema, Backup & Integrações -->
-      <div class="home-group">
+      <div class="home-group" data-tab="gestao">
         <div class="home-group-header">
           <span class="sys-badge gestao">Gestão</span>
           <h3>Sistema, Backup & Integrações</h3>
@@ -1535,7 +1622,7 @@
       </div>
 
       <!-- Grupo: Empresa — Cadastro & Opções Gerais -->
-      <div class="home-group">
+      <div class="home-group" data-tab="empresa">
         <div class="home-group-header">
           <span class="sys-badge empresa">Empresa</span>
           <h3>Cadastro & Opções Gerais</h3>
@@ -1565,7 +1652,7 @@
       </div>
 
       <!-- Grupo: Empresa — Fiscal & Impressão -->
-      <div class="home-group">
+      <div class="home-group" data-tab="empresa">
         <div class="home-group-header">
           <span class="sys-badge empresa">Empresa</span>
           <h3>Fiscal & Impressão</h3>
@@ -1600,7 +1687,7 @@
       </div>
 
       <!-- Grupo: Empresa — Entregas -->
-      <div class="home-group">
+      <div class="home-group" data-tab="entregas">
         <div class="home-group-header">
           <span class="sys-badge entregas">Entregas</span>
           <h3>Configurações de Entregas</h3>
@@ -1625,7 +1712,7 @@
       </div>
 
       <!-- Grupo: Empresa — Mesas -->
-      <div class="home-group">
+      <div class="home-group" data-tab="mesas">
         <div class="home-group-header">
           <span class="sys-badge mesas">Mesas</span>
           <h3>Configurações de Mesas</h3>
@@ -1645,7 +1732,7 @@
       </div>
 
       <!-- Grupo: Empresa — Atendimento c/ Identificação -->
-      <div class="home-group">
+      <div class="home-group" data-tab="atid">
         <div class="home-group-header">
           <span class="sys-badge atid">Atendimento c/ Identificação</span>
           <h3>Configurações de Atendimento c/ Identificação</h3>
@@ -1665,7 +1752,7 @@
       </div>
 
       <!-- Grupo: Empresa — Orçamentos -->
-      <div class="home-group">
+      <div class="home-group" data-tab="vendas">
         <div class="home-group-header">
           <span class="sys-badge orcamento">Orçamentos</span>
           <h3>Configurações de Orçamentos</h3>
@@ -1680,7 +1767,7 @@
       </div>
 
       <!-- Grupo: Empresa — Pedidos -->
-      <div class="home-group">
+      <div class="home-group" data-tab="vendas">
         <div class="home-group-header">
           <span class="sys-badge pedidos">Pedidos</span>
           <h3>Configurações de Pedidos</h3>
@@ -1694,8 +1781,23 @@
         </div>
       </div>
 
+      <!-- Grupo: Empresa — Pré-Venda -->
+      <div class="home-group" data-tab="vendas">
+        <div class="home-group-header">
+          <span class="sys-badge pre-venda">Pré-Venda</span>
+          <h3>Configurações de Pré-Venda</h3>
+        </div>
+        <div class="welcome-grid">
+          <div class="welcome-card pre-venda" onclick="showSection('cad-empresas-opcoes-pre-venda')">
+            <div class="icon">🏷️</div>
+            <h3>Opções de Pré-Venda</h3>
+            <p>Comportamento das pré-vendas pendentes e canceladas durante a Redução Z no concentrador.</p>
+          </div>
+        </div>
+      </div>
+
       <!-- Grupo: PDV — placeholder -->
-      <div class="home-group">
+      <div class="home-group" data-tab="pdv">
         <div class="home-group-header">
           <span class="sys-badge pdv">PDV</span>
           <h3>Squalus PDV</h3>
@@ -8088,6 +8190,50 @@
       </div>
     </section>
 
+    <!-- ══════════════ OPÇÕES DE PRÉ-VENDA ══════════════ -->
+    <section id="cad-empresas-opcoes-pre-venda" class="page-section" data-section-img="prints/cad_empresas_opcoes_pre_venda.png">
+      <div class="section-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções de Pré-Venda</div>
+        <h2>Opções de Pré-Venda</h2>
+        <p>Configurações do comportamento das pré-vendas durante a Redução Z: verificação de pendências no concentrador e recriação de pré-vendas canceladas.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_opcoes_pre_venda.png" alt="Tela Configurações da Empresa — Opções de Pré-Venda"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_opcoes_pre_venda.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções de Pré-Venda</strong>.
+      </div>
+
+      <!-- Redução Z -->
+      <div class="fields-card">
+        <div class="fields-card-header">Redução Z</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Ao Realizar Redução Z, Checar Pré-Vendas Pendentes Apenas no Concentrador</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Quando ativado, a verificação de pré-vendas pendentes no momento da Redução Z é feita apenas no concentrador, e não em todas as estações. Recomendado para ambientes com concentrador de pedidos.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Ao Realizar Redução Z, Recriar Pré-Vendas Pendentes e Canceladas</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Quando ativado, pré-vendas que estavam pendentes ou foram canceladas são recriadas automaticamente ao concluir a Redução Z, evitando perda de pedidos não finalizados.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <!-- ══════════════ MODAL EXIBIR NA TELA ══════════════ -->
@@ -8155,7 +8301,8 @@
       'cad-empresas-opcoes-mesas': 'Opções de Mesas',
       'cad-empresas-opcoes-mesas-2': 'Opções de Mesas (2)',
       'cad-empresas-opcoes-orcamento': 'Opções de Orçamento',
-      'cad-empresas-opcoes-pedidos': 'Opções de Pedidos'
+      'cad-empresas-opcoes-pedidos': 'Opções de Pedidos',
+      'cad-empresas-opcoes-pre-venda': 'Opções de Pré-Venda'
     };
 
     function switchSystem(system) {
@@ -8174,6 +8321,14 @@
 
     function toggleNavSection(titleEl) {
       titleEl.closest('.nav-section').classList.toggle('collapsed');
+    }
+
+    function showHomeTab(tab) {
+      document.querySelectorAll('.home-tab').forEach(t => t.classList.remove('active'));
+      document.querySelector('.home-tab[data-tab="' + tab + '"]').classList.add('active');
+      document.querySelectorAll('.home-group').forEach(g => {
+        g.style.display = (tab === 'tudo' || g.dataset.tab === tab) ? '' : 'none';
+      });
     }
 
     function showSection(id) {
@@ -8951,6 +9106,11 @@
         'Checar Bloqueio Temporário do Pedido':                                     '76.3,21.2,77.8,5.9',
         'Usar Forma de Pagto Original nos Adiantamentos':                           '85.1,14.2,46.1,5.3',
       },
+      'prints/cad_empresas_opcoes_pre_venda.png': {
+        // Redução Z
+        'Ao Realizar Redução Z, Checar Pré-Vendas Pendentes Apenas no Concentrador': '41.3,0.9,97.8,13.6',
+        'Ao Realizar Redução Z, Recriar Pré-Vendas Pendentes e Canceladas':          '61.5,12.2,86.6,14.1',
+      },
       'prints/cad_empresas_opcoes_recibo.png': {
         // Cabeçário da Bobina
         'Mensagem do Cabeçário da Bobina (Linha 01)':                               '14.8,11.5,87.7,6',
@@ -9219,6 +9379,15 @@
     }
 
     document.addEventListener('DOMContentLoaded', initExibirButtons);
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.page-section:not(#home)').forEach(sec => {
+        const bar = document.createElement('div');
+        bar.className = 'back-to-home';
+        bar.innerHTML = '<button onclick="showSection(\'home\')">← Voltar à Tela Inicial</button>';
+        sec.appendChild(bar);
+      });
+    });
 
     // ── Modal ──
     let _calibrateMode = false;
