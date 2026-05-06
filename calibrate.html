@@ -1199,13 +1199,25 @@ const IMAGES = [
   {
     file: 'prints/cad_empresas_opcoes_fidelidade.png',
     label: 'Opções de Programa de Fidelidade',
-    calibrated: false,
+    calibrated: true,
     groups: [
       { group: 'Programa de Fidelidade', fields: [
         'Informar Cliente p/Fidelidade no At.Identificado',
         'Informar Cliente p/Fidelidade no Check-Out',
         'Cadastro Rápido de Cliente no Progr.Fidelidade Quando Não Existir',
         'Bloquear Acúmulo de Pontos do Fidelidade p/esta Empresa',
+      ]},
+    ]
+  },
+  {
+    file: 'prints/cad_empresas_opcoes_coletores.png',
+    label: 'Opções de Coletores',
+    calibrated: false,
+    groups: [
+      { group: 'SagresPK', fields: [
+        'Ordem dos Produtos no SagresPK',
+        'Ordem dos Grupos no SagresPK',
+        'Utilizar Descrição Completa de Produtos no SagresPK',
       ]},
     ]
   },

@@ -1451,6 +1451,11 @@
             Opções de Programa de Fidelidade
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Programa de Fidelidade</span>
           </a>
+          <div class="nav-sub-label vprazo">Coletores</div>
+          <a class="nav-item" onclick="showSection('cad-empresas-opcoes-coletores')">
+            Opções de Coletores
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Coletores</span>
+          </a>
         </div>
       </div>
     </div>
@@ -1918,6 +1923,21 @@
             <div class="icon">⭐</div>
             <h3>Opções de Programa de Fidelidade</h3>
             <p>Identificação de cliente para fidelidade no At.Identificado e Check-Out, cadastro rápido e bloqueio de acúmulo de pontos por empresa.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grupo: Empresa — Coletores -->
+      <div class="home-group" data-tab="vendas">
+        <div class="home-group-header">
+          <span class="sys-badge vprazo">Coletores</span>
+          <h3>Configurações de Coletores</h3>
+        </div>
+        <div class="welcome-grid">
+          <div class="welcome-card vprazo" onclick="showSection('cad-empresas-opcoes-coletores')">
+            <div class="icon">📡</div>
+            <h3>Opções de Coletores</h3>
+            <p>Ordem de exibição de produtos e grupos no SagresPK e uso de descrição completa de produtos no coletor.</p>
           </div>
         </div>
       </div>
@@ -9005,6 +9025,54 @@
       </div>
     </section>
 
+    <section id="cad-empresas-opcoes-coletores" class="page-section" data-section-img="prints/cad_empresas_opcoes_coletores.png">
+      <div class="section-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções de Coletores</div>
+        <h2>Opções de Coletores</h2>
+        <p>Configurações do módulo SagresPK (coletores de pedidos): ordem de exibição de produtos e grupos e uso de descrição completa dos produtos.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_opcoes_coletores.png" alt="Tela Configurações da Empresa — Opções de Coletores"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_opcoes_coletores.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções de Coletores</strong>.
+      </div>
+
+      <!-- SagresPK -->
+      <div class="fields-card">
+        <div class="fields-card-header">SagresPK</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Ordem dos Produtos no SagresPK</div></td>
+              <td><span class="tag tag-opt">1-Ordem Alfabética</span></td>
+              <td>Define a ordem de exibição dos produtos no coletor SagresPK. Pode ser ordem alfabética, por código ou uma sequência personalizada definida pelo botão "Definir Ordem Seqüencial dos Produtos".</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Ordem dos Grupos no SagresPK</div></td>
+              <td><span class="tag tag-opt">2-Ordem de Código</span></td>
+              <td>Define a ordem de exibição dos grupos de produtos no coletor SagresPK. Pode ser ordem alfabética, por código ou uma sequência personalizada definida pelo botão "Definir Ordem Seqüencial dos Grupos".</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Utilizar Descrição Completa de Produtos no SagresPK</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, o SagresPK exibe a descrição completa dos produtos no coletor, em vez da descrição abreviada.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <!-- ══════════════ MODAL EXIBIR NA TELA ══════════════ -->
@@ -9081,7 +9149,8 @@
       'cad-empresas-opcoes-balanca': 'Opções de Balança',
       'cad-empresas-opcoes-biometria': 'Opções de Biometria',
       'cad-empresas-opcoes-precos': 'Opções de Preços',
-      'cad-empresas-opcoes-fidelidade': 'Opções de Programa de Fidelidade'
+      'cad-empresas-opcoes-fidelidade': 'Opções de Programa de Fidelidade',
+      'cad-empresas-opcoes-coletores': 'Opções de Coletores'
     };
 
     function switchSystem(system) {
@@ -10013,6 +10082,12 @@
         'Informar Cliente p/Fidelidade no Check-Out':                               '42.1,17.3,82.2,10.5',
         'Cadastro Rápido de Cliente no Progr.Fidelidade Quando Não Existir':        '58.4,0.4,93,9.6',
         'Bloquear Acúmulo de Pontos do Fidelidade p/esta Empresa':                  '72.2,6.9,53.4,10',
+      },
+      'prints/cad_empresas_opcoes_coletores.png': {
+        // SagresPK
+        'Ordem dos Produtos no SagresPK':                                           '40.8,20.9,78.2,9.5',
+        'Ordem dos Grupos no SagresPK':                                             '56,22.4,76.2,9.9',
+        'Utilizar Descrição Completa de Produtos no SagresPK':                      '70.8,0.3,71.4,9.9',
       },
       'prints/cad_empresas_opcoes_recibo.png': {
         // Cabeçário da Bobina
