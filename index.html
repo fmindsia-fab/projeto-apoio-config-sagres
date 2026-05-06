@@ -61,6 +61,9 @@
       --cor-pre-venda:     #a78bfa;
       --cor-pre-venda-dim: rgba(167, 139, 250, .10);
 
+      --cor-vprazo:     #f87171;
+      --cor-vprazo-dim: rgba(248, 113, 113, .10);
+
       --sidebar-w: 272px;
       --radius-sm: 4px;
       --radius-md: 8px;
@@ -240,6 +243,7 @@
       padding: 36px 40px;
       overflow-y: auto;
       min-width: 0;
+      scroll-behavior: smooth;
     }
 
     .page-section { display: none; }
@@ -517,6 +521,11 @@
     }
     .welcome-card.pre-venda h3 { color: var(--cor-pre-venda); }
     .welcome-card.pre-venda:hover { border-color: rgba(167, 139, 250, .28); }
+    .welcome-card.vprazo::before {
+      background: linear-gradient(90deg, var(--cor-vprazo), transparent 60%);
+    }
+    .welcome-card.vprazo h3 { color: var(--cor-vprazo); }
+    .welcome-card.vprazo:hover { border-color: rgba(248, 113, 113, .28); }
 
     .nav-separator {
       margin: 10px 14px 3px;
@@ -937,6 +946,7 @@
     .nav-sub-label.orcamento  { color: var(--cor-orcamento); }
     .nav-sub-label.pedidos    { color: var(--cor-pedidos); }
     .nav-sub-label.pre-venda  { color: var(--cor-pre-venda); }
+    .nav-sub-label.vprazo     { color: var(--cor-vprazo); }
 
     /* ── HOME SECTION GROUPS ── */
     .home-group { margin-bottom: 30px; }
@@ -1015,8 +1025,34 @@
       color: var(--cor-pre-venda);
       border: 1px solid rgba(167, 139, 250, .22);
     }
+    .sys-badge.vprazo {
+      background: var(--cor-vprazo-dim);
+      color: var(--cor-vprazo);
+      border: 1px solid rgba(248, 113, 113, .22);
+    }
 
     .home-group .welcome-grid { margin-top: 0; }
+
+    /* ── HOME FILTRADO — grid unificado ── */
+    #home.home-filtered {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 11px;
+      align-items: start;
+    }
+    #home.home-filtered > .page-header,
+    #home.home-filtered > .home-tabs {
+      grid-column: 1 / -1;
+    }
+    #home.home-filtered .home-group {
+      display: contents;
+    }
+    #home.home-filtered .home-group-header {
+      display: none !important;
+    }
+    #home.home-filtered .welcome-grid {
+      display: contents;
+    }
 
     /* ── BACK TO HOME ── */
     .back-to-home {
@@ -1379,6 +1415,11 @@
           <a class="nav-item" onclick="showSection('cad-empresas-opcoes-pre-venda')">
             Opções de Pré-Venda
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Pré-Venda</span>
+          </a>
+          <div class="nav-sub-label vprazo">Vendas à Prazo</div>
+          <a class="nav-item" onclick="showSection('cad-empresas-opcoes-vendas-prazo')">
+            Opções de Vendas à Prazo
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Venda à Prazo</span>
           </a>
         </div>
       </div>
@@ -1777,6 +1818,21 @@
             <div class="icon">🛒</div>
             <h3>Opções de Pedidos</h3>
             <p>Identificação de atendente, horário de preparo, descontos, inclusão de produtos, pedidos pendentes, nível de atenção e bloqueio temporário.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grupo: Empresa — Vendas à Prazo -->
+      <div class="home-group" data-tab="vendas">
+        <div class="home-group-header">
+          <span class="sys-badge vprazo">Vendas à Prazo</span>
+          <h3>Configurações de Vendas à Prazo</h3>
+        </div>
+        <div class="welcome-grid">
+          <div class="welcome-card vprazo" onclick="showSection('cad-empresas-opcoes-vendas-prazo')">
+            <div class="icon">💳</div>
+            <h3>Opções de Vendas à Prazo</h3>
+            <p>Multa e juros por atraso no crediário, impressão de datas no cupom fiscal e restrições de crédito para clientes bloqueados.</p>
           </div>
         </div>
       </div>
@@ -8234,6 +8290,75 @@
       </div>
     </section>
 
+    <!-- ══════════════ OPÇÕES DE VENDAS À PRAZO ══════════════ -->
+    <section id="cad-empresas-opcoes-vendas-prazo" class="page-section" data-section-img="prints/cad_empresas_opcoes_vendas_prazo.png">
+      <div class="section-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções de Venda à Prazo</div>
+        <h2>Opções de Vendas à Prazo</h2>
+        <p>Configurações do módulo de crediário: multa e juros por atraso, impressão de vencimentos no cupom fiscal e restrições para clientes bloqueados ou com limite atingido.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_opcoes_vendas_prazo.png" alt="Tela Configurações da Empresa — Opções de Vendas à Prazo"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_opcoes_vendas_prazo.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções de Venda à Prazo</strong>.
+      </div>
+
+      <!-- Crediário e Juros -->
+      <div class="fields-card">
+        <div class="fields-card-header">Crediário e Juros</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Multa por Atraso no Crediário (%)</div></td>
+              <td><span class="tag tag-text">2</span></td>
+              <td>Percentual de multa aplicado automaticamente sobre o valor da parcela em atraso no crediário. Informar o valor em percentual (ex.: 2 para 2%).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Juros ao Dia por Atraso no Crediário (%)</div></td>
+              <td><span class="tag tag-text">0,066</span></td>
+              <td>Percentual de juros diários cobrados sobre parcelas em atraso no crediário. Informar o valor diário em percentual (ex.: 0,066 equivale a ~2% ao mês).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Datas de Vencimento no Cupom Fiscal</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, as datas de vencimento das parcelas do crediário são impressas no cupom fiscal no momento da venda.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Restrições de Crédito -->
+      <div class="fields-card">
+        <div class="fields-card-header">Restrições de Crédito</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Como Tratar Cliente Bloqueado no Crediário</div></td>
+              <td><span class="tag tag-opt">2-Não Permitir</span></td>
+              <td>Define o comportamento do sistema ao tentar realizar uma venda a prazo para um cliente bloqueado no crediário. As opções variam entre alertar, exigir senha ou bloquear completamente.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Como Tratar Cliente c/Limite de Crédito Atingido</div></td>
+              <td><span class="tag tag-opt">2-Não Permitir</span></td>
+              <td>Define o comportamento do sistema ao tentar realizar uma venda a prazo para um cliente que já atingiu seu limite de crédito. Pode alertar, exigir autorização ou bloquear a operação.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <!-- ══════════════ MODAL EXIBIR NA TELA ══════════════ -->
@@ -8302,7 +8427,8 @@
       'cad-empresas-opcoes-mesas-2': 'Opções de Mesas (2)',
       'cad-empresas-opcoes-orcamento': 'Opções de Orçamento',
       'cad-empresas-opcoes-pedidos': 'Opções de Pedidos',
-      'cad-empresas-opcoes-pre-venda': 'Opções de Pré-Venda'
+      'cad-empresas-opcoes-pre-venda': 'Opções de Pré-Venda',
+      'cad-empresas-opcoes-vendas-prazo': 'Opções de Vendas à Prazo'
     };
 
     function switchSystem(system) {
@@ -8323,15 +8449,51 @@
       titleEl.closest('.nav-section').classList.toggle('collapsed');
     }
 
+    function backToHome() {
+      document.querySelectorAll('.page-section:not(#home)').forEach(s => s.classList.remove('visible'));
+      document.querySelectorAll('.nav-item').forEach(a => a.classList.remove('active'));
+      document.getElementById('home').classList.add('visible');
+      document.querySelector('.home-tabs').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
     function showHomeTab(tab) {
       document.querySelectorAll('.home-tab').forEach(t => t.classList.remove('active'));
       document.querySelector('.home-tab[data-tab="' + tab + '"]').classList.add('active');
+      const home = document.getElementById('home');
+      if (tab === 'tudo') {
+        home.classList.remove('home-filtered');
+      } else {
+        home.classList.add('home-filtered');
+      }
       document.querySelectorAll('.home-group').forEach(g => {
         g.style.display = (tab === 'tudo' || g.dataset.tab === tab) ? '' : 'none';
       });
     }
 
     function showSection(id) {
+      const homeVisible = document.getElementById('home').classList.contains('visible');
+
+      // ── MODO PREVIEW: chamado da home → mantém home + rola até a seção ──
+      if (homeVisible && id !== 'home') {
+        document.querySelectorAll('.page-section:not(#home)').forEach(s => s.classList.remove('visible'));
+        const sec = document.getElementById(id);
+        if (sec) {
+          sec.classList.add('visible');
+          setTimeout(() => sec.scrollIntoView({ behavior: 'smooth', block: 'start' }), 30);
+        }
+        document.querySelectorAll('#nav-normal .nav-item').forEach(a => {
+          a.classList.remove('active');
+          if (a.getAttribute('onclick') && a.getAttribute('onclick').includes(id)) {
+            a.classList.add('active');
+            const navSection = a.closest('.nav-section');
+            if (navSection) navSection.classList.remove('collapsed');
+          }
+        });
+        switchSystem('gestao');
+        return;
+      }
+
+      // ── NAVEGAÇÃO NORMAL: chamado do menu lateral ou do botão Voltar ──
       document.querySelectorAll('.page-section').forEach(s => s.classList.remove('visible'));
       document.querySelectorAll('.nav-item').forEach(a => a.classList.remove('active'));
       const sec = document.getElementById(id);
@@ -8339,13 +8501,11 @@
       document.querySelectorAll('#nav-normal .nav-item').forEach(a => {
         if (a.getAttribute('onclick') && a.getAttribute('onclick').includes(id)) {
           a.classList.add('active');
-          // auto-expande a seção pai
           const navSection = a.closest('.nav-section');
           if (navSection) navSection.classList.remove('collapsed');
         }
       });
-      document.getElementById('main').scrollTop = 0;
-      // garante aba Gestão ativa ao navegar por seções do Gestão
+      document.getElementById('main').scrollTo({ top: 0, behavior: 'smooth' });
       if (id !== 'home') switchSystem('gestao');
     }
 
@@ -9111,6 +9271,15 @@
         'Ao Realizar Redução Z, Checar Pré-Vendas Pendentes Apenas no Concentrador': '41.3,0.9,97.8,13.6',
         'Ao Realizar Redução Z, Recriar Pré-Vendas Pendentes e Canceladas':          '61.5,12.2,86.6,14.1',
       },
+      'prints/cad_empresas_opcoes_vendas_prazo.png': {
+        // Crediário e Juros
+        'Multa por Atraso no Crediário (%)':                                        '25.3,19.3,60.9,8.8',
+        'Juros ao Dia por Atraso no Crediário (%)':                                 '38.1,10.7,69.4,8.8',
+        'Imprimir Datas de Vencimento no Cupom Fiscal':                             '51.2,2.8,79.5,8',
+        // Restrições de Crédito
+        'Como Tratar Cliente Bloqueado no Crediário':                               '63.5,6.3,92.2,8',
+        'Como Tratar Cliente c/Limite de Crédito Atingido':                         '76.5,1,97.4,7.5',
+      },
       'prints/cad_empresas_opcoes_recibo.png': {
         // Cabeçário da Bobina
         'Mensagem do Cabeçário da Bobina (Linha 01)':                               '14.8,11.5,87.7,6',
@@ -9384,7 +9553,7 @@
       document.querySelectorAll('.page-section:not(#home)').forEach(sec => {
         const bar = document.createElement('div');
         bar.className = 'back-to-home';
-        bar.innerHTML = '<button onclick="showSection(\'home\')">← Voltar à Tela Inicial</button>';
+        bar.innerHTML = '<button onclick="backToHome()">← Voltar à Tela Inicial</button>';
         sec.appendChild(bar);
       });
     });
