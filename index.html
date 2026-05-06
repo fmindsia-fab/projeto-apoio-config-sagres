@@ -1429,6 +1429,10 @@
             Opções de Contra-Vales
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Contra-Vales</span>
           </a>
+          <a class="nav-item" onclick="showSection('cad-empresas-opcoes-caixinha')">
+            Opções de Caixinha
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Caixinha</span>
+          </a>
         </div>
       </div>
     </div>
@@ -1851,6 +1855,11 @@
             <div class="icon">🎟️</div>
             <h3>Opções de Contra-Vales</h3>
             <p>Impressão de contra-vales, restrição para tickets e impressão automática ou como relatório gerencial.</p>
+          </div>
+          <div class="welcome-card vprazo" onclick="showSection('cad-empresas-opcoes-caixinha')">
+            <div class="icon">💰</div>
+            <h3>Opções de Caixinha</h3>
+            <p>Ativação do módulo Caixinha e configuração da mensagem de troco como caixinha nas Mesas e no Atendimento Identificado.</p>
           </div>
         </div>
       </div>
@@ -8533,6 +8542,54 @@
       </div>
     </section>
 
+    <section id="cad-empresas-opcoes-caixinha" class="page-section" data-section-img="prints/cad_empresas_opcoes_caixinha.png">
+      <div class="section-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções de Caixinha</div>
+        <h2>Opções de Caixinha</h2>
+        <p>Ativação do módulo Caixinha e configuração do comportamento da mensagem de troco como caixinha no contexto de Mesas e Atendimento Identificado.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_opcoes_caixinha.png" alt="Tela Configurações da Empresa — Opções de Caixinha"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_opcoes_caixinha.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções de Caixinha</strong>.
+      </div>
+
+      <!-- Caixinha -->
+      <div class="fields-card">
+        <div class="fields-card-header">Caixinha</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Utilizar Caixinha</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Habilita o módulo de Caixinha no sistema. Quando ativado, libera as demais opções relacionadas ao comportamento do troco como caixinha.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem de Troco Como Caixinha nas Mesas</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, exibe uma mensagem ao operador sugerindo usar o troco como caixinha no contexto de atendimento por Mesas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem de Troco Como Caixinha no At.Id.:</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, exibe uma mensagem ao operador sugerindo usar o troco como caixinha no contexto de Atendimento Identificado.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <!-- ══════════════ MODAL EXIBIR NA TELA ══════════════ -->
@@ -8604,7 +8661,8 @@
       'cad-empresas-opcoes-pre-venda': 'Opções de Pré-Venda',
       'cad-empresas-opcoes-vendas-prazo': 'Opções de Vendas à Prazo',
       'cad-empresas-opcoes-conta-assinada': 'Opções de Conta Assinada',
-      'cad-empresas-opcoes-contra-vales': 'Opções de Contra-Vales'
+      'cad-empresas-opcoes-contra-vales': 'Opções de Contra-Vales',
+      'cad-empresas-opcoes-caixinha': 'Opções de Caixinha'
     };
 
     function switchSystem(system) {
@@ -9477,6 +9535,12 @@
         'Contra-Vales Apenas Para Tickets':                                         '43.7,36.1,62.3,9.5',
         'Impressão Automática de Contra-Vales':                                     '58.4,29.9,68.6,9.5',
         'Impressão de Contra-Vales Sempre Como Relatório Gerencial':                '73.7,0.9,97.4,8.6',
+      },
+      'prints/cad_empresas_opcoes_caixinha.png': {
+        // Caixinha
+        'Utilizar Caixinha':                                                        '33.9,49.3,49.3,11.4',
+        'Mensagem de Troco Como Caixinha nas Mesas':                                '51.4,0.6,97.8,10.4',
+        'Mensagem de Troco Como Caixinha no At.Id.:':                               '68.2,4.5,93.7,10.7',
       },
       'prints/cad_empresas_opcoes_recibo.png': {
         // Cabeçário da Bobina
