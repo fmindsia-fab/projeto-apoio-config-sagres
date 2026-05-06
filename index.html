@@ -52,6 +52,9 @@
       --cor-atid:         #f472b6;
       --cor-atid-dim:     rgba(244, 114, 182, .10);
 
+      --cor-orcamento:     #34d399;
+      --cor-orcamento-dim: rgba(52, 211, 153, .10);
+
       --sidebar-w: 272px;
       --radius-sm: 4px;
       --radius-md: 8px;
@@ -493,6 +496,12 @@
     .welcome-card.atid h3 { color: var(--cor-atid); }
     .welcome-card.atid:hover { border-color: rgba(244, 114, 182, .28); }
 
+    .welcome-card.orcamento::before {
+      background: linear-gradient(90deg, var(--cor-orcamento), transparent 60%);
+    }
+    .welcome-card.orcamento h3 { color: var(--cor-orcamento); }
+    .welcome-card.orcamento:hover { border-color: rgba(52, 211, 153, .28); }
+
     .nav-separator {
       margin: 10px 14px 3px;
       border: none;
@@ -906,9 +915,10 @@
       padding: 10px 14px 2px 20px;
       opacity: .65;
     }
-    .nav-sub-label.entregas { color: var(--cor-entregas); }
-    .nav-sub-label.mesas    { color: var(--cor-mesas); }
-    .nav-sub-label.atid     { color: var(--cor-atid); }
+    .nav-sub-label.entregas   { color: var(--cor-entregas); }
+    .nav-sub-label.mesas      { color: var(--cor-mesas); }
+    .nav-sub-label.atid       { color: var(--cor-atid); }
+    .nav-sub-label.orcamento  { color: var(--cor-orcamento); }
 
     /* ── HOME SECTION GROUPS ── */
     .home-group { margin-bottom: 30px; }
@@ -971,6 +981,11 @@
       background: var(--cor-atid-dim);
       color: var(--cor-atid);
       border: 1px solid rgba(244, 114, 182, .22);
+    }
+    .sys-badge.orcamento {
+      background: var(--cor-orcamento-dim);
+      color: var(--cor-orcamento);
+      border: 1px solid rgba(52, 211, 153, .22);
     }
 
     .home-group .welcome-grid { margin-top: 0; }
@@ -1264,6 +1279,11 @@
           <a class="nav-item" onclick="showSection('cad-empresas-opcoes-atid-2')">
             Opções de Atendimento c/ Identificação (2)
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Atendimento c/ Identificação (2)</span>
+          </a>
+          <div class="nav-sub-label orcamento">Orçamentos</div>
+          <a class="nav-item" onclick="showSection('cad-empresas-opcoes-orcamento')">
+            Opções de Orçamento
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Orçamento</span>
           </a>
         </div>
       </div>
@@ -1621,6 +1641,21 @@
             <div class="icon">👤</div>
             <h3>Opções de Atendimento c/ Identificação (2)</h3>
             <p>Sub-identificação, fidelidade, cadastro rápido, produto padrão, restrição de taxa de serviço e outras opções complementares.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grupo: Empresa — Orçamentos -->
+      <div class="home-group">
+        <div class="home-group-header">
+          <span class="sys-badge orcamento">Orçamentos</span>
+          <h3>Configurações de Orçamentos</h3>
+        </div>
+        <div class="welcome-grid">
+          <div class="welcome-card orcamento" onclick="showSection('cad-empresas-opcoes-orcamento')">
+            <div class="icon">📋</div>
+            <h3>Opções de Orçamento</h3>
+            <p>Orçamento como entrega, descontos, atendente, fidelidade, forma de pagamento, lançamentos, transferências e flexibilização.</p>
           </div>
         </div>
       </div>
@@ -7812,6 +7847,119 @@
       </div>
     </section>
 
+    <section id="cad-empresas-opcoes-orcamento" class="page-section" data-section-img="prints/cad_empresas_opcoes_orcamento.png">
+      <div class="page-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções de Orçamento</div>
+        <h2>Opções de Orçamento</h2>
+        <p>Configurações do módulo de orçamentos: vinculação com entregas, descontos, identificação de atendente, fidelidade, impressão, forma de pagamento, lançamentos, transferências e flexibilização.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_opcoes_orcamento.png" alt="Tela Configurações da Empresa — Opções de Orçamento"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_opcoes_orcamento.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções de Orçamento</strong>.
+      </div>
+
+      <!-- Identificação e Descontos -->
+      <div class="fields-card">
+        <div class="fields-card-header">Identificação e Descontos</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Orçamento como Entrega</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, trata os orçamentos da mesma forma que uma entrega, aplicando as regras e fluxos do módulo de entregas ao fechar o orçamento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Desconto Padrão</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Permite aplicar automaticamente o desconto padrão configurado para o cliente ou produto ao criar um orçamento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Identificar Atendente</div></td>
+              <td><span class="tag tag-opt">Sim</span></td>
+              <td>Exige que o atendente seja identificado ao abrir ou fechar um orçamento, vinculando o registro ao funcionário responsável.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Exibir NºPontos Fidelidade</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Exibe a quantidade de pontos de fidelidade acumulados pelo cliente durante a tela de orçamento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Dados do Cliente no Local de Impressão</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Inclui os dados do cliente (nome, endereço, etc.) na impressão enviada ao local de impressão configurado.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Lançamentos -->
+      <div class="fields-card">
+        <div class="fields-card-header">Lançamentos</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Digitar Forma Pagto (Valido Apenas p/Orçamento como Entrega)</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Permite informar a forma de pagamento diretamente no orçamento, válido apenas quando "Orçamento como Entrega" está ativado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Exibir Qtd.Ítens na Tela de Lançamentos</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Exibe a quantidade total de ítens do orçamento na tela de lançamentos, facilitando o controle visual do pedido.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Habilitar Campo Desconto</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Habilita o campo de desconto na tela de lançamentos do orçamento, permitindo que o operador informe descontos por item.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Habilitar Campo Qtde</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Habilita o campo de quantidade na tela de lançamentos do orçamento, permitindo alterar a quantidade de cada item diretamente.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Transferências e Flexibilização -->
+      <div class="fields-card">
+        <div class="fields-card-header">Transferências e Flexibilização</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Transferir Entregas p/Orçamentos</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Permite converter pedidos de entrega em orçamentos, mantendo os ítens e dados do cliente.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Transferir Orçamentos p/Entregas</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Permite converter orçamentos em pedidos de entrega, agilizando o fluxo quando o cliente aprova o orçamento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Flexibilizar Orçamentos</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Ativa um modo mais flexível para edição e aprovação de orçamentos, permitindo ajustes de preço e condições fora dos padrões configurados.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <!-- ══════════════ MODAL EXIBIR NA TELA ══════════════ -->
@@ -7877,7 +8025,8 @@
       'cad-empresas-opcoes-atid': 'Opções de Atendimento c/ Identificação',
       'cad-empresas-opcoes-atid-2': 'Opções de Atendimento c/ Identificação (2)',
       'cad-empresas-opcoes-mesas': 'Opções de Mesas',
-      'cad-empresas-opcoes-mesas-2': 'Opções de Mesas (2)'
+      'cad-empresas-opcoes-mesas-2': 'Opções de Mesas (2)',
+      'cad-empresas-opcoes-orcamento': 'Opções de Orçamento'
     };
 
     function switchSystem(system) {
@@ -8642,6 +8791,23 @@
         'Exibir Nº de Pessoas na Tela Principal das Mesas':                        '31.9,51.2,47.7,13',
         'Atribuir Código Fidelidade do Cliente nas Mesas':                         '50.8,3.5,69.5,11.9',
         'Utilizar Conceito de "Praça" nas Mesas':                                  '68.1,9.6,41.2,10.8',
+      },
+      'prints/cad_empresas_opcoes_orcamento.png': {
+        // Identificação e Descontos
+        'Orçamento como Entrega':                                                   '15.1,30.4,30.8,5.5',
+        'Permitir Desconto Padrão':                                                 '22.6,30.1,31.4,5.8',
+        'Identificar Atendente':                                                    '30.8,33.9,44.1,5.5',
+        'Exibir NºPontos Fidelidade':                                               '38.5,29.3,32,5.3',
+        'Imprimir Dados do Cliente no Local de Impressão':                          '46.2,11.8,49.5,5.5',
+        // Lançamentos
+        'Digitar Forma Pagto (Valido Apenas p/Orçamento como Entrega)':             '53.8,0.8,73.1,5.8',
+        'Exibir Qtd.Ítens na Tela de Lançamentos':                                  '61.5,18.5,43,5.8',
+        'Habilitar Campo Desconto':                                                 '69.7,29.7,31.8,4.8',
+        'Habilitar Campo Qtde':                                                     '69.7,61.9,27.8,5',
+        // Transferências e Flexibilização
+        'Transferir Entregas p/Orçamentos':                                         '77.9,23.6,37.7,5',
+        'Transferir Orçamentos p/Entregas':                                         '77.4,61.9,37,5.3',
+        'Flexibilizar Orçamentos':                                                  '85.1,31.4,29.9,5.3',
       },
       'prints/cad_empresas_opcoes_recibo.png': {
         // Cabeçário da Bobina
