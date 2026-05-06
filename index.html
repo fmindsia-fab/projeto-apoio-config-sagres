@@ -1446,6 +1446,11 @@
             Opções de Preços
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Preço</span>
           </a>
+          <div class="nav-sub-label vprazo">Fidelidade</div>
+          <a class="nav-item" onclick="showSection('cad-empresas-opcoes-fidelidade')">
+            Opções de Programa de Fidelidade
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Programa de Fidelidade</span>
+          </a>
         </div>
       </div>
     </div>
@@ -1898,6 +1903,21 @@
             <div class="icon">🏷️</div>
             <h3>Opções de Preços</h3>
             <p>Tabelas de preços por contexto, preço promocional, faixa horária, promoção de produto grátis e desconto máximo permitido.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grupo: Empresa — Fidelidade -->
+      <div class="home-group" data-tab="vendas">
+        <div class="home-group-header">
+          <span class="sys-badge vprazo">Fidelidade</span>
+          <h3>Configurações de Fidelidade</h3>
+        </div>
+        <div class="welcome-grid">
+          <div class="welcome-card vprazo" onclick="showSection('cad-empresas-opcoes-fidelidade')">
+            <div class="icon">⭐</div>
+            <h3>Opções de Programa de Fidelidade</h3>
+            <p>Identificação de cliente para fidelidade no At.Identificado e Check-Out, cadastro rápido e bloqueio de acúmulo de pontos por empresa.</p>
           </div>
         </div>
       </div>
@@ -8932,6 +8952,59 @@
       </div>
     </section>
 
+    <section id="cad-empresas-opcoes-fidelidade" class="page-section" data-section-img="prints/cad_empresas_opcoes_fidelidade.png">
+      <div class="section-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções de Programa de Fidelidade</div>
+        <h2>Opções de Programa de Fidelidade</h2>
+        <p>Configurações do programa de fidelidade por empresa: comportamento de identificação do cliente no At.Identificado e no Check-Out, cadastro rápido e bloqueio de acúmulo de pontos.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_opcoes_fidelidade.png" alt="Tela Configurações da Empresa — Opções de Programa de Fidelidade"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_opcoes_fidelidade.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções de Programa de Fidelidade</strong>.
+      </div>
+
+      <!-- Programa de Fidelidade -->
+      <div class="fields-card">
+        <div class="fields-card-header">Programa de Fidelidade</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Informar Cliente p/Fidelidade no At.Identificado</div></td>
+              <td><span class="tag tag-opt">0-Não informar</span></td>
+              <td>Define se o sistema solicita a identificação do cliente para fins de fidelidade ao abrir um atendimento identificado. As opções controlam se a informação é obrigatória, opcional ou não solicitada.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Informar Cliente p/Fidelidade no Check-Out</div></td>
+              <td><span class="tag tag-opt">0-Não informar</span></td>
+              <td>Define se o sistema solicita a identificação do cliente para fins de fidelidade no momento do Check-Out. As opções controlam se a informação é obrigatória, opcional ou não solicitada.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Cadastro Rápido de Cliente no Progr.Fidelidade Quando Não Existir</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Quando ativado, o sistema oferece a opção de realizar o cadastro rápido de um novo cliente no programa de fidelidade caso ele não seja encontrado na base de dados.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Bloquear Acúmulo de Pontos do Fidelidade p/esta Empresa</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, impede que vendas realizadas nesta empresa gerem acúmulo de pontos no programa de fidelidade, independentemente das configurações globais.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <!-- ══════════════ MODAL EXIBIR NA TELA ══════════════ -->
@@ -9007,7 +9080,8 @@
       'cad-empresas-opcoes-caixinha': 'Opções de Caixinha',
       'cad-empresas-opcoes-balanca': 'Opções de Balança',
       'cad-empresas-opcoes-biometria': 'Opções de Biometria',
-      'cad-empresas-opcoes-precos': 'Opções de Preços'
+      'cad-empresas-opcoes-precos': 'Opções de Preços',
+      'cad-empresas-opcoes-fidelidade': 'Opções de Programa de Fidelidade'
     };
 
     function switchSystem(system) {
@@ -9932,6 +10006,13 @@
         'Utilizar Desconto Máximo Permitido':                                       '85.2,13.1,35.9,3.9',
         'Desconto Máximo Permitido (%)':                                            '85.4,49.3,32.4,3.9',
         'Utilizar Lógica de Promoção de Quantidade p/Produtos':                     '90.3,0.7,69.1,3.9',
+      },
+      'prints/cad_empresas_opcoes_fidelidade.png': {
+        // Programa de Fidelidade
+        'Informar Cliente p/Fidelidade no At.Identificado':                         '28.2,14.6,84.6,10',
+        'Informar Cliente p/Fidelidade no Check-Out':                               '42.1,17.3,82.2,10.5',
+        'Cadastro Rápido de Cliente no Progr.Fidelidade Quando Não Existir':        '58.4,0.4,93,9.6',
+        'Bloquear Acúmulo de Pontos do Fidelidade p/esta Empresa':                  '72.2,6.9,53.4,10',
       },
       'prints/cad_empresas_opcoes_recibo.png': {
         // Cabeçário da Bobina
