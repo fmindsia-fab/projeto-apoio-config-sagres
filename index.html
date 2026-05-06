@@ -55,6 +55,9 @@
       --cor-orcamento:     #34d399;
       --cor-orcamento-dim: rgba(52, 211, 153, .10);
 
+      --cor-pedidos:     #38bdf8;
+      --cor-pedidos-dim: rgba(56, 189, 248, .10);
+
       --sidebar-w: 272px;
       --radius-sm: 4px;
       --radius-md: 8px;
@@ -501,6 +504,11 @@
     }
     .welcome-card.orcamento h3 { color: var(--cor-orcamento); }
     .welcome-card.orcamento:hover { border-color: rgba(52, 211, 153, .28); }
+    .welcome-card.pedidos::before {
+      background: linear-gradient(90deg, var(--cor-pedidos), transparent 60%);
+    }
+    .welcome-card.pedidos h3 { color: var(--cor-pedidos); }
+    .welcome-card.pedidos:hover { border-color: rgba(56, 189, 248, .28); }
 
     .nav-separator {
       margin: 10px 14px 3px;
@@ -919,6 +927,7 @@
     .nav-sub-label.mesas      { color: var(--cor-mesas); }
     .nav-sub-label.atid       { color: var(--cor-atid); }
     .nav-sub-label.orcamento  { color: var(--cor-orcamento); }
+    .nav-sub-label.pedidos    { color: var(--cor-pedidos); }
 
     /* ── HOME SECTION GROUPS ── */
     .home-group { margin-bottom: 30px; }
@@ -986,6 +995,11 @@
       background: var(--cor-orcamento-dim);
       color: var(--cor-orcamento);
       border: 1px solid rgba(52, 211, 153, .22);
+    }
+    .sys-badge.pedidos {
+      background: var(--cor-pedidos-dim);
+      color: var(--cor-pedidos);
+      border: 1px solid rgba(56, 189, 248, .22);
     }
 
     .home-group .welcome-grid { margin-top: 0; }
@@ -1284,6 +1298,11 @@
           <a class="nav-item" onclick="showSection('cad-empresas-opcoes-orcamento')">
             Opções de Orçamento
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Orçamento</span>
+          </a>
+          <div class="nav-sub-label pedidos">Pedidos</div>
+          <a class="nav-item" onclick="showSection('cad-empresas-opcoes-pedidos')">
+            Opções de Pedidos
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Pedidos</span>
           </a>
         </div>
       </div>
@@ -1656,6 +1675,21 @@
             <div class="icon">📋</div>
             <h3>Opções de Orçamento</h3>
             <p>Orçamento como entrega, descontos, atendente, fidelidade, forma de pagamento, lançamentos, transferências e flexibilização.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grupo: Empresa — Pedidos -->
+      <div class="home-group">
+        <div class="home-group-header">
+          <span class="sys-badge pedidos">Pedidos</span>
+          <h3>Configurações de Pedidos</h3>
+        </div>
+        <div class="welcome-grid">
+          <div class="welcome-card pedidos" onclick="showSection('cad-empresas-opcoes-pedidos')">
+            <div class="icon">🛒</div>
+            <h3>Opções de Pedidos</h3>
+            <p>Identificação de atendente, horário de preparo, descontos, inclusão de produtos, pedidos pendentes, nível de atenção e bloqueio temporário.</p>
           </div>
         </div>
       </div>
@@ -7960,6 +7994,100 @@
       </div>
     </section>
 
+    <!-- ══════════════ OPÇÕES DE PEDIDOS ══════════════ -->
+    <section id="cad-empresas-opcoes-pedidos" class="page-section" data-section-img="prints/cad_empresas_opcoes_pedidos.png">
+      <div class="section-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções de Pedidos</div>
+        <h2>Opções de Pedidos</h2>
+        <p>Configurações do módulo de pedidos: identificação de atendente, horário de preparo, descontos, inclusão de novos produtos, lógica de pedidos pendentes, nível de atenção e bloqueio temporário.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_opcoes_pedidos.png" alt="Tela Configurações da Empresa — Opções de Pedidos"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_opcoes_pedidos.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções de Pedidos</strong>.
+      </div>
+
+      <!-- Recebimento de Pedidos -->
+      <div class="fields-card">
+        <div class="fields-card-header">Recebimento de Pedidos</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Identificar Atendente ao Receber os Pedidos</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, exige que o atendente seja identificado no momento de receber um pedido, vinculando o registro ao funcionário responsável.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Definir Horário Final Preparo dos Produtos (tecla Alt+H)</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Habilita a definição de um horário limite para o preparo dos produtos no pedido. Pode ser acionado pela tecla Alt+H durante o recebimento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Descontos Ao Receber Pedidos Que Possuam Tx.Serviço</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Permite aplicar descontos ao receber pedidos que já possuam taxa de serviço lançada. Quando desativado, o desconto é bloqueado nesses casos.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir a Inclusão de Novos Produtos Quando Pgto On Line Integral</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Permite incluir novos itens no pedido mesmo quando o pagamento online integral já foi processado. Desativar impede alterações após o pagamento.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pedidos Pendentes e Atenção -->
+      <div class="fields-card">
+        <div class="fields-card-header">Pedidos Pendentes e Atenção</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Logica p/Pedidos Pendentes (para entregas)</div></td>
+              <td><span class="tag tag-opt">0-Não permitir</span></td>
+              <td>Define o comportamento do sistema diante de pedidos de entrega pendentes. As opções determinam se o sistema bloqueia, alerta ou ignora a pendência ao iniciar novas operações.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Nível de Atenção nos Pedidos</div></td>
+              <td><span class="tag tag-opt">0-Não utilizar</span></td>
+              <td>Configura o grau de alerta exibido ao operador sobre pedidos que requerem atenção especial. Útil para sinalizar pedidos críticos ou em atraso.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Bloqueio e Adiantamentos -->
+      <div class="fields-card">
+        <div class="fields-card-header">Bloqueio e Adiantamentos</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Checar Bloqueio Temporário do Pedido</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Faz o PDV exibir uma mensagem de advertência quando o pedido está aberto em outro terminal de lançamento, provocando um bloqueio temporário. Para funcionar, deve ser configurado também nos programas que controlam os coletores de pedidos.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Usar Forma de Pagto Original nos Adiantamentos</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, os adiantamentos utilizarão a forma de pagamento original registrada no pedido, em vez de permitir a seleção de uma nova forma de pagamento.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <!-- ══════════════ MODAL EXIBIR NA TELA ══════════════ -->
@@ -8026,7 +8154,8 @@
       'cad-empresas-opcoes-atid-2': 'Opções de Atendimento c/ Identificação (2)',
       'cad-empresas-opcoes-mesas': 'Opções de Mesas',
       'cad-empresas-opcoes-mesas-2': 'Opções de Mesas (2)',
-      'cad-empresas-opcoes-orcamento': 'Opções de Orçamento'
+      'cad-empresas-opcoes-orcamento': 'Opções de Orçamento',
+      'cad-empresas-opcoes-pedidos': 'Opções de Pedidos'
     };
 
     function switchSystem(system) {
@@ -8808,6 +8937,19 @@
         'Transferir Entregas p/Orçamentos':                                         '77.9,23.6,37.7,5',
         'Transferir Orçamentos p/Entregas':                                         '77.4,61.9,37,5.3',
         'Flexibilizar Orçamentos':                                                  '85.1,31.4,29.9,5.3',
+      },
+      'prints/cad_empresas_opcoes_pedidos.png': {
+        // Recebimento de Pedidos
+        'Identificar Atendente ao Receber os Pedidos':                              '28.5,17.4,58.4,5.6',
+        'Permitir Definir Horário Final Preparo dos Produtos (tecla Alt+H)':        '36,3,57.6,6.1',
+        'Permitir Descontos Ao Receber Pedidos Que Possuam Tx.Serviço':             '44.3,2.7,57.6,5.6',
+        'Permitir a Inclusão de Novos Produtos Quando Pgto On Line Integral':       '52.3,0.1,60.1,5.6',
+        // Pedidos Pendentes e Atenção
+        'Logica p/Pedidos Pendentes (para entregas)':                               '59.7,18,81.5,6.4',
+        'Nível de Atenção nos Pedidos':                                             '68.3,28.4,70.9,6.1',
+        // Bloqueio e Adiantamentos
+        'Checar Bloqueio Temporário do Pedido':                                     '76.3,21.2,77.8,5.9',
+        'Usar Forma de Pagto Original nos Adiantamentos':                           '85.1,14.2,46.1,5.3',
       },
       'prints/cad_empresas_opcoes_recibo.png': {
         // Cabeçário da Bobina
