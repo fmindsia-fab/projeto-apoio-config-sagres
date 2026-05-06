@@ -1252,6 +1252,10 @@
             Opções de Mesas
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Mesas</span>
           </a>
+          <a class="nav-item" onclick="showSection('cad-empresas-opcoes-mesas-2')">
+            Opções de Mesas (2)
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Mesas (2)</span>
+          </a>
           <div class="nav-sub-label atid">Atendimento c/ Identificação</div>
           <a class="nav-item" onclick="showSection('cad-empresas-opcoes-atid')">
             Opções de Atendimento c/ Identificação
@@ -1592,6 +1596,11 @@
             <div class="icon">🍽️</div>
             <h3>Opções de Mesas</h3>
             <p>Identificação, descontos, gasto máximo, consumação mínima, taxa de serviço, bloqueio, transferência e sub-identificação de mesas.</p>
+          </div>
+          <div class="welcome-card mesas" onclick="showSection('cad-empresas-opcoes-mesas-2')">
+            <div class="icon">🍽️</div>
+            <h3>Opções de Mesas (2)</h3>
+            <p>Sub-identificação na tela principal, número de pessoas, fidelidade e conceito de praça.</p>
           </div>
         </div>
       </div>
@@ -7750,6 +7759,59 @@
       </div>
     </section>
 
+    <section id="cad-empresas-opcoes-mesas-2" class="page-section" data-section-img="prints/cad_empresas_opcoes_mesas_2.png">
+      <div class="page-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções de Mesas (2)</div>
+        <h2>Opções de Mesas (2)</h2>
+        <p>Configurações complementares do módulo de mesas: exibição de sub-identificação e número de pessoas na tela principal, fidelidade e conceito de praça.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_opcoes_mesas_2.png" alt="Tela Configurações da Empresa — Opções de Mesas (2)"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_opcoes_mesas_2.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções de Mesas (2)</strong>.
+      </div>
+
+      <!-- Configurações Adicionais de Mesas -->
+      <div class="fields-card">
+        <div class="fields-card-header">Configurações Adicionais de Mesas</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Exibir Sub-Identificação na Tela Principal das Mesas</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Exibe o campo de sub-identificação diretamente na tela principal de gerenciamento das mesas, sem precisar abrir o detalhamento da mesa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Exibir Nº de Pessoas na Tela Principal das Mesas</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Exibe o número de pessoas informado diretamente na tela principal de mesas, facilitando a visualização da ocupação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Atribuir Código Fidelidade do Cliente nas Mesas</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Vincula automaticamente o código de fidelidade do cliente identificado ao fechar ou receber a mesa, acumulando pontos no programa de fidelidade.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Utilizar Conceito de "Praça" nas Mesas</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Ativa o conceito de praça (área ou setor do estabelecimento) para organizar as mesas em grupos, útil para ambientes com múltiplos salões ou áreas de atendimento.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <!-- ══════════════ MODAL EXIBIR NA TELA ══════════════ -->
@@ -7814,7 +7876,8 @@
       'cad-empresas-opcoes-entregas-msg-operador': 'Opções de Entregas — Mensagem para Operador',
       'cad-empresas-opcoes-atid': 'Opções de Atendimento c/ Identificação',
       'cad-empresas-opcoes-atid-2': 'Opções de Atendimento c/ Identificação (2)',
-      'cad-empresas-opcoes-mesas': 'Opções de Mesas'
+      'cad-empresas-opcoes-mesas': 'Opções de Mesas',
+      'cad-empresas-opcoes-mesas-2': 'Opções de Mesas (2)'
     };
 
     function switchSystem(system) {
@@ -8572,6 +8635,13 @@
         'Utilizar Sub-Identificação nas Mesas':                                    '85.7,6.5,48.4,3.8',
         'Permitir Selecionar Tabela de Preços nas Mesas':                          '90.2,0.4,34.1,3.3',
         'Exibir Tela de Troco Após Receber Mesa':                                  '90,34.9,46.5,4',
+      },
+      'prints/cad_empresas_opcoes_mesas_2.png': {
+        // Configurações Adicionais de Mesas
+        'Exibir Sub-Identificação na Tela Principal das Mesas':                    '34.1,0.3,50.5,10.8',
+        'Exibir Nº de Pessoas na Tela Principal das Mesas':                        '31.9,51.2,47.7,13',
+        'Atribuir Código Fidelidade do Cliente nas Mesas':                         '50.8,3.5,69.5,11.9',
+        'Utilizar Conceito de "Praça" nas Mesas':                                  '68.1,9.6,41.2,10.8',
       },
       'prints/cad_empresas_opcoes_recibo.png': {
         // Cabeçário da Bobina
