@@ -1425,6 +1425,10 @@
             Opções de Conta Assinada
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Conta Assinada</span>
           </a>
+          <a class="nav-item" onclick="showSection('cad-empresas-opcoes-contra-vales')">
+            Opções de Contra-Vales
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Contra-Vales</span>
+          </a>
         </div>
       </div>
     </div>
@@ -1842,6 +1846,11 @@
             <div class="icon">📋</div>
             <h3>Opções de Conta Assinada</h3>
             <p>Restrições de acesso, comportamento de conta assinada parcial, verificação em pedidos e mensagem adicional para bobina.</p>
+          </div>
+          <div class="welcome-card vprazo" onclick="showSection('cad-empresas-opcoes-contra-vales')">
+            <div class="icon">🎟️</div>
+            <h3>Opções de Contra-Vales</h3>
+            <p>Impressão de contra-vales, restrição para tickets e impressão automática ou como relatório gerencial.</p>
           </div>
         </div>
       </div>
@@ -8471,6 +8480,59 @@
       </div>
     </section>
 
+    <section id="cad-empresas-opcoes-contra-vales" class="page-section" data-section-img="prints/cad_empresas_opcoes_contra_vales.png">
+      <div class="section-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções de Contra-Vales</div>
+        <h2>Opções de Contra-Vales</h2>
+        <p>Configurações de impressão dos contra-vales: ativação, restrição para tickets e comportamento de impressão automática ou como relatório gerencial.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_opcoes_contra_vales.png" alt="Tela Configurações da Empresa — Opções de Contra-Vales"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_opcoes_contra_vales.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções de Contra-Vales</strong>.
+      </div>
+
+      <!-- Contra-Vales -->
+      <div class="fields-card">
+        <div class="fields-card-header">Contra-Vales</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Imprimir Contra-Vales</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Habilita a impressão de contra-vales nas operações do sistema. Quando desativado, nenhum contra-vale é gerado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Contra-Vales Apenas Para Tickets</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Restringe a emissão de contra-vales exclusivamente a operações com tickets. Quando desativado, contra-vales podem ser emitidos em outros contextos.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Impressão Automática de Contra-Vales</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Quando ativado, o contra-vale é impresso automaticamente ao finalizar a operação, sem necessidade de ação manual do operador.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Impressão de Contra-Vales Sempre Como Relatório Gerencial</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Força a impressão dos contra-vales no formato de relatório gerencial, independentemente da configuração padrão de impressão do sistema.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <!-- ══════════════ MODAL EXIBIR NA TELA ══════════════ -->
@@ -8541,7 +8603,8 @@
       'cad-empresas-opcoes-pedidos': 'Opções de Pedidos',
       'cad-empresas-opcoes-pre-venda': 'Opções de Pré-Venda',
       'cad-empresas-opcoes-vendas-prazo': 'Opções de Vendas à Prazo',
-      'cad-empresas-opcoes-conta-assinada': 'Opções de Conta Assinada'
+      'cad-empresas-opcoes-conta-assinada': 'Opções de Conta Assinada',
+      'cad-empresas-opcoes-contra-vales': 'Opções de Contra-Vales'
     };
 
     function switchSystem(system) {
@@ -9407,6 +9470,13 @@
         'Mensagem Adicional p/Impr.Bobina (Linha 02)':                              '69.2,57,41.8,6',
         'Mensagem Adicional p/Impr.Bobina (Linha 03)':                              '77.1,58.6,40,6',
         'Mensagem Adicional p/Impr.Bobina (Linha 04)':                              '85.2,59.1,39.9,5.8',
+      },
+      'prints/cad_empresas_opcoes_contra_vales.png': {
+        // Contra-Vales
+        'Imprimir Contra-Vales':                                                    '30,50.9,47.6,8.9',
+        'Contra-Vales Apenas Para Tickets':                                         '43.7,36.1,62.3,9.5',
+        'Impressão Automática de Contra-Vales':                                     '58.4,29.9,68.6,9.5',
+        'Impressão de Contra-Vales Sempre Como Relatório Gerencial':                '73.7,0.9,97.4,8.6',
       },
       'prints/cad_empresas_opcoes_recibo.png': {
         // Cabeçário da Bobina
