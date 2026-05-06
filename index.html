@@ -1421,6 +1421,10 @@
             Opções de Vendas à Prazo
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Venda à Prazo</span>
           </a>
+          <a class="nav-item" onclick="showSection('cad-empresas-opcoes-conta-assinada')">
+            Opções de Conta Assinada
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Conta Assinada</span>
+          </a>
         </div>
       </div>
     </div>
@@ -1833,6 +1837,11 @@
             <div class="icon">💳</div>
             <h3>Opções de Vendas à Prazo</h3>
             <p>Multa e juros por atraso no crediário, impressão de datas no cupom fiscal e restrições de crédito para clientes bloqueados.</p>
+          </div>
+          <div class="welcome-card vprazo" onclick="showSection('cad-empresas-opcoes-conta-assinada')">
+            <div class="icon">📋</div>
+            <h3>Opções de Conta Assinada</h3>
+            <p>Restrições de acesso, comportamento de conta assinada parcial, verificação em pedidos e mensagem adicional para bobina.</p>
           </div>
         </div>
       </div>
@@ -8359,6 +8368,109 @@
       </div>
     </section>
 
+    <section id="cad-empresas-opcoes-conta-assinada" class="page-section" data-section-img="prints/cad_empresas_opcoes_conta_assinada.png">
+      <div class="section-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções de Conta Assinada</div>
+        <h2>Opções de Conta Assinada</h2>
+        <p>Restrições de acesso para clientes bloqueados ou com limite atingido, configurações de conta assinada parcial, verificação em pedidos e mensagem adicional para impressão na bobina.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_opcoes_conta_assinada.png" alt="Tela Configurações da Empresa — Opções de Conta Assinada"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_opcoes_conta_assinada.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções de Conta Assinada</strong>.
+      </div>
+
+      <!-- Restrições de Conta Assinada -->
+      <div class="fields-card">
+        <div class="fields-card-header">Restrições de Conta Assinada</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Como Tratar Cliente Bloqueado na Conta Assinada</div></td>
+              <td><span class="tag tag-opt">2-Não Permitir</span></td>
+              <td>Define o comportamento do sistema ao tentar realizar uma venda via conta assinada para um cliente bloqueado. As opções variam entre alertar, exigir senha ou bloquear completamente a operação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Como Tratar Cliente c/Limite de Crédito Atingido</div></td>
+              <td><span class="tag tag-opt">2-Não Permitir</span></td>
+              <td>Define o comportamento do sistema ao tentar realizar uma venda via conta assinada para um cliente que já atingiu seu limite de crédito. Pode alertar, exigir autorização ou bloquear a operação.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Comportamento da Conta Assinada -->
+      <div class="fields-card">
+        <div class="fields-card-header">Comportamento da Conta Assinada</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Imprimir Extrato Após Pagto de Conta Assinada</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Quando ativado, imprime automaticamente o extrato da conta assinada após o registro de um pagamento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Realização de Conta Assinada Parcial nas Vendas</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Permite que uma venda seja registrada parcialmente na conta assinada, combinando com outro meio de pagamento para completar o valor total.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Recebimento Parcial de Conta Assinada</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Permite registrar um recebimento parcial da conta assinada, sem exigir quitação integral do saldo do cliente.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Checar Conta Assinada no Lançamento de Pedidos</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, o sistema verifica a situação da conta assinada do cliente no momento do lançamento do pedido, podendo bloquear ou alertar conforme as restrições configuradas.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Mensagem Adicional -->
+      <div class="fields-card">
+        <div class="fields-card-header">Mensagem Adicional</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Mensagem Adicional p/Impr.Bobina (Linha 01)</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Primeira linha da mensagem adicional impressa na bobina ao registrar operações de conta assinada.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem Adicional p/Impr.Bobina (Linha 02)</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Segunda linha da mensagem adicional impressa na bobina.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem Adicional p/Impr.Bobina (Linha 03)</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Terceira linha da mensagem adicional impressa na bobina.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem Adicional p/Impr.Bobina (Linha 04)</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Quarta linha da mensagem adicional impressa na bobina.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <!-- ══════════════ MODAL EXIBIR NA TELA ══════════════ -->
@@ -8428,7 +8540,8 @@
       'cad-empresas-opcoes-orcamento': 'Opções de Orçamento',
       'cad-empresas-opcoes-pedidos': 'Opções de Pedidos',
       'cad-empresas-opcoes-pre-venda': 'Opções de Pré-Venda',
-      'cad-empresas-opcoes-vendas-prazo': 'Opções de Vendas à Prazo'
+      'cad-empresas-opcoes-vendas-prazo': 'Opções de Vendas à Prazo',
+      'cad-empresas-opcoes-conta-assinada': 'Opções de Conta Assinada'
     };
 
     function switchSystem(system) {
@@ -9279,6 +9392,21 @@
         // Restrições de Crédito
         'Como Tratar Cliente Bloqueado no Crediário':                               '63.5,6.3,92.2,8',
         'Como Tratar Cliente c/Limite de Crédito Atingido':                         '76.5,1,97.4,7.5',
+      },
+      'prints/cad_empresas_opcoes_conta_assinada.png': {
+        // Restrições de Conta Assinada
+        'Como Tratar Cliente Bloqueado na Conta Assinada':                          '15.4,7.6,75.8,5',
+        'Como Tratar Cliente c/Limite de Crédito Atingido':                         '23.3,9.3,73.8,5.2',
+        // Comportamento da Conta Assinada
+        'Imprimir Extrato Após Pagto de Conta Assinada':                            '31.2,10.5,60,5.2',
+        'Permitir Realização de Conta Assinada Parcial nas Vendas':                 '38.7,0.3,70.5,5.4',
+        'Permitir Recebimento Parcial de Conta Assinada':                           '46.4,9.7,60.9,5.4',
+        'Checar Conta Assinada no Lançamento de Pedidos':                           '54.3,7.3,91.6,5.2',
+        // Mensagem Adicional
+        'Mensagem Adicional p/Impr.Bobina (Linha 01)':                              '61.8,22.2,77,5.6',
+        'Mensagem Adicional p/Impr.Bobina (Linha 02)':                              '69.2,57,41.8,6',
+        'Mensagem Adicional p/Impr.Bobina (Linha 03)':                              '77.1,58.6,40,6',
+        'Mensagem Adicional p/Impr.Bobina (Linha 04)':                              '85.2,59.1,39.9,5.8',
       },
       'prints/cad_empresas_opcoes_recibo.png': {
         // Cabeçário da Bobina
