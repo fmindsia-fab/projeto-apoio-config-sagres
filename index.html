@@ -1511,6 +1511,11 @@
             Opções de Estoque/Produção
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Estoque/Produção</span>
           </a>
+          <div class="nav-sub-label vprazo">Prato Digital / PIX</div>
+          <a class="nav-item" onclick="showSection('cad-empresas-prato-digital')">
+            Opções do Prato Digital / PIX / Fidelidade nas Nuvens
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções do Prato Digital / PIX / Programa de Fidelidade das Nuvens</span>
+          </a>
         </div>
       </div>
     </div>
@@ -1892,6 +1897,11 @@
             <div class="icon">🏭</div>
             <h3>Opções de Estoque/Produção</h3>
             <p>Define fornecedor e cliente padrão para produção própria e os tipos de movimentação de estoque para entradas e saídas da produção.</p>
+          </div>
+          <div class="welcome-card empresa" onclick="showSection('cad-empresas-prato-digital')">
+            <div class="icon">☁️</div>
+            <h3>Opções do Prato Digital / PIX / Fidelidade nas Nuvens</h3>
+            <p>Habilitação do Prato Digital, atribuição de fidelidade por modalidade (entrega, At.Id, mesas), credenciais de acesso e configuração de PIX via Prato Digital.</p>
           </div>
         </div>
       </div>
@@ -6899,6 +6909,120 @@
       </div>
     </section>
 
+    <!-- ══ PRATO DIGITAL / PIX / FIDELIDADE NAS NUVENS ══ -->
+    <section id="cad-empresas-prato-digital" class="page-section" data-section-img="prints/cad_empresas_prato_digital.png">
+      <div class="section-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções do Prato Digital / PIX / Programa de Fidelidade das Nuvens</div>
+        <h2>Opções do Prato Digital / PIX / Fidelidade nas Nuvens</h2>
+        <p>Configurações de integração com o Prato Digital: habilitação do módulo, atribuição de fidelidade por modalidade de atendimento, credenciais de acesso e configurações de PIX.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_prato_digital.png" alt="Tela Prato Digital / PIX / Fidelidade nas Nuvens"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_prato_digital.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções do Prato Digital / PIX / Programa de Fidelidade das Nuvens</strong>.
+      </div>
+
+      <!-- Prato Digital — Fidelidade -->
+      <div class="fields-card">
+        <div class="fields-card-header">Prato Digital — Fidelidade</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Habilitar Módulo do Prato Digital</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Ativa a integração com o Prato Digital. Quando ativado, habilita os demais campos de configuração e a comunicação com a plataforma de fidelidade nas nuvens.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Atribuir Cód.Interno ou Fidelidade do Cliente na Entrega</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Quando ativado, associa o código interno ou de fidelidade do cliente às operações de entrega, permitindo acumulação de pontos no Prato Digital.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Atribuir Código Fidelidade do Cliente no At.Id</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Quando ativado, associa o código de fidelidade do cliente nas operações de Atendimento Identificado, integrando com o Prato Digital.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Atribuir Código Fidelidade do Cliente nas Mesas</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Quando ativado, associa o código de fidelidade do cliente nas operações de Mesas, integrando com o Prato Digital.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Credenciais do Prato Digital -->
+      <div class="fields-card">
+        <div class="fields-card-header">Credenciais do Prato Digital</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">CNPJ da Empresa Cadastrada no Prato Digital</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>CNPJ da empresa conforme cadastrado na plataforma Prato Digital. Necessário para autenticação na API.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Login do Operador no Prato Digital</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Usuário de acesso à API do Prato Digital. Fornecido pela plataforma no momento do credenciamento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Senha do Operador no Prato Digital</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Senha de acesso à API do Prato Digital. Manter em sigilo e atualizar sempre que alterada na plataforma.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">"AplicativoId" da Empresa no Prato Digital</div></td>
+              <td><span class="tag tag-opt">0</span></td>
+              <td>Identificador do aplicativo da empresa na plataforma Prato Digital. Fornecido pelo suporte do Prato Digital no momento da integração.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">"ProgramaFidelidadeId" da Empresa no Prato Digital</div></td>
+              <td><span class="tag tag-opt">0</span></td>
+              <td>Identificador do programa de fidelidade configurado para a empresa na plataforma Prato Digital.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- PIX — Prato Digital -->
+      <div class="fields-card">
+        <div class="fields-card-header">PIX — Prato Digital</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Pix - CNPJ da Empresa Cadastrada no Prato Digital</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>CNPJ da empresa para as operações de PIX integradas ao Prato Digital. Pode diferir do CNPJ principal quando houver conta PIX separada.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Pix - Login do Operador no Prato Digital</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Usuário específico para as operações de PIX via Prato Digital.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Pix - Senha do Operador no Prato Digital</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Senha específica para as operações de PIX via Prato Digital.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- ══ OPÇÕES DE CUPOM FISCAL / NFe / SAT ══ -->
     <section id="cad-empresas-cupom-fiscal" class="page-section" data-section-img="prints/cad_empresas_cupom_fiscal.png">
       <div class="page-header">
@@ -10275,7 +10399,8 @@
       'cad-empresas-opcoes-precos': 'Opções de Preços',
       'cad-empresas-opcoes-fidelidade': 'Opções de Programa de Fidelidade',
       'cad-empresas-opcoes-coletores': 'Opções de Coletores',
-      'cad-empresas-opcoes-estoque-producao': 'Opções de Estoque/Produção'
+      'cad-empresas-opcoes-estoque-producao': 'Opções de Estoque/Produção',
+      'cad-empresas-prato-digital': 'Opções do Prato Digital / PIX / Fidelidade nas Nuvens'
     };
 
     function switchSystem(system) {
@@ -11223,6 +11348,23 @@
         'Cliente p/Produção':                                                       '43.9,22.6,54.2,8.9',
         'Tipo Mov.Estoque p/Entradas da Produção':                                  '57.6,0.5,80.7,9.7',
         'Tipo Mov.Estoque p/Saídas da Produção':                                    '72.5,2.4,77.2,8.9',
+      },
+      'prints/cad_empresas_prato_digital.png': {
+      // Prato Digital — Fidelidade
+      'Habilitar Módulo do Prato Digital':                                        '14.4,20.7,43.8,4.8',
+      'Atribuir Cód.Interno ou Fidelidade do Cliente na Entrega':                 '20.6,0.5,90.8,5.2',
+      'Atribuir Código Fidelidade do Cliente no At.Id':                           '26.5,10,81.6,5.6',
+      'Atribuir Código Fidelidade do Cliente nas Mesas':                          '33.9,7.3,84.2,5',
+      // Credenciais do Prato Digital
+      'CNPJ da Empresa Cadastrada no Prato Digital':                              '40.7,8.8,72.3,4.8',
+      'Login do Operador no Prato Digital':                                       '46.9,19.1,80,5',
+      'Senha do Operador no Prato Digital':                                       '53.7,19.2,80,5',
+      '"AplicativoId" da Empresa no Prato Digital':                               '59.7,11.9,51.9,5.8',
+      '"ProgramaFidelidadeId" da Empresa no Prato Digital':                       '66.9,3.2,60.3,5',
+      // PIX — Prato Digital
+      'Pix - CNPJ da Empresa Cadastrada no Prato Digital':                        '73.7,4.6,76.6,4.8',
+      'Pix - Login do Operador no Prato Digital':                                 '79.6,14.9,83.8,5.4',
+      'Pix - Senha do Operador no Prato Digital':                                 '87.2,14.9,84.2,4.4',
       },
       'prints/cad_empresas_opcoes_recibo.png': {
         // Cabeçário da Bobina
