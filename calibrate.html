@@ -1483,6 +1483,50 @@ const IMAGES = [
     ]
   },
   {
+    file: 'prints/cad_empresas_preenchi_nfce.png',
+    label: 'Preenchimento de NFCe/NFe/SAT Fiscal',
+    calibrated: true,
+    groups: [
+      { group: 'Preenchimento e QRCode', fields: [
+        'Forma de Preenchimento de NFCe/Sat Fiscal para Simples Nacional',
+        'Versão do QRCode',
+        'Tabela NCM Tipo de Informação Fiscal a Ser Usada',
+        'Valor Padrão do PIS (%)',
+        'Valor Padrão do COFINS (%)',
+        'CSOSN Padrão',
+      ]},
+      { group: 'Fiscal e CFOP', fields: [
+        'Atribuir Automaticamente Expresão "SemGTIN" ao Campo CEAN',
+        'Forçar CFOP 5102 (mesmo quando produção própria)',
+      ]},
+      { group: 'Produtos na NFCe', fields: [
+        'Taxa de Serviço como Produto no NFCe',
+        'Taxa de Entrega como Produto no NFCe',
+        'Couvert como Produto no NFCe',
+        'Cons.Mínima como Produto no NFCe',
+      ]},
+      { group: 'XML e Responsável Técnico', fields: [
+        'Incluir Dados do Responsável Técnico no XML',
+        'Incluir CSRT NFe',
+      ]},
+      { group: 'ICMS Desonerado', fields: [
+        'Subtrair ICMS Desonerado da Base de Cálculo (NFCe)',
+        'Calcular ICMS Desonerado Automaticamente (NFCe)',
+        'Subtrair ICMS Desonerado da Base de Cálculo (NFe)',
+        'Calcular ICMS Desonerado Automaticamente (NFe)',
+        'Reduzir ICMS da Base Cálculo nos Impostos',
+        'Como Calcular PIS/Cofins na NFCe',
+      ]},
+      { group: 'Regime e Brinde', fields: [
+        'Regime de Tributação',
+        'Usar Tabela Sugestão IBS/CBS',
+        'Emitir NFe (Modelo 55) no PDV',
+        'Forçar Brinde como Desconto na NFCe',
+        'Cód.Forma Pagto p/ Brinde como Desconto',
+      ]},
+    ]
+  },
+  {
     file: 'prints/cad_empresas_cupom_fiscal.png',
     label: 'Opções de Cupom Fiscal/NFe/SAT',
     calibrated: true,
