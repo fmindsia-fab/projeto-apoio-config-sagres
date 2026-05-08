@@ -1367,6 +1367,10 @@
             Senha Sagres RestServer
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Senha Sagres RestServer</span>
           </a>
+          <a class="nav-item" onclick="showSection('cad-empresas-opcoes-especiais')">
+            Opções Especiais
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › ALT+E (Opções Especiais)</span>
+          </a>
           <div class="nav-sub-label">Fiscal & Impressão</div>
           <a class="nav-item" onclick="showSection('cad-empresas-opcoes-nfe')">
             Opções de Nota Fiscal Eletrônica
@@ -1792,6 +1796,11 @@
             <div class="icon">🔐</div>
             <h3>Senha Sagres RestServer</h3>
             <p>Alteração da senha de acesso ao Sagres RestServer: senha antiga, nova senha e confirmação.</p>
+          </div>
+          <div class="welcome-card empresa" onclick="showSection('cad-empresas-opcoes-especiais')">
+            <div class="icon">🔩</div>
+            <h3>Opções Especiais</h3>
+            <p>Configurações avançadas de pedidos, franquia, modo de preparo, pré-conta no check-out e aviso por departamento. Acesso protegido por senha.</p>
           </div>
         </div>
       </div>
@@ -6909,6 +6918,117 @@
       </div>
     </section>
 
+    <!-- ══ OPÇÕES ESPECIAIS ══ -->
+    <section id="cad-empresas-opcoes-especiais" class="page-section" data-section-img="prints/cad_empresas_opcoes_especiais.png">
+      <div class="section-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › ALT+E — Opções Especiais</div>
+        <h2>Opções Especiais</h2>
+        <p>Configurações avançadas de pedidos, modo de preparo, franquia, aviso por departamento e impressão de pré-conta no check-out.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_opcoes_especiais.png" alt="Tela Opções Especiais da Empresa"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_opcoes_especiais.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → pressione <strong>ALT+E</strong> para abrir as Opções Especiais.
+      </div>
+
+      <div class="note-box" data-share-note="⚠ Atenção: tela protegida por senha. A senha padrão é: especiais. Altere apenas com orientação do suporte técnico." style="background: rgba(232,184,48,.14); border-left: 4px solid var(--amarelo); border-top: 1px solid rgba(232,184,48,.5); border-right: 1px solid rgba(232,184,48,.5); border-bottom: 1px solid rgba(232,184,48,.5); color: #f0c840; font-size: .83rem; font-weight: 500;">
+        <strong style="font-size:.88rem; letter-spacing:.02em;">⚠ Atenção — Tela protegida por senha</strong><br>
+        Ao pressionar ALT+E, o sistema solicitará uma senha de proteção.
+        A senha padrão é <strong style="background: rgba(232,184,48,.2); padding: 1px 6px; border-radius: 3px; font-family: monospace; font-size: .9rem;">especiais</strong>.
+        Altere apenas com orientação do suporte técnico — configurações incorretas podem impactar o comportamento de pedidos e operações da empresa.
+      </div>
+
+      <!-- Pedidos -->
+      <div class="fields-card">
+        <div class="fields-card-header">Pedidos</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Permitir Ajustar Qtd.nos Pedidos</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Quando ativado, permite ao operador ajustar a quantidade de itens em pedidos já lançados, sem precisar cancelar e reinserir o item.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Alterar Qtd nos Pedidos Sem Gerar Cancelamentos</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Quando ativado, alterações de quantidade em pedidos não geram ocorrências de cancelamento no relatório de caixa, simplificando o controle operacional.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Alterar Valor Unitário nos Pedidos Sem Gerar Descontos</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, a alteração do valor unitário de um item no pedido não é registrada como desconto nas ocorrências do caixa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Alterar Modo de Preparo nos Pedidos</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, permite editar o modo de preparo de itens em pedidos já lançados, sem necessidade de cancelamento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Produtos Sem Preço nos Pedidos</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, permite incluir produtos com preço zero nos pedidos. Útil em operações com brindes ou produtos cortesia controlados via pedido.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Atendimento e Check-Out -->
+      <div class="fields-card">
+        <div class="fields-card-header">Atendimento e Check-Out</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Pedir Senha do Cliente ao Lançar Produtos no Atend.Identificado</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, solicita a senha cadastrada do cliente para autorizar o lançamento de produtos no Atendimento Identificado. Aumenta a segurança em operações com crédito ou conta assinada.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem de Aviso no CheckOut Quando Possuir um Produto de um Departamento Abaixo</div></td>
+              <td><span class="tag tag-opt">—</span></td>
+              <td>Define a mensagem exibida ao operador durante o check-out quando a venda contém produto do departamento configurado no campo "Cód.Departamento p/Aviso". Útil para alertas de produtos especiais.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Cód.Departamento p/Aviso</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Código do departamento que dispara a mensagem de aviso no check-out. Qualquer produto desse departamento na venda ativa o alerta configurado no campo acima.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Impressão de Pré-Conta no Check-Out</div></td>
+              <td><span class="tag tag-opt">Não permitir</span></td>
+              <td>Define o comportamento da impressão de pré-conta durante o processo de check-out. "Não permitir" bloqueia a impressão; outras opções podem permitir ou tornar obrigatória.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Franquia -->
+      <div class="fields-card">
+        <div class="fields-card-header">Franquia</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Empresa Faz Parte da Lógica da Franquia</div></td>
+              <td><span class="tag tag-opt">Sim (recomendável)</span></td>
+              <td>Define se esta empresa participa da lógica de franquia do sistema. Quando "Sim (recomendável)", a empresa segue as regras de sincronização e configuração centralizadas da franquia.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- ══ PRATO DIGITAL / PIX / FIDELIDADE NAS NUVENS ══ -->
     <section id="cad-empresas-prato-digital" class="page-section" data-section-img="prints/cad_empresas_prato_digital.png">
       <div class="section-header">
@@ -10375,6 +10495,7 @@
       'cad-empresas-preenchi-nfce': 'Preenchimento de NFCe/NFe/SAT Fiscal',
       'cad-empresas-senha-internet': 'Senha via Internet',
       'cad-empresas-senha-restserver': 'Senha Sagres RestServer',
+      'cad-empresas-opcoes-especiais': 'Opções Especiais',
       'cad-empresas-cupom-fiscal': 'Opções de Cupom Fiscal/NFe/SAT',
       'cad-empresas-opcoes-recibo': 'Opções de Recibo',
       'cad-empresas-local-impressao': 'Opções de Local de Impressão',
@@ -11521,6 +11642,21 @@
       'Senha Antiga':                                                             '21.8,18,79.8,14.6',
       'Nova Senha':                                                               '42.7,20.9,76.6,13',
       'Redigite Nova Senha':                                                      '61.9,0.7,97.6,13.8',
+      },
+      'prints/cad_empresas_opcoes_especiais.png': {
+      // Pedidos
+      'Permitir Ajustar Qtd.nos Pedidos':                                         '14.5,38.1,50.3,6',
+      'Alterar Qtd nos Pedidos Sem Gerar Cancelamentos':                          '23.3,26.4,43.2,5.1',
+      'Alterar Valor Unitário nos Pedidos Sem Gerar Descontos':                   '31,22.7,46.6,5.1',
+      'Permitir Alterar Modo de Preparo nos Pedidos':                             '37.5,29.5,40,6.5',
+      'Permitir Produtos Sem Preço nos Pedidos':                                  '69.6,33,36.5,4.8',
+      // Atendimento e Check-Out
+      'Pedir Senha do Cliente ao Lançar Produtos no Atend.Identificado':          '46.6,17.6,51.8,5.1',
+      'Mensagem de Aviso no CheckOut Quando Possuir um Produto de um Departamento Abaixo': '54.5,0.5,68.9,4.5',
+      'Cód.Departamento p/Aviso':                                                 '61.9,42.3,26.2,6',
+      'Impressão de Pré-Conta no Check-Out':                                      '84.9,34.3,64.6,5.4',
+      // Franquia
+      'Empresa Faz Parte da Lógica da Franquia':                                  '77.3,33,50.1,5.4',
       },
       'prints/cad_empresas_cupom_fiscal.png': {
         // Cliente e Identificação no Cupom
