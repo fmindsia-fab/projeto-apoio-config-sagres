@@ -1362,6 +1362,10 @@
             Opções de Distribuição DFe da Nota Fiscal
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Distribuição DFe da Nota Fiscal</span>
           </a>
+          <a class="nav-item" onclick="showSection('cad-empresas-opcoes-nfse')">
+            Opções de Nota Fiscal Eletrônica de Serviços
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Nota Fiscal Eletrônica de Serviços</span>
+          </a>
           <a class="nav-item" onclick="showSection('cad-empresas-cupom-fiscal')">
             Opções de Cupom Fiscal/NFe/SAT
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Cupom Fiscal/NFe/SAT</span>
@@ -1759,6 +1763,11 @@
             <div class="icon">🔄</div>
             <h3>Opções de Distribuição DFe da Nota Fiscal</h3>
             <p>Consulta automática ao WebService de Distribuição DFe, frequência, horário, manifestação como "Ciência" e importação automática de NF-e.</p>
+          </div>
+          <div class="welcome-card empresa" onclick="showSection('cad-empresas-opcoes-nfse')">
+            <div class="icon">🔧</div>
+            <h3>Opções de Nota Fiscal Eletrônica de Serviços</h3>
+            <p>Ativação da NFS-e, modo produção/homologação, credenciais do Web Service e percentual padrão de ISS das notas.</p>
           </div>
           <div class="welcome-card empresa" onclick="showSection('cad-empresas-cupom-fiscal')">
             <div class="icon">🧾</div>
@@ -6097,6 +6106,65 @@
       </div>
     </section>
 
+    <!-- ══ OPÇÕES DE NOTA FISCAL ELETRÔNICA DE SERVIÇOS ══ -->
+    <section id="cad-empresas-opcoes-nfse" class="page-section" data-section-img="prints/cad_empresas_opcoes_nfse.png">
+      <div class="section-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções de Nota Fiscal Eletrônica de Serviços</div>
+        <h2>Opções de Nota Fiscal Eletrônica de Serviços</h2>
+        <p>Configurações da NFS-e: ativação do módulo, ambiente de emissão, credenciais do Web Service municipal e alíquota padrão de ISS.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_opcoes_nfse.png" alt="Tela Configurações da Empresa — Opções de Nota Fiscal Eletrônica de Serviços"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_opcoes_nfse.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções de Nota Fiscal Eletrônica de Serviços</strong>.
+      </div>
+
+      <!-- NFS-e -->
+      <div class="fields-card">
+        <div class="fields-card-header">NFS-e</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Nota fiscal eletrônica de serviços</div></td>
+              <td><span class="tag tag-opt">Não Utilizar</span></td>
+              <td>Define se a empresa emite NFS-e (Nota Fiscal de Serviços Eletrônica). Quando diferente de "Não Utilizar", habilita os demais campos e a integração com o Web Service da prefeitura.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Emitir em Modo Produção ou Homologação</div></td>
+              <td><span class="tag tag-opt">Produção</span></td>
+              <td>Define o ambiente de transmissão da NFS-e. <strong>Produção</strong> emite notas fiscais válidas; <strong>Homologação</strong> é o ambiente de testes. Só alterar após validação com a prefeitura.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Login do Web Service</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Usuário de acesso ao Web Service da prefeitura para emissão de NFS-e. Fornecido pela prefeitura municipal no momento do credenciamento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Senha do Web Service</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Senha de acesso ao Web Service da prefeitura. Deve ser mantida em sigilo e atualizada sempre que alterada no portal da prefeitura.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Perc.Padrão de ISS das Notas</div></td>
+              <td><span class="tag tag-opt">0</span></td>
+              <td>Alíquota padrão de ISS (%) aplicada nas NFS-e quando o produto/serviço não possui alíquota específica cadastrada. Verificar com o contador a alíquota correta para o município.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- ══ OPÇÕES DE CUPOM FISCAL / NFe / SAT ══ -->
     <section id="cad-empresas-cupom-fiscal" class="page-section" data-section-img="prints/cad_empresas_cupom_fiscal.png">
       <div class="page-header">
@@ -9441,6 +9509,7 @@
       'cad-empresas-op-gerais-3': 'Opções Gerais da Empresa 3',
       'cad-empresas-opcoes-nfe': 'Opções de Nota Fiscal Eletrônica',
       'cad-empresas-opcoes-dfe': 'Opções de Distribuição DFe da Nota Fiscal',
+      'cad-empresas-opcoes-nfse': 'Opções de Nota Fiscal Eletrônica de Serviços',
       'cad-empresas-cupom-fiscal': 'Opções de Cupom Fiscal/NFe/SAT',
       'cad-empresas-opcoes-recibo': 'Opções de Recibo',
       'cad-empresas-local-impressao': 'Opções de Local de Impressão',
@@ -10461,6 +10530,14 @@
       'Horário Final da Consulta Automática':                                     '50,60.8,38.2,9.3',
       'Manifestar Automaticamente como "Ciência" na Distribuição DFe':            '63.1,1.5,58,8.5',
       'Importar Automaticamente NFe na Distribuição DFe':                         '75,10.9,48.4,9.7',
+      },
+      'prints/cad_empresas_opcoes_nfse.png': {
+      // NFS-e
+      'Nota fiscal eletrônica de serviços':                                       '25.8,11.9,77.8,7.8',
+      'Emitir em Modo Produção ou Homologação':                                   '38.4,0.9,79.5,8.1',
+      'Login do Web Service':                                                     '50.8,24.3,74.6,8.9',
+      'Senha do Web Service':                                                     '63.4,24.5,74.3,8.9',
+      'Perc.Padrão de ISS das Notas':                                             '75.8,15.1,50.4,9.4',
       },
       'prints/cad_empresas_cupom_fiscal.png': {
         // Cliente e Identificação no Cupom

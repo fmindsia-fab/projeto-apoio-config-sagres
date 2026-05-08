@@ -1212,7 +1212,7 @@ const IMAGES = [
   {
     file: 'prints/cad_empresas_opcoes_coletores.png',
     label: 'Opções de Coletores',
-    calibrated: false,
+    calibrated: true,
     groups: [
       { group: 'SagresPK', fields: [
         'Ordem dos Produtos no SagresPK',
@@ -1224,7 +1224,7 @@ const IMAGES = [
   {
     file: 'prints/cad_empresas_opcoes_estoque_producao.png',
     label: 'Opções de Estoque/Produção',
-    calibrated: false,
+    calibrated: true,
     groups: [
       { group: 'Estoque/Produção', fields: [
         'Fornecedor p/Produção',
@@ -1362,6 +1362,20 @@ const IMAGES = [
         'Horário Final da Consulta Automática',
         'Manifestar Automaticamente como "Ciência" na Distribuição DFe',
         'Importar Automaticamente NFe na Distribuição DFe',
+      ]},
+    ]
+  },
+  {
+    file: 'prints/cad_empresas_opcoes_nfse.png',
+    label: 'Opções de Nota Fiscal Eletrônica de Serviços',
+    calibrated: false,
+    groups: [
+      { group: 'NFS-e', fields: [
+        'Nota fiscal eletrônica de serviços',
+        'Emitir em Modo Produção ou Homologação',
+        'Login do Web Service',
+        'Senha do Web Service',
+        'Perc.Padrão de ISS das Notas',
       ]},
     ]
   },
