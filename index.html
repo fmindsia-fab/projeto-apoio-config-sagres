@@ -1358,6 +1358,10 @@
             Opções de Nota Fiscal Eletrônica
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Nota Eletrônica</span>
           </a>
+          <a class="nav-item" onclick="showSection('cad-empresas-opcoes-dfe')">
+            Opções de Distribuição DFe da Nota Fiscal
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Distribuição DFe da Nota Fiscal</span>
+          </a>
           <a class="nav-item" onclick="showSection('cad-empresas-cupom-fiscal')">
             Opções de Cupom Fiscal/NFe/SAT
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Cupom Fiscal/NFe/SAT</span>
@@ -1750,6 +1754,11 @@
             <div class="icon">📄</div>
             <h3>Opções de Nota Fiscal Eletrônica</h3>
             <p>Emissão própria e de terceiros, regime de tributação, modo produção/homologação, SSL, certificado A1 e transmissão de NF-e.</p>
+          </div>
+          <div class="welcome-card empresa" onclick="showSection('cad-empresas-opcoes-dfe')">
+            <div class="icon">🔄</div>
+            <h3>Opções de Distribuição DFe da Nota Fiscal</h3>
+            <p>Consulta automática ao WebService de Distribuição DFe, frequência, horário, manifestação como "Ciência" e importação automática de NF-e.</p>
           </div>
           <div class="welcome-card empresa" onclick="showSection('cad-empresas-cupom-fiscal')">
             <div class="icon">🧾</div>
@@ -6024,6 +6033,70 @@
       </div>
     </section>
 
+    <!-- ══ OPÇÕES DE DISTRIBUIÇÃO DFe DA NOTA FISCAL ══ -->
+    <section id="cad-empresas-opcoes-dfe" class="page-section" data-section-img="prints/cad_empresas_opcoes_dfe.png">
+      <div class="section-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções de Distribuição DFe da Nota Fiscal</div>
+        <h2>Opções de Distribuição DFe da Nota Fiscal</h2>
+        <p>Configurações da consulta automática ao WebService de Distribuição DFe: frequência, janela de horário, manifestação automática como "Ciência" e importação de NF-e recebidas.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_opcoes_dfe.png" alt="Tela Configurações da Empresa — Opções de Distribuição DFe da Nota Fiscal"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_opcoes_dfe.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções de Distribuição DFe da Nota Fiscal</strong>.
+      </div>
+
+      <!-- Distribuição DFe -->
+      <div class="fields-card">
+        <div class="fields-card-header">Distribuição DFe</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Consultar Automaticamente o WebService de Distribuição DFe</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Quando ativado, o sistema consulta periodicamente o WebService da Sefaz para verificar NF-e destinadas à empresa, sem necessidade de ação manual.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Frequência de Consulta ao WebService de Distribuição (em minutos)</div></td>
+              <td><span class="tag tag-opt">120</span></td>
+              <td>Intervalo em minutos entre cada consulta automática ao WebService de Distribuição DFe. Valores menores aumentam a atualização, mas geram mais tráfego com a Sefaz.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Horário Inicial da Consulta Automática</div></td>
+              <td><span class="tag tag-opt">00:00:00</span></td>
+              <td>Hora a partir da qual o sistema passa a realizar consultas automáticas ao WebService. Permite restringir as consultas ao horário comercial.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Horário Final da Consulta Automática</div></td>
+              <td><span class="tag tag-opt">23:59:59</span></td>
+              <td>Hora limite para realização de consultas automáticas ao WebService. Em conjunto com o horário inicial, define a janela diária de consulta.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Manifestar Automaticamente como "Ciência" na Distribuição DFe</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Quando ativado, ao receber uma NF-e via DFe o sistema registra automaticamente a manifestação "Ciência da Operação" na Sefaz, confirmando o recebimento do documento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Importar Automaticamente NFe na Distribuição DFe</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, as NF-e recebidas via DFe são importadas automaticamente como entradas de estoque. Requer configuração correta dos tipos de movimento e fornecedores antes de ativar.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- ══ OPÇÕES DE CUPOM FISCAL / NFe / SAT ══ -->
     <section id="cad-empresas-cupom-fiscal" class="page-section" data-section-img="prints/cad_empresas_cupom_fiscal.png">
       <div class="page-header">
@@ -9367,6 +9440,7 @@
       'cad-empresas-op-gerais-2': 'Opções Gerais da Empresa 2',
       'cad-empresas-op-gerais-3': 'Opções Gerais da Empresa 3',
       'cad-empresas-opcoes-nfe': 'Opções de Nota Fiscal Eletrônica',
+      'cad-empresas-opcoes-dfe': 'Opções de Distribuição DFe da Nota Fiscal',
       'cad-empresas-cupom-fiscal': 'Opções de Cupom Fiscal/NFe/SAT',
       'cad-empresas-opcoes-recibo': 'Opções de Recibo',
       'cad-empresas-local-impressao': 'Opções de Local de Impressão',
@@ -10378,6 +10452,15 @@
       // Fatura e Importação
       'Campos de Fatura Obrigatórios':                                            '90.1,10.9,30.7,3.5',
       'Permitir Importação de NFe sem Produtos':                                  '89.7,41.9,53.8,4.1',
+      },
+      'prints/cad_empresas_opcoes_dfe.png': {
+      // Distribuição DFe
+      'Consultar Automaticamente o WebService de Distribuição DFe':               '23.7,4.1,55.1,9.3',
+      'Frequência de Consulta ao WebService de Distribuição (em minutos)':        '37.3,0.4,59.1,9.3',
+      'Horário Inicial da Consulta Automática':                                   '50.4,20.9,39.6,8.9',
+      'Horário Final da Consulta Automática':                                     '50,60.8,38.2,9.3',
+      'Manifestar Automaticamente como "Ciência" na Distribuição DFe':            '63.1,1.5,58,8.5',
+      'Importar Automaticamente NFe na Distribuição DFe':                         '75,10.9,48.4,9.7',
       },
       'prints/cad_empresas_cupom_fiscal.png': {
         // Cliente e Identificação no Cupom
