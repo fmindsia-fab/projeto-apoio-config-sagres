@@ -653,6 +653,12 @@
       transition: background .4s;
     }
 
+    tr.row-focus td {
+      background: rgba(232, 184, 48, .13) !important;
+      box-shadow: inset 3px 0 0 var(--amarelo);
+      transition: background .3s, box-shadow .3s;
+    }
+
     mark.search-mark {
       background: rgba(232, 184, 48, .28);
       color: var(--amarelo);
@@ -1357,6 +1363,10 @@
             Senha via Internet
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Senha via Internet</span>
           </a>
+          <a class="nav-item" onclick="showSection('cad-empresas-senha-restserver')">
+            Senha Sagres RestServer
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Senha Sagres RestServer</span>
+          </a>
           <div class="nav-sub-label">Fiscal & Impressão</div>
           <a class="nav-item" onclick="showSection('cad-empresas-opcoes-nfe')">
             Opções de Nota Fiscal Eletrônica
@@ -1756,6 +1766,11 @@
             <div class="icon">🔑</div>
             <h3>Senha via Internet</h3>
             <p>Identificação do representante para acesso aos serviços online do Squalus: CNPJ, senha e nome do responsável.</p>
+          </div>
+          <div class="welcome-card empresa" onclick="showSection('cad-empresas-senha-restserver')">
+            <div class="icon">🔐</div>
+            <h3>Senha Sagres RestServer</h3>
+            <p>Alteração da senha de acesso ao Sagres RestServer: senha antiga, nova senha e confirmação.</p>
           </div>
         </div>
       </div>
@@ -6286,6 +6301,55 @@
       </div>
     </section>
 
+    <!-- ══ SENHA SAGRES RESTSERVER ══ -->
+    <section id="cad-empresas-senha-restserver" class="page-section" data-section-img="prints/cad_empresas_senha_restserver.png">
+      <div class="section-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Senha Sagres RestServer</div>
+        <h2>Senha Sagres RestServer</h2>
+        <p>Alteração da senha de acesso ao Sagres RestServer por empresa. Exige a senha atual e confirmação da nova senha.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_senha_restserver.png" alt="Tela Definir Senha de Acesso ao Sagres RestServer"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_senha_restserver.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Senha Sagres RestServer</strong>.
+      </div>
+
+      <!-- Definir Senha -->
+      <div class="fields-card">
+        <div class="fields-card-header">Definir Senha</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Senha Antiga</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Senha de acesso atual ao Sagres RestServer para a empresa selecionada. Necessária para autorizar a troca de senha.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Nova Senha</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Nova senha que será definida para o acesso ao Sagres RestServer. Deve ser informada igualmente no campo "Redigite Nova Senha" para confirmação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Redigite Nova Senha</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Confirmação da nova senha digitada no campo anterior. O sistema valida a igualdade entre os dois campos antes de salvar a alteração.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- ══ OPÇÕES DE CUPOM FISCAL / NFe / SAT ══ -->
     <section id="cad-empresas-cupom-fiscal" class="page-section" data-section-img="prints/cad_empresas_cupom_fiscal.png">
       <div class="page-header">
@@ -9633,6 +9697,7 @@
       'cad-empresas-opcoes-nfse': 'Opções de Nota Fiscal Eletrônica de Serviços',
       'cad-empresas-integ-cc': 'Integração com Conta Corrente',
       'cad-empresas-senha-internet': 'Senha via Internet',
+      'cad-empresas-senha-restserver': 'Senha Sagres RestServer',
       'cad-empresas-cupom-fiscal': 'Opções de Cupom Fiscal/NFe/SAT',
       'cad-empresas-opcoes-recibo': 'Opções de Recibo',
       'cad-empresas-local-impressao': 'Opções de Local de Impressão',
@@ -9818,13 +9883,16 @@
           document.getElementById('search-bar').value = '';
           panel.style.display = 'none';
           navNormal.style.display = '';
-          // destaca a linha após navegação
+          // destaca a linha e abre modal se houver coordenadas
           requestAnimationFrame(() => {
             if (row) {
               row.classList.add('row-highlight');
               row.scrollIntoView({ behavior: 'smooth', block: 'center' });
               highlightTextInRow(row, q);
               setTimeout(() => { row.classList.remove('row-highlight'); }, 2500);
+              if (row.dataset.coords && row.dataset.imgSrc) {
+                openScreenModal(row, row.dataset.fieldName, row.dataset.imgSrc);
+              }
             } else if (el) {
               el.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
@@ -10675,6 +10743,12 @@
       'Senha':                                                                    '41.8,24,74.5,13.8',
       'Nome do Responsável':                                                      '62.3,2.8,95.6,13.8',
       },
+      'prints/cad_empresas_senha_restserver.png': {
+      // Definir Senha
+      'Senha Antiga':                                                             '21.8,18,79.8,14.6',
+      'Nova Senha':                                                               '42.7,20.9,76.6,13',
+      'Redigite Nova Senha':                                                      '61.9,0.7,97.6,13.8',
+      },
       'prints/cad_empresas_cupom_fiscal.png': {
         // Cliente e Identificação no Cupom
         'Cliente no Cupom Fiscal':                                                  '7.9,20.9,30.1,4',
@@ -11190,6 +11264,14 @@
       document.getElementById('screen-modal').classList.remove('open');
       document.body.style.overflow = '';
       _calibrateMode = false; _calibrateStep = 0;
+
+      // destaca a linha de origem com borda amarela após fechar o modal
+      if (_currentRow) {
+        document.querySelectorAll('tr.row-focus').forEach(r => r.classList.remove('row-focus'));
+        _currentRow.classList.add('row-focus');
+        _currentRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(() => { if (_currentRow) _currentRow.classList.remove('row-focus'); }, 4000);
+      }
     }
 
     function handleModalClick(e) {
