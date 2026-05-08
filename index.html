@@ -1384,6 +1384,10 @@
             Integração com Conta Corrente
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Integração com Conta Corrente</span>
           </a>
+          <a class="nav-item" onclick="showSection('cad-empresas-dados-contador')">
+            Dados do Contador
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Dados do Contador</span>
+          </a>
           <a class="nav-item" onclick="showSection('cad-empresas-cupom-fiscal')">
             Opções de Cupom Fiscal/NFe/SAT
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Cupom Fiscal/NFe/SAT</span>
@@ -1801,6 +1805,11 @@
             <div class="icon">🏦</div>
             <h3>Integração com Conta Corrente</h3>
             <p>Vínculo entre formas de pagamento e contas correntes, com suporte a intermediador financeiro.</p>
+          </div>
+          <div class="welcome-card empresa" onclick="showSection('cad-empresas-dados-contador')">
+            <div class="icon">🧮</div>
+            <h3>Dados do Contador</h3>
+            <p>Cadastro do contador ou escritório de contabilidade: identificação, endereço, contato e configuração de envio automático de XMLs de NF-e por e-mail.</p>
           </div>
           <div class="welcome-card empresa" onclick="showSection('cad-empresas-cupom-fiscal')">
             <div class="icon">🧾</div>
@@ -6350,6 +6359,165 @@
       </div>
     </section>
 
+    <!-- ══ DADOS DO CONTADOR ══ -->
+    <section id="cad-empresas-dados-contador" class="page-section" data-section-img="prints/cad_empresas_dados_contador.png">
+      <div class="section-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Dados do Contador</div>
+        <h2>Dados do Contador</h2>
+        <p>Cadastro do contador ou escritório de contabilidade vinculado à empresa: identificação fiscal, endereço completo, contato e configuração de envio automático de XMLs de NF-e por e-mail.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_dados_contador.png" alt="Tela Alterar/Visualizar Dados do Contador"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_dados_contador.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Dados do Contador</strong>.
+      </div>
+
+      <!-- Identificação -->
+      <div class="fields-card">
+        <div class="fields-card-header">Identificação</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Código</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Código interno do registro do contador. Gerado automaticamente pelo sistema.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Nome do Contador (ou do Escrit.de Contabilidade)</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Nome completo do contador responsável ou da razão social do escritório de contabilidade vinculado à empresa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">CPF do Contador</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>CPF do contador responsável. Informação exigida em documentos fiscais eletrônicos que requerem identificação do responsável contábil.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">CRC do Contador</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Número de registro do contador no Conselho Regional de Contabilidade (CRC). Necessário para emissão de documentos fiscais que exigem identificação do contador.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">CNPJ do Escrit.Contabilidade</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>CNPJ do escritório de contabilidade. Utilizado quando o responsável é uma pessoa jurídica e não um contador individual.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Endereço -->
+      <div class="fields-card">
+        <div class="fields-card-header">Endereço</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">CEP</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>CEP do endereço do contador ou escritório de contabilidade.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Logradouro</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Nome da rua, avenida ou logradouro do endereço do contador.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Número</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Número do endereço do contador.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Complemento</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Complemento do endereço (sala, andar, conjunto, etc.).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Bairro</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Bairro do endereço do contador ou escritório.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Cód.Município</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Código IBGE do município do contador. Utilizado em documentos fiscais eletrônicos para identificação do município.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Contato -->
+      <div class="fields-card">
+        <div class="fields-card-header">Contato</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">DDD</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>DDD do telefone do contador ou escritório de contabilidade.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Telefone</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Número de telefone do contador ou escritório.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Fax</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Número de fax do contador ou escritório, quando aplicável.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Contato</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Nome da pessoa de contato no escritório de contabilidade.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">EMail</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>E-mail principal do contador ou escritório. Pode ser usado como destino de cópias de documentos fiscais.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Envio de XMLs -->
+      <div class="fields-card">
+        <div class="fields-card-header">Envio de XMLs</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Enviar XML das NFes p/EMail do Contador</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Quando ativado, o sistema envia automaticamente os XMLs das NF-e emitidas para o e-mail do contador cadastrado. Requer configuração de SMTP em Configurações Gerais.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">EMail p/Envio dos XMLs</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Endereço de e-mail específico para recebimento dos XMLs. Se diferente do e-mail principal, permite direcionar os arquivos para uma caixa de entrada dedicada.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Dia p/Envio dos XMLs</div></td>
+              <td><span class="tag tag-opt">05</span></td>
+              <td>Dia do mês em que o sistema realiza o envio automático dos XMLs do mês anterior para o e-mail do contador.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- ══ OPÇÕES DE CUPOM FISCAL / NFe / SAT ══ -->
     <section id="cad-empresas-cupom-fiscal" class="page-section" data-section-img="prints/cad_empresas_cupom_fiscal.png">
       <div class="page-header">
@@ -9696,6 +9864,7 @@
       'cad-empresas-opcoes-dfe': 'Opções de Distribuição DFe da Nota Fiscal',
       'cad-empresas-opcoes-nfse': 'Opções de Nota Fiscal Eletrônica de Serviços',
       'cad-empresas-integ-cc': 'Integração com Conta Corrente',
+      'cad-empresas-dados-contador': 'Dados do Contador',
       'cad-empresas-senha-internet': 'Senha via Internet',
       'cad-empresas-senha-restserver': 'Senha Sagres RestServer',
       'cad-empresas-cupom-fiscal': 'Opções de Cupom Fiscal/NFe/SAT',
@@ -10736,6 +10905,31 @@
       'Cód.Conta Corrente':                                                       '41,3.4,21.8,14.9',
       'Possui Intermediador':                                                     '59.7,2.8,23,14.2',
       'Cód.Intermediador':                                                        '59.7,26.6,20,16.4',
+      },
+      'prints/cad_empresas_dados_contador.png': {
+      // Identificação
+      'Código':                                                                   '',
+      'Nome do Contador (ou do Escrit.de Contabilidade)':                         '16.1,0.3,96.4,4.4',
+      'CPF do Contador':                                                          '21.6,26.8,35.3,4.1',
+      'CRC do Contador':                                                          '26.9,25.9,37.6,3.9',
+      'CNPJ do Escrit.Contabilidade':                                             '32,16.4,50.8,4.2',
+      // Endereço
+      'CEP':                                                                      '37.3,36.8,18.5,4.2',
+      'Logradouro':                                                               '42.5,30.8,52.2,4.1',
+      'Número':                                                                   '42.3,83.9,15.3,4.2',
+      'Complemento':                                                              '47.8,29.5,53.9,4.1',
+      'Bairro':                                                                   '52.9,35.4,41.2,4.2',
+      'Cód.Município':                                                            '58.2,28.6,22.6,3.7',
+      // Contato
+      'DDD':                                                                      '63.2,36.1,11.4,4.2',
+      'Telefone':                                                                 '63,47.7,22.7,4.4',
+      'Fax':                                                                      '63,70.8,18.9,4.2',
+      'Contato':                                                                  '68.8,34.2,48.9,4.1',
+      'EMail':                                                                    '73.8,35.7,60.9,4.2',
+      // Envio de XMLs
+      'Enviar XML das NFes p/EMail do Contador':                                  '78.9,5,47.4,4.2',
+      'EMail p/Envio dos XMLs':                                                   '83.9,20,76.9,4.2',
+      'Dia p/Envio dos XMLs':                                                     '89.4,22.4,25.9,4.1',
       },
       'prints/cad_empresas_senha_internet.png': {
       // Identificação do Representante
