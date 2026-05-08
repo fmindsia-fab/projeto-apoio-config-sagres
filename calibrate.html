@@ -54,6 +54,20 @@
     .img-btn .img-prog { font-size: 0.68rem; color: #8b9ab5; margin-top: 2px; }
     .img-btn.active .img-prog { color: #9ab5e0; }
     .img-cal { font-size: 0.65rem; color: #4ade80; margin-top: 2px; }
+    .img-section-header {
+      font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.2px; color: #f0c040; background: #0d1520;
+      padding: 8px 12px 6px; border-top: 1px solid #2d3748;
+      border-bottom: 1px solid #2d3748; margin-top: 4px;
+      cursor: pointer; display: flex; align-items: center; justify-content: space-between;
+      user-select: none;
+    }
+    .img-section-header:first-child { margin-top: 0; border-top: none; }
+    .img-section-header:hover { background: #141e2e; }
+    .img-section-header .chevron { font-size: 0.7rem; transition: transform .2s; }
+    .img-section-header.collapsed .chevron { transform: rotate(-90deg); }
+    .img-section-group { overflow: hidden; }
+    .img-section-group.collapsed { display: none; }
 
     /* ── CENTER — canvas area ── */
     #canvas-wrap {
@@ -561,6 +575,65 @@ const IMAGES = [
         'Tipo de Despesa',
         'Departamento da Despesa',
         'Grupo de Despesa',
+      ]},
+    ]
+  },
+  {
+    file: 'prints/pdv_locais_impressao.png',
+    label: 'Locais de Impressão',
+    system: 'pdv',
+    calibrated: true,
+    groups: [
+      { group: 'Danfe', fields: [
+        'Local de Impressão do Danfe:',
+        'Porta de Impressão do Danfe:',
+      ]},
+      { group: 'Locais de Impressão', fields: [
+        'Usar Impressora Danfe para Outras Impressões:',
+        'Local de Impressão Padrão p/Outras Impressões:',
+        'Local de Impressão do Fechamento de Caixa:',
+        'Local de Impressão da Pré -Conta das Mesas:',
+        'Local de Impressão da Pré -Conta do At.Id.:',
+        'Local de Impressão da Pré -Conta das Entregas:',
+        'Local de Impressão da Pré -Conta (Espelho):',
+        'Local de Impressão dos Orçamentos:',
+      ]},
+      { group: 'Impressão por Local', fields: [
+        'Imprimir (Enviar) para Locais de Impressão (Geral):',
+        'Imprimir para Locais de Impressão (Caixa):',
+        'Imprimir para Locais de Impressão (Mesa):',
+        'Imprimir para Locais de Impressão (Entrega):',
+        'Imprimir para Locais de Impressão (Atend.Ident.):',
+        'Imprimir para Locais de Impressão (Orçamento):',
+      ]},
+      { group: 'Espelho', fields: [
+        'Imprimir Espelho:',
+        'Imprimir Espelho em --> Mesas:',
+        'Espelho — At.Id:',
+        'Espelho — Entregas:',
+        'Espelho — Check-Out:',
+        'Espelho — Orçamentos:',
+        'Imprimir Espelho (2):',
+        'Imprimir Espelho (2) em --> Mesas:',
+        'Espelho (2) — At.Id:',
+        'Espelho (2) — Entregas:',
+        'Espelho (2) — Check-Out:',
+        'Espelho (2) — Orçamentos:',
+      ]},
+      { group: 'Estação', fields: [
+        'Descrição da Estação:',
+      ]},
+    ]
+  },
+  {
+    file: 'prints/pdv_servidor_local.png',
+    label: 'Configurar Opções do Servidor Local',
+    system: 'pdv',
+    calibrated: false,
+    groups: [
+      { group: 'Campos da Tela', fields: [
+        'Definir esta estação como "Concentrador":',
+        'Diretório dos Dados do Concentrador do Servidor Local:',
       ]},
     ]
   },
@@ -2053,6 +2126,41 @@ const COORDS = {
     'Departamento da Despesa':                                    '70.6,37.8,33.9,5.7',
     'Grupo de Despesa':                                           '80.3,43.4,43.6,6.8',
   },
+  'prints/pdv_locais_impressao.png': {
+    'Local de Impressão do Danfe:':                           '0,0,0,0',
+    'Porta de Impressão do Danfe:':                           '0,0,0,0',
+    'Usar Impressora Danfe para Outras Impressões:':          '0,0,0,0',
+    'Local de Impressão Padrão p/Outras Impressões:':         '0,0,0,0',
+    'Local de Impressão do Fechamento de Caixa:':             '0,0,0,0',
+    'Local de Impressão da Pré -Conta das Mesas:':            '0,0,0,0',
+    'Local de Impressão da Pré -Conta do At.Id.:':            '0,0,0,0',
+    'Local de Impressão da Pré -Conta das Entregas:':         '0,0,0,0',
+    'Local de Impressão da Pré -Conta (Espelho):':            '0,0,0,0',
+    'Local de Impressão dos Orçamentos:':                     '0,0,0,0',
+    'Imprimir (Enviar) para Locais de Impressão (Geral):':    '0,0,0,0',
+    'Imprimir para Locais de Impressão (Caixa):':             '0,0,0,0',
+    'Imprimir para Locais de Impressão (Mesa):':              '0,0,0,0',
+    'Imprimir para Locais de Impressão (Entrega):':           '0,0,0,0',
+    'Imprimir para Locais de Impressão (Atend.Ident.):':      '0,0,0,0',
+    'Imprimir para Locais de Impressão (Orçamento):':         '0,0,0,0',
+    'Imprimir Espelho:':                                      '0,0,0,0',
+    'Imprimir Espelho em --> Mesas:':                         '0,0,0,0',
+    'Espelho — At.Id:':                                       '0,0,0,0',
+    'Espelho — Entregas:':                                    '0,0,0,0',
+    'Espelho — Check-Out:':                                   '0,0,0,0',
+    'Espelho — Orçamentos:':                                  '0,0,0,0',
+    'Imprimir Espelho (2):':                                  '0,0,0,0',
+    'Imprimir Espelho (2) em --> Mesas:':                     '0,0,0,0',
+    'Espelho (2) — At.Id:':                                   '0,0,0,0',
+    'Espelho (2) — Entregas:':                                '0,0,0,0',
+    'Espelho (2) — Check-Out:':                               '0,0,0,0',
+    'Espelho (2) — Orçamentos:':                              '0,0,0,0',
+    'Descrição da Estação:':                                  '0,0,0,0',
+  },
+  'prints/pdv_servidor_local.png': {
+    'Definir esta estação como "Concentrador":':              '0,0,0,0',
+    'Diretório dos Dados do Concentrador do Servidor Local:': '0,0,0,0',
+  },
   'prints/cfg_sistema_backup.png': {
     'Usar Esse Computador Como "Sistema de Backup"': '28,0.7,74.9,18.5',
     'Senha de Acesso ao Servidor para Backup':       '53.4,11.2,88,18',
@@ -2209,15 +2317,39 @@ let loadedImage  = new Image();
 // ════════════════════════════════════════════════════════════════
 function buildImgPanel() {
   const panel = document.getElementById('img-panel');
-  IMAGES.forEach((img, i) => {
-    const btn = document.createElement('button');
-    btn.className = 'img-btn';
-    const calBadge = img.calibrated ? `<div class="img-cal">✓ calibrado</div>` : '';
-    btn.innerHTML = `<div>${img.label}</div><div class="img-prog">${img.file.split('/')[1]}</div>${calBadge}`;
-    btn.dataset.idx = i;
-    btn.addEventListener('click', () => selectImage(i));
-    panel.appendChild(btn);
-  });
+
+  function renderGroup(label, items, collapsed) {
+    const header = document.createElement('div');
+    header.className = 'img-section-header' + (collapsed ? ' collapsed' : '');
+    header.innerHTML = `<span>${label}</span><span class="chevron">▼</span>`;
+
+    const group = document.createElement('div');
+    group.className = 'img-section-group' + (collapsed ? ' collapsed' : '');
+
+    header.addEventListener('click', () => {
+      header.classList.toggle('collapsed');
+      group.classList.toggle('collapsed');
+    });
+
+    items.forEach(({ img, i }) => {
+      const btn = document.createElement('button');
+      btn.className = 'img-btn';
+      const calBadge = img.calibrated ? `<div class="img-cal">✓ calibrado</div>` : '';
+      btn.innerHTML = `<div>${img.label}</div><div class="img-prog">${img.file.split('/')[1]}</div>${calBadge}`;
+      btn.dataset.idx = i;
+      btn.addEventListener('click', () => selectImage(i));
+      group.appendChild(btn);
+    });
+
+    panel.appendChild(header);
+    panel.appendChild(group);
+  }
+
+  const gestao = IMAGES.map((img, i) => ({ img, i })).filter(({ img }) => img.system !== 'pdv');
+  const pdv    = IMAGES.map((img, i) => ({ img, i })).filter(({ img }) => img.system === 'pdv');
+
+  renderGroup('GESTÃO', gestao, false);
+  if (pdv.length) renderGroup('PDV', pdv, false);
 }
 
 // ════════════════════════════════════════════════════════════════

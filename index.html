@@ -1317,16 +1317,6 @@
       </div>
 
       <div class="nav-section collapsed">
-        <div class="nav-section-title" onclick="toggleNavSection(this)">PDV / Caixa</div>
-        <div class="nav-items">
-          <a class="nav-item" onclick="showSection('pdv-caixa')">
-            Configurações PDV/Caixa
-            <span class="path-badge">Em breve</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="nav-section collapsed">
         <div class="nav-section-title" onclick="toggleNavSection(this)">Usuários / Permissões</div>
         <div class="nav-items">
           <a class="nav-item" onclick="showSection('usuarios')">
@@ -1526,12 +1516,11 @@
 
     <!-- Nav PDV (oculto até clicar na aba PDV) -->
     <div id="nav-pdv">
-      <div class="pdv-soon-badge">Em construção</div>
-      <div class="pdv-soon-title">Squalus PDV</div>
-      <div class="pdv-soon-desc">As configurações do PDV serão mapeadas em breve. O menu abaixo reflete a estrutura prevista.</div>
-
       <div class="pdv-cat-label">Impressão</div>
-      <div class="pdv-cat-item">Locais de Impressão</div>
+      <a class="nav-item" onclick="showSection('pdv-locais-impressao')">
+        Locais de Impressão
+        <span class="path-badge">PDV › Configurações › Opções Locais › Locais de Impressão</span>
+      </a>
       <div class="pdv-cat-item">Impressão de Pré-Contas Externas</div>
       <div class="pdv-cat-item">Impressora Fiscal</div>
 
@@ -1568,7 +1557,10 @@
 
       <div class="pdv-cat-label">Sistema</div>
       <div class="pdv-cat-item">Configurações Gerais</div>
-      <div class="pdv-cat-item">Configurar Opções de Servidor Local</div>
+      <a class="nav-item" onclick="showSection('pdv-servidor-local')">
+        Configurar Opções do Servidor Local
+        <span class="path-badge">PDV › Configurações › Servidor Local</span>
+      </a>
       <div class="pdv-cat-item">Opções do Concentrador</div>
       <div class="pdv-cat-item">TEF</div>
     </div>
@@ -2085,16 +2077,33 @@
         </div>
       </div>
 
-      <!-- Grupo: PDV — placeholder -->
+      <!-- Grupo: PDV — Impressão -->
       <div class="home-group" data-tab="pdv">
         <div class="home-group-header">
-          <span class="sys-badge pdv">PDV</span>
-          <h3>Squalus PDV</h3>
+          <span class="sys-badge pdv">PDV › Impressão</span>
+          <h3>Impressão</h3>
         </div>
-        <div class="pdv-home-placeholder">
-          <div class="ph-icon">🖥️</div>
-          <strong>Em construção</strong>
-          <p>As configurações do sistema PDV serão mapeadas em breve.</p>
+        <div class="welcome-grid">
+          <div class="welcome-card" onclick="showSection('pdv-locais-impressao')">
+            <div class="icon">🖨️</div>
+            <h3>Locais de Impressão</h3>
+            <p>Define locais de impressão do Danfe, pré-contas, espelhos, fechamento de caixa e orçamentos por estação.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grupo: PDV — Sistema -->
+      <div class="home-group" data-tab="pdv">
+        <div class="home-group-header">
+          <span class="sys-badge pdv">PDV › Sistema</span>
+          <h3>Sistema</h3>
+        </div>
+        <div class="welcome-grid">
+          <div class="welcome-card" onclick="showSection('pdv-servidor-local')">
+            <div class="icon">🖧</div>
+            <h3>Configurar Opções do Servidor Local</h3>
+            <p>Define se esta estação atua como concentrador e o diretório dos dados do servidor local (PafEcf).</p>
+          </div>
         </div>
       </div>
 
@@ -5020,18 +5029,269 @@
       </div>
     </section>
 
+    <!-- ══ PDV — SERVIDOR LOCAL ══ -->
+    <section id="pdv-servidor-local" class="page-section" data-section-img="prints/pdv_servidor_local.png">
+      <div class="page-header">
+        <div class="breadcrumb">PDV › Configurações › Configurar Opções do Servidor Local</div>
+        <h2>Configurar Opções do Servidor Local</h2>
+        <p>Define se esta estação atua como concentrador do servidor local e o diretório dos dados do concentrador.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pdv_servidor_local.png" alt="Tela Configurar Opções do Servidor Local"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/pdv_servidor_local.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>PDV</strong> → <strong>Configurações</strong> →
+        <strong>Configurar Opções do Servidor Local</strong>.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Campos da Tela</div>
+        <table class="fields-table">
+          <thead>
+            <tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Definir esta estação como "Concentrador":</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se este computador atuará como concentrador do servidor local. <strong>S-Sim</strong> = esta estação concentra os dados do servidor local; <strong>N-Não</strong> = comportamento padrão. <em>Atenção: apenas um computador deve ser definido como concentrador.</em></td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Diretório dos Dados do Concentrador do Servidor Local:</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Caminho completo do diretório onde os dados do concentrador do servidor local serão armazenados. Deve ser preenchido quando o campo acima estiver como <strong>S-Sim</strong>.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ PDV — LOCAIS DE IMPRESSÃO ══ -->
+    <section id="pdv-locais-impressao" class="page-section" data-section-img="prints/pdv_locais_impressao.png">
+      <div class="page-header">
+        <div class="breadcrumb">PDV › Configurações › Opções Locais do Sistema › Locais de Impressão</div>
+        <h2>Locais de Impressão</h2>
+        <p>Define os locais de impressão do Danfe, pré-contas, espelhos e fechamento de caixa para esta estação.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pdv_locais_impressao.png" alt="Tela Locais de Impressão"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/pdv_locais_impressao.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>PDV</strong> → <strong>Configurações</strong> →
+        <strong>Opções Locais do Sistema</strong> → <strong>Locais de Impressão</strong>.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Danfe</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Local de Impressão do Danfe:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Número do local de impressão utilizado para imprimir o Danfe nesta estação. O rótulo ao lado indica o nome do local selecionado (ex: Danfe Padrão).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Porta de Impressão do Danfe:</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Nome da porta ou impressora utilizada para impressão do Danfe (ex: <strong>Danfe</strong>). Deve corresponder ao local configurado no campo acima.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Locais de Impressão</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Usar Impressora Danfe para Outras Impressões:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se a impressora configurada para o Danfe também será usada para outras impressões desta estação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Local de Impressão Padrão p/Outras Impressões:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Local de impressão padrão utilizado para documentos gerais quando não há local específico configurado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Local de Impressão do Fechamento de Caixa:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define em qual local de impressão o relatório de fechamento de caixa será impresso.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Local de Impressão da Pré -Conta das Mesas:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Local de impressão usado para pré-contas das mesas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Local de Impressão da Pré -Conta do At.Id.:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Local de impressão usado para pré-contas do Atendimento Identificado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Local de Impressão da Pré -Conta das Entregas:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Local de impressão usado para pré-contas de entregas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Local de Impressão da Pré -Conta (Espelho):</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Local de impressão do espelho da pré-conta. Valor <strong>1 (Não Imprimir)</strong> desativa a impressão do espelho.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Local de Impressão dos Orçamentos:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Local de impressão usado para orçamentos.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Impressão por Local</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Imprimir (Enviar) para Locais de Impressão (Geral):</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Habilita o envio de impressões para locais de impressão de forma geral nesta estação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir para Locais de Impressão (Caixa):</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Habilita impressão para o local de caixa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir para Locais de Impressão (Mesa):</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Habilita impressão para o local de mesa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir para Locais de Impressão (Entrega):</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Habilita impressão para o local de entrega.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir para Locais de Impressão (Atend.Ident.):</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Habilita impressão para o local de Atendimento Identificado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir para Locais de Impressão (Orçamento):</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Habilita impressão para o local de orçamento.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Espelho</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Imprimir Espelho:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Habilita a impressão do espelho da pré-conta nesta estação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Espelho em --> Mesas:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o espelho é impresso no contexto de mesas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Espelho — At.Id:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o espelho é impresso no contexto de Atendimento Identificado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Espelho — Entregas:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o espelho é impresso no contexto de entregas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Espelho — Check-Out:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o espelho é impresso no contexto de check-out.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Espelho — Orçamentos:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o espelho é impresso no contexto de orçamentos.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Espelho (2):</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Habilita a impressão de um segundo espelho da pré-conta.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Espelho (2) em --> Mesas:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o segundo espelho é impresso no contexto de mesas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Espelho (2) — At.Id:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o segundo espelho é impresso no Atendimento Identificado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Espelho (2) — Entregas:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o segundo espelho é impresso nas entregas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Espelho (2) — Check-Out:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o segundo espelho é impresso no check-out.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Espelho (2) — Orçamentos:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o segundo espelho é impresso nos orçamentos.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Estação</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Descrição da Estação:</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Nome ou identificação desta estação de trabalho. Usado para distinguir computadores em ambientes com múltiplas estações.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- ══ PDV / CAIXA ══ -->
     <section id="pdv-caixa" class="page-section">
       <div class="page-header">
         <div class="breadcrumb">Gestão › Configurações › PDV / Caixa</div>
         <h2>PDV / Caixa</h2>
         <p>Parâmetros de ponto de venda, abertura e fechamento de caixa.</p>
-      </div>
-      <div class="screen-print">
-        <div class="screen-print-placeholder">
-          <strong>Seção em construção</strong>
-          Envie o print da tela de PDV/Caixa para adicionar o mapeamento dos campos.
-        </div>
       </div>
     </section>
 
@@ -10479,6 +10739,8 @@
       'cfg-xml-email-contabilidade': 'Envio de XMLs por Email para a Contabilidade',
       'cfg-xml-email-outras-opcoes': 'Envio de XMLs por Email — Outras Opções',
       'fiscal-nfe': 'Fiscal / NF-e / SAT',
+      'pdv-servidor-local': 'Configurar Opções do Servidor Local',
+      'pdv-locais-impressao': 'Locais de Impressão',
       'pdv-caixa': 'PDV / Caixa',
       'usuarios': 'Usuários / Permissões',
       'cad-empresas': 'Cadastro de Empresas',
@@ -10525,17 +10787,9 @@
     };
 
     function switchSystem(system) {
-      document.querySelectorAll('.sys-tab').forEach(t => t.classList.remove('active'));
-      document.querySelector('.sys-tab.' + system).classList.add('active');
-      const navNormal = document.getElementById('nav-normal');
-      const navPdv = document.getElementById('nav-pdv');
-      if (system === 'pdv') {
-        navNormal.style.display = 'none';
-        navPdv.style.display = '';
-      } else {
-        navNormal.style.display = '';
-        navPdv.style.display = 'none';
-      }
+      setNavSystem(system === 'pdv');
+      backToHome();
+      showHomeTab(system === 'pdv' ? 'pdv' : 'tudo');
     }
 
     function toggleNavSection(titleEl) {
@@ -10563,7 +10817,23 @@
       });
     }
 
+    function setNavSystem(isPdv) {
+      const navNormal = document.getElementById('nav-normal');
+      const navPdv    = document.getElementById('nav-pdv');
+      document.querySelectorAll('.sys-tab').forEach(t => t.classList.remove('active'));
+      if (isPdv) {
+        navNormal.style.display = 'none';
+        navPdv.style.display    = 'block';
+        document.querySelector('.sys-tab.pdv').classList.add('active');
+      } else {
+        navNormal.style.display = 'block';
+        navPdv.style.display    = 'none';
+        document.querySelector('.sys-tab.gestao').classList.add('active');
+      }
+    }
+
     function showSection(id) {
+      const isPdv       = id.startsWith('pdv-');
       const homeVisible = document.getElementById('home').classList.contains('visible');
 
       // ── MODO PREVIEW: chamado da home → mantém home + rola até a seção ──
@@ -10574,7 +10844,7 @@
           sec.classList.add('visible');
           setTimeout(() => sec.scrollIntoView({ behavior: 'smooth', block: 'start' }), 30);
         }
-        document.querySelectorAll('#nav-normal .nav-item').forEach(a => {
+        document.querySelectorAll('.nav-item').forEach(a => {
           a.classList.remove('active');
           if (a.getAttribute('onclick') && a.getAttribute('onclick').includes(id)) {
             a.classList.add('active');
@@ -10582,7 +10852,7 @@
             if (navSection) navSection.classList.remove('collapsed');
           }
         });
-        switchSystem('gestao');
+        setNavSystem(isPdv);
         return;
       }
 
@@ -10591,7 +10861,7 @@
       document.querySelectorAll('.nav-item').forEach(a => a.classList.remove('active'));
       const sec = document.getElementById(id);
       if (sec) sec.classList.add('visible');
-      document.querySelectorAll('#nav-normal .nav-item').forEach(a => {
+      document.querySelectorAll('.nav-item').forEach(a => {
         if (a.getAttribute('onclick') && a.getAttribute('onclick').includes(id)) {
           a.classList.add('active');
           const navSection = a.closest('.nav-section');
@@ -10599,7 +10869,7 @@
         }
       });
       document.getElementById('main').scrollTo({ top: 0, behavior: 'smooth' });
-      if (id !== 'home') switchSystem('gestao');
+      if (id !== 'home') setNavSystem(isPdv);
     }
 
     function searchAll(query) {
@@ -11853,6 +12123,47 @@
         'Desconto por Convênios':                                                   '81.8,20.1,51.2,3.1',
         // Outras Configurações
         'Mensagem no Fech.Caixa Caso Não Haja Troco Inicial':                       '72.6,44.1,41.9,4.1',
+      },
+      'prints/pdv_servidor_local.png': {
+      // Campos da Tela
+      'Definir esta estação como "Concentrador":':                                '44,8.6,40.9,14.5',
+      'Diretório dos Dados do Concentrador do Servidor Local:':                   '64.8,0.3,99.1,13.8',
+      },
+      'prints/pdv_locais_impressao.png': {
+      // Danfe
+      'Local de Impressão do Danfe:':                                             '5.2,13.5,37.6,4',
+      'Porta de Impressão do Danfe:':                                             '9.8,13.9,63,3.6',
+      // Locais de Impressão
+      'Usar Impressora Danfe para Outras Impressões:':                            '13.9,1.4,41.1,5',
+      'Local de Impressão Padrão p/Outras Impressões:':                           '19.1,1.4,44.9,4.2',
+      'Local de Impressão do Fechamento de Caixa:':                               '24.3,3.8,42.3,3.8',
+      'Local de Impressão da Pré -Conta das Mesas:':                              '28.7,3.2,43,4.2',
+      'Local de Impressão da Pré -Conta do At.Id.:':                              '33.5,4.6,41.5,3.8',
+      'Local de Impressão da Pré -Conta das Entregas:':                           '38.2,1.6,44.3,3.6',
+      'Local de Impressão da Pré -Conta (Espelho):':                              '42.8,4.2,46.5,4.2',
+      'Local de Impressão dos Orçamentos:':                                       '47.6,8.8,37,4.4',
+      // Impressão por Local
+      'Imprimir (Enviar) para Locais de Impressão (Geral):':                      '52.2,0.1,42,3.8',
+      'Imprimir para Locais de Impressão (Caixa):':                               '57.2,5,36.9,3.8',
+      'Imprimir para Locais de Impressão (Mesa):':                                '61.8,4.9,37.3,3.6',
+      'Imprimir para Locais de Impressão (Entrega):':                             '61.6,42.4,38,4',
+      'Imprimir para Locais de Impressão (Atend.Ident.):':                        '66.5,1.1,41.1,3.6',
+      'Imprimir para Locais de Impressão (Orçamento):':                           '66.5,42.4,40.4,4.2',
+      // Espelho
+      'Imprimir Espelho:':                                                        '71.1,21.2,29.6,3.4',
+      'Imprimir Espelho em --> Mesas:':                                           '76.3,11.5,29.5,3.2',
+      'Espelho — At.Id:':                                                         '76.3,41.6,11.1,3.6',
+      'Espelho — Entregas:':                                                      '75.9,53.5,13.8,4',
+      'Espelho — Check-Out:':                                                     '75.5,67.7,15.3,4.4',
+      'Espelho — Orçamentos:':                                                    '75.5,83.2,16.1,4.2',
+      'Imprimir Espelho (2):':                                                    '80.7,19.1,31.8,3.2',
+      'Imprimir Espelho (2) em --> Mesas:':                                       '85.3,9.6,31.2,3.6',
+      'Espelho (2) — At.Id:':                                                     '85.3,41.6,11.1,4',
+      'Espelho (2) — Entregas:':                                                  '84.7,53.2,13.8,4.2',
+      'Espelho (2) — Check-Out:':                                                 '84.9,68,14.7,4.8',
+      'Espelho (2) — Orçamentos:':                                                '85.3,82.7,16.5,3.6',
+      // Estação
+      'Descrição da Estação:':                                                    '90,18,49.2,4.4',
       }
     };
 
