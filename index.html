@@ -1392,6 +1392,10 @@
             Opções de Impressão Danfe NFCe / SAT
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Impressão Danfe NFCe / SAT e Outras opções de NFCe/SAT</span>
           </a>
+          <a class="nav-item" onclick="showSection('cad-empresas-layout-danfe-nfce')">
+            Opções de Layout de Danfe NFCe
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Layout de Danfe NFCe</span>
+          </a>
           <a class="nav-item" onclick="showSection('cad-empresas-cupom-fiscal')">
             Opções de Cupom Fiscal/NFe/SAT
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Cupom Fiscal/NFe/SAT</span>
@@ -1819,6 +1823,11 @@
             <div class="icon">🖨️</div>
             <h3>Opções de Impressão Danfe NFCe / SAT</h3>
             <p>Detalhe de formas de pagamento na Danfe, comportamento em contingência off-line e limites de transmissão para entrada e saída da contingência automática.</p>
+          </div>
+          <div class="welcome-card empresa" onclick="showSection('cad-empresas-layout-danfe-nfce')">
+            <div class="icon">🧾</div>
+            <h3>Opções de Layout de Danfe NFCe</h3>
+            <p>Layout, nome fantasia, ofuscamento de CPF, dados do emitente, cor de fundo, CPF do cliente e posição do QR Code na Danfe NFCe.</p>
           </div>
           <div class="welcome-card empresa" onclick="showSection('cad-empresas-cupom-fiscal')">
             <div class="icon">🧾</div>
@@ -6581,6 +6590,90 @@
       </div>
     </section>
 
+    <!-- ══ OPÇÕES DE LAYOUT DE DANFE NFCe ══ -->
+    <section id="cad-empresas-layout-danfe-nfce" class="page-section" data-section-img="prints/cad_empresas_layout_danfe_nfce.png">
+      <div class="section-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções de Layout de Danfe NFCe</div>
+        <h2>Opções de Layout de Danfe NFCe</h2>
+        <p>Configurações visuais e de conteúdo da Danfe NFCe: versão do layout, dados do emitente, CPF do cliente, cor de fundo e posição do QR Code.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_layout_danfe_nfce.png" alt="Tela Layout da Danfe NFCe"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_layout_danfe_nfce.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções de Layout de Danfe NFCe</strong>.
+      </div>
+
+      <!-- Layout da Danfe NFCe -->
+      <div class="fields-card">
+        <div class="fields-card-header">Layout da Danfe NFCe</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Layout do Danfe NFCe</div></td>
+              <td><span class="tag tag-opt">1-Layout Novo v.4.1</span></td>
+              <td>Define a versão do layout utilizado na impressão da Danfe NFCe. Manter na versão mais recente disponível para garantir compatibilidade com as exigências da Sefaz.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Incluir Nome Fantasia do Emitente</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Quando ativado, exibe o nome fantasia da empresa no cabeçalho da Danfe NFCe, além da razão social.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Ofuscar CPF na impressão da Danfe</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Quando ativado, oculta parte dos dígitos do CPF do cliente na Danfe impressa, preservando a privacidade conforme a LGPD.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">CNPJ e Razão Social do Emitente Impressos em Linhas Separadas</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, imprime o CNPJ e a razão social do emitente em linhas distintas no cabeçalho da Danfe, facilitando a leitura.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">CNPJ do Emitente Impresso Antes da Razão Social</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Define a ordem de exibição: quando ativado, o CNPJ aparece antes da razão social no cabeçalho da Danfe.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Incluir Inscr.Estadual do Emitente</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, inclui a Inscrição Estadual da empresa no cabeçalho da Danfe NFCe.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Incluir Telefone e CEP do Emitente</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Quando ativado, exibe o telefone e o CEP da empresa no cabeçalho da Danfe NFCe.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Cor de Fundo Mais Suave</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, utiliza uma cor de fundo mais clara na impressão da Danfe, reduzindo o consumo de tinta em impressoras térmicas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Incluir Apenas o CPF do Cliente na Danfe</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, imprime somente o CPF do cliente na Danfe, sem exibir o nome completo. Útil para simplificar o documento ou atender preferências do cliente.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">QR Code Lateral</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Quando ativado, posiciona o QR Code da NFCe na lateral da Danfe em vez de no rodapé, aproveitando melhor o espaço de impressão em bobinas estreitas.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- ══ OPÇÕES DE CUPOM FISCAL / NFe / SAT ══ -->
     <section id="cad-empresas-cupom-fiscal" class="page-section" data-section-img="prints/cad_empresas_cupom_fiscal.png">
       <div class="page-header">
@@ -9929,6 +10022,7 @@
       'cad-empresas-integ-cc': 'Integração com Conta Corrente',
       'cad-empresas-dados-contador': 'Dados do Contador',
       'cad-empresas-danfe-nfce': 'Opções de Impressão Danfe NFCe / SAT',
+      'cad-empresas-layout-danfe-nfce': 'Opções de Layout de Danfe NFCe',
       'cad-empresas-senha-internet': 'Senha via Internet',
       'cad-empresas-senha-restserver': 'Senha Sagres RestServer',
       'cad-empresas-cupom-fiscal': 'Opções de Cupom Fiscal/NFe/SAT',
@@ -11001,6 +11095,19 @@
       'Perguntar ao Operador Se Deseja Transmitir em Contingência Off-Line':      '43.2,0.2,99.2,8.7',
       'NºTransmissões Off-Line p/Entrar em Contingência Automaticamente':         '56.8,1.2,50.5,11.5',
       'NºTransmissões Off-Line p/Sair da Contingência Automática':                '71.6,7.2,44.4,10.9',
+      },
+      'prints/cad_empresas_layout_danfe_nfce.png': {
+      // Layout da Danfe NFCe
+      'Layout do Danfe NFCe':                                                     '14.6,38.4,60.8,5.8',
+      'Incluir Nome Fantasia do Emitente':                                        '23.1,28.4,44.6,5.6',
+      'Ofuscar CPF na impressão da Danfe':                                        '30.6,27.3,64.2,5.6',
+      'CNPJ e Razão Social do Emitente Impressos em Linhas Separadas':            '38.9,0.4,72.4,5',
+      'CNPJ do Emitente Impresso Antes da Razão Social':                          '46.4,13.9,58.8,5.4',
+      'Incluir Inscr.Estadual do Emitente':                                       '54.3,29.6,43.1,5',
+      'Incluir Telefone e CEP do Emitente':                                       '62,28.1,44.6,5.4',
+      'Cor de Fundo Mais Suave':                                                  '69.9,36.5,35.9,5',
+      'Incluir Apenas o CPF do Cliente na Danfe':                                 '77.3,22.4,76.4,5.6',
+      'QR Code Lateral':                                                          '85.7,43.6,29.1,4.8',
       },
       'prints/cad_empresas_senha_internet.png': {
       // Identificação do Representante
