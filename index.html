@@ -5,6 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Squalus Gestão — Guia de Configurações</title>
+  <meta name="description" content="Guia interno de suporte para o sistema Squalus Gestão. Referência rápida de caminhos de acesso e campos de cada tela de configuração — Gestão, Empresa, Entregas, Mesas, Atendimento c/ Identificação e PDV." />
+  <meta property="og:title" content="Squalus Gestão — Guia de Configurações" />
+  <meta property="og:description" content="Guia interno de suporte para o sistema Squalus Gestão. Referência rápida de caminhos de acesso e campos de cada tela de configuração." />
+  <meta property="og:type" content="website" />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap');
 
@@ -1456,6 +1460,11 @@
             Opções de Coletores
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Coletores</span>
           </a>
+          <div class="nav-sub-label vprazo">Estoque/Produção</div>
+          <a class="nav-item" onclick="showSection('cad-empresas-opcoes-estoque-producao')">
+            Opções de Estoque/Produção
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Estoque/Produção</span>
+          </a>
         </div>
       </div>
     </div>
@@ -1528,7 +1537,6 @@
         <button class="home-tab"        data-tab="entregas"   onclick="showHomeTab('entregas')">Entregas</button>
         <button class="home-tab"        data-tab="mesas"      onclick="showHomeTab('mesas')">Mesas</button>
         <button class="home-tab"        data-tab="atid"       onclick="showHomeTab('atid')">Atend. c/ Identificação</button>
-        <button class="home-tab"        data-tab="vendas"     onclick="showHomeTab('vendas')">Vendas</button>
         <button class="home-tab"        data-tab="pdv"        onclick="showHomeTab('pdv')">PDV</button>
       </div>
 
@@ -1762,6 +1770,36 @@
         </div>
       </div>
 
+      <!-- Grupo: Empresa — Dispositivos & Operação -->
+      <div class="home-group" data-tab="empresa">
+        <div class="home-group-header">
+          <span class="sys-badge empresa">Empresa</span>
+          <h3>Dispositivos & Operação</h3>
+        </div>
+        <div class="welcome-grid">
+          <div class="welcome-card empresa" onclick="showSection('cad-empresas-opcoes-balanca')">
+            <div class="icon">⚖️</div>
+            <h3>Opções de Balança</h3>
+            <p>Configuração do desconto de peso excedente de produtos na pesagem.</p>
+          </div>
+          <div class="welcome-card empresa" onclick="showSection('cad-empresas-opcoes-biometria')">
+            <div class="icon">🖐️</div>
+            <h3>Opções de Biometria</h3>
+            <p>Uso de biometria para autenticação em Conta Assinada, Venda Antecipada e Desconto por Convênios.</p>
+          </div>
+          <div class="welcome-card empresa" onclick="showSection('cad-empresas-opcoes-coletores')">
+            <div class="icon">📡</div>
+            <h3>Opções de Coletores</h3>
+            <p>Ordem de exibição de produtos e grupos no SagresPK e uso de descrição completa de produtos no coletor.</p>
+          </div>
+          <div class="welcome-card empresa" onclick="showSection('cad-empresas-opcoes-estoque-producao')">
+            <div class="icon">🏭</div>
+            <h3>Opções de Estoque/Produção</h3>
+            <p>Define fornecedor e cliente padrão para produção própria e os tipos de movimentação de estoque para entradas e saídas da produção.</p>
+          </div>
+        </div>
+      </div>
+
       <!-- Grupo: Empresa — Entregas -->
       <div class="home-group" data-tab="entregas">
         <div class="home-group-header">
@@ -1828,7 +1866,7 @@
       </div>
 
       <!-- Grupo: Empresa — Orçamentos -->
-      <div class="home-group" data-tab="vendas">
+      <div class="home-group" data-tab="empresa">
         <div class="home-group-header">
           <span class="sys-badge orcamento">Orçamentos</span>
           <h3>Configurações de Orçamentos</h3>
@@ -1843,7 +1881,7 @@
       </div>
 
       <!-- Grupo: Empresa — Pedidos -->
-      <div class="home-group" data-tab="vendas">
+      <div class="home-group" data-tab="empresa">
         <div class="home-group-header">
           <span class="sys-badge pedidos">Pedidos</span>
           <h3>Configurações de Pedidos</h3>
@@ -1858,7 +1896,7 @@
       </div>
 
       <!-- Grupo: Empresa — Vendas à Prazo -->
-      <div class="home-group" data-tab="vendas">
+      <div class="home-group" data-tab="empresa">
         <div class="home-group-header">
           <span class="sys-badge vprazo">Vendas à Prazo</span>
           <h3>Configurações de Vendas à Prazo</h3>
@@ -1884,21 +1922,11 @@
             <h3>Opções de Caixinha</h3>
             <p>Ativação do módulo Caixinha e configuração da mensagem de troco como caixinha nas Mesas e no Atendimento Identificado.</p>
           </div>
-          <div class="welcome-card vprazo" onclick="showSection('cad-empresas-opcoes-balanca')">
-            <div class="icon">⚖️</div>
-            <h3>Opções de Balança</h3>
-            <p>Configuração do desconto de peso excedente de produtos na pesagem.</p>
-          </div>
-          <div class="welcome-card vprazo" onclick="showSection('cad-empresas-opcoes-biometria')">
-            <div class="icon">🖐️</div>
-            <h3>Opções de Biometria</h3>
-            <p>Uso de biometria para autenticação em Conta Assinada, Venda Antecipada e Desconto por Convênios.</p>
-          </div>
         </div>
       </div>
 
       <!-- Grupo: Empresa — Preços -->
-      <div class="home-group" data-tab="vendas">
+      <div class="home-group" data-tab="empresa">
         <div class="home-group-header">
           <span class="sys-badge vprazo">Preços</span>
           <h3>Configurações de Preços</h3>
@@ -1913,7 +1941,7 @@
       </div>
 
       <!-- Grupo: Empresa — Fidelidade -->
-      <div class="home-group" data-tab="vendas">
+      <div class="home-group" data-tab="empresa">
         <div class="home-group-header">
           <span class="sys-badge vprazo">Fidelidade</span>
           <h3>Configurações de Fidelidade</h3>
@@ -1927,23 +1955,8 @@
         </div>
       </div>
 
-      <!-- Grupo: Empresa — Coletores -->
-      <div class="home-group" data-tab="vendas">
-        <div class="home-group-header">
-          <span class="sys-badge vprazo">Coletores</span>
-          <h3>Configurações de Coletores</h3>
-        </div>
-        <div class="welcome-grid">
-          <div class="welcome-card vprazo" onclick="showSection('cad-empresas-opcoes-coletores')">
-            <div class="icon">📡</div>
-            <h3>Opções de Coletores</h3>
-            <p>Ordem de exibição de produtos e grupos no SagresPK e uso de descrição completa de produtos no coletor.</p>
-          </div>
-        </div>
-      </div>
-
       <!-- Grupo: Empresa — Pré-Venda -->
-      <div class="home-group" data-tab="vendas">
+      <div class="home-group" data-tab="empresa">
         <div class="home-group-header">
           <span class="sys-badge pre-venda">Pré-Venda</span>
           <h3>Configurações de Pré-Venda</h3>
@@ -9073,6 +9086,59 @@
       </div>
     </section>
 
+    <section id="cad-empresas-opcoes-estoque-producao" class="page-section" data-section-img="prints/cad_empresas_opcoes_estoque_producao.png">
+      <div class="section-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções de Estoque/Produção</div>
+        <h2>Opções de Estoque/Produção</h2>
+        <p>Define o fornecedor e o cliente padrão para produção própria, além dos tipos de movimentação de estoque utilizados nas entradas e saídas da produção.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_opcoes_estoque_producao.png" alt="Tela Configurações da Empresa — Opções de Estoque/Produção"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_opcoes_estoque_producao.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções de Estoque/Produção</strong>.
+      </div>
+
+      <!-- Estoque/Produção -->
+      <div class="fields-card">
+        <div class="fields-card-header">Estoque/Produção</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Fornecedor p/Produção</div></td>
+              <td><span class="tag tag-opt">2-PRODUÇÃO PROPRIA</span></td>
+              <td>Código do fornecedor utilizado como padrão nas entradas de produção própria. Deve corresponder a um cadastro de fornecedor existente no sistema.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Cliente p/Produção</div></td>
+              <td><span class="tag tag-opt">1-PRODUÇÃO PROPRIA</span></td>
+              <td>Código do cliente utilizado como padrão nas saídas de produção própria. Deve corresponder a um cadastro de cliente existente no sistema.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Tipo Mov.Estoque p/Entradas da Produção</div></td>
+              <td><span class="tag tag-opt">2-ENTRADA DE PRODUÇÃO</span></td>
+              <td>Tipo de movimentação de estoque aplicado automaticamente nas entradas geradas pelo processo de produção. Define como o sistema classifica e registra o aumento de estoque vindo da produção.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Tipo Mov.Estoque p/Saídas da Produção</div></td>
+              <td><span class="tag tag-opt">3-SAIDA PARA PRODUÇÃO</span></td>
+              <td>Tipo de movimentação de estoque aplicado automaticamente nas saídas geradas pelo processo de produção. Define como o sistema classifica e registra o consumo de insumos destinados à produção.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
   </main>
 
   <!-- ══════════════ MODAL EXIBIR NA TELA ══════════════ -->
@@ -9150,7 +9216,8 @@
       'cad-empresas-opcoes-biometria': 'Opções de Biometria',
       'cad-empresas-opcoes-precos': 'Opções de Preços',
       'cad-empresas-opcoes-fidelidade': 'Opções de Programa de Fidelidade',
-      'cad-empresas-opcoes-coletores': 'Opções de Coletores'
+      'cad-empresas-opcoes-coletores': 'Opções de Coletores',
+      'cad-empresas-opcoes-estoque-producao': 'Opções de Estoque/Produção'
     };
 
     function switchSystem(system) {
@@ -10088,6 +10155,13 @@
         'Ordem dos Produtos no SagresPK':                                           '40.8,20.9,78.2,9.5',
         'Ordem dos Grupos no SagresPK':                                             '56,22.4,76.2,9.9',
         'Utilizar Descrição Completa de Produtos no SagresPK':                      '70.8,0.3,71.4,9.9',
+      },
+      'prints/cad_empresas_opcoes_estoque_producao.png': {
+        // Estoque/Produção
+        'Fornecedor p/Produção':                                                    '28.6,18.5,58.4,8.6',
+        'Cliente p/Produção':                                                       '43.9,22.6,54.2,8.9',
+        'Tipo Mov.Estoque p/Entradas da Produção':                                  '57.6,0.5,80.7,9.7',
+        'Tipo Mov.Estoque p/Saídas da Produção':                                    '72.5,2.4,77.2,8.9',
       },
       'prints/cad_empresas_opcoes_recibo.png': {
         // Cabeçário da Bobina
