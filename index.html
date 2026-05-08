@@ -1353,6 +1353,10 @@
             Opções Gerais da Empresa 3
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções Gerais 3</span>
           </a>
+          <a class="nav-item" onclick="showSection('cad-empresas-senha-internet')">
+            Senha via Internet
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Senha via Internet</span>
+          </a>
           <div class="nav-sub-label">Fiscal & Impressão</div>
           <a class="nav-item" onclick="showSection('cad-empresas-opcoes-nfe')">
             Opções de Nota Fiscal Eletrônica
@@ -1747,6 +1751,11 @@
             <div class="icon">⚙️</div>
             <h3>Opções Gerais da Empresa 3</h3>
             <p>Recebimento automático, fechamento de caixa, combo, dashboard e impressão na saída livre.</p>
+          </div>
+          <div class="welcome-card empresa" onclick="showSection('cad-empresas-senha-internet')">
+            <div class="icon">🔑</div>
+            <h3>Senha via Internet</h3>
+            <p>Identificação do representante para acesso aos serviços online do Squalus: CNPJ, senha e nome do responsável.</p>
           </div>
         </div>
       </div>
@@ -6228,6 +6237,55 @@
       </div>
     </section>
 
+    <!-- ══ SENHA VIA INTERNET ══ -->
+    <section id="cad-empresas-senha-internet" class="page-section" data-section-img="prints/cad_empresas_senha_internet.png">
+      <div class="section-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Senha via Internet</div>
+        <h2>Senha via Internet</h2>
+        <p>Identificação do representante da empresa para acesso aos serviços online do Squalus: CNPJ, senha e nome do responsável cadastrado.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_senha_internet.png" alt="Tela Identificação do Representante — Senha via Internet"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_senha_internet.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Senha via Internet</strong>.
+      </div>
+
+      <!-- Identificação do Representante -->
+      <div class="fields-card">
+        <div class="fields-card-header">Identificação do Representante</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">CNPJ do Representante</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>CNPJ da empresa representante cadastrada junto à Fminds/Squalus para acesso aos serviços online. Deve ser informado no formato correto com pontuação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Senha</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Senha de acesso aos serviços online do Squalus vinculada ao CNPJ do representante. Fornecida pelo suporte ou pela Fminds no momento do credenciamento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Nome do Responsável</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Nome do responsável técnico ou comercial pelo acesso aos serviços online. Informação de identificação cadastral junto à Fminds/Squalus.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- ══ OPÇÕES DE CUPOM FISCAL / NFe / SAT ══ -->
     <section id="cad-empresas-cupom-fiscal" class="page-section" data-section-img="prints/cad_empresas_cupom_fiscal.png">
       <div class="page-header">
@@ -9574,6 +9632,7 @@
       'cad-empresas-opcoes-dfe': 'Opções de Distribuição DFe da Nota Fiscal',
       'cad-empresas-opcoes-nfse': 'Opções de Nota Fiscal Eletrônica de Serviços',
       'cad-empresas-integ-cc': 'Integração com Conta Corrente',
+      'cad-empresas-senha-internet': 'Senha via Internet',
       'cad-empresas-cupom-fiscal': 'Opções de Cupom Fiscal/NFe/SAT',
       'cad-empresas-opcoes-recibo': 'Opções de Recibo',
       'cad-empresas-local-impressao': 'Opções de Local de Impressão',
@@ -10609,6 +10668,12 @@
       'Cód.Conta Corrente':                                                       '41,3.4,21.8,14.9',
       'Possui Intermediador':                                                     '59.7,2.8,23,14.2',
       'Cód.Intermediador':                                                        '59.7,26.6,20,16.4',
+      },
+      'prints/cad_empresas_senha_internet.png': {
+      // Identificação do Representante
+      'CNPJ do Representante':                                                    '22.2,-0.1,73.7,14.2',
+      'Senha':                                                                    '41.8,24,74.5,13.8',
+      'Nome do Responsável':                                                      '62.3,2.8,95.6,13.8',
       },
       'prints/cad_empresas_cupom_fiscal.png': {
         // Cliente e Identificação no Cupom
