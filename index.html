@@ -1354,6 +1354,10 @@
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções Gerais 3</span>
           </a>
           <div class="nav-sub-label">Fiscal & Impressão</div>
+          <a class="nav-item" onclick="showSection('cad-empresas-opcoes-nfe')">
+            Opções de Nota Fiscal Eletrônica
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Nota Eletrônica</span>
+          </a>
           <a class="nav-item" onclick="showSection('cad-empresas-cupom-fiscal')">
             Opções de Cupom Fiscal/NFe/SAT
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Cupom Fiscal/NFe/SAT</span>
@@ -1742,6 +1746,11 @@
           <h3>Fiscal & Impressão</h3>
         </div>
         <div class="welcome-grid">
+          <div class="welcome-card empresa" onclick="showSection('cad-empresas-opcoes-nfe')">
+            <div class="icon">📄</div>
+            <h3>Opções de Nota Fiscal Eletrônica</h3>
+            <p>Emissão própria e de terceiros, regime de tributação, modo produção/homologação, SSL, certificado A1 e transmissão de NF-e.</p>
+          </div>
           <div class="welcome-card empresa" onclick="showSection('cad-empresas-cupom-fiscal')">
             <div class="icon">🧾</div>
             <h3>Opções de Cupom Fiscal/NFe/SAT</h3>
@@ -5851,6 +5860,170 @@
       </div>
     </section>
 
+    <!-- ══ OPÇÕES DE NOTA FISCAL ELETRÔNICA ══ -->
+    <section id="cad-empresas-opcoes-nfe" class="page-section" data-section-img="prints/cad_empresas_opcoes_nfe.png">
+      <div class="section-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções de Nota Fiscal Eletrônica</div>
+        <h2>Opções de Nota Fiscal Eletrônica</h2>
+        <p>Configurações de emissão de NF-e própria e de terceiros, regime de tributação, ambiente de transmissão, bibliotecas SSL e certificado digital A1.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_opcoes_nfe.png" alt="Tela Configurações da Empresa — Opções de Nota Fiscal Eletrônica"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_opcoes_nfe.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções de Nota Eletrônica</strong>.
+      </div>
+
+      <!-- Emissão -->
+      <div class="fields-card">
+        <div class="fields-card-header">Emissão</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Nota fiscal eletrônica "emissão própria"</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Define se a empresa emite NF-e com CNPJ próprio. Quando ativado, habilita os demais campos de configuração de emissão própria.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">NFe -> empresa como "Simples Nacional"</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Indica se a empresa é optante pelo Simples Nacional. Afeta o preenchimento de informações tributárias na NF-e.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Nota fiscal eletrônica "emissão de terceiros"</div></td>
+              <td><span class="tag tag-opt">Sim, apenas c/importação XML</span></td>
+              <td>Define se a empresa aceita NF-e de terceiros. A opção "Sim, apenas c/importação XML" restringe o lançamento à importação de arquivo XML, sem digitação manual.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Nota fiscal eletrônica "emissão própria" no ECF</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Controla se a emissão própria de NF-e está habilitada também no módulo ECF (Emissor de Cupom Fiscal).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Regime de Tributação</div></td>
+              <td><span class="tag tag-opt">3-Regime Normal</span></td>
+              <td>Define o regime tributário da empresa para fins de NF-e. As opções típicas são: Simples Nacional, Simples Nacional — Excesso de Sublimite e Regime Normal.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Inf.Adicional Padrão na NFe</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Texto fixo inserido automaticamente no campo "Informações Adicionais" de todas as NF-e emitidas. Útil para mensagens obrigatórias por legislação estadual.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Emitir em Modo Produção ou Homologação</div></td>
+              <td><span class="tag tag-opt">Homologação</span></td>
+              <td>Define o ambiente de transmissão da NF-e. <strong>Produção</strong> emite notas fiscais válidas; <strong>Homologação</strong> é o ambiente de testes. Só alterar após validação completa com a Sefaz.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Impostos e Transmissão -->
+      <div class="fields-card">
+        <div class="fields-card-header">Impostos e Transmissão</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Imprimir Valor dos Impostos na Nota</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Quando ativado, imprime o detalhamento dos valores de impostos no DANFE/nota fiscal. Algumas legislações estaduais exigem essa informação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Assistente p/Cálc.Impostos</div></td>
+              <td><span class="tag tag-opt">Opcional</span></td>
+              <td>Define se o assistente de cálculo de impostos é exibido durante o lançamento da nota. "Opcional" permite ao operador chamar ou ignorar o assistente.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Versão do Layout do XML da NFe</div></td>
+              <td><span class="tag tag-opt">Versão 4.00</span></td>
+              <td>Versão do schema XML utilizado na geração da NF-e. Manter em <strong>Versão 4.00</strong>, que é o padrão exigido atualmente pela Sefaz.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Tipo de Transmissão</div></td>
+              <td><span class="tag tag-opt">2-libCapicom</span></td>
+              <td>Biblioteca utilizada para transmissão da NF-e à Sefaz. A opção padrão é <strong>2-libCapicom</strong>; em ambientes sem suporte a Capicom pode ser necessário alterar.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Forma de Preenchimento</div></td>
+              <td><span class="tag tag-opt">1-Automático</span></td>
+              <td>Define como os campos da NF-e são preenchidos. No modo automático o sistema preenche os dados a partir do cadastro de produtos e clientes.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- SSL e Certificado A1 -->
+      <div class="fields-card">
+        <div class="fields-card-header">SSL e Certificado A1</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">SSL Crypt Lib</div></td>
+              <td><span class="tag tag-opt">2-cryCapicom</span></td>
+              <td>Biblioteca de criptografia usada na assinatura digital da NF-e. Padrão para ambientes com Capicom instalado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">SSL Http Lib</div></td>
+              <td><span class="tag tag-opt">1-httpWinINet</span></td>
+              <td>Biblioteca HTTP usada para a comunicação segura com os webservices da Sefaz. <strong>1-httpWinINet</strong> usa a camada nativa do Windows.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">SSL Xml Sign Lib</div></td>
+              <td><span class="tag tag-opt">3-xsMsXmlCapicom</span></td>
+              <td>Biblioteca de assinatura XML da NF-e. Utiliza o Microsoft XML integrado ao Capicom.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">SSL Type</div></td>
+              <td><span class="tag tag-opt">5-LT_TLSv1_2</span></td>
+              <td>Versão do protocolo SSL/TLS usada na conexão com a Sefaz. Manter em <strong>TLSv1_2</strong>, exigido pela Sefaz desde 2020.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Nome do Arquivo PFX do Certificado A1</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Caminho completo do arquivo <code>.pfx</code> do certificado digital A1 da empresa. Deve ser acessível pelo servidor onde o sistema está instalado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Senha do Certificado A1</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Senha de proteção do certificado A1 (<code>.pfx</code>). Armazenada internamente para assinatura automática das NF-e.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Fatura e Importação -->
+      <div class="fields-card">
+        <div class="fields-card-header">Fatura e Importação</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Campos de Fatura Obrigatórios</div></td>
+              <td><span class="tag tag-opt">S-Sim</span></td>
+              <td>Quando ativado, os campos de fatura da NF-e (número, vencimento, valor) tornam-se obrigatórios no lançamento, garantindo conformidade com a legislação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Importação de NFe sem Produtos</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Define se o sistema aceita importar um XML de NF-e que não contenha itens de produto. Em geral deve permanecer como <strong>Não</strong> para evitar lançamentos incompletos.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- ══ OPÇÕES DE CUPOM FISCAL / NFe / SAT ══ -->
     <section id="cad-empresas-cupom-fiscal" class="page-section" data-section-img="prints/cad_empresas_cupom_fiscal.png">
       <div class="page-header">
@@ -9193,6 +9366,7 @@
       'cad-empresas-op-gerais': 'Opções Gerais da Empresa',
       'cad-empresas-op-gerais-2': 'Opções Gerais da Empresa 2',
       'cad-empresas-op-gerais-3': 'Opções Gerais da Empresa 3',
+      'cad-empresas-opcoes-nfe': 'Opções de Nota Fiscal Eletrônica',
       'cad-empresas-cupom-fiscal': 'Opções de Cupom Fiscal/NFe/SAT',
       'cad-empresas-opcoes-recibo': 'Opções de Recibo',
       'cad-empresas-local-impressao': 'Opções de Local de Impressão',
@@ -10178,6 +10352,32 @@
         'Nº de Linhas entre Total e Msg.Sem Valor Fiscal':                          '70.7,0,48.1,6.7',
         'Imprimir Atendente que Comandou Fechamento':                               '78.8,1.8,51.6,5.1',
         'Imprimir Atendente do Pedido':                                             '86.1,16.5,37.2,5.3',
+      },
+      'prints/cad_empresas_opcoes_nfe.png': {
+      // Emissão
+      'Nota fiscal eletrônica "emissão própria"':                                 '9.7,5.4,50.5,4.5',
+      'NFe -> empresa como "Simples Nacional"':                                   '15.1,3.4,38.2,4.7',
+      'Nota fiscal eletrônica "emissão de terceiros"':                            '20.4,1.9,55.9,3.7',
+      'Nota fiscal eletrônica "emissão própria" no ECF':                          '25.4,0.4,56.8,3.9',
+      'Regime de Tributação':                                                     '30.3,17.6,49.1,3.9',
+      'Inf.Adicional Padrão na NFe':                                              '35.3,13.5,85.4,3.7',
+      'Emitir em Modo Produção ou Homologação':                                   '39.8,2.7,47.7,4.1',
+      // Impostos e Transmissão
+      'Imprimir Valor dos Impostos na Nota':                                      '44.9,7.3,34.3,4.1',
+      'Assistente p/Cálc.Impostos':                                               '50.3,14.1,52.4,3.9',
+      'Versão do Layout do XML da NFe':                                           '54.6,9.2,35.8,4.5',
+      'Tipo de Transmissão':                                                      '60,18.2,43,3.9',
+      'Forma de Preenchimento':                                                   '65.2,15.5,50.8,4.1',
+      // SSL e Certificado A1
+      'SSL Crypt Lib':                                                            '69.9,22.6,27.3,3.5',
+      'SSL Http Lib':                                                             '69.7,50.8,26.9,4.3',
+      'SSL Xml Sign Lib':                                                         '74.6,20.5,29.7,3.9',
+      'SSL Type':                                                                 '75.1,50.8,24.6,3.9',
+      'Nome do Arquivo PFX do Certificado A1':                                    '80,5.7,72.2,3.9',
+      'Senha do Certificado A1':                                                  '85.6,15.7,50.8,3.9',
+      // Fatura e Importação
+      'Campos de Fatura Obrigatórios':                                            '90.1,10.9,30.7,3.5',
+      'Permitir Importação de NFe sem Produtos':                                  '89.7,41.9,53.8,4.1',
       },
       'prints/cad_empresas_cupom_fiscal.png': {
         // Cliente e Identificação no Cupom
