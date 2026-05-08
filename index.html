@@ -1366,6 +1366,10 @@
             Opções de Nota Fiscal Eletrônica de Serviços
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Nota Fiscal Eletrônica de Serviços</span>
           </a>
+          <a class="nav-item" onclick="showSection('cad-empresas-integ-cc')">
+            Integração com Conta Corrente
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Integração com Conta Corrente</span>
+          </a>
           <a class="nav-item" onclick="showSection('cad-empresas-cupom-fiscal')">
             Opções de Cupom Fiscal/NFe/SAT
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Cupom Fiscal/NFe/SAT</span>
@@ -1768,6 +1772,11 @@
             <div class="icon">🔧</div>
             <h3>Opções de Nota Fiscal Eletrônica de Serviços</h3>
             <p>Ativação da NFS-e, modo produção/homologação, credenciais do Web Service e percentual padrão de ISS das notas.</p>
+          </div>
+          <div class="welcome-card empresa" onclick="showSection('cad-empresas-integ-cc')">
+            <div class="icon">🏦</div>
+            <h3>Integração com Conta Corrente</h3>
+            <p>Vínculo entre formas de pagamento e contas correntes, com suporte a intermediador financeiro.</p>
           </div>
           <div class="welcome-card empresa" onclick="showSection('cad-empresas-cupom-fiscal')">
             <div class="icon">🧾</div>
@@ -6165,6 +6174,60 @@
       </div>
     </section>
 
+    <!-- ══ INTEGRAÇÃO COM CONTA CORRENTE ══ -->
+    <section id="cad-empresas-integ-cc" class="page-section" data-section-img="prints/cad_empresas_integ_cc.png">
+      <div class="section-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Integração com Conta Corrente</div>
+        <h2>Integração com Conta Corrente</h2>
+        <p>Define o vínculo entre cada forma de pagamento e uma conta corrente, com opção de associar um intermediador financeiro (ex.: operadora de cartão, marketplace).</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_integ_cc.png" alt="Tela Integração de Formas de Pagamento com Conta Corrente"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_integ_cc.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Integração com Conta Corrente</strong>.
+      </div>
+
+      <!-- Integração Forma de Pagamento × Conta Corrente -->
+      <div class="fields-card">
+        <div class="fields-card-header">Integração Forma de Pagamento × Conta Corrente</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Cód.Forma de Pagamento</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Código da forma de pagamento cadastrada no sistema que será vinculada a uma conta corrente. Consultável na lista de Formas de Pagamento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Cód.Conta Corrente</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Código da conta corrente que receberá os lançamentos gerados pela forma de pagamento informada. Deve estar previamente cadastrada no Contas a Pagar/Conta Corrente.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Possui Intermediador</div></td>
+              <td><span class="tag tag-opt">N-Não</span></td>
+              <td>Indica se a forma de pagamento passa por um intermediador financeiro (ex.: operadora de cartão, gateway de pagamento ou marketplace). Quando "S-Sim", habilita o campo de código do intermediador.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Cód.Intermediador</div></td>
+              <td><span class="tag tag-text">—</span></td>
+              <td>Código do intermediador financeiro associado à forma de pagamento. Habilitado apenas quando "Possui Intermediador" estiver como "S-Sim". Informação exigida na NF-e para operações com intermediação.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- ══ OPÇÕES DE CUPOM FISCAL / NFe / SAT ══ -->
     <section id="cad-empresas-cupom-fiscal" class="page-section" data-section-img="prints/cad_empresas_cupom_fiscal.png">
       <div class="page-header">
@@ -9510,6 +9573,7 @@
       'cad-empresas-opcoes-nfe': 'Opções de Nota Fiscal Eletrônica',
       'cad-empresas-opcoes-dfe': 'Opções de Distribuição DFe da Nota Fiscal',
       'cad-empresas-opcoes-nfse': 'Opções de Nota Fiscal Eletrônica de Serviços',
+      'cad-empresas-integ-cc': 'Integração com Conta Corrente',
       'cad-empresas-cupom-fiscal': 'Opções de Cupom Fiscal/NFe/SAT',
       'cad-empresas-opcoes-recibo': 'Opções de Recibo',
       'cad-empresas-local-impressao': 'Opções de Local de Impressão',
@@ -10538,6 +10602,13 @@
       'Login do Web Service':                                                     '50.8,24.3,74.6,8.9',
       'Senha do Web Service':                                                     '63.4,24.5,74.3,8.9',
       'Perc.Padrão de ISS das Notas':                                             '75.8,15.1,50.4,9.4',
+      },
+      'prints/cad_empresas_integ_cc.png': {
+      // Integração Forma de Pagamento × Conta Corrente
+      'Cód.Forma de Pagamento':                                                   '21.6,0.3,24.5,14.2',
+      'Cód.Conta Corrente':                                                       '41,3.4,21.8,14.9',
+      'Possui Intermediador':                                                     '59.7,2.8,23,14.2',
+      'Cód.Intermediador':                                                        '59.7,26.6,20,16.4',
       },
       'prints/cad_empresas_cupom_fiscal.png': {
         // Cliente e Identificação no Cupom

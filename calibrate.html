@@ -1368,7 +1368,7 @@ const IMAGES = [
   {
     file: 'prints/cad_empresas_opcoes_nfse.png',
     label: 'Opções de Nota Fiscal Eletrônica de Serviços',
-    calibrated: false,
+    calibrated: true,
     groups: [
       { group: 'NFS-e', fields: [
         'Nota fiscal eletrônica de serviços',
@@ -1376,6 +1376,19 @@ const IMAGES = [
         'Login do Web Service',
         'Senha do Web Service',
         'Perc.Padrão de ISS das Notas',
+      ]},
+    ]
+  },
+  {
+    file: 'prints/cad_empresas_integ_cc.png',
+    label: 'Integração com Conta Corrente',
+    calibrated: true,
+    groups: [
+      { group: 'Integração Forma de Pagamento × Conta Corrente', fields: [
+        'Cód.Forma de Pagamento',
+        'Cód.Conta Corrente',
+        'Possui Intermediador',
+        'Cód.Intermediador',
       ]},
     ]
   },
