@@ -1388,6 +1388,10 @@
             Dados do Contador
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Dados do Contador</span>
           </a>
+          <a class="nav-item" onclick="showSection('cad-empresas-danfe-nfce')">
+            Opções de Impressão Danfe NFCe / SAT
+            <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Opções de Impressão Danfe NFCe / SAT e Outras opções de NFCe/SAT</span>
+          </a>
           <a class="nav-item" onclick="showSection('cad-empresas-cupom-fiscal')">
             Opções de Cupom Fiscal/NFe/SAT
             <span class="path-badge">Gestão › Cadastro › Empresas › F5 › Cupom Fiscal/NFe/SAT</span>
@@ -1567,7 +1571,7 @@
       <div class="home-tabs">
         <button class="home-tab active" data-tab="tudo"       onclick="showHomeTab('tudo')">Tudo</button>
         <button class="home-tab"        data-tab="gestao"     onclick="showHomeTab('gestao')">Gestão</button>
-        <button class="home-tab"        data-tab="empresa"    onclick="showHomeTab('empresa')">Empresa</button>
+        <button class="home-tab"        data-tab="empresa"    onclick="showHomeTab('empresa')">Cad. Empresa (F5)</button>
         <button class="home-tab"        data-tab="entregas"   onclick="showHomeTab('entregas')">Entregas</button>
         <button class="home-tab"        data-tab="mesas"      onclick="showHomeTab('mesas')">Mesas</button>
         <button class="home-tab"        data-tab="atid"       onclick="showHomeTab('atid')">Atend. c/ Identificação</button>
@@ -1810,6 +1814,11 @@
             <div class="icon">🧮</div>
             <h3>Dados do Contador</h3>
             <p>Cadastro do contador ou escritório de contabilidade: identificação, endereço, contato e configuração de envio automático de XMLs de NF-e por e-mail.</p>
+          </div>
+          <div class="welcome-card empresa" onclick="showSection('cad-empresas-danfe-nfce')">
+            <div class="icon">🖨️</div>
+            <h3>Opções de Impressão Danfe NFCe / SAT</h3>
+            <p>Detalhe de formas de pagamento na Danfe, comportamento em contingência off-line e limites de transmissão para entrada e saída da contingência automática.</p>
           </div>
           <div class="welcome-card empresa" onclick="showSection('cad-empresas-cupom-fiscal')">
             <div class="icon">🧾</div>
@@ -6518,6 +6527,60 @@
       </div>
     </section>
 
+    <!-- ══ OPÇÕES DE IMPRESSÃO DANFE NFCe / SAT ══ -->
+    <section id="cad-empresas-danfe-nfce" class="page-section" data-section-img="prints/cad_empresas_danfe_nfce.png">
+      <div class="section-header">
+        <div class="breadcrumb">Gestão › Cadastro › Empresas › F5 (Configurar Opções da Empresa) › Opções de Impressão Danfe NFCe / SAT e Outras opções de NFCe/SAT</div>
+        <h2>Opções de Impressão Danfe NFCe / SAT</h2>
+        <p>Configurações de layout da Danfe NFCe e comportamento de contingência off-line: detalhamento de pagamentos, limites de transmissão e entrada/saída automática da contingência.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/cad_empresas_danfe_nfce.png" alt="Tela Layout da Danfe NFCe"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/cad_empresas_danfe_nfce.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>Gestão</strong> → <strong>Cadastro</strong> →
+        <strong>Empresas</strong> → selecione a empresa → pressione <strong>F5 (Configurar Opções da Empresa)</strong>
+        → aba <strong>Opções de Impressão Danfe NFCe / SAT e Outras opções de NFCe/SAT</strong>.
+      </div>
+
+      <!-- Danfe e Contingência -->
+      <div class="fields-card">
+        <div class="fields-card-header">Danfe e Contingência</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Padrão</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Detalhar Formas de Pagto nas Inf.Adicionais da Danfe</div></td>
+              <td><span class="tag tag-opt">Não</span></td>
+              <td>Quando ativado, inclui o detalhamento das formas de pagamento utilizadas no campo "Informações Adicionais" da Danfe NFCe. Útil para clientes que exigem essa informação impressa no documento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Perguntar ao Operador Se Deseja Transmitir em Contingência Off-Line</div></td>
+              <td><span class="tag tag-opt">Não perguntar, mas exibir tela de que será transmitido off-line</span></td>
+              <td>Define o comportamento do sistema quando a transmissão da NFCe falha e é necessário entrar em contingência. "Não perguntar, mas exibir tela" informa o operador sem exigir confirmação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">NºTransmissões Off-Line p/Entrar em Contingência Automaticamente</div></td>
+              <td><span class="tag tag-opt">3</span></td>
+              <td>Número de falhas de transmissão consecutivas necessárias para o sistema entrar automaticamente em modo de contingência off-line. Valores menores tornam o sistema mais sensível a instabilidades de rede.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">NºTransmissões Off-Line p/Sair da Contingência Automática</div></td>
+              <td><span class="tag tag-opt">15</span></td>
+              <td>Número de transmissões off-line acumuladas para o sistema sair automaticamente da contingência e retornar ao modo normal. Controla quando o sistema entende que a conexão foi restabelecida.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- ══ OPÇÕES DE CUPOM FISCAL / NFe / SAT ══ -->
     <section id="cad-empresas-cupom-fiscal" class="page-section" data-section-img="prints/cad_empresas_cupom_fiscal.png">
       <div class="page-header">
@@ -9865,6 +9928,7 @@
       'cad-empresas-opcoes-nfse': 'Opções de Nota Fiscal Eletrônica de Serviços',
       'cad-empresas-integ-cc': 'Integração com Conta Corrente',
       'cad-empresas-dados-contador': 'Dados do Contador',
+      'cad-empresas-danfe-nfce': 'Opções de Impressão Danfe NFCe / SAT',
       'cad-empresas-senha-internet': 'Senha via Internet',
       'cad-empresas-senha-restserver': 'Senha Sagres RestServer',
       'cad-empresas-cupom-fiscal': 'Opções de Cupom Fiscal/NFe/SAT',
@@ -10930,6 +10994,13 @@
       'Enviar XML das NFes p/EMail do Contador':                                  '78.9,5,47.4,4.2',
       'EMail p/Envio dos XMLs':                                                   '83.9,20,76.9,4.2',
       'Dia p/Envio dos XMLs':                                                     '89.4,22.4,25.9,4.1',
+      },
+      'prints/cad_empresas_danfe_nfce.png': {
+      // Danfe e Contingência
+      'Detalhar Formas de Pagto nas Inf.Adicionais da Danfe':                     '26.8,10.4,75.4,12',
+      'Perguntar ao Operador Se Deseja Transmitir em Contingência Off-Line':      '43.2,0.2,99.2,8.7',
+      'NºTransmissões Off-Line p/Entrar em Contingência Automaticamente':         '56.8,1.2,50.5,11.5',
+      'NºTransmissões Off-Line p/Sair da Contingência Automática':                '71.6,7.2,44.4,10.9',
       },
       'prints/cad_empresas_senha_internet.png': {
       // Identificação do Representante
