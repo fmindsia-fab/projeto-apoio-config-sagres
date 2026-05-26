@@ -817,6 +817,40 @@
     }
     .cred-html-copy-btn:hover { background: rgba(232,184,48,.20); }
 
+    .cred-search-wrap {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border-faint);
+      background: var(--bg-card);
+    }
+
+    .cred-search-input {
+      width: 100%;
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      font-size: .88rem;
+      padding: 8px 12px;
+      outline: none;
+      font-family: 'DM Sans', sans-serif;
+      transition: border-color .15s, background .15s;
+    }
+
+    .cred-search-input::placeholder { color: var(--text-faint); }
+
+    .cred-search-input:focus {
+      border-color: rgba(34, 211, 238, .55);
+      background: rgba(34, 211, 238, .04);
+    }
+
+    .cred-no-results {
+      padding: 20px 16px;
+      color: var(--text-faint);
+      font-size: .84rem;
+      text-align: center;
+      font-style: italic;
+    }
+
     .nav-separator {
       margin: 10px 14px 3px;
       border: none;
@@ -11064,6 +11098,10 @@
           </div>
         </div>
 
+        <div class="cred-search-wrap">
+          <input class="cred-search-input" type="text" placeholder="Buscar cliente..." oninput="filterCredTable('estoque', this.value)" />
+        </div>
+
         <table class="cred-table">
           <thead>
             <tr>
@@ -11253,6 +11291,10 @@
             </div>
             <textarea class="cred-html-code" id="cred-html-code-dash" rows="8" readonly></textarea>
           </div>
+        </div>
+
+        <div class="cred-search-wrap">
+          <input class="cred-search-input" type="text" placeholder="Buscar cliente..." oninput="filterCredTable('dash', this.value)" />
         </div>
 
         <table class="cred-table">
@@ -13177,6 +13219,49 @@
     // Fecha modal com ESC
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') closeScreenModal();
+    });
+
+    // ── Busca e ordenação de credenciais ──
+    function normalizeStr(s) {
+      return s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+    }
+
+    function filterCredTable(app, query) {
+      const q = normalizeStr(query.trim());
+      const tbody = document.getElementById('cred-tbody-' + app);
+      if (!tbody) return;
+      let visible = 0;
+      tbody.querySelectorAll('tr:not(.cred-no-results-row)').forEach(row => {
+        const name = normalizeStr(row.querySelector('.field-name')?.textContent || '');
+        const show = !q || name.includes(q);
+        row.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      let noRes = tbody.querySelector('.cred-no-results-row');
+      if (!noRes) {
+        noRes = document.createElement('tr');
+        noRes.className = 'cred-no-results-row';
+        noRes.innerHTML = '<td colspan="3" class="cred-no-results">Nenhum cliente encontrado.</td>';
+        tbody.appendChild(noRes);
+      }
+      noRes.style.display = (q && visible === 0) ? '' : 'none';
+    }
+
+    function sortCredTable(app) {
+      const tbody = document.getElementById('cred-tbody-' + app);
+      if (!tbody) return;
+      const rows = Array.from(tbody.querySelectorAll('tr:not(.cred-no-results-row)'));
+      rows.sort((a, b) => {
+        const na = a.querySelector('.field-name')?.textContent.trim() || '';
+        const nb = b.querySelector('.field-name')?.textContent.trim() || '';
+        return na.localeCompare(nb, 'pt-BR', { sensitivity: 'base' });
+      });
+      rows.forEach(r => tbody.appendChild(r));
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      sortCredTable('estoque');
+      sortCredTable('dash');
     });
 
     // ── Formulário gerador de HTML para credenciais ──
