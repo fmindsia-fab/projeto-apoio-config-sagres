@@ -68,6 +68,9 @@
       --cor-vprazo:     #f87171;
       --cor-vprazo-dim: rgba(248, 113, 113, .10);
 
+      --cor-apps:     #22d3ee;
+      --cor-apps-dim: rgba(34, 211, 238, .10);
+
       --sidebar-w: 272px;
       --radius-sm: 4px;
       --radius-md: 8px;
@@ -530,6 +533,289 @@
     }
     .welcome-card.vprazo h3 { color: var(--cor-vprazo); }
     .welcome-card.vprazo:hover { border-color: rgba(248, 113, 113, .28); }
+
+    .welcome-card.apps::before {
+      background: linear-gradient(90deg, var(--cor-apps), transparent 60%);
+    }
+    .welcome-card.apps h3 { color: var(--cor-apps); }
+    .welcome-card.apps:hover { border-color: rgba(34, 211, 238, .28); }
+
+    .sys-badge.apps {
+      background: var(--cor-apps-dim);
+      color: var(--cor-apps);
+      border: 1px solid rgba(34, 211, 238, .22);
+    }
+
+    /* ── TABELA DE CREDENCIAIS ── */
+    table.cred-table .field-name {
+      font-size: .92rem;
+      color: #ddeeff;
+    }
+
+    table.cred-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .92rem;
+    }
+
+    table.cred-table thead tr { background: var(--bg-thead); }
+
+    table.cred-table th {
+      text-align: left;
+      padding: 10px 16px;
+      color: #90aac8;
+      font-weight: 600;
+      font-size: .68rem;
+      text-transform: uppercase;
+      letter-spacing: .9px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    table.cred-table th:nth-child(1),
+    table.cred-table td:nth-child(1) { width: 20%; }
+    table.cred-table th:nth-child(2),
+    table.cred-table td:nth-child(2) { width: 22%; }
+    table.cred-table th:nth-child(3),
+    table.cred-table td:nth-child(3) { width: 58%; }
+
+    table.cred-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border-faint);
+      vertical-align: middle;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      line-height: 1.6;
+      color: #ccdaec;
+    }
+
+    table.cred-table tr:last-child td { border-bottom: none; }
+
+    table.cred-table tr:hover td {
+      background: var(--bg-hover);
+      color: var(--text);
+    }
+
+    .cred-info-badge {
+      display: inline-block;
+      font-size: .74rem;
+      font-family: 'JetBrains Mono', monospace;
+      background: rgba(92, 158, 248, .08);
+      border: 1px solid rgba(92, 158, 248, .20);
+      color: #a8c8e8;
+      padding: 2px 9px;
+      border-radius: 3px;
+      margin-right: 5px;
+      margin-bottom: 4px;
+    }
+
+    .cred-str {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .78rem;
+      color: #7ec8e8;
+      line-height: 1.5;
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+      margin-bottom: 7px;
+    }
+
+    .cred-copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(34, 211, 238, .10);
+      border: 1px solid rgba(34, 211, 238, .30);
+      color: #5de0f0;
+      font-size: .78rem;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all .15s;
+      white-space: nowrap;
+    }
+
+    .cred-copy-btn:hover { background: rgba(34, 211, 238, .20); border-color: rgba(34, 211, 238, .55); color: #90eeff; }
+
+    .cred-copy-btn.copied {
+      background: rgba(62, 207, 128, .14);
+      border-color: rgba(62, 207, 128, .38);
+      color: #5ee0a0;
+      font-weight: 700;
+    }
+
+    /* ── FORMULÁRIO GERADOR DE CREDENCIAL ── */
+    .fields-card-header.has-action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cred-add-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(34, 211, 238, .10);
+      border: 1px solid rgba(34, 211, 238, .28);
+      color: #5de0f0;
+      font-size: .70rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 3px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all .15s;
+      white-space: nowrap;
+    }
+    .cred-add-trigger:hover { background: rgba(34,211,238,.20); color: #90eeff; }
+    .cred-add-trigger.open  { background: rgba(34,211,238,.18); color: #90eeff; }
+
+    .cred-add-panel {
+      display: none;
+      background: #070a14;
+      border-bottom: 1px solid var(--border);
+      padding: 18px 20px 20px;
+    }
+
+    .cred-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .cred-form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .cred-form-field.full { grid-column: 1 / -1; }
+
+    .cred-form-label {
+      font-size: .68rem;
+      font-weight: 600;
+      color: #8aaccc;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+    }
+
+    .cred-form-input,
+    .cred-form-textarea {
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: .86rem;
+      padding: 7px 10px;
+      outline: none;
+      transition: border-color .15s, background .15s;
+      width: 100%;
+    }
+    .cred-form-input::placeholder,
+    .cred-form-textarea::placeholder { color: var(--text-faint); }
+
+    .cred-form-input:focus,
+    .cred-form-textarea:focus {
+      border-color: rgba(34, 211, 238, .55);
+      background: rgba(34, 211, 238, .04);
+    }
+
+    .cred-form-textarea {
+      resize: vertical;
+      min-height: 62px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .78rem;
+    }
+
+    .cred-form-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    .cred-btn-html {
+      background: rgba(232, 184, 48, .08);
+      border: 1px solid rgba(232, 184, 48, .25);
+      color: var(--amarelo);
+      font-size: .82rem;
+      font-weight: 600;
+      padding: 7px 18px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-family: inherit;
+      transition: all .15s;
+    }
+    .cred-btn-html:hover { background: rgba(232,184,48,.16); }
+
+    .cred-btn-cancel {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-faint);
+      font-size: .82rem;
+      padding: 7px 16px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-family: inherit;
+      transition: all .15s;
+    }
+    .cred-btn-cancel:hover { background: rgba(255,255,255,.05); color: var(--text-dim); }
+
+    .cred-html-wrap {
+      margin-top: 14px;
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--amarelo);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 12px 14px;
+    }
+
+    .cred-html-wrap-title {
+      font-size: .65rem;
+      font-weight: 700;
+      color: var(--amarelo);
+      text-transform: uppercase;
+      letter-spacing: .7px;
+      margin-bottom: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cred-html-code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .70rem;
+      color: #a0c8e0;
+      white-space: pre;
+      overflow-x: auto;
+      line-height: 1.55;
+      display: block;
+      background: transparent;
+      border: none;
+      padding: 0;
+      width: 100%;
+      resize: none;
+    }
+
+    .cred-html-copy-btn {
+      background: rgba(232, 184, 48, .10);
+      border: 1px solid rgba(232, 184, 48, .25);
+      color: var(--amarelo);
+      font-size: .65rem;
+      font-weight: 700;
+      padding: 2px 9px;
+      border-radius: 3px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all .15s;
+      white-space: nowrap;
+    }
+    .cred-html-copy-btn:hover { background: rgba(232,184,48,.20); }
 
     .nav-separator {
       margin: 10px 14px 3px;
@@ -1326,6 +1612,20 @@
         </div>
       </div>
 
+      <div class="nav-section collapsed">
+        <div class="nav-section-title" onclick="toggleNavSection(this)">Apps &amp; Credenciais</div>
+        <div class="nav-items">
+          <a class="nav-item" onclick="showSection('app-sagres-estoque')">
+            Sagres Estoque
+            <span class="path-badge">Credenciais por cliente</span>
+          </a>
+          <a class="nav-item" onclick="showSection('app-sagres-dash')">
+            Sagres Dash
+            <span class="path-badge">Credenciais por cliente</span>
+          </a>
+        </div>
+      </div>
+
       <hr class="nav-separator" />
 
       <div class="nav-section empresa collapsed">
@@ -1585,6 +1885,7 @@
         <button class="home-tab"        data-tab="mesas"      onclick="showHomeTab('mesas')">Mesas</button>
         <button class="home-tab"        data-tab="atid"       onclick="showHomeTab('atid')">Atend. c/ Identificação</button>
         <button class="home-tab"        data-tab="pdv"        onclick="showHomeTab('pdv')">PDV</button>
+        <button class="home-tab"        data-tab="apps"       onclick="showHomeTab('apps')">Apps</button>
       </div>
 
       <!-- Grupo: Configurações Gerais -->
@@ -2103,6 +2404,26 @@
             <div class="icon">🖧</div>
             <h3>Configurar Opções do Servidor Local</h3>
             <p>Define se esta estação atua como concentrador e o diretório dos dados do servidor local (PafEcf).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grupo: Apps & Credenciais -->
+      <div class="home-group" data-tab="apps">
+        <div class="home-group-header">
+          <span class="sys-badge apps">Apps</span>
+          <h3>Credenciais de Aplicativos</h3>
+        </div>
+        <div class="welcome-grid">
+          <div class="welcome-card apps" onclick="showSection('app-sagres-estoque')">
+            <div class="icon">📦</div>
+            <h3>Sagres Estoque</h3>
+            <p>Strings de configuração para instalação do app de estoque — uma por cliente.</p>
+          </div>
+          <div class="welcome-card apps" onclick="showSection('app-sagres-dash')">
+            <div class="icon">📊</div>
+            <h3>Sagres Dash</h3>
+            <p>Strings de configuração para instalação do app de dashboard — uma por cliente.</p>
           </div>
         </div>
       </div>
@@ -10691,6 +11012,267 @@
       </div>
     </section>
 
+    <!-- ══ SAGRES ESTOQUE — CREDENCIAIS ══ -->
+    <section id="app-sagres-estoque" class="page-section">
+      <div class="page-header">
+        <div class="breadcrumb">Apps &amp; Credenciais › Sagres Estoque</div>
+        <h2>Sagres Estoque — Credenciais</h2>
+        <p>String de configuração para cada cliente. Copie a string e cole no campo de configuração do app.</p>
+      </div>
+
+      <div class="note-box">
+        <strong>Como usar:</strong>
+        Localize o cliente na tabela, clique em <strong>⎘ Copiar</strong> e cole a string no campo de configuração do aplicativo Sagres Estoque.
+        A string contém servidor, porta, usuário e identificação da empresa.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header has-action">
+          Clientes — Sagres Estoque
+          <button class="cred-add-trigger" id="cred-trigger-estoque" onclick="toggleCredForm('estoque')">＋ Nova credencial</button>
+        </div>
+
+        <div class="cred-add-panel" id="cred-form-estoque">
+          <div class="cred-form-grid">
+            <div class="cred-form-field">
+              <label class="cred-form-label">Nome do cliente</label>
+              <input class="cred-form-input" id="cred-nome-estoque" type="text" placeholder="Ex: Padaria Central" />
+            </div>
+            <div class="cred-form-field">
+              <label class="cred-form-label">Porta</label>
+              <input class="cred-form-input" id="cred-porta-estoque" type="text" placeholder="Ex: 32500" />
+            </div>
+            <div class="cred-form-field">
+              <label class="cred-form-label">Servidor</label>
+              <input class="cred-form-input" id="cred-servidor-estoque" type="text" value="sistemasagres.ddns.net" />
+            </div>
+            <div class="cred-form-field full" style="grid-column:1/-1">
+              <label class="cred-form-label">String base64</label>
+              <textarea class="cred-form-textarea" id="cred-str-estoque" placeholder="Cole a string base64 aqui..."></textarea>
+            </div>
+          </div>
+          <div class="cred-form-actions">
+            <button class="cred-btn-html" onclick="showCredHTML('estoque')">📋 Gerar HTML</button>
+            <button class="cred-btn-cancel" onclick="toggleCredForm('estoque')">Cancelar</button>
+          </div>
+          <div class="cred-html-wrap" id="cred-html-wrap-estoque" style="display:none">
+            <div class="cred-html-wrap-title">
+              Trecho HTML para colar no index.html
+              <button class="cred-html-copy-btn" onclick="copyHTMLSnippet('estoque')">⎘ Copiar tudo</button>
+            </div>
+            <textarea class="cred-html-code" id="cred-html-code-estoque" rows="8" readonly></textarea>
+          </div>
+        </div>
+
+        <table class="cred-table">
+          <thead>
+            <tr>
+              <th>Cliente</th>
+              <th>Servidor · Porta</th>
+              <th>Credencial</th>
+            </tr>
+          </thead>
+          <tbody id="cred-tbody-estoque">
+            <tr>
+              <td><span class="field-name">Lai Chi</span></td>
+              <td>
+                <span class="cred-info-badge">sistemasagres.ddns.net</span>
+                <span class="cred-info-badge">17020</span>
+              </td>
+              <td>
+                <span class="cred-str">Q09ORklHRU1QUkVTQTsxMS41MDguOTM5LzAwMDEtODg7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDsxNzAyMDtTdXBlcnZpc29yIDs7TGFpIENoaTs=</span>
+                <button class="cred-copy-btn" onclick="copyCredential(this, 'Q09ORklHRU1QUkVTQTsxMS41MDguOTM5LzAwMDEtODg7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDsxNzAyMDtTdXBlcnZpc29yIDs7TGFpIENoaTs=', 'Lai Chi')">⎘ Copiar</button>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="field-name">Arena Farm</span></td>
+              <td>
+                <span class="cred-info-badge">sistemasagres.ddns.net</span>
+                <span class="cred-info-badge">31816</span>
+              </td>
+              <td>
+                <span class="cred-str">Q09ORklHRU1QUkVTQTs1My40NjMuODMxLzAwMDEtNjY7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszMTgxNjtTdXBlcnZpc29yOzEyMzQ7QXJlbmEgRmFybTs=</span>
+                <button class="cred-copy-btn" onclick="copyCredential(this, 'Q09ORklHRU1QUkVTQTs1My40NjMuODMxLzAwMDEtNjY7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszMTgxNjtTdXBlcnZpc29yOzEyMzQ7QXJlbmEgRmFybTs=', 'Arena Farm')">⎘ Copiar</button>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="field-name">Barão de Maua</span></td>
+              <td>
+                <span class="cred-info-badge">sistemasagres.ddns.net</span>
+                <span class="cred-info-badge">31281</span>
+              </td>
+              <td>
+                <span class="cred-str">Q09ORklHRU1QUkVTQTszMS4wMjQuMTkwLzAwMDEtMDA7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszMTI4MTtTdXBlcnZpc29yOzEyMzQ7QmFyw6NvIGRlIE1hdWE7</span>
+                <button class="cred-copy-btn" onclick="copyCredential(this, 'Q09ORklHRU1QUkVTQTszMS4wMjQuMTkwLzAwMDEtMDA7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszMTI4MTtTdXBlcnZpc29yOzEyMzQ7QmFyw6NvIGRlIE1hdWE7', 'Barão de Maua')">⎘ Copiar</button>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="field-name">Gente Boa Fábrica</span></td>
+              <td>
+                <span class="cred-info-badge">sistemasagres.ddns.net</span>
+                <span class="cred-info-badge">35007</span>
+              </td>
+              <td>
+                <span class="cred-str">Q09ORklHRU1QUkVTQTsxMS44NTAuNTA5LzAwMDEtNDA7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszNTAwNztTdXBlcnZpc29yOzEyMzQ7R2VudGUgQm9hIEbDoWJyaWNhOw==</span>
+                <button class="cred-copy-btn" onclick="copyCredential(this, 'Q09ORklHRU1QUkVTQTsxMS44NTAuNTA5LzAwMDEtNDA7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszNTAwNztTdXBlcnZpc29yOzEyMzQ7R2VudGUgQm9hIEbDoWJyaWNhOw==', 'Gente Boa Fábrica')">⎘ Copiar</button>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="field-name">Irish Cafe Fake</span></td>
+              <td>
+                <span class="cred-info-badge">redirect.srv.br</span>
+                <span class="cred-info-badge">14606</span>
+              </td>
+              <td>
+                <span class="cred-str">Q09ORklHRU1QUkVTQTs0NC42NjEuODc5LzAwMDEtOTg7cmVkaXJlY3Quc3J2LmJyOzE0NjA2O1N1cGVydmlzb3I7MTIzNDtJcmlzaCBDYWZlIEZha2U7</span>
+                <button class="cred-copy-btn" onclick="copyCredential(this, 'Q09ORklHRU1QUkVTQTs0NC42NjEuODc5LzAwMDEtOTg7cmVkaXJlY3Quc3J2LmJyOzE0NjA2O1N1cGVydmlzb3I7MTIzNDtJcmlzaCBDYWZlIEZha2U7', 'Irish Cafe Fake')">⎘ Copiar</button>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="field-name">Rei da Esfiha Gourmet</span></td>
+              <td>
+                <span class="cred-info-badge">sistemasagres.ddns.net</span>
+                <span class="cred-info-badge">35473</span>
+              </td>
+              <td>
+                <span class="cred-str">Q09ORklHRU1QUkVTQTsyOC4xNTguMzAwLzAwMDEtODY7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszNTQ3MztTdXBlcnZpc29yOztSZWkgZGEgRXNmaWhhIEdvdXJtZXQ7</span>
+                <button class="cred-copy-btn" onclick="copyCredential(this, 'Q09ORklHRU1QUkVTQTsyOC4xNTguMzAwLzAwMDEtODY7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszNTQ3MztTdXBlcnZpc29yOztSZWkgZGEgRXNmaWhhIEdvdXJtZXQ7', 'Rei da Esfiha Gourmet')">⎘ Copiar</button>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="field-name">Santa Isla</span></td>
+              <td>
+                <span class="cred-info-badge">sistemasagres.ddns.net</span>
+                <span class="cred-info-badge">34703</span>
+              </td>
+              <td>
+                <span class="cred-str">Q09ORklHRU1QUkVTQTs2NS44NzcuNjYyLzAwMDEtOTA7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszNDcwMztTdXBlcnZpc29yOzEyMzQ7U2FudGEgSXNsYTs=</span>
+                <button class="cred-copy-btn" onclick="copyCredential(this, 'Q09ORklHRU1QUkVTQTs2NS44NzcuNjYyLzAwMDEtOTA7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszNDcwMztTdXBlcnZpc29yOzEyMzQ7U2FudGEgSXNsYTs=', 'Santa Isla')">⎘ Copiar</button>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="field-name">Minerin</span></td>
+              <td>
+                <span class="cred-info-badge">sistemasagres.ddns.net</span>
+                <span class="cred-info-badge">32133</span>
+              </td>
+              <td>
+                <span class="cred-str">Q09ORklHRU1QUkVTQTswNy45ODkuMTkxLzAwMDEtMDU7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszMjEzMztTdXBlcnZpc29yOzEyMzQ7TWluZXJpbjs=</span>
+                <button class="cred-copy-btn" onclick="copyCredential(this, 'Q09ORklHRU1QUkVTQTswNy45ODkuMTkxLzAwMDEtMDU7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszMjEzMztTdXBlcnZpc29yOzEyMzQ7TWluZXJpbjs=', 'Minerin')">⎘ Copiar</button>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="field-name">Conveniência Pão de Mel</span></td>
+              <td>
+                <span class="cred-info-badge">sistemasagres.ddns.net</span>
+                <span class="cred-info-badge">32423</span>
+              </td>
+              <td>
+                <span class="cred-str">Q09ORklHRU1QUkVTQTszNi42NTUuNzY3LzAwMDEtMDQ7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszMjQyMztTdXBlcnZpc29yOzEyMzQ7Q29udmVuacOqbmNpYSBQw6NvIGRlIE1lbDs=</span>
+                <button class="cred-copy-btn" onclick="copyCredential(this, 'Q09ORklHRU1QUkVTQTszNi42NTUuNzY3LzAwMDEtMDQ7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszMjQyMztTdXBlcnZpc29yOzEyMzQ7Q29udmVuacOqbmNpYSBQw6NvIGRlIE1lbDs=', 'Conveniência Pão de Mel')">⎘ Copiar</button>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="field-name">Panificadora Pão de Mel</span></td>
+              <td>
+                <span class="cred-info-badge">sistemasagres.ddns.net</span>
+                <span class="cred-info-badge">32424</span>
+              </td>
+              <td>
+                <span class="cred-str">Q09ORklHRU1QUkVTQTs2Ni45OTQuMjg5LzAwMDEtODY7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszMjQyNDtTdXBlcnZpc29yOzEyMzQ7UGFuaWZpY2Fkb3JhIFDDo28gZGUgTWVsOw==</span>
+                <button class="cred-copy-btn" onclick="copyCredential(this, 'Q09ORklHRU1QUkVTQTs2Ni45OTQuMjg5LzAwMDEtODY7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszMjQyNDtTdXBlcnZpc29yOzEyMzQ7UGFuaWZpY2Fkb3JhIFDDo28gZGUgTWVsOw==', 'Panificadora Pão de Mel')">⎘ Copiar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="back-to-home">
+        <button onclick="showSection('home')">← Voltar para o início</button>
+      </div>
+    </section>
+
+    <!-- ══ SAGRES DASH — CREDENCIAIS ══ -->
+    <section id="app-sagres-dash" class="page-section">
+      <div class="page-header">
+        <div class="breadcrumb">Apps &amp; Credenciais › Sagres Dash</div>
+        <h2>Sagres Dash — Credenciais</h2>
+        <p>String de configuração para cada cliente. Copie a string e cole no campo de configuração do app.</p>
+      </div>
+
+      <div class="note-box">
+        <strong>Como usar:</strong>
+        Localize o cliente na tabela, clique em <strong>⎘ Copiar</strong> e cole a string no campo de configuração do aplicativo Sagres Dash.
+        A string contém servidor, porta, usuário e identificação da empresa.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header has-action">
+          Clientes — Sagres Dash
+          <button class="cred-add-trigger" id="cred-trigger-dash" onclick="toggleCredForm('dash')">＋ Nova credencial</button>
+        </div>
+
+        <div class="cred-add-panel" id="cred-form-dash">
+          <div class="cred-form-grid">
+            <div class="cred-form-field">
+              <label class="cred-form-label">Nome do cliente</label>
+              <input class="cred-form-input" id="cred-nome-dash" type="text" placeholder="Ex: Padaria Central" />
+            </div>
+            <div class="cred-form-field">
+              <label class="cred-form-label">Porta</label>
+              <input class="cred-form-input" id="cred-porta-dash" type="text" placeholder="Ex: 34500" />
+            </div>
+            <div class="cred-form-field">
+              <label class="cred-form-label">Servidor</label>
+              <input class="cred-form-input" id="cred-servidor-dash" type="text" value="sistemasagres.ddns.net" />
+            </div>
+            <div class="cred-form-field full" style="grid-column:1/-1">
+              <label class="cred-form-label">String base64</label>
+              <textarea class="cred-form-textarea" id="cred-str-dash" placeholder="Cole a string base64 aqui..."></textarea>
+            </div>
+          </div>
+          <div class="cred-form-actions">
+            <button class="cred-btn-html" onclick="showCredHTML('dash')">📋 Gerar HTML</button>
+            <button class="cred-btn-cancel" onclick="toggleCredForm('dash')">Cancelar</button>
+          </div>
+          <div class="cred-html-wrap" id="cred-html-wrap-dash" style="display:none">
+            <div class="cred-html-wrap-title">
+              Trecho HTML para colar no index.html
+              <button class="cred-html-copy-btn" onclick="copyHTMLSnippet('dash')">⎘ Copiar tudo</button>
+            </div>
+            <textarea class="cred-html-code" id="cred-html-code-dash" rows="8" readonly></textarea>
+          </div>
+        </div>
+
+        <table class="cred-table">
+          <thead>
+            <tr>
+              <th>Cliente</th>
+              <th>Servidor · Porta</th>
+              <th>Credencial</th>
+            </tr>
+          </thead>
+          <tbody id="cred-tbody-dash">
+            <tr>
+              <td><span class="field-name">Drika Cake Santa Fe</span></td>
+              <td>
+                <span class="cred-info-badge">sistemasagres.ddns.net</span>
+                <span class="cred-info-badge">34367</span>
+              </td>
+              <td>
+                <span class="cred-str">Q09ORklHRU1QUkVTQTtEcmlrYSBDYWtlIFNhbnRhIEZlO3Npc3RlbWFzYWdyZXMuZGRucy5uZXQ7MzQzNjc7OzUwMTAyOzE1Ljc1Mi45NzYvMDAwMS05ODsxMjM0NTtTdXBlcnZpc29y</span>
+                <button class="cred-copy-btn" onclick="copyCredential(this, 'Q09ORklHRU1QUkVTQTtEcmlrYSBDYWtlIFNhbnRhIEZlO3Npc3RlbWFzYWdyZXMuZGRucy5uZXQ7MzQzNjc7OzUwMTAyOzE1Ljc1Mi45NzYvMDAwMS05ODsxMjM0NTtTdXBlcnZpc29y', 'Drika Cake Santa Fe')">⎘ Copiar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="back-to-home">
+        <button onclick="showSection('home')">← Voltar para o início</button>
+      </div>
+    </section>
+
   </main>
 
   <!-- ══════════════ MODAL EXIBIR NA TELA ══════════════ -->
@@ -12585,6 +13167,79 @@
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') closeScreenModal();
     });
+
+    // ── Formulário gerador de HTML para credenciais ──
+    function toggleCredForm(app) {
+      const panel   = document.getElementById('cred-form-' + app);
+      const trigger = document.getElementById('cred-trigger-' + app);
+      const isOpen  = panel.style.display === 'block';
+      panel.style.display = isOpen ? 'none' : 'block';
+      trigger.classList.toggle('open', !isOpen);
+      if (!isOpen) {
+        document.getElementById('cred-nome-' + app).focus();
+        document.getElementById('cred-html-wrap-' + app).style.display = 'none';
+      }
+    }
+
+    function showCredHTML(app) {
+      const nome     = document.getElementById('cred-nome-' + app).value.trim();
+      const porta    = document.getElementById('cred-porta-' + app).value.trim();
+      const servidor = document.getElementById('cred-servidor-' + app).value.trim();
+      const str      = document.getElementById('cred-str-' + app).value.trim();
+
+      if (!nome || !porta || !str) { alert('Preencha Nome, Porta e String base64.'); return; }
+
+      const nomeEsc = nome.replace(/'/g, "\\'");
+      const html =
+`            <tr>
+              <td><span class="field-name">${nome}</span></td>
+              <td>
+                <span class="cred-info-badge">${servidor}</span>
+                <span class="cred-info-badge">${porta}</span>
+              </td>
+              <td>
+                <span class="cred-str">${str}</span>
+                <button class="cred-copy-btn" onclick="copyCredential(this, '${str}', '${nomeEsc}')">⎘ Copiar</button>
+              </td>
+            </tr>`;
+
+      document.getElementById('cred-html-code-' + app).value = html;
+      document.getElementById('cred-html-wrap-' + app).style.display = 'block';
+      document.getElementById('cred-html-code-' + app).scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function copyHTMLSnippet(app) {
+      const ta  = document.getElementById('cred-html-code-' + app);
+      const btn = ta.closest('.cred-html-wrap').querySelector('.cred-html-copy-btn');
+      navigator.clipboard.writeText(ta.value).then(() => {
+        btn.textContent = '✓ Copiado!';
+        setTimeout(() => { btn.textContent = '⎘ Copiar tudo'; }, 2000);
+      });
+    }
+
+    // ── Cópia de credenciais ──
+    function copyCredential(btn, text, nome) {
+      const feedback = nome ? '✓ ' + nome : '✓ Copiado!';
+      function applyFeedback() {
+        btn.textContent = feedback;
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = '⎘ Copiar';
+          btn.classList.remove('copied');
+        }, 2500);
+      }
+      navigator.clipboard.writeText(text).then(applyFeedback).catch(() => {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        applyFeedback();
+      });
+    }
   </script>
 </body>
 
