@@ -11063,39 +11063,7 @@
       <div class="fields-card">
         <div class="fields-card-header has-action">
           Clientes — Sagres Estoque
-          <button class="cred-add-trigger" id="cred-trigger-estoque" onclick="toggleCredForm('estoque')">＋ Nova credencial</button>
-        </div>
-
-        <div class="cred-add-panel" id="cred-form-estoque">
-          <div class="cred-form-grid">
-            <div class="cred-form-field">
-              <label class="cred-form-label">Nome do cliente</label>
-              <input class="cred-form-input" id="cred-nome-estoque" type="text" placeholder="Ex: Padaria Central" />
-            </div>
-            <div class="cred-form-field">
-              <label class="cred-form-label">Porta</label>
-              <input class="cred-form-input" id="cred-porta-estoque" type="text" placeholder="Ex: 32500" />
-            </div>
-            <div class="cred-form-field">
-              <label class="cred-form-label">Servidor</label>
-              <input class="cred-form-input" id="cred-servidor-estoque" type="text" value="sistemasagres.ddns.net" />
-            </div>
-            <div class="cred-form-field full" style="grid-column:1/-1">
-              <label class="cred-form-label">String base64</label>
-              <textarea class="cred-form-textarea" id="cred-str-estoque" placeholder="Cole a string base64 aqui..."></textarea>
-            </div>
-          </div>
-          <div class="cred-form-actions">
-            <button class="cred-btn-html" onclick="showCredHTML('estoque')">📋 Gerar HTML</button>
-            <button class="cred-btn-cancel" onclick="toggleCredForm('estoque')">Cancelar</button>
-          </div>
-          <div class="cred-html-wrap" id="cred-html-wrap-estoque" style="display:none">
-            <div class="cred-html-wrap-title">
-              Trecho HTML para colar no index.html
-              <button class="cred-html-copy-btn" onclick="copyHTMLSnippet('estoque')">⎘ Copiar tudo</button>
-            </div>
-            <textarea class="cred-html-code" id="cred-html-code-estoque" rows="8" readonly></textarea>
-          </div>
+          <button class="cred-add-trigger" onclick="openCredSheet()">↗ Abrir planilha</button>
         </div>
 
         <div class="cred-search-wrap">
@@ -11111,127 +11079,6 @@
             </tr>
           </thead>
           <tbody id="cred-tbody-estoque">
-            <tr>
-              <td><span class="field-name">Lai Chi</span></td>
-              <td>
-                <span class="cred-info-badge">sistemasagres.ddns.net</span>
-                <span class="cred-info-badge">17020</span>
-              </td>
-              <td>
-                <span class="cred-str">Q09ORklHRU1QUkVTQTsxMS41MDguOTM5LzAwMDEtODg7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDsxNzAyMDtTdXBlcnZpc29yIDs7TGFpIENoaTs=</span>
-                <button class="cred-copy-btn" onclick="copyCredential(this, 'Q09ORklHRU1QUkVTQTsxMS41MDguOTM5LzAwMDEtODg7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDsxNzAyMDtTdXBlcnZpc29yIDs7TGFpIENoaTs=', 'Lai Chi')">⎘ Copiar</button>
-              </td>
-            </tr>
-            <tr>
-              <td><span class="field-name">Arena Farm</span></td>
-              <td>
-                <span class="cred-info-badge">sistemasagres.ddns.net</span>
-                <span class="cred-info-badge">31816</span>
-              </td>
-              <td>
-                <span class="cred-str">Q09ORklHRU1QUkVTQTs1My40NjMuODMxLzAwMDEtNjY7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszMTgxNjtTdXBlcnZpc29yOzEyMzQ7QXJlbmEgRmFybTs=</span>
-                <button class="cred-copy-btn" onclick="copyCredential(this, 'Q09ORklHRU1QUkVTQTs1My40NjMuODMxLzAwMDEtNjY7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszMTgxNjtTdXBlcnZpc29yOzEyMzQ7QXJlbmEgRmFybTs=', 'Arena Farm')">⎘ Copiar</button>
-              </td>
-            </tr>
-            <tr>
-              <td><span class="field-name">Barão de Maua</span></td>
-              <td>
-                <span class="cred-info-badge">sistemasagres.ddns.net</span>
-                <span class="cred-info-badge">31281</span>
-              </td>
-              <td>
-                <span class="cred-str">Q09ORklHRU1QUkVTQTszMS4wMjQuMTkwLzAwMDEtMDA7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszMTI4MTtTdXBlcnZpc29yOzEyMzQ7QmFyw6NvIGRlIE1hdWE7</span>
-                <button class="cred-copy-btn" onclick="copyCredential(this, 'Q09ORklHRU1QUkVTQTszMS4wMjQuMTkwLzAwMDEtMDA7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszMTI4MTtTdXBlcnZpc29yOzEyMzQ7QmFyw6NvIGRlIE1hdWE7', 'Barão de Maua')">⎘ Copiar</button>
-              </td>
-            </tr>
-            <tr>
-              <td><span class="field-name">Gente Boa Fábrica</span></td>
-              <td>
-                <span class="cred-info-badge">sistemasagres.ddns.net</span>
-                <span class="cred-info-badge">35007</span>
-              </td>
-              <td>
-                <span class="cred-str">Q09ORklHRU1QUkVTQTsxMS44NTAuNTA5LzAwMDEtNDA7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszNTAwNztTdXBlcnZpc29yOzEyMzQ7R2VudGUgQm9hIEbDoWJyaWNhOw==</span>
-                <button class="cred-copy-btn" onclick="copyCredential(this, 'Q09ORklHRU1QUkVTQTsxMS44NTAuNTA5LzAwMDEtNDA7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszNTAwNztTdXBlcnZpc29yOzEyMzQ7R2VudGUgQm9hIEbDoWJyaWNhOw==', 'Gente Boa Fábrica')">⎘ Copiar</button>
-              </td>
-            </tr>
-            <tr>
-              <td><span class="field-name">Irish Cafe Fake</span></td>
-              <td>
-                <span class="cred-info-badge">redirect.srv.br</span>
-                <span class="cred-info-badge">14606</span>
-              </td>
-              <td>
-                <span class="cred-str">Q09ORklHRU1QUkVTQTs0NC42NjEuODc5LzAwMDEtOTg7cmVkaXJlY3Quc3J2LmJyOzE0NjA2O1N1cGVydmlzb3I7MTIzNDtJcmlzaCBDYWZlIEZha2U7</span>
-                <button class="cred-copy-btn" onclick="copyCredential(this, 'Q09ORklHRU1QUkVTQTs0NC42NjEuODc5LzAwMDEtOTg7cmVkaXJlY3Quc3J2LmJyOzE0NjA2O1N1cGVydmlzb3I7MTIzNDtJcmlzaCBDYWZlIEZha2U7', 'Irish Cafe Fake')">⎘ Copiar</button>
-              </td>
-            </tr>
-            <tr>
-              <td><span class="field-name">Rei da Esfiha Gourmet</span></td>
-              <td>
-                <span class="cred-info-badge">sistemasagres.ddns.net</span>
-                <span class="cred-info-badge">35473</span>
-              </td>
-              <td>
-                <span class="cred-str">Q09ORklHRU1QUkVTQTsyOC4xNTguMzAwLzAwMDEtODY7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszNTQ3MztTdXBlcnZpc29yOztSZWkgZGEgRXNmaWhhIEdvdXJtZXQ7</span>
-                <button class="cred-copy-btn" onclick="copyCredential(this, 'Q09ORklHRU1QUkVTQTsyOC4xNTguMzAwLzAwMDEtODY7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszNTQ3MztTdXBlcnZpc29yOztSZWkgZGEgRXNmaWhhIEdvdXJtZXQ7', 'Rei da Esfiha Gourmet')">⎘ Copiar</button>
-              </td>
-            </tr>
-            <tr>
-              <td><span class="field-name">Santa Isla</span></td>
-              <td>
-                <span class="cred-info-badge">sistemasagres.ddns.net</span>
-                <span class="cred-info-badge">34703</span>
-              </td>
-              <td>
-                <span class="cred-str">Q09ORklHRU1QUkVTQTs2NS44NzcuNjYyLzAwMDEtOTA7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszNDcwMztTdXBlcnZpc29yOzEyMzQ7U2FudGEgSXNsYTs=</span>
-                <button class="cred-copy-btn" onclick="copyCredential(this, 'Q09ORklHRU1QUkVTQTs2NS44NzcuNjYyLzAwMDEtOTA7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszNDcwMztTdXBlcnZpc29yOzEyMzQ7U2FudGEgSXNsYTs=', 'Santa Isla')">⎘ Copiar</button>
-              </td>
-            </tr>
-            <tr>
-              <td><span class="field-name">Minerin</span></td>
-              <td>
-                <span class="cred-info-badge">sistemasagres.ddns.net</span>
-                <span class="cred-info-badge">32133</span>
-              </td>
-              <td>
-                <span class="cred-str">Q09ORklHRU1QUkVTQTswNy45ODkuMTkxLzAwMDEtMDU7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszMjEzMztTdXBlcnZpc29yOzEyMzQ7TWluZXJpbjs=</span>
-                <button class="cred-copy-btn" onclick="copyCredential(this, 'Q09ORklHRU1QUkVTQTswNy45ODkuMTkxLzAwMDEtMDU7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszMjEzMztTdXBlcnZpc29yOzEyMzQ7TWluZXJpbjs=', 'Minerin')">⎘ Copiar</button>
-              </td>
-            </tr>
-            <tr>
-              <td><span class="field-name">Conveniência Pão de Mel</span></td>
-              <td>
-                <span class="cred-info-badge">sistemasagres.ddns.net</span>
-                <span class="cred-info-badge">32423</span>
-              </td>
-              <td>
-                <span class="cred-str">Q09ORklHRU1QUkVTQTszNi42NTUuNzY3LzAwMDEtMDQ7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszMjQyMztTdXBlcnZpc29yOzEyMzQ7Q29udmVuacOqbmNpYSBQw6NvIGRlIE1lbDs=</span>
-                <button class="cred-copy-btn" onclick="copyCredential(this, 'Q09ORklHRU1QUkVTQTszNi42NTUuNzY3LzAwMDEtMDQ7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszMjQyMztTdXBlcnZpc29yOzEyMzQ7Q29udmVuacOqbmNpYSBQw6NvIGRlIE1lbDs=', 'Conveniência Pão de Mel')">⎘ Copiar</button>
-              </td>
-            </tr>
-            <tr>
-              <td><span class="field-name">Panificadora Pão de Mel</span></td>
-              <td>
-                <span class="cred-info-badge">sistemasagres.ddns.net</span>
-                <span class="cred-info-badge">32424</span>
-              </td>
-              <td>
-                <span class="cred-str">Q09ORklHRU1QUkVTQTs2Ni45OTQuMjg5LzAwMDEtODY7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszMjQyNDtTdXBlcnZpc29yOzEyMzQ7UGFuaWZpY2Fkb3JhIFDDo28gZGUgTWVsOw==</span>
-                <button class="cred-copy-btn" onclick="copyCredential(this, 'Q09ORklHRU1QUkVTQTs2Ni45OTQuMjg5LzAwMDEtODY7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDszMjQyNDtTdXBlcnZpc29yOzEyMzQ7UGFuaWZpY2Fkb3JhIFDDo28gZGUgTWVsOw==', 'Panificadora Pão de Mel')">⎘ Copiar</button>
-              </td>
-            </tr>
-            <tr>
-              <td><span class="field-name">Mamooth Grill Espetaria</span></td>
-              <td>
-                <span class="cred-info-badge">sistemasagres.ddns.net</span>
-                <span class="cred-info-badge">20167</span>
-              </td>
-              <td>
-                <span class="cred-str">Q09ORklHRU1QUkVTQTs1OS44NTguOTk0LzAwMDEtMjQ7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDsyMDE2NztTdXBlcnZpc29yOzEyMzQ7TWFtb290aCBHcmlsbCBFc3BldGFyaWE7</span>
-                <button class="cred-copy-btn" onclick="copyCredential(this, 'Q09ORklHRU1QUkVTQTs1OS44NTguOTk0LzAwMDEtMjQ7c2lzdGVtYXNhZ3Jlcy5kZG5zLm5ldDsyMDE2NztTdXBlcnZpc29yOzEyMzQ7TWFtb290aCBHcmlsbCBFc3BldGFyaWE7', 'Mamooth Grill Espetaria')">⎘ Copiar</button>
-              </td>
-            </tr>
           </tbody>
         </table>
       </div>
@@ -11258,39 +11105,7 @@
       <div class="fields-card">
         <div class="fields-card-header has-action">
           Clientes — Sagres Dash
-          <button class="cred-add-trigger" id="cred-trigger-dash" onclick="toggleCredForm('dash')">＋ Nova credencial</button>
-        </div>
-
-        <div class="cred-add-panel" id="cred-form-dash">
-          <div class="cred-form-grid">
-            <div class="cred-form-field">
-              <label class="cred-form-label">Nome do cliente</label>
-              <input class="cred-form-input" id="cred-nome-dash" type="text" placeholder="Ex: Padaria Central" />
-            </div>
-            <div class="cred-form-field">
-              <label class="cred-form-label">Porta</label>
-              <input class="cred-form-input" id="cred-porta-dash" type="text" placeholder="Ex: 34500" />
-            </div>
-            <div class="cred-form-field">
-              <label class="cred-form-label">Servidor</label>
-              <input class="cred-form-input" id="cred-servidor-dash" type="text" value="sistemasagres.ddns.net" />
-            </div>
-            <div class="cred-form-field full" style="grid-column:1/-1">
-              <label class="cred-form-label">String base64</label>
-              <textarea class="cred-form-textarea" id="cred-str-dash" placeholder="Cole a string base64 aqui..."></textarea>
-            </div>
-          </div>
-          <div class="cred-form-actions">
-            <button class="cred-btn-html" onclick="showCredHTML('dash')">📋 Gerar HTML</button>
-            <button class="cred-btn-cancel" onclick="toggleCredForm('dash')">Cancelar</button>
-          </div>
-          <div class="cred-html-wrap" id="cred-html-wrap-dash" style="display:none">
-            <div class="cred-html-wrap-title">
-              Trecho HTML para colar no index.html
-              <button class="cred-html-copy-btn" onclick="copyHTMLSnippet('dash')">⎘ Copiar tudo</button>
-            </div>
-            <textarea class="cred-html-code" id="cred-html-code-dash" rows="8" readonly></textarea>
-          </div>
+          <button class="cred-add-trigger" onclick="openCredSheet()">↗ Abrir planilha</button>
         </div>
 
         <div class="cred-search-wrap">
@@ -11306,17 +11121,6 @@
             </tr>
           </thead>
           <tbody id="cred-tbody-dash">
-            <tr>
-              <td><span class="field-name">Drika Cake Santa Fe</span></td>
-              <td>
-                <span class="cred-info-badge">sistemasagres.ddns.net</span>
-                <span class="cred-info-badge">34367</span>
-              </td>
-              <td>
-                <span class="cred-str">Q09ORklHRU1QUkVTQTtEcmlrYSBDYWtlIFNhbnRhIEZlO3Npc3RlbWFzYWdyZXMuZGRucy5uZXQ7MzQzNjc7OzUwMTAyOzE1Ljc1Mi45NzYvMDAwMS05ODsxMjM0NTtTdXBlcnZpc29y</span>
-                <button class="cred-copy-btn" onclick="copyCredential(this, 'Q09ORklHRU1QUkVTQTtEcmlrYSBDYWtlIFNhbnRhIEZlO3Npc3RlbWFzYWdyZXMuZGRucy5uZXQ7MzQzNjc7OzUwMTAyOzE1Ljc1Mi45NzYvMDAwMS05ODsxMjM0NTtTdXBlcnZpc29y', 'Drika Cake Santa Fe')">⎘ Copiar</button>
-              </td>
-            </tr>
           </tbody>
         </table>
       </div>
@@ -13260,9 +13064,80 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      sortCredTable('estoque');
-      sortCredTable('dash');
+      loadCredentials();
     });
+
+    // ── Google Sheets — configuração ──
+    // Após criar e publicar a planilha, cole as URLs abaixo.
+    const SHEETS_CONFIG = {
+      sheetUrl: 'https://docs.google.com/spreadsheets/d/1xHUm3xj_3T5SKw2HfHrm4WVl04Utnvoo-9hAs3o8yUY/edit',
+      estoque:  { csv: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSRU6CfbJPypnrmQmcJqIykzsYo9OMTzWyfGFzNRaWS8EflRS--M7uBqol67u0VccL3lekckOuMvHYr/pub?gid=0&single=true&output=csv' },
+      dash:     { csv: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSRU6CfbJPypnrmQmcJqIykzsYo9OMTzWyfGFzNRaWS8EflRS--M7uBqol67u0VccL3lekckOuMvHYr/pub?gid=318427419&single=true&output=csv' }
+    };
+
+    function escHtml(s) {
+      return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    function parseCSV(text) {
+      const rows = [];
+      for (const line of text.trim().split(/\r?\n/)) {
+        const cols = []; let inQ = false, col = '';
+        for (let i = 0; i < line.length; i++) {
+          const c = line[i];
+          if      (c === '"' && !inQ)  { inQ = true; }
+          else if (c === '"' &&  inQ)  { if (line[i+1] === '"') { col += '"'; i++; } else { inQ = false; } }
+          else if (c === ',' && !inQ)  { cols.push(col); col = ''; }
+          else                         { col += c; }
+        }
+        cols.push(col);
+        rows.push(cols);
+      }
+      return rows;
+    }
+
+    async function loadCredentials() {
+      for (const app of ['estoque', 'dash']) {
+        const cfg   = SHEETS_CONFIG[app];
+        const tbody = document.getElementById('cred-tbody-' + app);
+        if (!cfg || !cfg.csv || cfg.csv.startsWith('COLE') || !tbody) continue;
+
+        tbody.innerHTML = '<tr><td colspan="3" style="text-align:center;padding:1.2rem;color:var(--text-muted);font-style:italic">Carregando...</td></tr>';
+        try {
+          const resp = await fetch(cfg.csv);
+          if (!resp.ok) throw new Error('HTTP ' + resp.status);
+          const rows = parseCSV(await resp.text()).slice(1).filter(r => r[0] && r[0].trim());
+          tbody.innerHTML = '';
+          for (const row of rows) {
+            const [cliente, servidor, porta, credencial] = row.map(c => c.trim());
+            if (!cliente || !credencial) continue;
+            const tr  = document.createElement('tr');
+            const td1 = document.createElement('td');
+            const td2 = document.createElement('td');
+            const td3 = document.createElement('td');
+            td1.innerHTML = `<span class="field-name">${escHtml(cliente)}</span>`;
+            td2.innerHTML = `<span class="cred-info-badge">${escHtml(servidor)}</span><span class="cred-info-badge">${escHtml(porta)}</span>`;
+            td3.innerHTML = `<span class="cred-str">${escHtml(credencial)}</span>`;
+            const btn = document.createElement('button');
+            btn.className   = 'cred-copy-btn';
+            btn.textContent = '⎘ Copiar';
+            btn.addEventListener('click', function() { copyCredential(this, credencial, cliente); });
+            td3.appendChild(btn);
+            tr.append(td1, td2, td3);
+            tbody.appendChild(tr);
+          }
+          sortCredTable(app);
+        } catch (e) {
+          tbody.innerHTML = '<tr><td colspan="3" style="text-align:center;padding:1.2rem;color:#f87171">Erro ao carregar. Verifique a URL em SHEETS_CONFIG.</td></tr>';
+        }
+      }
+    }
+
+    function openCredSheet() {
+      const url = SHEETS_CONFIG.sheetUrl;
+      if (!url || url.startsWith('COLE')) { alert('URL da planilha não configurada em SHEETS_CONFIG.sheetUrl'); return; }
+      window.open(url, '_blank');
+    }
 
     // ── Formulário gerador de HTML para credenciais ──
     function toggleCredForm(app) {
