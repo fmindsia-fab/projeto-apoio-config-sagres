@@ -8,3 +8,6 @@
 .env
 .env.local
 .env.*.local
+
+# Credenciais locais — NUNCA subir ao GitHub
+admin-config.js

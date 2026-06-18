@@ -1497,6 +1497,8 @@
       color: var(--text-faint);
     }
   </style>
+  <!-- Credenciais admin — arquivo local, nunca sobe ao GitHub -->
+  <script src="admin-config.js" onerror="window.__adminConfigMissing=true"></script>
 </head>
 
 <body>
@@ -13152,7 +13154,75 @@
 
     document.addEventListener('DOMContentLoaded', () => {
       loadCredentials();
+      loadAdminLocal();
     });
+
+    // ── Admin local — lê de admin-config.js (nunca sobe ao GitHub) ──
+    function loadAdminLocal() {
+      const tbody = document.getElementById('cred-tbody-admin');
+      if (!tbody) return;
+
+      if (!window.ADMIN_DATA || !Array.isArray(window.ADMIN_DATA) || window.ADMIN_DATA.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;padding:1.4rem;color:var(--text-muted);font-style:italic">Credenciais disponíveis apenas no ambiente local.<br><span style="font-size:.8rem">Configure o arquivo admin-config.js na pasta do projeto.</span></td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = '';
+      for (const item of window.ADMIN_DATA) {
+        const { cliente = '', cnpj = '', operador = '', senha = '' } = item;
+        if (!cliente || !operador) continue;
+        const tr  = document.createElement('tr');
+        const td1 = document.createElement('td');
+        const td2 = document.createElement('td');
+        const td3 = document.createElement('td');
+        const td4 = document.createElement('td');
+        td1.innerHTML = `<span class="field-name">${escHtml(cliente)}</span>`;
+
+        td2.innerHTML = `<span class="cred-info-badge">${escHtml(cnpj || '—')}</span>`;
+        if (cnpj) {
+          const btnCnpj = document.createElement('button');
+          btnCnpj.className   = 'cred-copy-btn';
+          btnCnpj.textContent = '⎘ Copiar';
+          btnCnpj.addEventListener('click', function() { copyCredential(this, cnpj, cliente + ' — CNPJ'); });
+          td2.appendChild(btnCnpj);
+        }
+
+        td3.innerHTML = `<span class="cred-str">${escHtml(operador)}</span>`;
+        const btnOper = document.createElement('button');
+        btnOper.className   = 'cred-copy-btn';
+        btnOper.textContent = '⎘ Copiar';
+        btnOper.addEventListener('click', function() { copyCredential(this, operador, cliente + ' — operador'); });
+        td3.appendChild(btnOper);
+
+        const wrap = document.createElement('span');
+        wrap.className = 'cred-senha-wrap';
+        const mask = document.createElement('span');
+        mask.className   = 'cred-senha-mask';
+        mask.textContent = '••••••••';
+        const real = document.createElement('span');
+        real.className   = 'cred-senha-text';
+        real.textContent = senha || '—';
+        const btnReveal = document.createElement('button');
+        btnReveal.className   = 'cred-reveal-btn';
+        btnReveal.textContent = '👁 Mostrar';
+        btnReveal.addEventListener('click', function() {
+          const showing = real.style.display === 'inline';
+          mask.style.display = showing ? 'inline' : 'none';
+          real.style.display = showing ? 'none'   : 'inline';
+          this.textContent   = showing ? '👁 Mostrar' : '🙈 Ocultar';
+        });
+        const btnSenha = document.createElement('button');
+        btnSenha.className   = 'cred-copy-btn';
+        btnSenha.textContent = '⎘ Copiar';
+        btnSenha.addEventListener('click', function() { copyCredential(this, senha, cliente + ' — senha'); });
+        wrap.append(mask, real, btnReveal, btnSenha);
+        td4.appendChild(wrap);
+
+        tr.append(td1, td2, td3, td4);
+        tbody.appendChild(tr);
+      }
+      sortCredTable('admin');
+    }
 
     // ── Google Sheets — configuração ──
     // Após criar e publicar a planilha, cole as URLs abaixo.
@@ -13160,7 +13230,7 @@
       sheetUrl: 'https://docs.google.com/spreadsheets/d/1xHUm3xj_3T5SKw2HfHrm4WVl04Utnvoo-9hAs3o8yUY/edit',
       estoque:  { csv: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSRU6CfbJPypnrmQmcJqIykzsYo9OMTzWyfGFzNRaWS8EflRS--M7uBqol67u0VccL3lekckOuMvHYr/pub?gid=0&single=true&output=csv' },
       dash:     { csv: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSRU6CfbJPypnrmQmcJqIykzsYo9OMTzWyfGFzNRaWS8EflRS--M7uBqol67u0VccL3lekckOuMvHYr/pub?gid=318427419&single=true&output=csv' },
-      admin:    { csv: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSRU6CfbJPypnrmQmcJqIykzsYo9OMTzWyfGFzNRaWS8EflRS--M7uBqol67u0VccL3lekckOuMvHYr/pub?gid=41135861&single=true&output=csv' }
+      // admin: carregado via admin-config.js local (não sobe ao GitHub)
     };
 
     function escHtml(s) {
@@ -13185,7 +13255,7 @@
     }
 
     async function loadCredentials() {
-      for (const app of ['estoque', 'dash', 'admin']) {
+      for (const app of ['estoque', 'dash']) {
         const cfg   = SHEETS_CONFIG[app];
         const tbody = document.getElementById('cred-tbody-' + app);
         if (!cfg || !cfg.csv || cfg.csv.startsWith('COLE') || !tbody) continue;
