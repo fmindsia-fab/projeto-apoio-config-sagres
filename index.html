@@ -578,6 +578,16 @@
     table.cred-table th:nth-child(3),
     table.cred-table td:nth-child(3) { width: 58%; }
 
+    /* Admin — 4 colunas: Cliente / CNPJ / Operador / Senha */
+    table.cred-table--admin th:nth-child(1),
+    table.cred-table--admin td:nth-child(1) { width: 22%; }
+    table.cred-table--admin th:nth-child(2),
+    table.cred-table--admin td:nth-child(2) { width: 18%; }
+    table.cred-table--admin th:nth-child(3),
+    table.cred-table--admin td:nth-child(3) { width: 22%; }
+    table.cred-table--admin th:nth-child(4),
+    table.cred-table--admin td:nth-child(4) { width: 38%; }
+
     table.cred-table td {
       padding: 14px 16px;
       border-bottom: 1px solid var(--border-faint);
@@ -646,6 +656,28 @@
       color: #5ee0a0;
       font-weight: 700;
     }
+
+    .cred-reveal-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+      padding: .2rem .55rem;
+      margin-left: .4rem;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 4px;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: .73rem;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background .15s, border-color .15s, color .15s;
+      white-space: nowrap;
+    }
+    .cred-reveal-btn:hover { background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.25); color: var(--text-dim); }
+
+    .cred-senha-wrap { display: inline-flex; align-items: center; gap: .3rem; flex-wrap: wrap; }
+    .cred-senha-mask { font-family: monospace; letter-spacing: .12em; color: var(--text-muted); font-size: .85rem; }
+    .cred-senha-text { font-family: monospace; font-size: .85rem; color: var(--text-dim); display: none; }
 
     /* ── FORMULÁRIO GERADOR DE CREDENCIAL ── */
     .fields-card-header.has-action {
@@ -1657,6 +1689,10 @@
             Sagres Dash
             <span class="path-badge">Credenciais por cliente</span>
           </a>
+          <a class="nav-item" onclick="showSection('app-squalus-admin')">
+            Squalus Admin
+            <span class="path-badge">Login e senha por cliente</span>
+          </a>
         </div>
       </div>
 
@@ -2458,6 +2494,11 @@
             <div class="icon">📊</div>
             <h3>Sagres Dash</h3>
             <p>Strings de configuração para instalação do app de dashboard — uma por cliente.</p>
+          </div>
+          <div class="welcome-card apps" onclick="showSection('app-squalus-admin')">
+            <div class="icon">🔑</div>
+            <h3>Squalus Admin</h3>
+            <p>Login e senha de acesso ao Squalus Admin — consulta rápida por cliente.</p>
           </div>
         </div>
       </div>
@@ -11046,6 +11087,48 @@
       </div>
     </section>
 
+    <!-- ══ SQUALUS ADMIN — CREDENCIAIS ══ -->
+    <section id="app-squalus-admin" class="page-section">
+      <div class="page-header">
+        <div class="breadcrumb">Apps &amp; Credenciais › Squalus Admin</div>
+        <h2>Squalus Admin — Credenciais</h2>
+        <p>Login e senha de acesso ao Squalus Admin para cada cliente. Clique em <strong>⎘ Copiar</strong> para copiar o valor desejado.</p>
+      </div>
+
+      <div class="note-box">
+        <strong>Como usar:</strong>
+        Localize o cliente na tabela. Clique em <strong>⎘ Copiar</strong> ao lado do operador ou da senha. Use <strong>👁 Mostrar</strong> para revelar a senha antes de copiar.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header has-action">
+          Clientes — Squalus Admin
+          <button class="cred-add-trigger" onclick="openCredSheet()">↗ Abrir planilha</button>
+        </div>
+
+        <div class="cred-search-wrap">
+          <input class="cred-search-input" type="text" placeholder="Buscar cliente..." oninput="filterCredTable('admin', this.value)" />
+        </div>
+
+        <table class="cred-table cred-table--admin">
+          <thead>
+            <tr>
+              <th>Cliente</th>
+              <th>CNPJ</th>
+              <th>Operador</th>
+              <th>Senha</th>
+            </tr>
+          </thead>
+          <tbody id="cred-tbody-admin">
+          </tbody>
+        </table>
+      </div>
+
+      <div class="back-to-home">
+        <button onclick="showSection('home')">← Voltar para o início</button>
+      </div>
+    </section>
+
     <!-- ══ SAGRES ESTOQUE — CREDENCIAIS ══ -->
     <section id="app-sagres-estoque" class="page-section">
       <div class="page-header">
@@ -11222,7 +11305,10 @@
       'cad-empresas-opcoes-fidelidade': 'Opções de Programa de Fidelidade',
       'cad-empresas-opcoes-coletores': 'Opções de Coletores',
       'cad-empresas-opcoes-estoque-producao': 'Opções de Estoque/Produção',
-      'cad-empresas-prato-digital': 'Opções do Prato Digital / PIX / Fidelidade nas Nuvens'
+      'cad-empresas-prato-digital': 'Opções do Prato Digital / PIX / Fidelidade nas Nuvens',
+      'app-squalus-admin': 'Squalus Admin — Credenciais',
+      'app-sagres-estoque': 'Sagres Estoque — Credenciais',
+      'app-sagres-dash': 'Sagres Dash — Credenciais'
     };
 
     function switchSystem(system) {
@@ -13045,7 +13131,8 @@
       if (!noRes) {
         noRes = document.createElement('tr');
         noRes.className = 'cred-no-results-row';
-        noRes.innerHTML = '<td colspan="3" class="cred-no-results">Nenhum cliente encontrado.</td>';
+        const cols = app === 'admin' ? 4 : 3;
+        noRes.innerHTML = `<td colspan="${cols}" class="cred-no-results">Nenhum cliente encontrado.</td>`;
         tbody.appendChild(noRes);
       }
       noRes.style.display = (q && visible === 0) ? '' : 'none';
@@ -13072,7 +13159,8 @@
     const SHEETS_CONFIG = {
       sheetUrl: 'https://docs.google.com/spreadsheets/d/1xHUm3xj_3T5SKw2HfHrm4WVl04Utnvoo-9hAs3o8yUY/edit',
       estoque:  { csv: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSRU6CfbJPypnrmQmcJqIykzsYo9OMTzWyfGFzNRaWS8EflRS--M7uBqol67u0VccL3lekckOuMvHYr/pub?gid=0&single=true&output=csv' },
-      dash:     { csv: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSRU6CfbJPypnrmQmcJqIykzsYo9OMTzWyfGFzNRaWS8EflRS--M7uBqol67u0VccL3lekckOuMvHYr/pub?gid=318427419&single=true&output=csv' }
+      dash:     { csv: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSRU6CfbJPypnrmQmcJqIykzsYo9OMTzWyfGFzNRaWS8EflRS--M7uBqol67u0VccL3lekckOuMvHYr/pub?gid=318427419&single=true&output=csv' },
+      admin:    { csv: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSRU6CfbJPypnrmQmcJqIykzsYo9OMTzWyfGFzNRaWS8EflRS--M7uBqol67u0VccL3lekckOuMvHYr/pub?gid=41135861&single=true&output=csv' }
     };
 
     function escHtml(s) {
@@ -13097,38 +13185,91 @@
     }
 
     async function loadCredentials() {
-      for (const app of ['estoque', 'dash']) {
+      for (const app of ['estoque', 'dash', 'admin']) {
         const cfg   = SHEETS_CONFIG[app];
         const tbody = document.getElementById('cred-tbody-' + app);
         if (!cfg || !cfg.csv || cfg.csv.startsWith('COLE') || !tbody) continue;
 
-        tbody.innerHTML = '<tr><td colspan="3" style="text-align:center;padding:1.2rem;color:var(--text-muted);font-style:italic">Carregando...</td></tr>';
+        const cols = app === 'admin' ? 4 : 3;
+        tbody.innerHTML = `<tr><td colspan="${cols}" style="text-align:center;padding:1.2rem;color:var(--text-muted);font-style:italic">Carregando...</td></tr>`;
         try {
           const resp = await fetch(cfg.csv);
           if (!resp.ok) throw new Error('HTTP ' + resp.status);
           const rows = parseCSV(await resp.text()).slice(1).filter(r => r[0] && r[0].trim());
           tbody.innerHTML = '';
-          for (const row of rows) {
-            const [cliente, servidor, porta, credencial] = row.map(c => c.trim());
-            if (!cliente || !credencial) continue;
-            const tr  = document.createElement('tr');
-            const td1 = document.createElement('td');
-            const td2 = document.createElement('td');
-            const td3 = document.createElement('td');
-            td1.innerHTML = `<span class="field-name">${escHtml(cliente)}</span>`;
-            td2.innerHTML = `<span class="cred-info-badge">${escHtml(servidor)}</span><span class="cred-info-badge">${escHtml(porta)}</span>`;
-            td3.innerHTML = `<span class="cred-str">${escHtml(credencial)}</span>`;
-            const btn = document.createElement('button');
-            btn.className   = 'cred-copy-btn';
-            btn.textContent = '⎘ Copiar';
-            btn.addEventListener('click', function() { copyCredential(this, credencial, cliente); });
-            td3.appendChild(btn);
-            tr.append(td1, td2, td3);
-            tbody.appendChild(tr);
+
+          if (app === 'admin') {
+            for (const row of rows) {
+              const [cliente, cnpj, operador, senha] = row.map(c => c.trim());
+              if (!cliente || !operador) continue;
+              const tr  = document.createElement('tr');
+              const td1 = document.createElement('td');
+              const td2 = document.createElement('td');
+              const td3 = document.createElement('td');
+              const td4 = document.createElement('td');
+              td1.innerHTML = `<span class="field-name">${escHtml(cliente)}</span>`;
+              td2.innerHTML = `<span class="cred-info-badge">${escHtml(cnpj || '—')}</span>`;
+
+              // td3 — operador com botão copiar
+              td3.innerHTML = `<span class="cred-str">${escHtml(operador)}</span>`;
+              const btnOper = document.createElement('button');
+              btnOper.className   = 'cred-copy-btn';
+              btnOper.textContent = '⎘ Copiar';
+              btnOper.addEventListener('click', function() { copyCredential(this, operador, cliente + ' — operador'); });
+              td3.appendChild(btnOper);
+
+              // td4 — senha mascarada com revelar + copiar
+              const wrap = document.createElement('span');
+              wrap.className = 'cred-senha-wrap';
+              const mask = document.createElement('span');
+              mask.className   = 'cred-senha-mask';
+              mask.textContent = '••••••••';
+              const real = document.createElement('span');
+              real.className   = 'cred-senha-text';
+              real.textContent = senha || '—';
+              const btnReveal = document.createElement('button');
+              btnReveal.className   = 'cred-reveal-btn';
+              btnReveal.textContent = '👁 Mostrar';
+              btnReveal.addEventListener('click', function() {
+                const showing = real.style.display === 'inline';
+                mask.style.display = showing ? 'inline' : 'none';
+                real.style.display = showing ? 'none'   : 'inline';
+                this.textContent   = showing ? '👁 Mostrar' : '🙈 Ocultar';
+              });
+              const btnSenha = document.createElement('button');
+              btnSenha.className   = 'cred-copy-btn';
+              btnSenha.textContent = '⎘ Copiar';
+              btnSenha.addEventListener('click', function() { copyCredential(this, senha, cliente + ' — senha'); });
+              wrap.append(mask, real, btnReveal, btnSenha);
+              td4.appendChild(wrap);
+
+              tr.append(td1, td2, td3, td4);
+              tbody.appendChild(tr);
+            }
+          } else {
+            for (const row of rows) {
+              const [cliente, servidor, porta, credencial] = row.map(c => c.trim());
+              if (!cliente || !credencial) continue;
+              const tr  = document.createElement('tr');
+              const td1 = document.createElement('td');
+              const td2 = document.createElement('td');
+              const td3 = document.createElement('td');
+              td1.innerHTML = `<span class="field-name">${escHtml(cliente)}</span>`;
+              td2.innerHTML = `<span class="cred-info-badge">${escHtml(servidor)}</span><span class="cred-info-badge">${escHtml(porta)}</span>`;
+              td3.innerHTML = `<span class="cred-str">${escHtml(credencial)}</span>`;
+              const btn = document.createElement('button');
+              btn.className   = 'cred-copy-btn';
+              btn.textContent = '⎘ Copiar';
+              btn.addEventListener('click', function() { copyCredential(this, credencial, cliente); });
+              td3.appendChild(btn);
+              tr.append(td1, td2, td3);
+              tbody.appendChild(tr);
+            }
           }
+
           sortCredTable(app);
         } catch (e) {
-          tbody.innerHTML = '<tr><td colspan="3" style="text-align:center;padding:1.2rem;color:#f87171">Erro ao carregar. Verifique a URL em SHEETS_CONFIG.</td></tr>';
+          tbody.innerHTML = `<tr><td colspan="${cols}" style="text-align:center;padding:1.2rem;color:#f87171">Erro ao carregar. Verifique a URL em SHEETS_CONFIG.</td></tr>`;
         }
       }
     }
