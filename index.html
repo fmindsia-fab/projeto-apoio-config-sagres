@@ -1548,7 +1548,10 @@
         Touch Screen
         <span class="path-badge">PDV › Configurações › Opções Locais › Touch Screen</span>
       </a>
-      <div class="pdv-cat-item">Touch Screen (Outras Configurações)</div>
+      <a class="nav-item" onclick="showSection('pdv-touch-screen-outras')">
+        Touch Screen (Outras Configurações)
+        <span class="path-badge">PDV › Configurações › Opções Locais › Touch Screen (Outras Configurações)</span>
+      </a>
       <a class="nav-item" onclick="showSection('pdv-atend-identificacao')">
         Atendimento com Identificação
         <span class="path-badge">PDV › Configurações › Opções Locais › Atendimento c/ Identificação</span>
@@ -2156,6 +2159,11 @@
             <div class="icon">👆</div>
             <h3>Touch Screen</h3>
             <p>Define quantidade de botões, imagens dos botões de recebimentos, tamanho dos produtos vendidos e opções das formas de pagamento.</p>
+          </div>
+          <div class="welcome-card" onclick="showSection('pdv-touch-screen-outras')">
+            <div class="icon">⌨️</div>
+            <h3>Touch Screen (Outras Configurações)</h3>
+            <p>Define o uso de teclado numérico auxiliar para operação touch screen desta estação.</p>
           </div>
         </div>
       </div>
@@ -5437,6 +5445,39 @@
               <td><div class="field-name">Opções de Botões das Formas de Pagto</div></td>
               <td><span class="tag tag-opt">Ação</span></td>
               <td>Configura os botões das formas de pagamento exibidos na tela do Touch Screen.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ PDV — TOUCH SCREEN (OUTRAS CONFIGURAÇÕES) ══ -->
+    <section id="pdv-touch-screen-outras" class="page-section" data-section-img="prints/pdv_touch_screen_outras.png">
+      <div class="page-header">
+        <div class="breadcrumb">PDV › Configurações › Opções Locais do Sistema › Touch Screen (Outras Configurações)</div>
+        <h2>Touch Screen (Outras Configurações)</h2>
+        <p>Configuração do teclado numérico auxiliar para operação touch screen desta estação.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pdv_touch_screen_outras.png" alt="Tela Touch Screen (Outras Configurações)"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pdv_touch_screen_outras.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        <strong>Caminho:</strong> Configurações › Opções Locais do Sistema › Touch Screen (Outras Configurações)
+      </div>
+
+      <div class="fields-card">
+        <table class="fields-table">
+          <thead>
+            <tr><th>Campo</th><th>Tipo</th><th>Descrição</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Teclado Numérico Auxiliar:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se esta estação utilizará um teclado numérico auxiliar para operação touch screen.</td>
             </tr>
           </tbody>
         </table>
@@ -12442,6 +12483,10 @@
         'Definir Imagens dos Botões de Recebimentos':         '33.9,78.8,13.6,5.6',
         'Definir Tam.Vert.dos Prod.Vendidos':                 '41.4,79.1,13.3,5.3',
         'Opções de Botões das Formas de Pagto':               '48.4,78.9,13.8,4.9',
+      },
+      'prints/pdv_touch_screen_outras.png': {
+        // Campo
+        'Teclado Numérico Auxiliar:':                         '0,0,0,0',
       },
       'prints/pdv_entregas.png': {
         // Campos da Tela
