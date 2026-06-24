@@ -1568,7 +1568,10 @@
       <div class="pdv-cat-label">Caixa & Pagamento</div>
       <div class="pdv-cat-item">Fechamento de Caixa</div>
       <div class="pdv-cat-item">Bloqueio de Formas de Pagamento</div>
-      <div class="pdv-cat-item">Entregas</div>
+      <a class="nav-item" onclick="showSection('pdv-entregas')">
+        Entregas
+        <span class="path-badge">PDV › Configurações › Opções Locais › Entregas</span>
+      </a>
 
       <div class="pdv-cat-label">Integração & Cloud</div>
       <div class="pdv-cat-item">Cloud (Integração c/Servidor Remoto)</div>
@@ -5411,6 +5414,60 @@
               <td><div class="field-name">NºSeg.p/ Finalizar Lançamento At.Id:</div></td>
               <td><span class="tag tag-num">Número</span></td>
               <td>Número de segundos de espera antes de finalizar automaticamente o lançamento no At.Id. Valor <strong>0</strong> = sem espera automática.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ PDV — ENTREGAS ══ -->
+    <section id="pdv-entregas" class="page-section" data-section-img="prints/pdv_entregas.png">
+      <div class="page-header">
+        <div class="breadcrumb">PDV › Configurações › Opções Locais do Sistema › Entregas</div>
+        <h2>Entregas</h2>
+        <p>Configurações locais do PDV para o módulo de Entregas desta estação.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pdv_entregas.png" alt="Tela Entregas"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/pdv_entregas.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>PDV</strong> → <strong>Configurações</strong> →
+        <strong>Opções Locais do Sistema</strong> → <strong>Entregas</strong>.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Campos da Tela</div>
+        <table class="fields-table">
+          <thead>
+            <tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Utilizar Identificador de Chamadas:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se esta estação utilizará um identificador de chamadas para o módulo de Entregas. <strong>Não</strong> = desativado; selecione <strong>Sim</strong> caso o estabelecimento use sistema de chamadas para entregadores.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Logica p/Pedidos Pendentes p/Entregas no PDV:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define a lógica usada para exibir pedidos pendentes de entrega nesta estação. A opção <strong>Lógica padrão configurada para a empresa</strong> segue o que está definido no Cadastro de Empresas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Índice Padrão da Tela Principal das Entregas:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define a ordenação padrão exibida na tela principal de Entregas desta estação. A opção <strong>0-Lógica Padrão Configurada p/a Empresa</strong> herda a configuração da empresa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Índice Padrão Tela Auxiliar Consultar Entregas:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define a ordenação padrão da tela auxiliar de consulta de entregas nesta estação. A opção <strong>0-Padrão do Sistema</strong> utiliza a ordenação padrão do sistema.</td>
             </tr>
           </tbody>
         </table>
@@ -12296,6 +12353,13 @@
       'Espelho (2) — Orçamentos:':                                                '85.3,82.7,16.5,3.6',
       // Estação
       'Descrição da Estação:':                                                    '90,18,49.2,4.4',
+      },
+      'prints/pdv_entregas.png': {
+        // Campos da Tela
+        'Utilizar Identificador de Chamadas:':                        '24.2,11,67,11.3',
+        'Logica p/Pedidos Pendentes p/Entregas no PDV:':              '39.6,0.6,98.3,10',
+        'Índice Padrão da Tela Principal das Entregas:':              '55.4,2.5,79.7,11.3',
+        'Índice Padrão Tela Auxiliar Consultar Entregas:':            '69.2,1,77.2,10.9',
       },
       'prints/pdv_atend_identificacao.png': {
         // Campos da Tela
