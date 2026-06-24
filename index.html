@@ -1540,7 +1540,10 @@
       <div class="pdv-cat-item">Impressora Fiscal</div>
 
       <div class="pdv-cat-label">Aparência & Tela de Vendas</div>
-      <div class="pdv-cat-item">Aparência da Tela de Vendas</div>
+      <a class="nav-item" onclick="showSection('pdv-aparencia-tela-vendas')">
+        Aparência da Tela de Vendas
+        <span class="path-badge">PDV › Configurações › Opções Locais › Aparência da Tela de Vendas</span>
+      </a>
       <div class="pdv-cat-item">Touch Screen</div>
       <div class="pdv-cat-item">Touch Screen (Outras Configurações)</div>
       <div class="pdv-cat-item">Atendimento com Identificação</div>
@@ -5296,6 +5299,41 @@
               <td><div class="field-name">Descrição da Estação:</div></td>
               <td><span class="tag tag-txt">Texto</span></td>
               <td>Nome ou identificação desta estação de trabalho. Usado para distinguir computadores em ambientes com múltiplas estações.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ PDV — APARÊNCIA DA TELA DE VENDAS ══ -->
+    <section id="pdv-aparencia-tela-vendas" class="page-section" data-section-img="prints/pdv_aparencia_tela_vendas.png">
+      <div class="page-header">
+        <div class="breadcrumb">PDV › Configurações › Opções Locais do Sistema › Aparência da Tela de Vendas</div>
+        <h2>Aparência da Tela de Vendas</h2>
+        <p>Permite personalizar a imagem de logotipo e a cor de fundo exibidas na tela de vendas desta estação.</p>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>PDV</strong> → <strong>Configurações</strong> →
+        <strong>Opções Locais do Sistema</strong> → <strong>Aparência da Tela de Vendas</strong>.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Sub-opções</div>
+        <table class="fields-table">
+          <thead>
+            <tr><th>Opção</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Definir Imagem (Logo) da Tela de Vendas</div></td>
+              <td><span class="tag tag-txt">Arquivo</span></td>
+              <td>Abre um seletor de arquivo do Windows para escolher a imagem (logo) que será exibida na tela de vendas desta estação. Selecione o arquivo de imagem desejado e confirme.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Definir Cor de Fundo da Tela de Vendas</div></td>
+              <td><span class="tag tag-opt">Cor</span></td>
+              <td>Abre o seletor de cores padrão do Windows para escolher a cor de fundo da tela de vendas. É possível selecionar uma cor básica ou definir uma cor personalizada clicando em <strong>Definir Cores Personalizadas</strong>.</td>
             </tr>
           </tbody>
         </table>
@@ -12181,7 +12219,12 @@
       'Espelho (2) — Orçamentos:':                                                '85.3,82.7,16.5,3.6',
       // Estação
       'Descrição da Estação:':                                                    '90,18,49.2,4.4',
-      }
+      },
+      'prints/pdv_aparencia_tela_vendas.png': {
+        // Sub-opções
+        'Definir Imagem (Logo) da Tela de Vendas':    '10.4,51.5,15.6,3.1',
+        'Definir Cor de Fundo da Tela de Vendas':     '13.5,51.7,14.6,2.9',
+      },
     };
 
     // ── Auto-adiciona botões "Exibir na tela" em todas as linhas com coordenadas ──

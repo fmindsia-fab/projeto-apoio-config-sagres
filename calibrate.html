@@ -35,8 +35,8 @@
 
     /* ── LEFT PANEL — image list ── */
     #img-panel {
-      width: 190px;
-      min-width: 190px;
+      width: 220px;
+      min-width: 220px;
       background: #0a0f1a;
       border-right: 1px solid #2d3748;
       display: flex;
@@ -634,6 +634,18 @@ const IMAGES = [
       { group: 'Campos da Tela', fields: [
         'Definir esta estação como "Concentrador":',
         'Diretório dos Dados do Concentrador do Servidor Local:',
+      ]},
+    ]
+  },
+  {
+    file: 'prints/pdv_aparencia_tela_vendas.png',
+    label: 'Aparência da Tela de Vendas',
+    system: 'pdv',
+    calibrated: true,
+    groups: [
+      { group: 'Sub-opções', fields: [
+        'Definir Imagem (Logo) da Tela de Vendas',
+        'Definir Cor de Fundo da Tela de Vendas',
       ]},
     ]
   },
@@ -2160,6 +2172,10 @@ const COORDS = {
   'prints/pdv_servidor_local.png': {
     'Definir esta estação como "Concentrador":':              '0,0,0,0',
     'Diretório dos Dados do Concentrador do Servidor Local:': '0,0,0,0',
+  },
+  'prints/pdv_aparencia_tela_vendas.png': {
+    'Definir Imagem (Logo) da Tela de Vendas':    '0,0,0,0',
+    'Definir Cor de Fundo da Tela de Vendas':     '0,0,0,0',
   },
   'prints/cfg_sistema_backup.png': {
     'Usar Esse Computador Como "Sistema de Backup"': '28,0.7,74.9,18.5',
