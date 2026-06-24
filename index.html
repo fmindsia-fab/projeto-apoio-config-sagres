@@ -1572,7 +1572,10 @@
       <div class="pdv-cat-item">Certificado Digital e Transmissão (v.4.00)</div>
 
       <div class="pdv-cat-label">Caixa & Pagamento</div>
-      <div class="pdv-cat-item">Fechamento de Caixa</div>
+      <a class="nav-item" onclick="showSection('pdv-fechamento-caixa')">
+        Fechamento de Caixa
+        <span class="path-badge">PDV › Configurações › Opções Locais › Fechamento de Caixa</span>
+      </a>
       <div class="pdv-cat-item">Bloqueio de Formas de Pagamento</div>
       <a class="nav-item" onclick="showSection('pdv-entregas')">
         Entregas
@@ -2164,6 +2167,11 @@
             <div class="icon">⌨️</div>
             <h3>Touch Screen (Outras Configurações)</h3>
             <p>Define o uso de teclado numérico auxiliar para operação touch screen desta estação.</p>
+          </div>
+          <div class="welcome-card" onclick="showSection('pdv-fechamento-caixa')">
+            <div class="icon">🔒</div>
+            <h3>Fechamento de Caixa</h3>
+            <p>Define se esta estação pode exibir a opção de "Último Caixa do Dia" no fechamento.</p>
           </div>
         </div>
       </div>
@@ -5478,6 +5486,39 @@
               <td><div class="field-name">Teclado Numérico Auxiliar:</div></td>
               <td><span class="tag tag-opt">Seleção</span></td>
               <td>Define se esta estação utilizará um teclado numérico auxiliar para operação touch screen.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ PDV — FECHAMENTO DE CAIXA ══ -->
+    <section id="pdv-fechamento-caixa" class="page-section" data-section-img="prints/pdv_fechamento_caixa.png">
+      <div class="page-header">
+        <div class="breadcrumb">PDV › Configurações › Opções Locais do Sistema › Fechamento de Caixa</div>
+        <h2>Fechamento de Caixa</h2>
+        <p>Configuração local do PDV para o comportamento do fechamento de caixa desta estação.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pdv_fechamento_caixa.png" alt="Tela Fechamento de Caixa"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pdv_fechamento_caixa.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        <strong>Caminho:</strong> Configurações › Opções Locais do Sistema › Fechamento de Caixa
+      </div>
+
+      <div class="fields-card">
+        <table class="fields-table">
+          <thead>
+            <tr><th>Campo</th><th>Tipo</th><th>Descrição</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Pode Ter Opção de Último Caixa do Dia:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se esta estação PDV pode exibir a opção de "Último Caixa do Dia" durante o fechamento.</td>
             </tr>
           </tbody>
         </table>
@@ -12487,6 +12528,10 @@
       'prints/pdv_touch_screen_outras.png': {
         // Campo
         'Teclado Numérico Auxiliar:':                         '36.3,3.1,93.6,25',
+      },
+      'prints/pdv_fechamento_caixa.png': {
+        // Campo
+        'Pode Ter Opção de Último Caixa do Dia:':             '0,0,0,0',
       },
       'prints/pdv_entregas.png': {
         // Campos da Tela
