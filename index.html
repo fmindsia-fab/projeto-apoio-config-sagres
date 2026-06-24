@@ -1558,7 +1558,10 @@
       </a>
 
       <div class="pdv-cat-label">Hardware</div>
-      <div class="pdv-cat-item">Display de Torre</div>
+      <a class="nav-item" onclick="showSection('pdv-display-torre')">
+        Display de Torre
+        <span class="path-badge">PDV › Configurações › Opções Locais › Display de Torre</span>
+      </a>
       <div class="pdv-cat-item">Display de Informações de Vendas</div>
       <div class="pdv-cat-item">Gaveta de Dinheiro</div>
       <div class="pdv-cat-item">Balança</div>
@@ -2180,6 +2183,21 @@
             <div class="icon">🚫</div>
             <h3>Bloqueio de Formas de Pagamento</h3>
             <p>Cadastro das formas de pagamento bloqueadas nesta estação, indisponíveis no fechamento do caixa.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grupo: PDV — Hardware -->
+      <div class="home-group" data-tab="pdv">
+        <div class="home-group-header">
+          <span class="sys-badge pdv">PDV › Hardware</span>
+          <h3>Hardware</h3>
+        </div>
+        <div class="welcome-grid">
+          <div class="welcome-card" onclick="showSection('pdv-display-torre')">
+            <div class="icon">📺</div>
+            <h3>Display de Torre</h3>
+            <p>Configura o modelo, porta serial e parâmetros de comunicação do display de torre desta estação.</p>
           </div>
         </div>
       </div>
@@ -5527,6 +5545,69 @@
               <td><div class="field-name">Pode Ter Opção de Último Caixa do Dia:</div></td>
               <td><span class="tag tag-opt">Seleção</span></td>
               <td>Define se esta estação PDV pode exibir a opção de "Último Caixa do Dia" durante o fechamento.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ PDV — DISPLAY DE TORRE ══ -->
+    <section id="pdv-display-torre" class="page-section" data-section-img="prints/pdv_display_torre.png">
+      <div class="page-header">
+        <div class="breadcrumb">PDV › Configurações › Opções Locais do Sistema › Display de Torre</div>
+        <h2>Display de Torre</h2>
+        <p>Configuração do display de torre (pole display) desta estação PDV: tipo, porta serial e parâmetros de comunicação.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pdv_display_torre.png" alt="Tela Display de Torre"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pdv_display_torre.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        <strong>Caminho:</strong> Configurações › Opções Locais do Sistema › Display de Torre
+      </div>
+
+      <div class="fields-card">
+        <table class="fields-table">
+          <thead>
+            <tr><th>Campo</th><th>Tipo</th><th>Descrição</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Display de Torre:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Modelo/fabricante do display de torre utilizado nesta estação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Porta:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Porta serial (COM) à qual o display de torre está conectado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Velocidade:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Taxa de transmissão (baud rate) da comunicação serial com o display.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Bits de Dados:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Número de bits de dados por pacote na comunicação serial.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Bits de Parada:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Número de bits de parada na comunicação serial.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Paridade:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Tipo de paridade utilizado na comunicação serial com o display.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Controle de Fluxo:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Modo de controle de fluxo da comunicação serial com o display.</td>
             </tr>
           </tbody>
         </table>
@@ -12600,6 +12681,16 @@
       'prints/pdv_fechamento_caixa.png': {
         // Campo
         'Pode Ter Opção de Último Caixa do Dia:':             '34.9,0.7,97.8,25.7',
+      },
+      'prints/pdv_display_torre.png': {
+        // Campos
+        'Display de Torre:':      '0,0,0,0',
+        'Porta:':                 '0,0,0,0',
+        'Velocidade:':            '0,0,0,0',
+        'Bits de Dados:':         '0,0,0,0',
+        'Bits de Parada:':        '0,0,0,0',
+        'Paridade:':              '0,0,0,0',
+        'Controle de Fluxo:':     '0,0,0,0',
       },
       'prints/pdv_bloqueio_formas_pagto.png': {
         // Grade
