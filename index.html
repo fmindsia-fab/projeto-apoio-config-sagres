@@ -1544,7 +1544,10 @@
         Aparência da Tela de Vendas
         <span class="path-badge">PDV › Configurações › Opções Locais › Aparência da Tela de Vendas</span>
       </a>
-      <div class="pdv-cat-item">Touch Screen</div>
+      <a class="nav-item" onclick="showSection('pdv-touch-screen')">
+        Touch Screen
+        <span class="path-badge">PDV › Configurações › Opções Locais › Touch Screen</span>
+      </a>
       <div class="pdv-cat-item">Touch Screen (Outras Configurações)</div>
       <a class="nav-item" onclick="showSection('pdv-atend-identificacao')">
         Atendimento com Identificação
@@ -5375,6 +5378,60 @@
               <td><div class="field-name">Definir Cor de Fundo da Tela de Vendas</div></td>
               <td><span class="tag tag-opt">Cor</span></td>
               <td>Abre o seletor de cores padrão do Windows para escolher a cor de fundo da tela de vendas. É possível selecionar uma cor básica ou definir uma cor personalizada clicando em <strong>Definir Cores Personalizadas</strong>.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ PDV — TOUCH SCREEN ══ -->
+    <section id="pdv-touch-screen" class="page-section" data-section-img="prints/pdv_touch_screen.png">
+      <div class="page-header">
+        <div class="breadcrumb">PDV › Configurações › Opções Locais do Sistema › Touch Screen</div>
+        <h2>Touch Screen</h2>
+        <p>Configurador visual dos botões da tela de pedidos do Coletor Touch Screen desta estação.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pdv_touch_screen.png" alt="Tela Touch Screen"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/pdv_touch_screen.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>PDV</strong> → <strong>Configurações</strong> →
+        <strong>Opções Locais do Sistema</strong> → <strong>Touch Screen</strong>.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Opções do Painel</div>
+        <table class="fields-table">
+          <thead>
+            <tr><th>Opção</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Definir Qtd.de Botões</div></td>
+              <td><span class="tag tag-opt">Ação</span></td>
+              <td>Abre configuração para definir a quantidade de botões exibidos na tela de pedidos do Touch Screen.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Definir Imagens dos Botões de Recebimentos</div></td>
+              <td><span class="tag tag-opt">Ação</span></td>
+              <td>Permite definir imagens personalizadas para os botões de recebimento exibidos no Touch Screen.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Definir Tam.Vert.dos Prod.Vendidos</div></td>
+              <td><span class="tag tag-opt">Ação</span></td>
+              <td>Define o tamanho vertical da lista de produtos vendidos exibida na tela do Touch Screen.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Opções de Botões das Formas de Pagto</div></td>
+              <td><span class="tag tag-opt">Ação</span></td>
+              <td>Configura os botões das formas de pagamento exibidos na tela do Touch Screen.</td>
             </tr>
           </tbody>
         </table>
@@ -12373,6 +12430,13 @@
       'Espelho (2) — Orçamentos:':                                                '85.3,82.7,16.5,3.6',
       // Estação
       'Descrição da Estação:':                                                    '90,18,49.2,4.4',
+      },
+      'prints/pdv_touch_screen.png': {
+        // Opções do Painel
+        'Definir Qtd.de Botões':                              '0,0,0,0',
+        'Definir Imagens dos Botões de Recebimentos':         '0,0,0,0',
+        'Definir Tam.Vert.dos Prod.Vendidos':                 '0,0,0,0',
+        'Opções de Botões das Formas de Pagto':               '0,0,0,0',
       },
       'prints/pdv_entregas.png': {
         // Campos da Tela
