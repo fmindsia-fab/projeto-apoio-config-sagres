@@ -1546,7 +1546,10 @@
       </a>
       <div class="pdv-cat-item">Touch Screen</div>
       <div class="pdv-cat-item">Touch Screen (Outras Configurações)</div>
-      <div class="pdv-cat-item">Atendimento com Identificação</div>
+      <a class="nav-item" onclick="showSection('pdv-atend-identificacao')">
+        Atendimento com Identificação
+        <span class="path-badge">PDV › Configurações › Opções Locais › Atendimento c/ Identificação</span>
+      </a>
 
       <div class="pdv-cat-label">Hardware</div>
       <div class="pdv-cat-item">Display de Torre</div>
@@ -5349,6 +5352,65 @@
               <td><div class="field-name">Definir Cor de Fundo da Tela de Vendas</div></td>
               <td><span class="tag tag-opt">Cor</span></td>
               <td>Abre o seletor de cores padrão do Windows para escolher a cor de fundo da tela de vendas. É possível selecionar uma cor básica ou definir uma cor personalizada clicando em <strong>Definir Cores Personalizadas</strong>.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ PDV — ATENDIMENTO COM IDENTIFICAÇÃO ══ -->
+    <section id="pdv-atend-identificacao" class="page-section" data-section-img="prints/pdv_atend_identificacao.png">
+      <div class="page-header">
+        <div class="breadcrumb">PDV › Configurações › Opções Locais do Sistema › Atendimento com Identificação</div>
+        <h2>Atendimento com Identificação</h2>
+        <p>Configurações locais do PDV para o módulo de Atendimento com Identificação (At.Id.) desta estação.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pdv_atend_identificacao.png" alt="Tela Atendimento com Identificação"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="screen-print-placeholder" style="display:none">
+          <strong>Print da Tela</strong>
+          Salve o print como <code>prints/pdv_atend_identificacao.png</code> para exibir aqui.
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>PDV</strong> → <strong>Configurações</strong> →
+        <strong>Opções Locais do Sistema</strong> → <strong>Atendimento com Identificação</strong>.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Campos da Tela</div>
+        <table class="fields-table">
+          <thead>
+            <tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Calcular Placar:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o placar será calculado no Atendimento com Identificação desta estação. <strong>S-Sim</strong> = calcula; <strong>N-Não</strong> = desativado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Identificar Atendente:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define como o atendente será identificado no At.Id. desta estação. Opção <strong>Padrão do Sistema</strong> utiliza a configuração definida na tabela Empresas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Proibir Abertura de Atend.Identificado neste PDV:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando <strong>S-Sim</strong>, impede a abertura de novos atendimentos identificados nesta estação. <strong>N-Não</strong> é a opção recomendada para estações que operam At.Id.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Exibir Valor a Pagar na Tela Principal do Atend.Identificado:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o valor a pagar será exibido na tela principal do At.Id. desta estação. <strong>S-Sim</strong> = exibe o valor; <strong>N-Não</strong> = oculta.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">NºSeg.p/ Finalizar Lançamento At.Id:</div></td>
+              <td><span class="tag tag-num">Número</span></td>
+              <td>Número de segundos de espera antes de finalizar automaticamente o lançamento no At.Id. Valor <strong>0</strong> = sem espera automática.</td>
             </tr>
           </tbody>
         </table>
@@ -12234,6 +12296,14 @@
       'Espelho (2) — Orçamentos:':                                                '85.3,82.7,16.5,3.6',
       // Estação
       'Descrição da Estação:':                                                    '90,18,49.2,4.4',
+      },
+      'prints/pdv_atend_identificacao.png': {
+        // Campos da Tela
+        'Calcular Placar:':                                                      '0,0,0,0',
+        'Identificar Atendente:':                                                '0,0,0,0',
+        'Proibir Abertura de Atend.Identificado neste PDV:':                     '0,0,0,0',
+        'Exibir Valor a Pagar na Tela Principal do Atend.Identificado:':         '0,0,0,0',
+        'NºSeg.p/ Finalizar Lançamento At.Id:':                                  '0,0,0,0',
       },
       'prints/pdv_aparencia_tela_vendas.png': {
         // Sub-opções

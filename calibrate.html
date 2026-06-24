@@ -638,6 +638,21 @@ const IMAGES = [
     ]
   },
   {
+    file: 'prints/pdv_atend_identificacao.png',
+    label: 'Atendimento com Identificação',
+    system: 'pdv',
+    calibrated: false,
+    groups: [
+      { group: 'Campos da Tela', fields: [
+        'Calcular Placar:',
+        'Identificar Atendente:',
+        'Proibir Abertura de Atend.Identificado neste PDV:',
+        'Exibir Valor a Pagar na Tela Principal do Atend.Identificado:',
+        'NºSeg.p/ Finalizar Lançamento At.Id:',
+      ]},
+    ]
+  },
+  {
     file: 'prints/pdv_aparencia_tela_vendas.png',
     label: 'Aparência da Tela de Vendas',
     system: 'pdv',
@@ -2172,6 +2187,13 @@ const COORDS = {
   'prints/pdv_servidor_local.png': {
     'Definir esta estação como "Concentrador":':              '0,0,0,0',
     'Diretório dos Dados do Concentrador do Servidor Local:': '0,0,0,0',
+  },
+  'prints/pdv_atend_identificacao.png': {
+    'Calcular Placar:':                                                      '0,0,0,0',
+    'Identificar Atendente:':                                                '0,0,0,0',
+    'Proibir Abertura de Atend.Identificado neste PDV:':                     '0,0,0,0',
+    'Exibir Valor a Pagar na Tela Principal do Atend.Identificado:':         '0,0,0,0',
+    'NºSeg.p/ Finalizar Lançamento At.Id:':                                  '0,0,0,0',
   },
   'prints/pdv_aparencia_tela_vendas.png': {
     'Definir Imagem (Logo) da Tela de Vendas':    '0,0,0,0',
