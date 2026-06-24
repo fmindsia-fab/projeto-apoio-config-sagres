@@ -1562,6 +1562,11 @@
         Display de Torre
         <span class="path-badge">PDV › Configurações › Opções Locais › Display de Torre</span>
       </a>
+
+      <a class="nav-item" onclick="showSection('pdv-display-info-vendas')">
+        Display de Informações de Vendas
+        <span class="path-badge">PDV › Configurações › Opções Locais › Display de Informações de Vendas</span>
+      </a>
       <div class="pdv-cat-item">Display de Informações de Vendas</div>
       <div class="pdv-cat-item">Gaveta de Dinheiro</div>
       <div class="pdv-cat-item">Balança</div>
@@ -2198,6 +2203,12 @@
             <div class="icon">📺</div>
             <h3>Display de Torre</h3>
             <p>Configura o modelo, porta serial e parâmetros de comunicação do display de torre desta estação.</p>
+          </div>
+
+          <div class="welcome-card" onclick="showSection('pdv-display-info-vendas')">
+            <div class="icon">🖥️</div>
+            <h3>Display de Informações de Vendas</h3>
+            <p>Ativa o display de informações de vendas e define a porta de comunicação com os aplicativos.</p>
           </div>
         </div>
       </div>
@@ -5608,6 +5619,47 @@
               <td><div class="field-name">Controle de Fluxo:</div></td>
               <td><span class="tag tag-opt">Seleção</span></td>
               <td>Modo de controle de fluxo da comunicação serial com o display.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ PDV — DISPLAY DE INFORMAÇÕES DE VENDAS ══ -->
+    <section id="pdv-display-info-vendas" class="page-section" data-section-img="prints/pdv_display_info_vendas.png">
+      <div class="page-header">
+        <div class="breadcrumb">PDV › Configurações › Opções Locais do Sistema › Display de Informações de Vendas</div>
+        <h2>Display de Informações de Vendas</h2>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pdv_display_info_vendas.png" alt="Tela Display de Informações de Vendas"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pdv_display_info_vendas.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        Acesse pelo PDV em: <strong>Configurações › Opções Locais do Sistema › Display de Informações de Vendas</strong>
+      </div>
+
+      <div class="fields-card">
+        <table class="fields-table">
+          <thead>
+            <tr>
+              <th>Campo</th>
+              <th>Tipo</th>
+              <th>Descrição</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Utilizar Display de Informações de Vendas:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o display de informações de vendas está habilitado nesta estação (S-Sim / N-Não).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Porta p/Comunicação com os Aplicativos:</div></td>
+              <td><span class="tag tag-text">Número</span></td>
+              <td>Número da porta de rede utilizada para comunicação do display com os aplicativos.</td>
             </tr>
           </tbody>
         </table>
@@ -12691,6 +12743,10 @@
         'Bits de Parada:':        '56.5,6.3,56.3,7.2',
         'Paridade:':              '67.7,16.4,45.9,7.7',
         'Controle de Fluxo:':     '78.8,0.9,82.3,7.2',
+      },
+      'prints/pdv_display_info_vendas.png': {
+        'Utilizar Display de Informações de Vendas:':     '0,0,0,0',
+        'Porta p/Comunicação com os Aplicativos:':        '0,0,0,0',
       },
       'prints/pdv_bloqueio_formas_pagto.png': {
         // Grade
