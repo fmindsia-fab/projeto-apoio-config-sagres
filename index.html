@@ -1576,7 +1576,10 @@
         Fechamento de Caixa
         <span class="path-badge">PDV › Configurações › Opções Locais › Fechamento de Caixa</span>
       </a>
-      <div class="pdv-cat-item">Bloqueio de Formas de Pagamento</div>
+      <a class="nav-item" onclick="showSection('pdv-bloqueio-formas-pagto')">
+        Bloqueio de Formas de Pagamento
+        <span class="path-badge">PDV › Configurações › Opções Locais › Bloqueio de Formas de Pagamento</span>
+      </a>
       <a class="nav-item" onclick="showSection('pdv-entregas')">
         Entregas
         <span class="path-badge">PDV › Configurações › Opções Locais › Entregas</span>
@@ -2172,6 +2175,11 @@
             <div class="icon">🔒</div>
             <h3>Fechamento de Caixa</h3>
             <p>Define se esta estação pode exibir a opção de "Último Caixa do Dia" no fechamento.</p>
+          </div>
+          <div class="welcome-card" onclick="showSection('pdv-bloqueio-formas-pagto')">
+            <div class="icon">🚫</div>
+            <h3>Bloqueio de Formas de Pagamento</h3>
+            <p>Cadastro das formas de pagamento bloqueadas nesta estação, indisponíveis no fechamento do caixa.</p>
           </div>
         </div>
       </div>
@@ -5519,6 +5527,66 @@
               <td><div class="field-name">Pode Ter Opção de Último Caixa do Dia:</div></td>
               <td><span class="tag tag-opt">Seleção</span></td>
               <td>Define se esta estação PDV pode exibir a opção de "Último Caixa do Dia" durante o fechamento.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ PDV — BLOQUEIO DE FORMAS DE PAGAMENTO ══ -->
+    <section id="pdv-bloqueio-formas-pagto" class="page-section" data-section-img="prints/pdv_bloqueio_formas_pagto.png">
+      <div class="page-header">
+        <div class="breadcrumb">PDV › Configurações › Opções Locais do Sistema › Bloqueio de Formas de Pagamento</div>
+        <h2>Bloqueio de Formas de Pagamento</h2>
+        <p>Cadastro das formas de pagamento bloqueadas nesta estação PDV. Formas bloqueadas ficam indisponíveis no fechamento do caixa.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pdv_bloqueio_formas_pagto.png" alt="Tela Bloqueio de Formas de Pagamento"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pdv_bloqueio_formas_pagto.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        <strong>Caminho:</strong> Configurações › Opções Locais do Sistema › Bloqueio de Formas de Pagamento
+      </div>
+
+      <div class="fields-card">
+        <h4>Grade — Formas de Pagamento Bloqueadas</h4>
+        <table class="fields-table">
+          <thead>
+            <tr><th>Campo</th><th>Tipo</th><th>Descrição</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Código</div></td>
+              <td><span class="tag tag-text">Texto</span></td>
+              <td>Código da forma de pagamento bloqueada.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Descrição</div></td>
+              <td><span class="tag tag-text">Texto</span></td>
+              <td>Descrição da forma de pagamento bloqueada.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Status</div></td>
+              <td><span class="tag tag-text">Texto</span></td>
+              <td>Situação atual do bloqueio da forma de pagamento.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <h4>Diálogo — Inserir Bloqueio</h4>
+        <table class="fields-table">
+          <thead>
+            <tr><th>Campo</th><th>Tipo</th><th>Descrição</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Cód.Forma de Pagto:</div></td>
+              <td><span class="tag tag-text">Texto</span></td>
+              <td>Código da forma de pagamento a ser bloqueada nesta estação.</td>
             </tr>
           </tbody>
         </table>
@@ -12532,6 +12600,14 @@
       'prints/pdv_fechamento_caixa.png': {
         // Campo
         'Pode Ter Opção de Último Caixa do Dia:':             '34.9,0.7,97.8,25.7',
+      },
+      'prints/pdv_bloqueio_formas_pagto.png': {
+        // Grade
+        'Código':                                             '0,0,0,0',
+        'Descrição':                                          '0,0,0,0',
+        'Status':                                             '0,0,0,0',
+        // Diálogo
+        'Cód.Forma de Pagto:':                                '0,0,0,0',
       },
       'prints/pdv_entregas.png': {
         // Campos da Tela

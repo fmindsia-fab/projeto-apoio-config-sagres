@@ -674,6 +674,22 @@ const IMAGES = [
     ]
   },
   {
+    file: 'prints/pdv_bloqueio_formas_pagto.png',
+    label: 'Bloqueio de Formas de Pagamento',
+    system: 'pdv',
+    calibrated: false,
+    groups: [
+      { group: 'Grade', fields: [
+        'Código',
+        'Descrição',
+        'Status',
+      ]},
+      { group: 'Diálogo', fields: [
+        'Cód.Forma de Pagto:',
+      ]},
+    ]
+  },
+  {
     file: 'prints/pdv_entregas.png',
     label: 'Entregas',
     system: 'pdv',
@@ -2249,6 +2265,12 @@ const COORDS = {
   },
   'prints/pdv_fechamento_caixa.png': {
     'Pode Ter Opção de Último Caixa do Dia:':             '0,0,0,0',
+  },
+  'prints/pdv_bloqueio_formas_pagto.png': {
+    'Código':                                             '0,0,0,0',
+    'Descrição':                                          '0,0,0,0',
+    'Status':                                             '0,0,0,0',
+    'Cód.Forma de Pagto:':                                '0,0,0,0',
   },
   'prints/pdv_entregas.png': {
     'Utilizar Identificador de Chamadas:':                        '0,0,0,0',
