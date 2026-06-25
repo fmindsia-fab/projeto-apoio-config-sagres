@@ -1540,7 +1540,10 @@
         Impressão de Pré-Contas Externas
         <span class="path-badge">PDV › Configurações › Opções Locais › Impressão de Pré Conta Externas</span>
       </a>
-      <div class="pdv-cat-item">Impressora Fiscal</div>
+      <a class="nav-item" onclick="showSection('pdv-impressora-fiscal')">
+        Impressora Fiscal
+        <span class="path-badge">PDV › Configurações › Opções Locais › Impressora Fiscal</span>
+      </a>
 
       <div class="pdv-cat-label">Aparência & Tela de Vendas</div>
       <a class="nav-item" onclick="showSection('pdv-aparencia-tela-vendas')">
@@ -2154,6 +2157,12 @@
             <div class="icon">🧾</div>
             <h3>Impressão de Pré-Contas Externas</h3>
             <p>Configura impressões sequenciais, checagem, restrição por intervalo de mesa e permissão para entregas/atendimento identificado.</p>
+          </div>
+
+          <div class="welcome-card" onclick="showSection('pdv-impressora-fiscal')">
+            <div class="icon">🖨️</div>
+            <h3>Impressora Fiscal</h3>
+            <p>Configura índice do relatório gerencial, leitura de memória fiscal automática, guilhotina e número de colunas da impressora fiscal.</p>
           </div>
         </div>
       </div>
@@ -5516,6 +5525,64 @@
               <td><div class="field-name">Permitir Emissão de Pré-Conta Externa de Entregas/At.Id:</div></td>
               <td><span class="tag tag-opt">Seleção</span></td>
               <td>Define se a emissão de pré-conta externa é permitida também para Entregas e Atendimento com Identificação (S-Sim / N-Não).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ PDV — IMPRESSORA FISCAL ══ -->
+    <section id="pdv-impressora-fiscal" class="page-section" data-section-img="prints/pdv_impressora_fiscal.png">
+      <div class="page-header">
+        <div class="breadcrumb">PDV › Configurações › Opções Locais do Sistema › Impressora Fiscal</div>
+        <h2>Impressora Fiscal</h2>
+        <p>Configura o comportamento da impressora fiscal nesta estação: relatório gerencial, memória fiscal, guilhotina e colunas de impressão.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pdv_impressora_fiscal.png" alt="Tela Impressora Fiscal"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pdv_impressora_fiscal.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>PDV</strong> → <strong>Configurações</strong> →
+        <strong>Opções Locais do Sistema</strong> → <strong>Impressora Fiscal</strong>.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Campos</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Índice do Relatório Gerencial Geral:</div></td>
+              <td><span class="tag tag-txt">Número</span></td>
+              <td>Número do relatório gerencial da impressora fiscal utilizado para relatórios gerais. Consulte o manual da impressora para identificar o índice correto.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Leitura da Memória Fiscal Automaticamente Todo Início de Mês:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando ativo (S-Sim), o sistema imprime automaticamente a leitura da memória fiscal no primeiro uso do mês.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Desabilitar Uso da Guilhotina na Impressora Fiscal:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o corte automático (guilhotina) da impressora fiscal será desabilitado (S-Sim). Use S-Sim quando a impressora não possuir guilhotina ou apresentar problemas com o corte.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Usar Valores Configurados no ECF:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando ativo (S-Sim), o sistema utiliza os valores de colunas configurados diretamente no ECF, ignorando os campos abaixo. Quando N-Não, os campos de número de colunas ficam habilitados para configuração manual.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Nº de Colunas (Modo Normal):</div></td>
+              <td><span class="tag tag-txt">Número</span></td>
+              <td>Número de colunas de impressão no modo normal. Habilitado apenas quando <strong>Usar Valores Configurados no ECF</strong> = N-Não.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Nº de Colunas (Modo Duplicado):</div></td>
+              <td><span class="tag tag-txt">Número</span></td>
+              <td>Número de colunas de impressão no modo duplicado (via duplex). Habilitado apenas quando <strong>Usar Valores Configurados no ECF</strong> = N-Não.</td>
             </tr>
           </tbody>
         </table>
@@ -13056,6 +13123,14 @@
         'Intervalo Inicial para Emissão de Pré-Conta Externa:':                   '50.7,21.4,75.2,9.7',
         'Intervalo Final para Emissão de Pré-Conta Externa:':                     '64.1,22,74.5,8.9',
         'Permitir Emissão de Pré-Conta Externa de Entregas/At.Id:':               '74.9,15,83.6,9.7',
+      },
+      'prints/pdv_impressora_fiscal.png': {
+        'Índice do Relatório Gerencial Geral:':                                              '0,0,0,0',
+        'Imprimir Leitura da Memória Fiscal Automaticamente Todo Início de Mês:':           '0,0,0,0',
+        'Desabilitar Uso da Guilhotina na Impressora Fiscal:':                               '0,0,0,0',
+        'Usar Valores Configurados no ECF:':                                                 '0,0,0,0',
+        'Nº de Colunas (Modo Normal):':                                                      '0,0,0,0',
+        'Nº de Colunas (Modo Duplicado):':                                                   '0,0,0,0',
       },
       'prints/pdv_touch_screen.png': {
         // Opções do Painel
