@@ -1700,7 +1700,10 @@
             Servidor de Aplicativos Externos
             <span class="path-badge">PDV › Configurações › Opções Locais › Servidor de Aplicativos Externos</span>
           </a>
-          <div class="pdv-cat-item">Serviço de Requisição de Entregador</div>
+          <a class="nav-item" onclick="showSection('pdv-req-entregador')">
+            Serviço de Requisição de Entregador
+            <span class="path-badge">PDV › Configurações › Opções Locais › Serviço de Requisição de Entregador</span>
+          </a>
         </div>
       </div>
 
@@ -2404,6 +2407,11 @@
             <div class="icon">🔌</div>
             <h3>Servidor de Aplicativos Externos</h3>
             <p>Define se este PDV atuará como servidor para aplicativos externos e configura a porta de comunicação.</p>
+          </div>
+          <div class="welcome-card" onclick="showSection('pdv-req-entregador')">
+            <div class="icon">🛵</div>
+            <h3>Serviço de Requisição de Entregador</h3>
+            <p>Configura a integração com serviços externos de despacho de entregadores (MEasy, IFood, Sagres Rotas, Taon, QuickJa e outros).</p>
           </div>
         </div>
       </div>
@@ -5660,6 +5668,327 @@
               <td><div class="field-name">Porta p/Comunicação com os Aplicativos Externos:</div></td>
               <td><span class="tag tag-txt">Número</span></td>
               <td>Porta de rede utilizada para comunicação entre o PDV e os aplicativos externos. Padrão: <strong>10909</strong>.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ PDV — SERVIÇO DE REQUISIÇÃO DE ENTREGADOR ══ -->
+    <section id="pdv-req-entregador" class="page-section" data-section-img="prints/pdv_req_entregador.png">
+      <div class="page-header">
+        <div class="breadcrumb">PDV › Configurações › Opções Locais do Sistema › Serviço de Requisição de Entregador</div>
+        <h2>Serviço de Requisição de Entregador</h2>
+        <p>Configura a integração com serviços externos de despacho automático de entregadores. Cada serviço tem suas próprias credenciais e código de entregador.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pdv_req_entregador.png" alt="Tela Serviço de Requisição de Entregador"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pdv_req_entregador.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>PDV</strong> → <strong>Configurações</strong> →
+        <strong>Opções Locais do Sistema</strong> → <strong>Serviço de Requisição de Entregador</strong>.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Configurações Gerais</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Utilizar Qual Serviço:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define qual serviço de requisição de entregadores será utilizado. <strong>Não Usar</strong> = integração desativada.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Modo Automático:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o sistema deve chamar o serviço automaticamente após o pedido ser inserido. <strong>S-Sim</strong> = automático.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Ciclo de Intervalo de Comunicação c/o Servidor (seg.):</div></td>
+              <td><span class="tag tag-txt">Número</span></td>
+              <td>Intervalo em segundos entre as tentativas de comunicação com o servidor do serviço. Padrão: <strong>60</strong>.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Login:</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Login geral de acesso ao serviço de requisição (quando aplicável ao serviço selecionado).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Senha:</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Senha geral de acesso ao serviço de requisição.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Qtd.Minutos p/Envio Após Pedido Ser Inserido:</div></td>
+              <td><span class="tag tag-txt">Número</span></td>
+              <td>Quantos minutos após a inserção do pedido o sistema aguarda antes de enviar a requisição ao serviço. Padrão: <strong>5</strong>.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Qtd.Minutos p/Preparo:</div></td>
+              <td><span class="tag tag-txt">Número</span></td>
+              <td>Tempo de preparo estimado informado ao serviço de entregador, em minutos. Padrão: <strong>0</strong>.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Lógica p/Chamar o Serviço:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define a lógica de disparo da requisição. <strong>0-Lógica antiga</strong> = comportamento padrão legado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Quais Pedidos Integrar:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Filtra quais pedidos serão enviados ao serviço. <strong>1-Todos</strong> = integra todos os pedidos de entrega.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Registrar Log de Comunicação com o Servidor:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o sistema registrará log das comunicações com o serviço. <strong>N-Não</strong> = desativado (recomendado em produção).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Requerer Apenas p/Pedidos Pagos:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando ativo, o sistema só requisita entregador para pedidos que já foram pagos.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">MEasy Fretes</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Usar MEasy Fretes:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Habilita a integração com o serviço MEasy Fretes para despacho de entregadores.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Login: (MEasy Fretes)</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Login de acesso à conta MEasy Fretes.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Senha: (MEasy Fretes)</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Senha de acesso à conta MEasy Fretes.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Côd.Entregador MEasy:</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Código do entregador padrão cadastrado na plataforma MEasy.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Retornar Entregador: (MEasy Fretes)</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define quando o entregador deve ser retornado/desalocado pelo MEasy.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">IFood</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Usar IFood:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Habilita a integração com o serviço de entregadores do iFood.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Côd.Entregador IFood:</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Código do entregador padrão cadastrado na plataforma iFood.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Mais Entregas</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Usar Mais Entregas:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Habilita a integração com o serviço Mais Entregas para despacho de entregadores.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Login: (Mais Entregas)</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Login de acesso à conta Mais Entregas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Senha: (Mais Entregas)</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Senha de acesso à conta Mais Entregas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Côd.Entregador Mais Entregas:</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Código do entregador padrão cadastrado na plataforma Mais Entregas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Retornar Entregador: (Mais Entregas)</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define quando o entregador deve ser retornado/desalocado pelo Mais Entregas.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Sagres Rotas</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Usar Sagres Rotas:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Habilita a integração com o módulo Sagres Rotas para gerenciamento de entregadores.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Login: (Sagres Rotas)</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Login de acesso ao Sagres Rotas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Senha: (Sagres Rotas)</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Senha de acesso ao Sagres Rotas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Ponto Acesso "GuidId":</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Identificador único (GUID) do ponto de acesso configurado no Sagres Rotas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Côd.Entregador Sagres Rotas:</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Código do entregador padrão no Sagres Rotas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Retornar Entregador: (Sagres Rotas)</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define quando o entregador deve ser retornado/desalocado pelo Sagres Rotas.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Foody Delivery</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Usar Foody Delivery:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Habilita a integração com o serviço Foody Delivery para despacho de entregadores.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Login: (Foody Delivery)</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Login de acesso à conta Foody Delivery.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Senha: (Foody Delivery)</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Senha de acesso à conta Foody Delivery.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Côd.Entregador Foody Delivery:</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Código do entregador padrão cadastrado na plataforma Foody Delivery.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Retornar Entregador: (Foody Delivery)</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define quando o entregador deve ser retornado/desalocado pelo Foody Delivery.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Taon/Machine</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Usar Taon/Machine:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Habilita a integração com o serviço Taon/Machine para despacho de entregadores.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Taon EmpresaId:</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Identificador da empresa cadastrada na plataforma Taon.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Login: (Taon/Machine)</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Login de acesso à conta Taon/Machine.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Senha: (Taon/Machine)</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Senha de acesso à conta Taon/Machine.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">API Key: (Taon/Machine)</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Chave de API fornecida pela plataforma Taon/Machine para autenticação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Informar Partida:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o sistema deve informar ao Taon o momento de partida do entregador.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Côd.Entregador Taon:</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Código do entregador padrão cadastrado na plataforma Taon.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Retornar Entregador: (Taon/Machine)</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define quando o entregador deve ser retornado/desalocado pelo Taon/Machine.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">QuickJa</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Usar QuickJa:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Habilita a integração com o serviço QuickJa para despacho de entregadores.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">API Key: (QuickJa)</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Chave de API fornecida pela plataforma QuickJa para autenticação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Côd.Entregador QuickJa:</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Código do entregador padrão cadastrado na plataforma QuickJa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Retornar Entregador: (QuickJa)</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define quando o entregador deve ser retornado/desalocado pelo QuickJa.</td>
             </tr>
           </tbody>
         </table>
@@ -13523,6 +13852,62 @@
       'prints/pdv_servidor_aplicativos.png': {
         'Tornar Este PDV um Servidor de Aplicativos Externos:':       '25.8,1,97.6,18.3',
         'Porta p/Comunicação com os Aplicativos Externos:':           '52,6.8,89.1,17.3',
+      },
+      'prints/pdv_req_entregador.png': {
+        // Configurações Gerais
+        'Utilizar Qual Serviço:':                                     '0,0,0,0',
+        'Modo Automático:':                                           '0,0,0,0',
+        'Ciclo de Intervalo de Comunicação c/o Servidor (seg.):':     '0,0,0,0',
+        'Login:':                                                     '0,0,0,0',
+        'Senha:':                                                     '0,0,0,0',
+        'Qtd.Minutos p/Envio Após Pedido Ser Inserido:':              '0,0,0,0',
+        'Qtd.Minutos p/Preparo:':                                     '0,0,0,0',
+        'Lógica p/Chamar o Serviço:':                                 '0,0,0,0',
+        'Quais Pedidos Integrar:':                                    '0,0,0,0',
+        'Registrar Log de Comunicação com o Servidor:':               '0,0,0,0',
+        'Requerer Apenas p/Pedidos Pagos:':                           '0,0,0,0',
+        // MEasy Fretes
+        'Usar MEasy Fretes:':                                         '0,0,0,0',
+        'Login: (MEasy Fretes)':                                      '0,0,0,0',
+        'Senha: (MEasy Fretes)':                                      '0,0,0,0',
+        'Côd.Entregador MEasy:':                                      '0,0,0,0',
+        'Retornar Entregador: (MEasy Fretes)':                        '0,0,0,0',
+        // IFood
+        'Usar IFood:':                                                '0,0,0,0',
+        'Côd.Entregador IFood:':                                      '0,0,0,0',
+        // Mais Entregas
+        'Usar Mais Entregas:':                                        '0,0,0,0',
+        'Login: (Mais Entregas)':                                     '0,0,0,0',
+        'Senha: (Mais Entregas)':                                     '0,0,0,0',
+        'Côd.Entregador Mais Entregas:':                              '0,0,0,0',
+        'Retornar Entregador: (Mais Entregas)':                       '0,0,0,0',
+        // Sagres Rotas
+        'Usar Sagres Rotas:':                                         '0,0,0,0',
+        'Login: (Sagres Rotas)':                                      '0,0,0,0',
+        'Senha: (Sagres Rotas)':                                      '0,0,0,0',
+        'Ponto Acesso "GuidId":':                                     '0,0,0,0',
+        'Côd.Entregador Sagres Rotas:':                               '0,0,0,0',
+        'Retornar Entregador: (Sagres Rotas)':                        '0,0,0,0',
+        // Foody Delivery
+        'Usar Foody Delivery:':                                       '0,0,0,0',
+        'Login: (Foody Delivery)':                                    '0,0,0,0',
+        'Senha: (Foody Delivery)':                                    '0,0,0,0',
+        'Côd.Entregador Foody Delivery:':                             '0,0,0,0',
+        'Retornar Entregador: (Foody Delivery)':                      '0,0,0,0',
+        // Taon/Machine
+        'Usar Taon/Machine:':                                         '0,0,0,0',
+        'Taon EmpresaId:':                                            '0,0,0,0',
+        'Login: (Taon/Machine)':                                      '0,0,0,0',
+        'Senha: (Taon/Machine)':                                      '0,0,0,0',
+        'API Key: (Taon/Machine)':                                    '0,0,0,0',
+        'Informar Partida:':                                          '0,0,0,0',
+        'Côd.Entregador Taon:':                                       '0,0,0,0',
+        'Retornar Entregador: (Taon/Machine)':                        '0,0,0,0',
+        // QuickJa
+        'Usar QuickJa:':                                              '0,0,0,0',
+        'API Key: (QuickJa)':                                         '0,0,0,0',
+        'Côd.Entregador QuickJa:':                                    '0,0,0,0',
+        'Retornar Entregador: (QuickJa)':                             '0,0,0,0',
       },
       'prints/pdv_locais_impressao.png': {
       // Danfe
