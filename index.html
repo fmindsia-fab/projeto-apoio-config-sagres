@@ -682,6 +682,73 @@
       font-weight: 700;
     }
 
+    /* ── SEARCH FILTER CHIPS ── */
+    #search-filter-chips {
+      display: flex;
+      gap: 4px;
+      padding: 2px 16px 8px;
+    }
+
+    .search-chip {
+      padding: 2px 9px;
+      font-size: .62rem;
+      font-weight: 600;
+      border-radius: 10px;
+      border: 1px solid rgba(92, 158, 248, .20);
+      background: transparent;
+      color: var(--text-faint);
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: all .15s;
+      letter-spacing: .3px;
+    }
+
+    .search-chip:hover {
+      background: rgba(92, 158, 248, .10);
+      color: var(--text-dim);
+      border-color: rgba(92, 158, 248, .35);
+    }
+
+    .search-chip.active {
+      background: rgba(92, 158, 248, .16);
+      border-color: rgba(92, 158, 248, .50);
+      color: var(--azul-accent);
+    }
+
+    /* ── MODULE BADGE ── */
+    .res-badge {
+      display: inline-block;
+      font-size: .52rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+      padding: 1px 5px;
+      border-radius: 3px;
+      margin-left: 5px;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+    }
+
+    .res-badge.pdv {
+      background: rgba(56, 189, 248, .13);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, .28);
+    }
+
+    .res-badge.gestao {
+      background: rgba(52, 211, 153, .13);
+      color: #34d399;
+      border: 1px solid rgba(52, 211, 153, .28);
+    }
+
+    .search-result-item.kbd-focus {
+      background: var(--sidebar-act);
+      color: var(--text);
+      border-left-color: var(--amarelo);
+      outline: none;
+    }
+
     @media (max-width: 768px) {
       body { flex-direction: column; }
       #sidebar { width: 100%; min-width: unset; height: auto; position: static; }
@@ -1221,7 +1288,7 @@
         <path
           d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398l3.85 3.85a1 1 0 0 0 1.415-1.415l-3.868-3.833zm-5.242 1.156a5 5 0 1 1 0-10 5 5 0 0 1 0 10z" />
       </svg>
-      <input id="search-bar" type="text" placeholder="Buscar configuração..." oninput="searchAll(this.value)" />
+      <input id="search-bar" type="text" placeholder="Buscar configuração..." oninput="searchAll(this.value)" onkeydown="searchKeyNav(event)" />
       <div class="sys-tabs">
         <button class="sys-tab gestao active" onclick="switchSystem('gestao')">Gestão</button>
         <button class="sys-tab pdv" onclick="switchSystem('pdv')">PDV</button>
@@ -1231,6 +1298,11 @@
     <!-- Resultados de busca (visível só durante pesquisa) -->
     <div id="search-results-panel" style="display:none">
       <div class="search-results-title">Resultados</div>
+      <div id="search-filter-chips">
+        <button class="search-chip active" data-filter="tudo" onclick="setSearchFilter('tudo')">Tudo</button>
+        <button class="search-chip" data-filter="pdv" onclick="setSearchFilter('pdv')">PDV</button>
+        <button class="search-chip" data-filter="gestao" onclick="setSearchFilter('gestao')">Gestão</button>
+      </div>
       <div id="search-results"></div>
     </div>
 
@@ -13188,46 +13260,99 @@
       if (id !== 'home') setNavSystem(isPdv);
     }
 
+    let searchFilter = 'tudo';
+    let _kbdFocusIdx = -1;
+
+    function setSearchFilter(f) {
+      searchFilter = f;
+      document.querySelectorAll('.search-chip').forEach(c => {
+        c.classList.toggle('active', c.dataset.filter === f);
+      });
+      searchAll(document.getElementById('search-bar').value);
+    }
+
+    function searchKeyNav(e) {
+      if (e.key === 'Escape') {
+        document.getElementById('search-bar').value = '';
+        searchAll('');
+        return;
+      }
+      const items = document.querySelectorAll('.search-result-item');
+      if (!items.length) return;
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        _kbdFocusIdx = Math.min(_kbdFocusIdx + 1, items.length - 1);
+        _updateKbdFocus(items);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        _kbdFocusIdx = Math.max(_kbdFocusIdx - 1, 0);
+        _updateKbdFocus(items);
+      } else if (e.key === 'Enter' && _kbdFocusIdx >= 0) {
+        e.preventDefault();
+        items[_kbdFocusIdx].click();
+      }
+    }
+
+    function _updateKbdFocus(items) {
+      items.forEach((item, i) => {
+        item.classList.toggle('kbd-focus', i === _kbdFocusIdx);
+        if (i === _kbdFocusIdx) item.scrollIntoView({ block: 'nearest' });
+      });
+    }
+
     function searchAll(query) {
       const q = query.trim();
       const panel = document.getElementById('search-results-panel');
       const box = document.getElementById('search-results');
       const navNormal = document.getElementById('nav-normal');
+      const navPdv    = document.getElementById('nav-pdv');
 
-      // limpa destaques anteriores
       clearHighlights();
+      _kbdFocusIdx = -1;
 
       if (!q) {
         panel.style.display = 'none';
-        navNormal.style.display = '';
+        const pdvActive = document.querySelector('.sys-tab.pdv.active');
+        if (pdvActive) {
+          navNormal.style.display = 'none';
+          if (navPdv) navPdv.style.display = 'block';
+        } else {
+          navNormal.style.display = '';
+          if (navPdv) navPdv.style.display = 'none';
+        }
         return;
       }
 
       panel.style.display = '';
       navNormal.style.display = 'none';
+      if (navPdv) navPdv.style.display = 'none';
       box.innerHTML = '';
 
       const qLow = q.toLowerCase();
       const results = [];
 
-      // Palavras sem valor semântico que são ignoradas na busca por tokens
       const STOP = new Set(['de','do','da','dos','das','no','na','nos','nas','e','a','o','em','ao','à','por','para','com','que','se','as','os','um','uma','pelo','pela','pelos','pelas','ou','mas','mais','são','é','p']);
-
-      // Divide a query em tokens significativos (comprimento >= 2 e não stop word)
       const tokens = qLow.split(/[\s/()]+/).map(t => t.replace(/["""''.,;:!?]/g, '')).filter(t => t.length >= 2 && !STOP.has(t));
-
-      // Fallback: se não sobrou nenhum token, usa a query inteira como substring
       const matchFn = tokens.length > 0
         ? (haystack) => tokens.every(t => haystack.includes(t))
         : (haystack) => haystack.includes(qLow);
 
-      // Percorre todas as linhas de todas as tabelas em todas as seções
+      function scoreField(fieldLow) {
+        if (fieldLow === qLow) return 100;
+        if (tokens.length > 0 && tokens.every(t => fieldLow.includes(t))) return fieldLow.startsWith(qLow) ? 75 : 60;
+        if (fieldLow.includes(qLow)) return 50;
+        return 0;
+      }
+
       document.querySelectorAll('.page-section').forEach(section => {
         const sectionId = section.id;
+        if (sectionId === 'home') return;
+        const module = sectionId.startsWith('pdv-') ? 'pdv' : 'gestao';
+        if (searchFilter !== 'tudo' && module !== searchFilter) return;
+
         const sectionLabel = SECTION_LABELS[sectionId] || sectionId;
         const sectionLow = sectionLabel.toLowerCase();
 
-        // Busca em linhas de tabela — combina texto da linha + nome da tela
         section.querySelectorAll('table.fields-table tbody tr').forEach(row => {
           const fieldEl = row.querySelector('.field-name');
           const rowText = row.textContent.toLowerCase();
@@ -13235,18 +13360,20 @@
 
           if (matchFn(combined)) {
             const fieldName = fieldEl ? fieldEl.textContent.trim() : row.cells[0]?.textContent.trim() || '—';
-            results.push({ sectionId, sectionLabel, fieldName, row });
+            const fieldScore = scoreField(fieldName.toLowerCase());
+            const sectionBonus = matchFn(sectionLow) ? 8 : 0;
+            const score = fieldScore > 0 ? fieldScore + sectionBonus : sectionBonus + 4;
+            results.push({ sectionId, sectionLabel, fieldName, module, score, row, el: null });
           }
         });
 
-        // Busca em note-box e cabeçalhos de card
         section.querySelectorAll('.note-box, .fields-card-header, .page-header h2, .page-header p').forEach(el => {
           const elCombined = el.textContent.toLowerCase() + ' ' + sectionLow;
           if (matchFn(elCombined) && !el.closest('tr')) {
             const label = el.classList.contains('fields-card-header')
               ? 'Grupo: ' + el.textContent.trim()
               : el.textContent.trim().slice(0, 60);
-            results.push({ sectionId, sectionLabel, fieldName: label, row: null, el });
+            results.push({ sectionId, sectionLabel, fieldName: label, module, score: 4, row: null, el });
           }
         });
       });
@@ -13256,19 +13383,22 @@
         return;
       }
 
-      results.forEach(({ sectionId, sectionLabel, fieldName, row, el }) => {
+      results.sort((a, b) => b.score - a.score);
+
+      results.forEach(({ sectionId, sectionLabel, fieldName, module, row, el }) => {
         const item = document.createElement('a');
         item.className = 'search-result-item';
-        item.innerHTML = `<span class="res-field">${escapeHtml(fieldName)}</span>
+        const badge = `<span class="res-badge ${module}">${module === 'pdv' ? 'PDV' : 'Gestão'}</span>`;
+        item.innerHTML = `<span class="res-field">${escapeHtml(fieldName)}${badge}</span>
                         <span class="res-section">${escapeHtml(sectionLabel)}</span>`;
         item.onclick = () => {
           clearHighlights();
           showSection(sectionId);
-          // fecha busca e volta nav
           document.getElementById('search-bar').value = '';
           panel.style.display = 'none';
-          navNormal.style.display = '';
-          // destaca a linha e abre modal se houver coordenadas
+          const isPdv = sectionId.startsWith('pdv-');
+          navNormal.style.display = isPdv ? 'none' : '';
+          if (navPdv) navPdv.style.display = isPdv ? 'block' : 'none';
           requestAnimationFrame(() => {
             if (row) {
               row.classList.add('row-highlight');
