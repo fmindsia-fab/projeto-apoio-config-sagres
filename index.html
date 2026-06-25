@@ -1691,7 +1691,10 @@
       <div class="nav-section collapsed">
         <div class="nav-section-title" onclick="toggleNavSection(this)">Integração & Cloud</div>
         <div class="nav-items">
-          <div class="pdv-cat-item">Cloud (Integração c/Servidor Remoto)</div>
+          <a class="nav-item" onclick="showSection('pdv-cloud')">
+            Cloud (Integração c/Servidor Remoto)
+            <span class="path-badge">PDV › Configurações › Opções Locais › Cloud (Integração c/Servidor Remoto)</span>
+          </a>
           <div class="pdv-cat-item">Prato Digital/Prog.Fidelidade nas Nuvens</div>
           <div class="pdv-cat-item">Servidor de Aplicativos Externos</div>
           <div class="pdv-cat-item">Serviço de Requisição de Entregador</div>
@@ -2378,6 +2381,21 @@
             <div class="icon">📡</div>
             <h3>Certificado Digital e Transmissão (v.4.00)</h3>
             <p>Configura versão do XML, tipo de transmissão, bibliotecas SSL, certificado A1 e opções de XML da NFCe versão 4.00.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grupo: PDV — Integração & Cloud -->
+      <div class="home-group" data-tab="pdv">
+        <div class="home-group-header">
+          <span class="sys-badge pdv">PDV › Integração & Cloud</span>
+          <h3>Integração & Cloud</h3>
+        </div>
+        <div class="welcome-grid">
+          <div class="welcome-card" onclick="showSection('pdv-cloud')">
+            <div class="icon">☁️</div>
+            <h3>Cloud (Integração c/Servidor Remoto)</h3>
+            <p>Configura o endereço do servidor cloud, credenciais de empresa e operador e o ciclo de comunicação desta estação.</p>
           </div>
         </div>
       </div>
@@ -5528,6 +5546,74 @@
               <td><div class="field-name">Incluir Descr.Quando Outras Formas Pagto no XML:</div></td>
               <td><span class="tag tag-opt">Seleção</span></td>
               <td>Define se a descrição da forma de pagamento será incluída no XML quando utilizado o tipo "Outras Formas de Pagamento".</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ PDV — CLOUD (INTEGRAÇÃO C/ SERVIDOR REMOTO) ══ -->
+    <section id="pdv-cloud" class="page-section" data-section-img="prints/pdv_cloud.png">
+      <div class="page-header">
+        <div class="breadcrumb">PDV › Configurações › Opções Locais do Sistema › Cloud (Integração c/ Servidor Remoto)</div>
+        <h2>Cloud (Integração c/ Servidor Remoto)</h2>
+        <p>Configura a integração desta estação com o servidor cloud: endereço, credenciais e ciclo de comunicação.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pdv_cloud.png" alt="Tela Cloud - Integração c/ Servidor Remoto"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pdv_cloud.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>PDV</strong> → <strong>Configurações</strong> →
+        <strong>Opções Locais do Sistema</strong> → <strong>Cloud (Integração c/ Servidor Remoto)</strong>.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Campos</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">IP do Servidor Cloud:</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Endereço (IP ou URL) do servidor cloud principal (ex: <em>https://sagrescloud.com.br</em>).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">IP (2) do Servidor Cloud:</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Endereço alternativo do servidor cloud, utilizado como fallback caso o servidor principal esteja indisponível.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Ciclo de Intervalo de Comunicação c/o Servidor (seg.):</div></td>
+              <td><span class="tag tag-txt">Número</span></td>
+              <td>Intervalo em segundos entre cada tentativa de comunicação com o servidor cloud. Padrão: <strong>45</strong>.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">User Name (Empresa):</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Nome de usuário da empresa para autenticação no servidor cloud. Fornecido pelo suporte Sagres.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Password (Empresa):</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Senha da empresa para autenticação no servidor cloud. Fornecida pelo suporte Sagres.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Login (Operador):</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Login do operador para acesso ao servidor cloud nesta estação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Senha (Operador):</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Senha do operador para acesso ao servidor cloud nesta estação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Registrar Log de Comunicação com o Servidor:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o sistema registrará log detalhado de comunicação com o servidor cloud. Útil para diagnóstico de falhas de conexão. <strong>N-Não</strong> = desativado (recomendado em produção).</td>
             </tr>
           </tbody>
         </table>
@@ -13377,6 +13463,16 @@
         'Incluir CSRT no XML:':                                   '74.4,55.5,29.8,5.1',
         'Incluir Indicador de Intermediário no XML:':             '80.5,7.7,47,4.6',
         'Incluir Descr.Quando Outras Formas Pagto no XML:':       '87.3,0.4,54.3,4.1',
+      },
+      'prints/pdv_cloud.png': {
+        'IP do Servidor Cloud:':                                      '0,0,0,0',
+        'IP (2) do Servidor Cloud:':                                  '0,0,0,0',
+        'Ciclo de Intervalo de Comunicação c/o Servidor (seg.):':     '0,0,0,0',
+        'User Name (Empresa):':                                       '0,0,0,0',
+        'Password (Empresa):':                                        '0,0,0,0',
+        'Login (Operador):':                                          '0,0,0,0',
+        'Senha (Operador):':                                          '0,0,0,0',
+        'Registrar Log de Comunicação com o Servidor:':               '0,0,0,0',
       },
       'prints/pdv_locais_impressao.png': {
       // Danfe
