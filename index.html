@@ -1659,7 +1659,10 @@
       <div class="nav-section collapsed">
         <div class="nav-section-title" onclick="toggleNavSection(this)">Fiscal & Certificado</div>
         <div class="nav-items">
-          <div class="pdv-cat-item">Certificado Digital</div>
+          <a class="nav-item" onclick="showSection('pdv-certificado-digital')">
+            Certificado Digital
+            <span class="path-badge">PDV › Configurações › Opções Locais › Certificado Digital</span>
+          </a>
           <div class="pdv-cat-item">Certificado Digital e Transmissão (v.4.00)</div>
         </div>
       </div>
@@ -2352,6 +2355,21 @@
             <div class="icon">🎨</div>
             <h3>Personalizar Aparência das Mesas</h3>
             <p>Configura cores, ícones e espaçamentos visuais das mesas conforme o estado (fechada, aberta, com recebimento, etc.).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grupo: PDV — Fiscal & Certificado -->
+      <div class="home-group" data-tab="pdv">
+        <div class="home-group-header">
+          <span class="sys-badge pdv">PDV › Fiscal & Certificado</span>
+          <h3>Fiscal & Certificado</h3>
+        </div>
+        <div class="welcome-grid">
+          <div class="welcome-card" onclick="showSection('pdv-certificado-digital')">
+            <div class="icon">🔐</div>
+            <h3>Certificado Digital</h3>
+            <p>Configura o certificado A1 por arquivo (.pfx) e a senha do certificado digital desta estação.</p>
           </div>
         </div>
       </div>
@@ -5336,6 +5354,51 @@
         </table>
       </div>
     </section>
+
+    <!-- ══ PDV — CERTIFICADO DIGITAL ══ -->
+    <section id="pdv-certificado-digital" class="page-section" data-section-img="prints/pdv_certificado_digital.png">
+      <div class="page-header">
+        <div class="breadcrumb">PDV › Configurações › Opções Locais do Sistema › Certificado Digital</div>
+        <h2>Certificado Digital</h2>
+        <p>Configura o certificado digital A1 por arquivo (.pfx) e a senha para uso na emissão fiscal desta estação.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pdv_certificado_digital.png" alt="Tela Certificado Digital"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pdv_certificado_digital.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>PDV</strong> → <strong>Configurações</strong> →
+        <strong>Opções Locais do Sistema</strong> → <strong>Certificado Digital</strong>.<br>
+        ⚠️ <strong>Área Restrita:</strong> ao acessar esta tela, o sistema solicitará uma senha. A senha padrão é <strong>nfce</strong>.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Campos</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Utilizar Certificado A1 por Arquivo:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o certificado digital A1 será carregado a partir de um arquivo .pfx. <strong>Sim</strong> = usa arquivo; <strong>Não</strong> = usa o certificado instalado no repositório do Windows.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Nome do Arquivo PFX do Certificado A1:</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Caminho completo do arquivo .pfx do certificado A1 (ex: <em>c:\certificados\Certificado_20260814_644D250814453E42.pfx</em>). Habilitado quando o campo acima for <strong>Sim</strong>.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Senha do Certificado A1:</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Senha de proteção do arquivo .pfx informado acima. Fornecida pela certificadora no momento da emissão do certificado digital.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
 
     <!-- ══ PDV — LOCAIS DE IMPRESSÃO ══ -->
     <section id="pdv-locais-impressao" class="page-section" data-section-img="prints/pdv_locais_impressao.png">
@@ -13159,6 +13222,11 @@
       // Campos da Tela
       'Definir esta estação como "Concentrador":':                                '44,8.6,40.9,14.5',
       'Diretório dos Dados do Concentrador do Servidor Local:':                   '64.8,0.3,99.1,13.8',
+      },
+      'prints/pdv_certificado_digital.png': {
+        'Utilizar Certificado A1 por Arquivo:':       '0,0,0,0',
+        'Nome do Arquivo PFX do Certificado A1:':     '0,0,0,0',
+        'Senha do Certificado A1:':                   '0,0,0,0',
       },
       'prints/pdv_locais_impressao.png': {
       // Danfe
