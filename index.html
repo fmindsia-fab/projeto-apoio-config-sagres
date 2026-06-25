@@ -1718,6 +1718,10 @@
             PDV de Apoio <span style="font-size:0.75em;opacity:0.6;">(CTRL+F5)</span>
             <span class="path-badge">PDV › Configurações › Opções Locais › Configurações Gerais → CTRL+F5</span>
           </a>
+          <a class="nav-item" onclick="showSection('pdv-cfg-especiais')">
+            Configurações Especiais <span style="font-size:0.75em;opacity:0.6;">(CTRL+ALT+F10)</span>
+            <span class="path-badge">PDV › Configurações › Opções Locais › Configurações Gerais → CTRL+ALT+F10</span>
+          </a>
           <a class="nav-item" onclick="showSection('pdv-servidor-local')">
             Configurar Opções do Servidor Local
             <span class="path-badge">PDV › Configurações › Servidor Local</span>
@@ -6105,6 +6109,14 @@
         Esse atalho não está visível na interface — a equipe de suporte precisa conhecer o atalho para acessar.
         Ver detalhes em <a href="#" onclick="showSection('pdv-apoio');return false;" style="color:#f5a623;">PDV de Apoio</a>.
       </div>
+
+      <div class="note-box" style="border-color:#c0392b;background:#2a0a08;">
+        <strong>⚠ Tela oculta — Configurações Especiais:</strong> Dentro desta tela de Configurações Gerais, pressione
+        <strong>CTRL+ALT+F10</strong> para abrir o diálogo <strong>Configurações Especiais</strong>.
+        O sistema pedirá a senha: <strong>especiais</strong>.
+        Esse atalho não está visível na interface — a equipe de suporte precisa conhecer o atalho e a senha para acessar.
+        Ver detalhes em <a href="#" onclick="showSection('pdv-cfg-especiais');return false;" style="color:#e74c3c;">Configurações Especiais</a>.
+      </div>
     </section>
 
     <!-- ══ PDV — PDV DE APOIO ══ -->
@@ -6140,6 +6152,50 @@
               <td><div class="field-name">Diretório do PDV de Apoio:</div></td>
               <td><span class="tag tag-text">Texto</span></td>
               <td>Caminho de rede para o diretório do PDV de apoio selecionado. Preenchido automaticamente ao selecionar o PDV de apoio, mas pode ser ajustado manualmente.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ PDV — CONFIGURAÇÕES ESPECIAIS ══ -->
+    <section id="pdv-cfg-especiais" class="page-section" data-section-img="prints/pdv_cfg_especiais.png">
+      <div class="page-header">
+        <div class="breadcrumb">PDV › Configurações › Opções Locais do Sistema › Configurações Gerais → CTRL+ALT+F10</div>
+        <h2>Configurações Especiais</h2>
+        <p>Diálogo oculto acessado com <strong>CTRL+ALT+F10</strong> dentro da tela Configurações Gerais. Requer senha <strong>"especiais"</strong>. Controla impressão do Danfe NFCe/NFe e desabilitação de locais de impressão espelho.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pdv_cfg_especiais.png" alt="Tela Configurações Especiais"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pdv_cfg_especiais.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box" style="border-color:#c0392b;background:#2a0a08;">
+        <strong>⚠ Como acessar:</strong> Abra o módulo <strong>PDV</strong> → <strong>Configurações</strong> →
+        <strong>Opções Locais do Sistema</strong> → <strong>Configurações Gerais</strong> e pressione <strong>CTRL+ALT+F10</strong>.
+        Quando solicitado, informe a senha: <strong>especiais</strong>.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Campos</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Perguntar se Deseja Imprimir Danfe NFCe (mod.65) ou NFe (mod.55):</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando ativo, ao emitir, o sistema pergunta se deve imprimir o Danfe NFCe (modelo 65) ou NFe (modelo 55). <strong>N-Não</strong> = não pergunta, usa o padrão configurado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Desabilitar Loc.Imp.Espelho Quando Possível:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Desabilita o local de impressão espelho (1) nesta estação quando possível. <strong>N-Não</strong> = espelho ativo.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Desabilitar Loc.Imp.Espelho (2) Quando Possível:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Desabilita o local de impressão espelho (2) nesta estação quando possível. <strong>N-Não</strong> = espelho (2) ativo.</td>
             </tr>
           </tbody>
         </table>
@@ -14079,6 +14135,12 @@
         // Campos — acessado via CTRL+F5 dentro de Configurações Gerais
         'PDV de Apoio:':                   '28.4,11.2,65.9,15.2',
         'Diretório do PDV de Apoio:':      '52,0.6,98.5,17.8',
+      },
+      'prints/pdv_cfg_especiais.png': {
+        // Campos — acessado via CTRL+ALT+F10 dentro de Configurações Gerais (senha: "especiais")
+        'Perguntar se Deseja Imprimir Danfe NFCe (mod.65) ou NFe (mod.55):':   '0,0,0,0',
+        'Desabilitar Loc.Imp.Espelho Quando Possível:':                         '0,0,0,0',
+        'Desabilitar Loc.Imp.Espelho (2) Quando Possível:':                     '0,0,0,0',
       },
       'prints/pdv_locais_impressao.png': {
       // Danfe
