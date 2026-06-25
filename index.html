@@ -1567,8 +1567,10 @@
         Display de Informações de Vendas
         <span class="path-badge">PDV › Configurações › Opções Locais › Display de Informações de Vendas</span>
       </a>
-      <div class="pdv-cat-item">Display de Informações de Vendas</div>
-      <div class="pdv-cat-item">Gaveta de Dinheiro</div>
+      <a class="nav-item" onclick="showSection('pdv-gaveta-dinheiro')">
+        Gaveta de Dinheiro
+        <span class="path-badge">PDV › Configurações › Opções Locais › Gaveta de Dinheiro</span>
+      </a>
       <div class="pdv-cat-item">Balança</div>
 
       <div class="pdv-cat-label">Mesas</div>
@@ -2209,6 +2211,12 @@
             <div class="icon">🖥️</div>
             <h3>Display de Informações de Vendas</h3>
             <p>Ativa o display de informações de vendas e define a porta de comunicação com os aplicativos.</p>
+          </div>
+
+          <div class="welcome-card" onclick="showSection('pdv-gaveta-dinheiro')">
+            <div class="icon">🗄️</div>
+            <h3>Gaveta de Dinheiro</h3>
+            <p>Define se a gaveta de dinheiro desta estação está interligada à impressora.</p>
           </div>
         </div>
       </div>
@@ -5660,6 +5668,42 @@
               <td><div class="field-name">Porta p/Comunicação com os Aplicativos:</div></td>
               <td><span class="tag tag-text">Número</span></td>
               <td>Número da porta de rede utilizada para comunicação do display com os aplicativos.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ PDV — GAVETA DE DINHEIRO ══ -->
+    <section id="pdv-gaveta-dinheiro" class="page-section" data-section-img="prints/pdv_gaveta_dinheiro.png">
+      <div class="page-header">
+        <div class="breadcrumb">PDV › Configurações › Opções Locais do Sistema › Gaveta de Dinheiro</div>
+        <h2>Gaveta de Dinheiro</h2>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pdv_gaveta_dinheiro.png" alt="Tela Gaveta de Dinheiro"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pdv_gaveta_dinheiro.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        Acesse pelo PDV em: <strong>Configurações › Opções Locais do Sistema › Gaveta de Dinheiro</strong>
+      </div>
+
+      <div class="fields-card">
+        <table class="fields-table">
+          <thead>
+            <tr>
+              <th>Campo</th>
+              <th>Tipo</th>
+              <th>Descrição</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Utilizar Gaveta de Dinheiro Interligada à Impressora:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se a gaveta de dinheiro desta estação está interligada à impressora (S-Sim / N-Não).</td>
             </tr>
           </tbody>
         </table>
@@ -12747,6 +12791,9 @@
       'prints/pdv_display_info_vendas.png': {
         'Utilizar Display de Informações de Vendas:':     '27.4,0.6,97.8,17.3',
         'Porta p/Comunicação com os Aplicativos:':        '54.1,10.8,84.3,16.2',
+      },
+      'prints/pdv_gaveta_dinheiro.png': {
+        'Utilizar Gaveta de Dinheiro Interligada à Impressora:': '0,0,0,0',
       },
       'prints/pdv_bloqueio_formas_pagto.png': {
         // Grade
