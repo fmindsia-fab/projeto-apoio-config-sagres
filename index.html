@@ -1726,7 +1726,15 @@
             Configurar Opções do Servidor Local
             <span class="path-badge">PDV › Configurações › Servidor Local</span>
           </a>
-          <div class="pdv-cat-item">Opções do Concentrador</div>
+          <div class="nav-section collapsed">
+            <div class="nav-section-title" onclick="toggleNavSection(this)">Opções do Concentrador</div>
+            <div class="nav-items">
+              <a class="nav-item" onclick="showSection('pdv-concentrador-gerais')">
+                Concentrador - Opções Gerais
+                <span class="path-badge">PDV › Configurações › Opções do Concentrador › Concentrador - Opções Gerais</span>
+              </a>
+            </div>
+          </div>
           <div class="pdv-cat-item">TEF</div>
         </div>
       </div>
@@ -5407,6 +5415,39 @@
               <td><div class="field-name">Diretório dos Dados do Concentrador do Servidor Local:</div></td>
               <td><span class="tag tag-txt">Texto</span></td>
               <td>Caminho completo do diretório onde os dados do concentrador do servidor local serão armazenados. Deve ser preenchido quando o campo acima estiver como <strong>S-Sim</strong>.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ PDV — CONCENTRADOR OPÇÕES GERAIS ══ -->
+    <section id="pdv-concentrador-gerais" class="page-section" data-section-img="prints/pdv_concentrador_gerais.png">
+      <div class="page-header">
+        <div class="breadcrumb">PDV › Configurações › Opções do Concentrador › Concentrador - Opções Gerais</div>
+        <h2>Concentrador - Opções Gerais</h2>
+        <p>Configurações gerais do concentrador para esta estação. Permite definir o dia de hoje como feriado no contexto do concentrador.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pdv_concentrador_gerais.png" alt="Tela Concentrador - Opções Gerais"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pdv_concentrador_gerais.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>PDV</strong> → <strong>Configurações</strong> →
+        <strong>Opções do Concentrador</strong> → <strong>Concentrador - Opções Gerais</strong>.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Campos</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Definir Dia de Hoje Como Feriado:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando ativo, marca o dia atual como feriado no concentrador. <strong>S-Sim</strong> = dia atual é feriado; <strong>N-Não</strong> = dia normal. Útil para ajustar comportamentos que dependem do calendário de feriados.</td>
             </tr>
           </tbody>
         </table>
@@ -14024,6 +14065,10 @@
       // Campos da Tela
       'Definir esta estação como "Concentrador":':                                '44,8.6,40.9,14.5',
       'Diretório dos Dados do Concentrador do Servidor Local:':                   '64.8,0.3,99.1,13.8',
+      },
+      'prints/pdv_concentrador_gerais.png': {
+        // Campos
+        'Definir Dia de Hoje Como Feriado:':   '0,0,0,0',
       },
       'prints/pdv_certificado_digital.png': {
         'Utilizar Certificado A1 por Arquivo:':       '29.6,5.6,71.2,11.7',
