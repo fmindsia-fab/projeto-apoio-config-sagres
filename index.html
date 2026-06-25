@@ -1578,7 +1578,10 @@
       </a>
 
       <div class="pdv-cat-label">Mesas</div>
-      <div class="pdv-cat-item">Qtd e Posicionamento das Mesas</div>
+      <a class="nav-item" onclick="showSection('pdv-qtd-posic-mesas')">
+        Qtd e Posicionamento das Mesas
+        <span class="path-badge">PDV › Configurações › Opções Locais › Qtd e Posicionamento das Mesas</span>
+      </a>
       <div class="pdv-cat-item">Personalizar Aparência das Mesas</div>
 
       <div class="pdv-cat-label">Fiscal & Certificado</div>
@@ -2227,6 +2230,21 @@
             <div class="icon">⚖️</div>
             <h3>Balança</h3>
             <p>Configura os endereços IP, portas e opções de envio de dados para o servidor da balança desta estação.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grupo: PDV — Mesas -->
+      <div class="home-group" data-tab="pdv">
+        <div class="home-group-header">
+          <span class="sys-badge pdv">PDV › Mesas</span>
+          <h3>Mesas</h3>
+        </div>
+        <div class="welcome-grid">
+          <div class="welcome-card" onclick="showSection('pdv-qtd-posic-mesas')">
+            <div class="icon">🪑</div>
+            <h3>Qtd e Posicionamento das Mesas</h3>
+            <p>Define a quantidade de mesas e organiza o posicionamento visual na tela do PDV.</p>
           </div>
         </div>
       </div>
@@ -5775,6 +5793,48 @@
               <td><div class="field-name">Enviar Dados p/ParaBalança:</div></td>
               <td><span class="tag tag-opt">Seleção</span></td>
               <td>Define quando os dados do produto devem ser enviados para a balança (ex.: Não Enviar, ao inserir, etc.).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ PDV — QTD E POSICIONAMENTO DAS MESAS ══ -->
+    <section id="pdv-qtd-posic-mesas" class="page-section" data-section-img="prints/pdv_qtd_posic_mesas.png">
+      <div class="page-header">
+        <div class="breadcrumb">PDV › Configurações › Opções Locais do Sistema › Qtd e Posicionamento das Mesas</div>
+        <h2>Qtd e Posicionamento das Mesas</h2>
+        <p>Tela visual para definir a quantidade de mesas e organizar o posicionamento de cada uma na grade do PDV.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pdv_qtd_posic_mesas.png" alt="Tela Qtd e Posicionamento das Mesas"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pdv_qtd_posic_mesas.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        Acesse pelo PDV em: <strong>Configurações › Opções Locais do Sistema › Qtd e Posicionamento das Mesas</strong>
+      </div>
+
+      <div class="fields-card">
+        <table class="fields-table">
+          <thead>
+            <tr>
+              <th>Ação</th>
+              <th>Tipo</th>
+              <th>Descrição</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Definir Quantidade de Mesas</div></td>
+              <td><span class="tag tag-opt">Botão</span></td>
+              <td>Abre o diálogo para definir o número total de mesas disponíveis nesta estação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Organizar Mesas</div></td>
+              <td><span class="tag tag-opt">Botão</span></td>
+              <td>Permite reorganizar visualmente o posicionamento das mesas na grade do PDV.</td>
             </tr>
           </tbody>
         </table>
@@ -12873,6 +12933,10 @@
         'Porta do Programa Servidor da Balança 2:':       '51,6.7,53.8,8.9',
         'Bloquear Uso da Balança para Este Terminal:':    '63.6,3.3,58.5,8.1',
         'Enviar Dados p/ParaBalança:':                    '76.2,19.2,79.5,8.4',
+      },
+      'prints/pdv_qtd_posic_mesas.png': {
+        'Definir Quantidade de Mesas': '0,0,0,0',
+        'Organizar Mesas':             '0,0,0,0',
       },
       'prints/pdv_bloqueio_formas_pagto.png': {
         // Grade
