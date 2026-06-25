@@ -1733,6 +1733,10 @@
                 Concentrador - Opções Gerais
                 <span class="path-badge">PDV › Configurações › Opções do Concentrador › Concentrador - Opções Gerais</span>
               </a>
+              <a class="nav-item" onclick="showSection('pdv-concentrador-atend-id')">
+                Concentrador - Atendimento com Identificação
+                <span class="path-badge">PDV › Configurações › Opções do Concentrador › Concentrador › Atendimento com Identificação</span>
+              </a>
             </div>
           </div>
           <div class="pdv-cat-item">TEF</div>
@@ -2460,6 +2464,11 @@
             <div class="icon">🗂️</div>
             <h3>Concentrador - Opções Gerais</h3>
             <p>Define o dia de hoje como feriado no contexto do concentrador desta estação.</p>
+          </div>
+          <div class="welcome-card entregas" onclick="showSection('pdv-concentrador-atend-id')">
+            <div class="icon">🪪</div>
+            <h3>Concentrador - Atendimento com Identificação</h3>
+            <p>Restringe o intervalo de numeração do atendimento com identificação e permite liberar fora do intervalo pelo computador.</p>
           </div>
         </div>
       </div>
@@ -5457,6 +5466,54 @@
               <td><div class="field-name">Definir Dia de Hoje Como Feriado:</div></td>
               <td><span class="tag tag-opt">Seleção</span></td>
               <td>Quando ativo, marca o dia atual como feriado no concentrador. <strong>S-Sim</strong> = dia atual é feriado; <strong>N-Não</strong> = dia normal. Útil para ajustar comportamentos que dependem do calendário de feriados.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ PDV — CONCENTRADOR ATENDIMENTO COM IDENTIFICAÇÃO ══ -->
+    <section id="pdv-concentrador-atend-id" class="page-section" data-section-img="prints/pdv_concentrador_atend_id.png">
+      <div class="page-header">
+        <div class="breadcrumb">PDV › Configurações › Opções do Concentrador › Concentrador › Atendimento com Identificação</div>
+        <h2>Concentrador - Atendimento com Identificação</h2>
+        <p>Restringe o intervalo de numeração do atendimento com identificação e configura permissão para liberar fora do intervalo pelo computador.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pdv_concentrador_atend_id.png" alt="Tela Concentrador - Atendimento com Identificação"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pdv_concentrador_atend_id.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>PDV</strong> → <strong>Configurações</strong> →
+        <strong>Opções do Concentrador</strong> → <strong>Concentrador</strong> → <strong>Atendimento com Identificação</strong>.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Campos</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Restringir Intervalo do Nº da Identificação para o Atend.Identificado:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando <strong>S-Sim</strong>, limita os números aceitos para o At.Id. ao intervalo definido abaixo. <strong>N-Não</strong> = sem restrição de intervalo.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Intervalo Inicial para o At.Id.:</div></td>
+              <td><span class="tag tag-num">Número</span></td>
+              <td>Número mínimo aceito para identificação. Só tem efeito quando a restrição de intervalo está ativa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Intervalo Final para o At.Id.:</div></td>
+              <td><span class="tag tag-num">Número</span></td>
+              <td>Número máximo aceito para identificação. Só tem efeito quando a restrição de intervalo está ativa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir At.Id. Fora do Intervalo Acima pelo Computador (Alt+Ins):</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando <strong>S-Sim</strong>, permite que o operador use <strong>Alt+Ins</strong> no computador para aceitar identificações fora do intervalo configurado.</td>
             </tr>
           </tbody>
         </table>
@@ -14078,6 +14135,12 @@
       'prints/pdv_concentrador_gerais.png': {
         // Campos
         'Definir Dia de Hoje Como Feriado:':   '34.1,0.8,96.4,26.4',
+      },
+      'prints/pdv_concentrador_atend_id.png': {
+        'Restringir Intervalo do Nº da Identificação para o Atend.Identificado:':   '0,0,0,0',
+        'Intervalo Inicial para o At.Id.:':                                          '0,0,0,0',
+        'Intervalo Final para o At.Id.:':                                            '0,0,0,0',
+        'Permitir At.Id. Fora do Intervalo Acima pelo Computador (Alt+Ins):':        '0,0,0,0',
       },
       'prints/pdv_certificado_digital.png': {
         'Utilizar Certificado A1 por Arquivo:':       '29.6,5.6,71.2,11.7',
