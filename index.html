@@ -1696,7 +1696,10 @@
             <span class="path-badge">PDV › Configurações › Opções Locais › Cloud (Integração c/Servidor Remoto)</span>
           </a>
           <div class="pdv-cat-item">Prato Digital/Prog.Fidelidade nas Nuvens</div>
-          <div class="pdv-cat-item">Servidor de Aplicativos Externos</div>
+          <a class="nav-item" onclick="showSection('pdv-servidor-aplicativos')">
+            Servidor de Aplicativos Externos
+            <span class="path-badge">PDV › Configurações › Opções Locais › Servidor de Aplicativos Externos</span>
+          </a>
           <div class="pdv-cat-item">Serviço de Requisição de Entregador</div>
         </div>
       </div>
@@ -2396,6 +2399,11 @@
             <div class="icon">☁️</div>
             <h3>Cloud (Integração c/Servidor Remoto)</h3>
             <p>Configura o endereço do servidor cloud, credenciais de empresa e operador e o ciclo de comunicação desta estação.</p>
+          </div>
+          <div class="welcome-card" onclick="showSection('pdv-servidor-aplicativos')">
+            <div class="icon">🔌</div>
+            <h3>Servidor de Aplicativos Externos</h3>
+            <p>Define se este PDV atuará como servidor para aplicativos externos e configura a porta de comunicação.</p>
           </div>
         </div>
       </div>
@@ -5614,6 +5622,44 @@
               <td><div class="field-name">Registrar Log de Comunicação com o Servidor:</div></td>
               <td><span class="tag tag-opt">Seleção</span></td>
               <td>Define se o sistema registrará log detalhado de comunicação com o servidor cloud. Útil para diagnóstico de falhas de conexão. <strong>N-Não</strong> = desativado (recomendado em produção).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ PDV — SERVIDOR DE APLICATIVOS EXTERNOS ══ -->
+    <section id="pdv-servidor-aplicativos" class="page-section" data-section-img="prints/pdv_servidor_aplicativos.png">
+      <div class="page-header">
+        <div class="breadcrumb">PDV › Configurações › Opções Locais do Sistema › Servidor de Aplicativos Externos</div>
+        <h2>Servidor de Aplicativos Externos</h2>
+        <p>Define se este PDV funcionará como servidor para aplicativos externos e configura a porta de comunicação utilizada.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pdv_servidor_aplicativos.png" alt="Tela Servidor de Aplicativos Externos"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pdv_servidor_aplicativos.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>PDV</strong> → <strong>Configurações</strong> →
+        <strong>Opções Locais do Sistema</strong> → <strong>Servidor de Aplicativos Externos</strong>.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Campos</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Tornar Este PDV um Servidor de Aplicativos Externos:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se esta estação atuará como servidor para aplicativos externos integrados ao PDV. <strong>N-Não</strong> = desabilitado (padrão).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Porta p/Comunicação com os Aplicativos Externos:</div></td>
+              <td><span class="tag tag-txt">Número</span></td>
+              <td>Porta de rede utilizada para comunicação entre o PDV e os aplicativos externos. Padrão: <strong>10909</strong>.</td>
             </tr>
           </tbody>
         </table>
@@ -13473,6 +13519,10 @@
         'Login (Operador):':                                          '61.1,25.8,61.8,6.9',
         'Senha (Operador):':                                          '71.1,25.3,50.4,7.7',
         'Registrar Log de Comunicação com o Servidor:':               '80.2,3.7,45.4,6.7',
+      },
+      'prints/pdv_servidor_aplicativos.png': {
+        'Tornar Este PDV um Servidor de Aplicativos Externos:':       '0,0,0,0',
+        'Porta p/Comunicação com os Aplicativos Externos:':           '0,0,0,0',
       },
       'prints/pdv_locais_impressao.png': {
       // Danfe
