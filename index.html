@@ -1737,6 +1737,10 @@
                 Concentrador - Atendimento com Identificação
                 <span class="path-badge">PDV › Configurações › Opções do Concentrador › Concentrador › Atendimento com Identificação</span>
               </a>
+              <a class="nav-item" onclick="showSection('pdv-concentrador-pre-conta')">
+                Concentrador - Pré-Conta
+                <span class="path-badge">PDV › Configurações › Opções do Concentrador › Concentrador › Pré-Conta</span>
+              </a>
             </div>
           </div>
           <div class="pdv-cat-item">TEF</div>
@@ -2469,6 +2473,11 @@
             <div class="icon">🪪</div>
             <h3>Concentrador - Atendimento com Identificação</h3>
             <p>Restringe o intervalo de numeração do atendimento com identificação e permite liberar fora do intervalo pelo computador.</p>
+          </div>
+          <div class="welcome-card entregas" onclick="showSection('pdv-concentrador-pre-conta')">
+            <div class="icon">🧾</div>
+            <h3>Concentrador - Pré-Conta</h3>
+            <p>Configura locais de impressão 2 e 3 da pré-conta por intervalo de mesa no concentrador.</p>
           </div>
         </div>
       </div>
@@ -5514,6 +5523,83 @@
               <td><div class="field-name">Permitir At.Id. Fora do Intervalo Acima pelo Computador (Alt+Ins):</div></td>
               <td><span class="tag tag-opt">Seleção</span></td>
               <td>Quando <strong>S-Sim</strong>, permite que o operador use <strong>Alt+Ins</strong> no computador para aceitar identificações fora do intervalo configurado.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ PDV — CONCENTRADOR PRÉ-CONTA ══ -->
+    <section id="pdv-concentrador-pre-conta" class="page-section" data-section-img="prints/pdv_concentrador_pre_conta.png">
+      <div class="page-header">
+        <div class="breadcrumb">PDV › Configurações › Opções do Concentrador › Concentrador › Pré-Conta</div>
+        <h2>Concentrador - Pré-Conta</h2>
+        <p>Configura locais de impressão adicionais (2 e 3) da pré-conta por intervalo de mesa no concentrador desta estação.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pdv_concentrador_pre_conta.png" alt="Tela Concentrador - Pré-Conta"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pdv_concentrador_pre_conta.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>PDV</strong> → <strong>Configurações</strong> →
+        <strong>Opções do Concentrador</strong> → <strong>Concentrador</strong> → <strong>Pré-Conta</strong>.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Local de Impressão 2</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Usar Loc.Imp.2 na Pré-Conta por Intervalo de Mesa:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o local de impressão 2 será usado na pré-conta para mesas dentro do intervalo configurado abaixo. <strong>Não Usar</strong> = desabilitado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Loc.Imp.2 da Pré-Conta:</div></td>
+              <td><span class="tag tag-num">Número</span></td>
+              <td>Índice do local de impressão 2 a ser usado na pré-conta. O texto ao lado exibe o nome do local correspondente.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Intervalo Inicial da Mesa p/Pré-Conta 2:</div></td>
+              <td><span class="tag tag-num">Número</span></td>
+              <td>Número da mesa inicial do intervalo que usará o local de impressão 2 na pré-conta.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Intervalo Final da Mesa p/Pré-Conta 2:</div></td>
+              <td><span class="tag tag-num">Número</span></td>
+              <td>Número da mesa final do intervalo que usará o local de impressão 2 na pré-conta.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Local de Impressão 3</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Usar Loc.Imp.3 na Pré-Conta por Intervalo de Mesa:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o local de impressão 3 será usado na pré-conta para mesas dentro do intervalo configurado abaixo. <strong>Não Usar</strong> = desabilitado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Loc.Imp.3 da Pré-Conta:</div></td>
+              <td><span class="tag tag-num">Número</span></td>
+              <td>Índice do local de impressão 3 a ser usado na pré-conta. O texto ao lado exibe o nome do local correspondente.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Intervalo Inicial da Mesa p/Pré-Conta 3:</div></td>
+              <td><span class="tag tag-num">Número</span></td>
+              <td>Número da mesa inicial do intervalo que usará o local de impressão 3 na pré-conta.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Intervalo Final da Mesa p/Pré-Conta 3:</div></td>
+              <td><span class="tag tag-num">Número</span></td>
+              <td>Número da mesa final do intervalo que usará o local de impressão 3 na pré-conta.</td>
             </tr>
           </tbody>
         </table>
@@ -14141,6 +14227,16 @@
         'Intervalo Inicial para o At.Id.:':                                          '40.6,29.9,35.2,15.9',
         'Intervalo Final para o At.Id.:':                                            '40.2,65.1,34.1,15.5',
         'Permitir At.Id. Fora do Intervalo Acima pelo Computador (Alt+Ins):':        '62,2,60.5,13.4',
+      },
+      'prints/pdv_concentrador_pre_conta.png': {
+        'Usar Loc.Imp.2 na Pré-Conta por Intervalo de Mesa:':    '0,0,0,0',
+        'Loc.Imp.2 da Pré-Conta:':                               '0,0,0,0',
+        'Intervalo Inicial da Mesa p/Pré-Conta 2:':              '0,0,0,0',
+        'Intervalo Final da Mesa p/Pré-Conta 2:':                '0,0,0,0',
+        'Usar Loc.Imp.3 na Pré-Conta por Intervalo de Mesa:':    '0,0,0,0',
+        'Loc.Imp.3 da Pré-Conta:':                               '0,0,0,0',
+        'Intervalo Inicial da Mesa p/Pré-Conta 3:':              '0,0,0,0',
+        'Intervalo Final da Mesa p/Pré-Conta 3:':                '0,0,0,0',
       },
       'prints/pdv_certificado_digital.png': {
         'Utilizar Certificado A1 por Arquivo:':       '29.6,5.6,71.2,11.7',
