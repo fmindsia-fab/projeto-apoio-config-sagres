@@ -901,8 +901,20 @@
       color: #fb923c;
     }
 
-    /* ── NAV PDV PLACEHOLDER ── */
-    #nav-pdv { display: none; padding: 18px 14px 22px; }
+    /* ── NAV PDV ── */
+    #nav-pdv { display: none; padding: 0 0 22px; }
+
+    #nav-pdv .nav-section { border-bottom: none; }
+
+    #nav-pdv .nav-section-title {
+      color: rgba(251, 146, 60, .65);
+      border-top: 1px solid var(--border-faint);
+    }
+    #nav-pdv .nav-section-title:hover { color: #fb923c; }
+
+    #nav-pdv .nav-item .path-badge { display: none; }
+    #nav-pdv .nav-item:hover .path-badge,
+    #nav-pdv .nav-item.active .path-badge { display: block; }
 
     #nav-pdv .pdv-soon-badge {
       display: inline-block;
@@ -1531,100 +1543,132 @@
 
     <!-- Nav PDV (oculto até clicar na aba PDV) -->
     <div id="nav-pdv">
-      <div class="pdv-cat-label">Impressão</div>
-      <a class="nav-item" onclick="showSection('pdv-locais-impressao')">
-        Locais de Impressão
-        <span class="path-badge">PDV › Configurações › Opções Locais › Locais de Impressão</span>
-      </a>
-      <a class="nav-item" onclick="showSection('pdv-pre-conta-externa')">
-        Impressão de Pré-Contas Externas
-        <span class="path-badge">PDV › Configurações › Opções Locais › Impressão de Pré Conta Externas</span>
-      </a>
-      <a class="nav-item" onclick="showSection('pdv-impressora-fiscal')">
-        Impressora Fiscal
-        <span class="path-badge">PDV › Configurações › Opções Locais › Impressora Fiscal</span>
-      </a>
 
-      <div class="pdv-cat-label">Aparência & Tela de Vendas</div>
-      <a class="nav-item" onclick="showSection('pdv-aparencia-tela-vendas')">
-        Aparência da Tela de Vendas
-        <span class="path-badge">PDV › Configurações › Opções Locais › Aparência da Tela de Vendas</span>
-      </a>
-      <a class="nav-item" onclick="showSection('pdv-touch-screen')">
-        Touch Screen
-        <span class="path-badge">PDV › Configurações › Opções Locais › Touch Screen</span>
-      </a>
-      <a class="nav-item" onclick="showSection('pdv-touch-screen-outras')">
-        Touch Screen (Outras Configurações)
-        <span class="path-badge">PDV › Configurações › Opções Locais › Touch Screen (Outras Configurações)</span>
-      </a>
-      <a class="nav-item" onclick="showSection('pdv-atend-identificacao')">
-        Atendimento com Identificação
-        <span class="path-badge">PDV › Configurações › Opções Locais › Atendimento c/ Identificação</span>
-      </a>
+      <div class="nav-section collapsed">
+        <div class="nav-section-title" onclick="toggleNavSection(this)">Impressão</div>
+        <div class="nav-items">
+          <a class="nav-item" onclick="showSection('pdv-locais-impressao')">
+            Locais de Impressão
+            <span class="path-badge">PDV › Configurações › Opções Locais › Locais de Impressão</span>
+          </a>
+          <a class="nav-item" onclick="showSection('pdv-pre-conta-externa')">
+            Impressão de Pré-Contas Externas
+            <span class="path-badge">PDV › Configurações › Opções Locais › Impressão de Pré Conta Externas</span>
+          </a>
+          <a class="nav-item" onclick="showSection('pdv-impressora-fiscal')">
+            Impressora Fiscal
+            <span class="path-badge">PDV › Configurações › Opções Locais › Impressora Fiscal</span>
+          </a>
+        </div>
+      </div>
 
-      <div class="pdv-cat-label">Hardware</div>
-      <a class="nav-item" onclick="showSection('pdv-display-torre')">
-        Display de Torre
-        <span class="path-badge">PDV › Configurações › Opções Locais › Display de Torre</span>
-      </a>
+      <div class="nav-section collapsed">
+        <div class="nav-section-title" onclick="toggleNavSection(this)">Aparência & Tela de Vendas</div>
+        <div class="nav-items">
+          <a class="nav-item" onclick="showSection('pdv-aparencia-tela-vendas')">
+            Aparência da Tela de Vendas
+            <span class="path-badge">PDV › Configurações › Opções Locais › Aparência da Tela de Vendas</span>
+          </a>
+          <a class="nav-item" onclick="showSection('pdv-touch-screen')">
+            Touch Screen
+            <span class="path-badge">PDV › Configurações › Opções Locais › Touch Screen</span>
+          </a>
+          <a class="nav-item" onclick="showSection('pdv-touch-screen-outras')">
+            Touch Screen (Outras Configurações)
+            <span class="path-badge">PDV › Configurações › Opções Locais › Touch Screen (Outras Configurações)</span>
+          </a>
+          <a class="nav-item" onclick="showSection('pdv-atend-identificacao')">
+            Atendimento com Identificação
+            <span class="path-badge">PDV › Configurações › Opções Locais › Atendimento c/ Identificação</span>
+          </a>
+        </div>
+      </div>
 
-      <a class="nav-item" onclick="showSection('pdv-display-info-vendas')">
-        Display de Informações de Vendas
-        <span class="path-badge">PDV › Configurações › Opções Locais › Display de Informações de Vendas</span>
-      </a>
-      <a class="nav-item" onclick="showSection('pdv-gaveta-dinheiro')">
-        Gaveta de Dinheiro
-        <span class="path-badge">PDV › Configurações › Opções Locais › Gaveta de Dinheiro</span>
-      </a>
+      <div class="nav-section collapsed">
+        <div class="nav-section-title" onclick="toggleNavSection(this)">Hardware</div>
+        <div class="nav-items">
+          <a class="nav-item" onclick="showSection('pdv-display-torre')">
+            Display de Torre
+            <span class="path-badge">PDV › Configurações › Opções Locais › Display de Torre</span>
+          </a>
+          <a class="nav-item" onclick="showSection('pdv-display-info-vendas')">
+            Display de Informações de Vendas
+            <span class="path-badge">PDV › Configurações › Opções Locais › Display de Informações de Vendas</span>
+          </a>
+          <a class="nav-item" onclick="showSection('pdv-gaveta-dinheiro')">
+            Gaveta de Dinheiro
+            <span class="path-badge">PDV › Configurações › Opções Locais › Gaveta de Dinheiro</span>
+          </a>
+          <a class="nav-item" onclick="showSection('pdv-balanca')">
+            Balança
+            <span class="path-badge">PDV › Configurações › Opções Locais › Balança</span>
+          </a>
+        </div>
+      </div>
 
-      <a class="nav-item" onclick="showSection('pdv-balanca')">
-        Balança
-        <span class="path-badge">PDV › Configurações › Opções Locais › Balança</span>
-      </a>
+      <div class="nav-section collapsed">
+        <div class="nav-section-title" onclick="toggleNavSection(this)">Mesas</div>
+        <div class="nav-items">
+          <a class="nav-item" onclick="showSection('pdv-qtd-posic-mesas')">
+            Qtd e Posicionamento das Mesas
+            <span class="path-badge">PDV › Configurações › Opções Locais › Qtd e Posicionamento das Mesas</span>
+          </a>
+          <a class="nav-item" onclick="showSection('pdv-personalizar-aparencia-mesas')">
+            Personalizar Aparência das Mesas
+            <span class="path-badge">PDV › Configurações › Opções Locais › Personalizar Aparência das Mesas</span>
+          </a>
+        </div>
+      </div>
 
-      <div class="pdv-cat-label">Mesas</div>
-      <a class="nav-item" onclick="showSection('pdv-qtd-posic-mesas')">
-        Qtd e Posicionamento das Mesas
-        <span class="path-badge">PDV › Configurações › Opções Locais › Qtd e Posicionamento das Mesas</span>
-      </a>
-      <a class="nav-item" onclick="showSection('pdv-personalizar-aparencia-mesas')">
-        Personalizar Aparência das Mesas
-        <span class="path-badge">PDV › Configurações › Opções Locais › Personalizar Aparência das Mesas</span>
-      </a>
+      <div class="nav-section collapsed">
+        <div class="nav-section-title" onclick="toggleNavSection(this)">Fiscal & Certificado</div>
+        <div class="nav-items">
+          <div class="pdv-cat-item">Certificado Digital</div>
+          <div class="pdv-cat-item">Certificado Digital e Transmissão (v.4.00)</div>
+        </div>
+      </div>
 
-      <div class="pdv-cat-label">Fiscal & Certificado</div>
-      <div class="pdv-cat-item">Certificado Digital</div>
-      <div class="pdv-cat-item">Certificado Digital e Transmissão (v.4.00)</div>
+      <div class="nav-section collapsed">
+        <div class="nav-section-title" onclick="toggleNavSection(this)">Caixa & Pagamento</div>
+        <div class="nav-items">
+          <a class="nav-item" onclick="showSection('pdv-fechamento-caixa')">
+            Fechamento de Caixa
+            <span class="path-badge">PDV › Configurações › Opções Locais › Fechamento de Caixa</span>
+          </a>
+          <a class="nav-item" onclick="showSection('pdv-bloqueio-formas-pagto')">
+            Bloqueio de Formas de Pagamento
+            <span class="path-badge">PDV › Configurações › Opções Locais › Bloqueio de Formas de Pagamento</span>
+          </a>
+          <a class="nav-item" onclick="showSection('pdv-entregas')">
+            Entregas
+            <span class="path-badge">PDV › Configurações › Opções Locais › Entregas</span>
+          </a>
+        </div>
+      </div>
 
-      <div class="pdv-cat-label">Caixa & Pagamento</div>
-      <a class="nav-item" onclick="showSection('pdv-fechamento-caixa')">
-        Fechamento de Caixa
-        <span class="path-badge">PDV › Configurações › Opções Locais › Fechamento de Caixa</span>
-      </a>
-      <a class="nav-item" onclick="showSection('pdv-bloqueio-formas-pagto')">
-        Bloqueio de Formas de Pagamento
-        <span class="path-badge">PDV › Configurações › Opções Locais › Bloqueio de Formas de Pagamento</span>
-      </a>
-      <a class="nav-item" onclick="showSection('pdv-entregas')">
-        Entregas
-        <span class="path-badge">PDV › Configurações › Opções Locais › Entregas</span>
-      </a>
+      <div class="nav-section collapsed">
+        <div class="nav-section-title" onclick="toggleNavSection(this)">Integração & Cloud</div>
+        <div class="nav-items">
+          <div class="pdv-cat-item">Cloud (Integração c/Servidor Remoto)</div>
+          <div class="pdv-cat-item">Prato Digital/Prog.Fidelidade nas Nuvens</div>
+          <div class="pdv-cat-item">Servidor de Aplicativos Externos</div>
+          <div class="pdv-cat-item">Serviço de Requisição de Entregador</div>
+        </div>
+      </div>
 
-      <div class="pdv-cat-label">Integração & Cloud</div>
-      <div class="pdv-cat-item">Cloud (Integração c/Servidor Remoto)</div>
-      <div class="pdv-cat-item">Prato Digital/Prog.Fidelidade nas Nuvens</div>
-      <div class="pdv-cat-item">Servidor de Aplicativos Externos</div>
-      <div class="pdv-cat-item">Serviço de Requisição de Entregador</div>
+      <div class="nav-section collapsed">
+        <div class="nav-section-title" onclick="toggleNavSection(this)">Sistema</div>
+        <div class="nav-items">
+          <div class="pdv-cat-item">Configurações Gerais</div>
+          <a class="nav-item" onclick="showSection('pdv-servidor-local')">
+            Configurar Opções do Servidor Local
+            <span class="path-badge">PDV › Configurações › Servidor Local</span>
+          </a>
+          <div class="pdv-cat-item">Opções do Concentrador</div>
+          <div class="pdv-cat-item">TEF</div>
+        </div>
+      </div>
 
-      <div class="pdv-cat-label">Sistema</div>
-      <div class="pdv-cat-item">Configurações Gerais</div>
-      <a class="nav-item" onclick="showSection('pdv-servidor-local')">
-        Configurar Opções do Servidor Local
-        <span class="path-badge">PDV › Configurações › Servidor Local</span>
-      </a>
-      <div class="pdv-cat-item">Opções do Concentrador</div>
-      <div class="pdv-cat-item">TEF</div>
     </div>
   </nav>
 
