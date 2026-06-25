@@ -1582,7 +1582,10 @@
         Qtd e Posicionamento das Mesas
         <span class="path-badge">PDV › Configurações › Opções Locais › Qtd e Posicionamento das Mesas</span>
       </a>
-      <div class="pdv-cat-item">Personalizar Aparência das Mesas</div>
+      <a class="nav-item" onclick="showSection('pdv-personalizar-aparencia-mesas')">
+        Personalizar Aparência das Mesas
+        <span class="path-badge">PDV › Configurações › Opções Locais › Personalizar Aparência das Mesas</span>
+      </a>
 
       <div class="pdv-cat-label">Fiscal & Certificado</div>
       <div class="pdv-cat-item">Certificado Digital</div>
@@ -2245,6 +2248,12 @@
             <div class="icon">🪑</div>
             <h3>Qtd e Posicionamento das Mesas</h3>
             <p>Define a quantidade de mesas e organiza o posicionamento visual na tela do PDV.</p>
+          </div>
+
+          <div class="welcome-card" onclick="showSection('pdv-personalizar-aparencia-mesas')">
+            <div class="icon">🎨</div>
+            <h3>Personalizar Aparência das Mesas</h3>
+            <p>Configura cores, ícones e espaçamentos visuais das mesas conforme o estado (fechada, aberta, com recebimento, etc.).</p>
           </div>
         </div>
       </div>
@@ -5835,6 +5844,82 @@
               <td><div class="field-name">Organizar Mesas</div></td>
               <td><span class="tag tag-opt">Botão</span></td>
               <td>Permite reorganizar visualmente o posicionamento das mesas na grade do PDV.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ PDV — PERSONALIZAR APARÊNCIA DAS MESAS ══ -->
+    <section id="pdv-personalizar-aparencia-mesas" class="page-section" data-section-img="prints/pdv_personalizar_aparencia_mesas.png">
+      <div class="page-header">
+        <div class="breadcrumb">PDV › Configurações › Opções Locais do Sistema › Personalizar Aparência das Mesas</div>
+        <h2>Personalizar Aparência das Mesas</h2>
+        <p>Permite configurar os ícones, cores e espaçamentos visuais das mesas de acordo com cada estado (Fechada, Aberta, com Recebimento, Sem Movimentação, Sem Recebimento).</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pdv_personalizar_aparencia_mesas.png" alt="Tela Personalizar Aparência das Mesas"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pdv_personalizar_aparencia_mesas.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        Acesse pelo PDV em: <strong>Configurações › Opções Locais do Sistema › Personalizar Aparência das Mesas</strong>
+      </div>
+
+      <div class="fields-card">
+        <h4>Aparência</h4>
+        <table class="fields-table">
+          <thead>
+            <tr>
+              <th>Ação / Campo</th>
+              <th>Tipo</th>
+              <th>Descrição</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Outras Opções de Aparência...</div></td>
+              <td><span class="tag tag-opt">Botão</span></td>
+              <td>Abre tela com opções adicionais de aparência das mesas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Cores Padrão</div></td>
+              <td><span class="tag tag-opt">Botão</span></td>
+              <td>Restaura as cores padrão de todos os estados das mesas.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4>Configurações de Tempo e Espaçamento</h4>
+        <table class="fields-table">
+          <thead>
+            <tr>
+              <th>Campo</th>
+              <th>Tipo</th>
+              <th>Descrição</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Nº Minutos sem recebimento para mudar cor da mesa:</div></td>
+              <td><span class="tag tag-text">Número</span></td>
+              <td>Tempo em minutos sem recebimento para que a mesa mude automaticamente de cor.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Nº Minutos sem movimentação para mudar cor da mesa:</div></td>
+              <td><span class="tag tag-text">Número</span></td>
+              <td>Tempo em minutos sem movimentação para que a mesa mude automaticamente de cor.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Espaçamento Horizontal Entre as Mesas (em pixels):</div></td>
+              <td><span class="tag tag-text">Número</span></td>
+              <td>Define o espaçamento horizontal (em pixels) entre as mesas na grade do PDV — usado no auto ajuste das mesas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Espaçamento Vertical Entre as Mesas (em pixels):</div></td>
+              <td><span class="tag tag-text">Número</span></td>
+              <td>Define o espaçamento vertical (em pixels) entre as mesas na grade do PDV — usado no auto ajuste das mesas.</td>
             </tr>
           </tbody>
         </table>
@@ -12937,6 +13022,14 @@
       'prints/pdv_qtd_posic_mesas.png': {
         'Definir Quantidade de Mesas': '94.6,0.2,13.1,4.7',
         'Organizar Mesas':             '94.6,14.2,12.5,4.9',
+      },
+      'prints/pdv_personalizar_aparencia_mesas.png': {
+        'Outras Opções de Aparência...':                        '0,0,0,0',
+        'Cores Padrão':                                         '0,0,0,0',
+        'Nº Minutos sem recebimento para mudar cor da mesa:':   '0,0,0,0',
+        'Nº Minutos sem movimentação para mudar cor da mesa:':  '0,0,0,0',
+        'Espaçamento Horizontal Entre as Mesas (em pixels):':   '0,0,0,0',
+        'Espaçamento Vertical Entre as Mesas (em pixels):':     '0,0,0,0',
       },
       'prints/pdv_bloqueio_formas_pagto.png': {
         // Grade
