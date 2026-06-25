@@ -6094,6 +6094,36 @@
           </tbody>
         </table>
       </div>
+
+      <div class="note-box" style="border-color:#f5a623;background:#2a1f08;">
+        <strong>⚠ Tela oculta — PDV de Apoio:</strong> Dentro desta tela de Configurações Gerais, pressione
+        <strong>CTRL+F5</strong> para abrir o diálogo <strong>Configurar PDV de Apoio</strong>.
+        Esse atalho não está visível na interface — a equipe de suporte precisa conhecer o atalho para acessar.
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pdv_apoio.png" alt="Tela Configurar PDV de Apoio"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pdv_apoio.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">PDV de Apoio <span style="font-weight:400;font-size:0.85em;opacity:0.7;">(CTRL+F5 na tela de Configurações Gerais)</span></div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">PDV de Apoio:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se esta estação utiliza um PDV de apoio e qual. <strong>Não Utilizar PDV de Apoio</strong> = desativado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Diretório do PDV de Apoio:</div></td>
+              <td><span class="tag tag-text">Texto</span></td>
+              <td>Caminho de rede para o diretório do PDV de apoio selecionado. Preenchido automaticamente ao selecionar o PDV de apoio, mas pode ser ajustado manualmente.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <!-- ══ PDV — LOCAIS DE IMPRESSÃO ══ -->
@@ -14024,6 +14054,11 @@
         'Imprimir Danfe NFCe Automaticamente:':                              '72.3,16.8,71.2,6.1',
         'Desabilitar Loc.Imp.Espelho Quando Possível:':                      '80,12.8,42.3,5',
         'Desabilitar Loc.Imp.Espelho (2) Quando Possível:':                  '86.7,10,45.1,5',
+      },
+      'prints/pdv_apoio.png': {
+        // Campos — acessado via CTRL+F5 dentro de Configurações Gerais
+        'PDV de Apoio:':                   '0,0,0,0',
+        'Diretório do PDV de Apoio:':      '0,0,0,0',
       },
       'prints/pdv_locais_impressao.png': {
       // Danfe
