@@ -1745,6 +1745,10 @@
                 Concentrador - Catraca
                 <span class="path-badge">PDV › Configurações › Opções do Concentrador › Concentrador › Catraca</span>
               </a>
+              <a class="nav-item" onclick="showSection('pdv-concentrador-mapa-pracas')">
+                Concentrador - Definir Mapa das Praças das Mesas
+                <span class="path-badge">PDV › Configurações › Opções do Concentrador › Concentrador › Definir Mapa das Praças das Mesas</span>
+              </a>
             </div>
           </div>
           <div class="pdv-cat-item">TEF</div>
@@ -2487,6 +2491,11 @@
             <div class="icon">🚧</div>
             <h3>Concentrador - Catraca</h3>
             <p>Configura a integração com o software de catraca: diretórios, gravação de arquivos e número de dígitos da comanda.</p>
+          </div>
+          <div class="welcome-card entregas" onclick="showSection('pdv-concentrador-mapa-pracas')">
+            <div class="icon">🗺️</div>
+            <h3>Concentrador - Definir Mapa das Praças das Mesas</h3>
+            <p>Cadastra intervalos de mesas associados a praças, definindo o mapa de praças do concentrador.</p>
           </div>
         </div>
       </div>
@@ -5661,6 +5670,73 @@
               <td><div class="field-name">Nº de Dígitos da Comanda:</div></td>
               <td><span class="tag tag-opt">Seleção</span></td>
               <td>Define quantos dígitos serão usados no número da comanda enviado à catraca. <strong>0-Padrão</strong> = utiliza o padrão do sistema.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ PDV — CONCENTRADOR MAPA PRAÇAS DAS MESAS ══ -->
+    <section id="pdv-concentrador-mapa-pracas" class="page-section" data-section-img="prints/pdv_concentrador_mapa_pracas.png">
+      <div class="page-header">
+        <div class="breadcrumb">PDV › Configurações › Opções do Concentrador › Concentrador › Definir Mapa das Praças das Mesas</div>
+        <h2>Concentrador - Definir Mapa das Praças das Mesas</h2>
+        <p>Cadastra intervalos de mesas associados a praças no concentrador, definindo quais mesas pertencem a cada praça.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pdv_concentrador_mapa_pracas.png" alt="Tela Concentrador - Definir Mapa das Praças das Mesas"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pdv_concentrador_mapa_pracas.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>PDV</strong> → <strong>Configurações</strong> →
+        <strong>Opções do Concentrador</strong> → <strong>Concentrador</strong> → <strong>Definir Mapa das Praças das Mesas</strong>.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Grade — Mapa de Praças</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">NºMesa Inicial</div></td>
+              <td><span class="tag tag-num">Número</span></td>
+              <td>Número da mesa que inicia o intervalo da praça cadastrada.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">NºMesa Final</div></td>
+              <td><span class="tag tag-num">Número</span></td>
+              <td>Número da mesa que encerra o intervalo da praça cadastrada.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Praça</div></td>
+              <td><span class="tag tag-num">Número</span></td>
+              <td>Número da praça à qual o intervalo de mesas pertence.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Diálogo — Inserir Mapa de Praças das Mesas</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Informe o Nº da Mesa Inicial:</div></td>
+              <td><span class="tag tag-num">Número</span></td>
+              <td>Número da primeira mesa do intervalo a ser cadastrado nesta praça.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Informe o Nº da Mesa Final:</div></td>
+              <td><span class="tag tag-num">Número</span></td>
+              <td>Número da última mesa do intervalo a ser cadastrado nesta praça.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Informe o Nº da Praça:</div></td>
+              <td><span class="tag tag-num">Número</span></td>
+              <td>Número da praça à qual as mesas do intervalo serão associadas.</td>
             </tr>
           </tbody>
         </table>
@@ -14288,6 +14364,16 @@
         'Intervalo Inicial para o At.Id.:':                                          '40.6,29.9,35.2,15.9',
         'Intervalo Final para o At.Id.:':                                            '40.2,65.1,34.1,15.5',
         'Permitir At.Id. Fora do Intervalo Acima pelo Computador (Alt+Ins):':        '62,2,60.5,13.4',
+      },
+      'prints/pdv_concentrador_mapa_pracas.png': {
+        // Grade
+        'NºMesa Inicial':                    '0,0,0,0',
+        'NºMesa Final':                      '0,0,0,0',
+        'Praça':                             '0,0,0,0',
+        // Diálogo
+        'Informe o Nº da Mesa Inicial:':     '0,0,0,0',
+        'Informe o Nº da Mesa Final:':       '0,0,0,0',
+        'Informe o Nº da Praça:':            '0,0,0,0',
       },
       'prints/pdv_concentrador_catraca.png': {
         'Catraca Integrada ao Sistema:':                          '41.1,13.3,49.2,8.1',

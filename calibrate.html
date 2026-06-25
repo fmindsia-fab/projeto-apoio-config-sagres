@@ -695,6 +695,24 @@ const IMAGES = [
     ]
   },
   {
+    file: 'prints/pdv_concentrador_mapa_pracas.png',
+    label: 'Concentrador - Definir Mapa das Praças das Mesas',
+    system: 'pdv',
+    calibrated: false,
+    groups: [
+      { group: 'Grade — Mapa de Praças', fields: [
+        'NºMesa Inicial',
+        'NºMesa Final',
+        'Praça',
+      ]},
+      { group: 'Diálogo — Inserir Mapa de Praças das Mesas', fields: [
+        'Informe o Nº da Mesa Inicial:',
+        'Informe o Nº da Mesa Final:',
+        'Informe o Nº da Praça:',
+      ]},
+    ]
+  },
+  {
     file: 'prints/pdv_concentrador_catraca.png',
     label: 'Concentrador - Catraca',
     system: 'pdv',
@@ -2646,6 +2664,14 @@ const COORDS = {
     'Intervalo Inicial para o At.Id.:':                                          '0,0,0,0',
     'Intervalo Final para o At.Id.:':                                            '0,0,0,0',
     'Permitir At.Id. Fora do Intervalo Acima pelo Computador (Alt+Ins):':        '0,0,0,0',
+  },
+  'prints/pdv_concentrador_mapa_pracas.png': {
+    'NºMesa Inicial':                    '0,0,0,0',
+    'NºMesa Final':                      '0,0,0,0',
+    'Praça':                             '0,0,0,0',
+    'Informe o Nº da Mesa Inicial:':     '0,0,0,0',
+    'Informe o Nº da Mesa Final:':       '0,0,0,0',
+    'Informe o Nº da Praça:':            '0,0,0,0',
   },
   'prints/pdv_concentrador_catraca.png': {
     'Catraca Integrada ao Sistema:':                          '0,0,0,0',
