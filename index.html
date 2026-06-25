@@ -906,29 +906,51 @@
 
     #nav-pdv .nav-section { border-bottom: none; }
 
+    /* Título da categoria — fechado */
     #nav-pdv .nav-section-title {
-      color: #94a3b8;
-      border-top: 1px solid var(--border-faint);
+      color: #7a8fa6;
+      border-top: 1px solid rgba(255,255,255,.06);
+      font-size: .65rem;
+      letter-spacing: 1.4px;
+      padding: 11px 14px 11px 16px;
     }
-    #nav-pdv .nav-section-title:hover { color: #e2e8f0; }
+    #nav-pdv .nav-section-title:hover { color: #c8d8e8; }
 
-    /* Expandido: laranja + fundo sutil + borda esquerda */
+    /* Título da categoria — expandido */
     #nav-pdv .nav-section:not(.collapsed) > .nav-section-title {
-      color: #fb923c;
-      background: rgba(251, 146, 60, .06);
-      border-left: 2px solid #fb923c;
+      color: #f97316;
+      background: rgba(249, 115, 22, .08);
+      border-left: 2px solid #f97316;
       padding-left: 14px;
     }
 
+    /* Itens do menu */
     #nav-pdv .nav-item {
-      color: #c8d8e8;
+      color: #dde6ef;
+      font-size: .82rem;
       font-weight: 500;
+      padding: 8px 12px 8px 20px;
+      margin: 2px 6px;
+      border-radius: 6px;
     }
-    #nav-pdv .nav-item:hover { color: #f0f4f8; }
+    #nav-pdv .nav-item:hover {
+      color: #ffffff;
+      background: rgba(255,255,255,.07);
+      border-left-color: rgba(249,115,22,.45);
+      padding-left: 23px;
+    }
+    #nav-pdv .nav-item.active {
+      color: #fbbf24;
+      background: rgba(251,191,36,.12);
+      border-left-color: #fbbf24;
+    }
 
     #nav-pdv .nav-item .path-badge { display: none; }
     #nav-pdv .nav-item:hover .path-badge,
-    #nav-pdv .nav-item.active .path-badge { display: block; }
+    #nav-pdv .nav-item.active .path-badge {
+      display: block;
+      color: #8ba4be;
+    }
 
     #nav-pdv .pdv-soon-badge {
       display: inline-block;
