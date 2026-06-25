@@ -907,10 +907,18 @@
     #nav-pdv .nav-section { border-bottom: none; }
 
     #nav-pdv .nav-section-title {
-      color: rgba(251, 146, 60, .65);
+      color: #94a3b8;
       border-top: 1px solid var(--border-faint);
     }
-    #nav-pdv .nav-section-title:hover { color: #fb923c; }
+    #nav-pdv .nav-section-title:hover { color: #e2e8f0; }
+
+    /* Expandido: laranja + fundo sutil + borda esquerda */
+    #nav-pdv .nav-section:not(.collapsed) > .nav-section-title {
+      color: #fb923c;
+      background: rgba(251, 146, 60, .06);
+      border-left: 2px solid #fb923c;
+      padding-left: 14px;
+    }
 
     #nav-pdv .nav-item .path-badge { display: none; }
     #nav-pdv .nav-item:hover .path-badge,
