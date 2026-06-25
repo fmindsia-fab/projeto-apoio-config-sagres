@@ -1710,7 +1710,10 @@
       <div class="nav-section collapsed">
         <div class="nav-section-title" onclick="toggleNavSection(this)">Sistema</div>
         <div class="nav-items">
-          <div class="pdv-cat-item">Configurações Gerais</div>
+          <a class="nav-item" onclick="showSection('pdv-cfg-gerais')">
+            Configurações Gerais
+            <span class="path-badge">PDV › Configurações › Opções Locais › Configurações Gerais</span>
+          </a>
           <a class="nav-item" onclick="showSection('pdv-servidor-local')">
             Configurar Opções do Servidor Local
             <span class="path-badge">PDV › Configurações › Servidor Local</span>
@@ -2423,6 +2426,11 @@
           <h3>Sistema</h3>
         </div>
         <div class="welcome-grid">
+          <div class="welcome-card" onclick="showSection('pdv-cfg-gerais')">
+            <div class="icon">⚙️</div>
+            <h3>Configurações Gerais</h3>
+            <p>Ajusta opções gerais desta estação: internet, backup, adiantamentos, CPF na nota, troco, formas de pagamento e impressão.</p>
+          </div>
           <div class="welcome-card" onclick="showSection('pdv-servidor-local')">
             <div class="icon">🖧</div>
             <h3>Configurar Opções do Servidor Local</h3>
@@ -5989,6 +5997,99 @@
               <td><div class="field-name">Retornar Entregador: (QuickJa)</div></td>
               <td><span class="tag tag-opt">Seleção</span></td>
               <td>Define quando o entregador deve ser retornado/desalocado pelo QuickJa.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ PDV — CONFIGURAÇÕES GERAIS ══ -->
+    <section id="pdv-cfg-gerais" class="page-section" data-section-img="prints/pdv_cfg_gerais.png">
+      <div class="page-header">
+        <div class="breadcrumb">PDV › Configurações › Opções Locais do Sistema › Configurações Gerais</div>
+        <h2>Configurações Gerais</h2>
+        <p>Ajusta opções gerais desta estação: comportamento de internet, backup, adiantamentos, CPF na nota, troco inicial, formas de pagamento no fechamento e impressão de Danfe NFCe.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pdv_cfg_gerais.png" alt="Tela Configurações Gerais PDV"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pdv_cfg_gerais.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>PDV</strong> → <strong>Configurações</strong> →
+        <strong>Opções Locais do Sistema</strong> → <strong>Configurações Gerais</strong>.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Campos</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Ajustar Configurações de Internet ao Entrar no Sistema:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando ativo, o PDV ajusta as configurações de proxy/internet do Windows ao iniciar. <strong>S-Sim</strong> = ativo.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Sincronização Automática de Dados:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o PDV sincroniza automaticamente dados com o servidor. <strong>S-Sim</strong> = ativo.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Fazer Backup de Tabelas Críticas:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando ativo, realiza backup automático das tabelas críticas do banco de dados nesta estação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Bloquear Adiantamentos:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando ativo, bloqueia o uso de adiantamentos neste PDV.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Desabilitar CPF na Nota neste PDV:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando ativo, desabilita o campo de CPF na nota fiscal neste PDV, independente da configuração geral da empresa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Desabilitar Troco Inicial neste PDV:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Controla o comportamento do troco inicial neste PDV. <strong>Usar Padrão Configurado para a Empresa</strong> = segue a configuração global.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Desabilitar Informar F.Pagto no Fech.Caixa neste PDV:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define como o PDV trata a digitação das formas de pagamento no fechamento de caixa. Pode desabilitar a digitação ou usar o padrão da empresa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Bloquear Consulta Automática de Informações nas Nuvens:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando ativo, impede que o PDV consulte informações remotas nas nuvens automaticamente. <strong>N-Não</strong> = consulta ativa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Alterar Registro do Windows p/Padrão da Automação Comercial:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Aplica ajustes no registro do Windows recomendados para automação comercial (como desabilitar atualizações automáticas de fontes). <strong>S-Sim</strong> = ativo.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Abrir Mais de 1 PDV Quando Estação de Lançamento:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Permite que esta estação abra mais de uma instância do PDV quando configurada como estação de lançamento. <strong>S-Sim</strong> = permitido.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir Danfe NFCe Automaticamente:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o Danfe da NFCe será impresso automaticamente após a emissão neste PDV. <strong>Sim</strong> = imprime automaticamente.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Desabilitar Loc.Imp.Espelho Quando Possível:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando ativo, desabilita o local de impressão espelho (1) nesta estação quando possível. <strong>N-Não</strong> = espelho ativo.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Desabilitar Loc.Imp.Espelho (2) Quando Possível:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando ativo, desabilita o local de impressão espelho (2) nesta estação quando possível. <strong>N-Não</strong> = espelho (2) ativo.</td>
             </tr>
           </tbody>
         </table>
@@ -13908,6 +14009,21 @@
         'API Key: (QuickJa)':                                         '89.3,19.6,75,2.4',
         'Côd.Entregador QuickJa:':                                    '92.3,10.9,19.8,3',
         'Retornar Entregador: (QuickJa)':                             '92.4,52.1,38.8,3',
+      },
+      'prints/pdv_cfg_gerais.png': {
+        'Ajustar Configurações de Internet ao Entrar no Sistema:':           '0,0,0,0',
+        'Sincronização Automática de Dados:':                                '0,0,0,0',
+        'Fazer Backup de Tabelas Críticas:':                                 '0,0,0,0',
+        'Bloquear Adiantamentos:':                                           '0,0,0,0',
+        'Desabilitar CPF na Nota neste PDV:':                                '0,0,0,0',
+        'Desabilitar Troco Inicial neste PDV:':                              '0,0,0,0',
+        'Desabilitar Informar F.Pagto no Fech.Caixa neste PDV:':            '0,0,0,0',
+        'Bloquear Consulta Automática de Informações nas Nuvens:':           '0,0,0,0',
+        'Alterar Registro do Windows p/Padrão da Automação Comercial:':      '0,0,0,0',
+        'Permitir Abrir Mais de 1 PDV Quando Estação de Lançamento:':        '0,0,0,0',
+        'Imprimir Danfe NFCe Automaticamente:':                              '0,0,0,0',
+        'Desabilitar Loc.Imp.Espelho Quando Possível:':                      '0,0,0,0',
+        'Desabilitar Loc.Imp.Espelho (2) Quando Possível:':                  '0,0,0,0',
       },
       'prints/pdv_locais_impressao.png': {
       // Danfe
