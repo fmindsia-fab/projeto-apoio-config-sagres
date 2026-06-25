@@ -714,6 +714,22 @@ const IMAGES = [
     ]
   },
   {
+    file: 'prints/pdv_balanca.png',
+    label: 'Balança',
+    system: 'pdv',
+    calibrated: false,
+    groups: [
+      { group: 'Campos', fields: [
+        'Endereço IP do Programa Servidor da Balança:',
+        'Porta do Programa Servidor da Balança:',
+        'Endereço IP do Programa Servidor da Balança 2:',
+        'Porta do Programa Servidor da Balança 2:',
+        'Bloquear Uso da Balança para Este Terminal:',
+        'Enviar Dados p/ParaBalança:',
+      ]},
+    ]
+  },
+  {
     file: 'prints/pdv_bloqueio_formas_pagto.png',
     label: 'Bloqueio de Formas de Pagamento',
     system: 'pdv',
@@ -2321,6 +2337,14 @@ const COORDS = {
   },
   'prints/pdv_gaveta_dinheiro.png': {
     'Utilizar Gaveta de Dinheiro Interligada à Impressora:': '0,0,0,0',
+  },
+  'prints/pdv_balanca.png': {
+    'Endereço IP do Programa Servidor da Balança:':   '0,0,0,0',
+    'Porta do Programa Servidor da Balança:':         '0,0,0,0',
+    'Endereço IP do Programa Servidor da Balança 2:': '0,0,0,0',
+    'Porta do Programa Servidor da Balança 2:':       '0,0,0,0',
+    'Bloquear Uso da Balança para Este Terminal:':    '0,0,0,0',
+    'Enviar Dados p/ParaBalança:':                    '0,0,0,0',
   },
   'prints/pdv_bloqueio_formas_pagto.png': {
     'Código':                                             '0,0,0,0',

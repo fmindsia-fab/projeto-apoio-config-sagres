@@ -1571,7 +1571,11 @@
         Gaveta de Dinheiro
         <span class="path-badge">PDV › Configurações › Opções Locais › Gaveta de Dinheiro</span>
       </a>
-      <div class="pdv-cat-item">Balança</div>
+
+      <a class="nav-item" onclick="showSection('pdv-balanca')">
+        Balança
+        <span class="path-badge">PDV › Configurações › Opções Locais › Balança</span>
+      </a>
 
       <div class="pdv-cat-label">Mesas</div>
       <div class="pdv-cat-item">Qtd e Posicionamento das Mesas</div>
@@ -2217,6 +2221,12 @@
             <div class="icon">🗄️</div>
             <h3>Gaveta de Dinheiro</h3>
             <p>Define se a gaveta de dinheiro desta estação está interligada à impressora.</p>
+          </div>
+
+          <div class="welcome-card" onclick="showSection('pdv-balanca')">
+            <div class="icon">⚖️</div>
+            <h3>Balança</h3>
+            <p>Configura os endereços IP, portas e opções de envio de dados para o servidor da balança desta estação.</p>
           </div>
         </div>
       </div>
@@ -5704,6 +5714,67 @@
               <td><div class="field-name">Utilizar Gaveta de Dinheiro Interligada à Impressora:</div></td>
               <td><span class="tag tag-opt">Seleção</span></td>
               <td>Define se a gaveta de dinheiro desta estação está interligada à impressora (S-Sim / N-Não).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ PDV — BALANÇA ══ -->
+    <section id="pdv-balanca" class="page-section" data-section-img="prints/pdv_balanca.png">
+      <div class="page-header">
+        <div class="breadcrumb">PDV › Configurações › Opções Locais do Sistema › Balança</div>
+        <h2>Balança</h2>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pdv_balanca.png" alt="Tela Balança"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pdv_balanca.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        Acesse pelo PDV em: <strong>Configurações › Opções Locais do Sistema › Balança</strong>
+      </div>
+
+      <div class="fields-card">
+        <table class="fields-table">
+          <thead>
+            <tr>
+              <th>Campo</th>
+              <th>Tipo</th>
+              <th>Descrição</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Endereço IP do Programa Servidor da Balança:</div></td>
+              <td><span class="tag tag-text">Texto</span></td>
+              <td>Endereço IP do servidor da balança principal utilizado por esta estação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Porta do Programa Servidor da Balança:</div></td>
+              <td><span class="tag tag-text">Número</span></td>
+              <td>Porta de comunicação do servidor da balança principal.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Endereço IP do Programa Servidor da Balança 2:</div></td>
+              <td><span class="tag tag-text">Texto</span></td>
+              <td>Endereço IP do servidor da balança secundária (Balança 2).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Porta do Programa Servidor da Balança 2:</div></td>
+              <td><span class="tag tag-text">Número</span></td>
+              <td>Porta de comunicação do servidor da balança secundária (Balança 2).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Bloquear Uso da Balança para Este Terminal:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o uso da balança está bloqueado nesta estação (S-Sim / N-Não).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Enviar Dados p/ParaBalança:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define quando os dados do produto devem ser enviados para a balança (ex.: Não Enviar, ao inserir, etc.).</td>
             </tr>
           </tbody>
         </table>
@@ -12794,6 +12865,14 @@
       },
       'prints/pdv_gaveta_dinheiro.png': {
         'Utilizar Gaveta de Dinheiro Interligada à Impressora:': '34.2,0.6,97.4,25',
+      },
+      'prints/pdv_balanca.png': {
+        'Endereço IP do Programa Servidor da Balança:':   '0,0,0,0',
+        'Porta do Programa Servidor da Balança:':         '0,0,0,0',
+        'Endereço IP do Programa Servidor da Balança 2:': '0,0,0,0',
+        'Porta do Programa Servidor da Balança 2:':       '0,0,0,0',
+        'Bloquear Uso da Balança para Este Terminal:':    '0,0,0,0',
+        'Enviar Dados p/ParaBalança:':                    '0,0,0,0',
       },
       'prints/pdv_bloqueio_formas_pagto.png': {
         // Grade
