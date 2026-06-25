@@ -2261,19 +2261,17 @@
           <h3>Impressão</h3>
         </div>
         <div class="welcome-grid">
-          <div class="welcome-card" onclick="showSection('pdv-locais-impressao')">
+          <div class="welcome-card pre-venda" onclick="showSection('pdv-locais-impressao')">
             <div class="icon">🖨️</div>
             <h3>Locais de Impressão</h3>
             <p>Define locais de impressão do Danfe, pré-contas, espelhos, fechamento de caixa e orçamentos por estação.</p>
           </div>
-
-          <div class="welcome-card" onclick="showSection('pdv-pre-conta-externa')">
+          <div class="welcome-card pre-venda" onclick="showSection('pdv-pre-conta-externa')">
             <div class="icon">🧾</div>
             <h3>Impressão de Pré-Contas Externas</h3>
             <p>Configura impressões sequenciais, checagem, restrição por intervalo de mesa e permissão para entregas/atendimento identificado.</p>
           </div>
-
-          <div class="welcome-card" onclick="showSection('pdv-impressora-fiscal')">
+          <div class="welcome-card pre-venda" onclick="showSection('pdv-impressora-fiscal')">
             <div class="icon">🖨️</div>
             <h3>Impressora Fiscal</h3>
             <p>Configura índice do relatório gerencial, leitura de memória fiscal automática, guilhotina e número de colunas da impressora fiscal.</p>
@@ -2288,7 +2286,7 @@
           <h3>Aparência & Tela de Vendas</h3>
         </div>
         <div class="welcome-grid">
-          <div class="welcome-card" onclick="showSection('pdv-aparencia-tela-vendas')">
+          <div class="welcome-card atid" onclick="showSection('pdv-aparencia-tela-vendas')">
             <div class="icon">🎨</div>
             <h3>Aparência da Tela de Vendas</h3>
             <p>Define a imagem de logotipo e a cor de fundo exibidas na tela de vendas desta estação.</p>
@@ -2303,32 +2301,32 @@
           <h3>Caixa & Pagamento</h3>
         </div>
         <div class="welcome-grid">
-          <div class="welcome-card" onclick="showSection('pdv-entregas')">
+          <div class="welcome-card orcamento" onclick="showSection('pdv-entregas')">
             <div class="icon">🛵</div>
             <h3>Entregas</h3>
             <p>Define identificador de chamadas, lógica de pedidos pendentes e índices padrão das telas de entregas desta estação.</p>
           </div>
-          <div class="welcome-card" onclick="showSection('pdv-atend-identificacao')">
+          <div class="welcome-card orcamento" onclick="showSection('pdv-atend-identificacao')">
             <div class="icon">🪪</div>
             <h3>Atendimento com Identificação</h3>
             <p>Define placar, identificação de atendente, bloqueio de abertura e exibição de valor a pagar no At.Id. desta estação.</p>
           </div>
-          <div class="welcome-card" onclick="showSection('pdv-touch-screen')">
+          <div class="welcome-card orcamento" onclick="showSection('pdv-touch-screen')">
             <div class="icon">👆</div>
             <h3>Touch Screen</h3>
             <p>Define quantidade de botões, imagens dos botões de recebimentos, tamanho dos produtos vendidos e opções das formas de pagamento.</p>
           </div>
-          <div class="welcome-card" onclick="showSection('pdv-touch-screen-outras')">
+          <div class="welcome-card orcamento" onclick="showSection('pdv-touch-screen-outras')">
             <div class="icon">⌨️</div>
             <h3>Touch Screen (Outras Configurações)</h3>
             <p>Define o uso de teclado numérico auxiliar para operação touch screen desta estação.</p>
           </div>
-          <div class="welcome-card" onclick="showSection('pdv-fechamento-caixa')">
+          <div class="welcome-card orcamento" onclick="showSection('pdv-fechamento-caixa')">
             <div class="icon">🔒</div>
             <h3>Fechamento de Caixa</h3>
             <p>Define se esta estação pode exibir a opção de "Último Caixa do Dia" no fechamento.</p>
           </div>
-          <div class="welcome-card" onclick="showSection('pdv-bloqueio-formas-pagto')">
+          <div class="welcome-card orcamento" onclick="showSection('pdv-bloqueio-formas-pagto')">
             <div class="icon">🚫</div>
             <h3>Bloqueio de Formas de Pagamento</h3>
             <p>Cadastro das formas de pagamento bloqueadas nesta estação, indisponíveis no fechamento do caixa.</p>
@@ -2343,25 +2341,22 @@
           <h3>Hardware</h3>
         </div>
         <div class="welcome-grid">
-          <div class="welcome-card" onclick="showSection('pdv-display-torre')">
+          <div class="welcome-card pedidos" onclick="showSection('pdv-display-torre')">
             <div class="icon">📺</div>
             <h3>Display de Torre</h3>
             <p>Configura o modelo, porta serial e parâmetros de comunicação do display de torre desta estação.</p>
           </div>
-
-          <div class="welcome-card" onclick="showSection('pdv-display-info-vendas')">
+          <div class="welcome-card pedidos" onclick="showSection('pdv-display-info-vendas')">
             <div class="icon">🖥️</div>
             <h3>Display de Informações de Vendas</h3>
             <p>Ativa o display de informações de vendas e define a porta de comunicação com os aplicativos.</p>
           </div>
-
-          <div class="welcome-card" onclick="showSection('pdv-gaveta-dinheiro')">
+          <div class="welcome-card pedidos" onclick="showSection('pdv-gaveta-dinheiro')">
             <div class="icon">🗄️</div>
             <h3>Gaveta de Dinheiro</h3>
             <p>Define se a gaveta de dinheiro desta estação está interligada à impressora.</p>
           </div>
-
-          <div class="welcome-card" onclick="showSection('pdv-balanca')">
+          <div class="welcome-card pedidos" onclick="showSection('pdv-balanca')">
             <div class="icon">⚖️</div>
             <h3>Balança</h3>
             <p>Configura os endereços IP, portas e opções de envio de dados para o servidor da balança desta estação.</p>
@@ -2376,13 +2371,12 @@
           <h3>Mesas</h3>
         </div>
         <div class="welcome-grid">
-          <div class="welcome-card" onclick="showSection('pdv-qtd-posic-mesas')">
+          <div class="welcome-card mesas" onclick="showSection('pdv-qtd-posic-mesas')">
             <div class="icon">🪑</div>
             <h3>Qtd e Posicionamento das Mesas</h3>
             <p>Define a quantidade de mesas e organiza o posicionamento visual na tela do PDV.</p>
           </div>
-
-          <div class="welcome-card" onclick="showSection('pdv-personalizar-aparencia-mesas')">
+          <div class="welcome-card mesas" onclick="showSection('pdv-personalizar-aparencia-mesas')">
             <div class="icon">🎨</div>
             <h3>Personalizar Aparência das Mesas</h3>
             <p>Configura cores, ícones e espaçamentos visuais das mesas conforme o estado (fechada, aberta, com recebimento, etc.).</p>
@@ -2397,12 +2391,12 @@
           <h3>Fiscal & Certificado</h3>
         </div>
         <div class="welcome-grid">
-          <div class="welcome-card" onclick="showSection('pdv-certificado-digital')">
+          <div class="welcome-card vprazo" onclick="showSection('pdv-certificado-digital')">
             <div class="icon">🔐</div>
             <h3>Certificado Digital</h3>
             <p>Configura o certificado A1 por arquivo (.pfx) e a senha do certificado digital desta estação.</p>
           </div>
-          <div class="welcome-card" onclick="showSection('pdv-certificado-digital-v4')">
+          <div class="welcome-card vprazo" onclick="showSection('pdv-certificado-digital-v4')">
             <div class="icon">📡</div>
             <h3>Certificado Digital e Transmissão (v.4.00)</h3>
             <p>Configura versão do XML, tipo de transmissão, bibliotecas SSL, certificado A1 e opções de XML da NFCe versão 4.00.</p>
@@ -2417,17 +2411,17 @@
           <h3>Integração & Cloud</h3>
         </div>
         <div class="welcome-grid">
-          <div class="welcome-card" onclick="showSection('pdv-cloud')">
+          <div class="welcome-card apps" onclick="showSection('pdv-cloud')">
             <div class="icon">☁️</div>
             <h3>Cloud (Integração c/Servidor Remoto)</h3>
             <p>Configura o endereço do servidor cloud, credenciais de empresa e operador e o ciclo de comunicação desta estação.</p>
           </div>
-          <div class="welcome-card" onclick="showSection('pdv-servidor-aplicativos')">
+          <div class="welcome-card apps" onclick="showSection('pdv-servidor-aplicativos')">
             <div class="icon">🔌</div>
             <h3>Servidor de Aplicativos Externos</h3>
             <p>Define se este PDV atuará como servidor para aplicativos externos e configura a porta de comunicação.</p>
           </div>
-          <div class="welcome-card" onclick="showSection('pdv-req-entregador')">
+          <div class="welcome-card apps" onclick="showSection('pdv-req-entregador')">
             <div class="icon">🛵</div>
             <h3>Serviço de Requisição de Entregador</h3>
             <p>Configura a integração com serviços externos de despacho de entregadores (MEasy, IFood, Sagres Rotas, Taon, QuickJa e outros).</p>
@@ -2442,15 +2436,30 @@
           <h3>Sistema</h3>
         </div>
         <div class="welcome-grid">
-          <div class="welcome-card" onclick="showSection('pdv-cfg-gerais')">
+          <div class="welcome-card empresa" onclick="showSection('pdv-cfg-gerais')">
             <div class="icon">⚙️</div>
             <h3>Configurações Gerais</h3>
             <p>Ajusta opções gerais desta estação: internet, backup, adiantamentos, CPF na nota, troco, formas de pagamento e impressão.</p>
           </div>
-          <div class="welcome-card" onclick="showSection('pdv-servidor-local')">
+          <div class="welcome-card empresa" onclick="showSection('pdv-servidor-local')">
             <div class="icon">🖧</div>
             <h3>Configurar Opções do Servidor Local</h3>
             <p>Define se esta estação atua como concentrador e o diretório dos dados do servidor local (PafEcf).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grupo: PDV — Opções do Concentrador -->
+      <div class="home-group" data-tab="pdv">
+        <div class="home-group-header">
+          <span class="sys-badge pdv">PDV › Opções do Concentrador</span>
+          <h3>Opções do Concentrador</h3>
+        </div>
+        <div class="welcome-grid">
+          <div class="welcome-card entregas" onclick="showSection('pdv-concentrador-gerais')">
+            <div class="icon">🗂️</div>
+            <h3>Concentrador - Opções Gerais</h3>
+            <p>Define o dia de hoje como feriado no contexto do concentrador desta estação.</p>
           </div>
         </div>
       </div>
