@@ -1663,7 +1663,10 @@
             Certificado Digital
             <span class="path-badge">PDV › Configurações › Opções Locais › Certificado Digital</span>
           </a>
-          <div class="pdv-cat-item">Certificado Digital e Transmissão (v.4.00)</div>
+          <a class="nav-item" onclick="showSection('pdv-certificado-digital-v4')">
+            Certificado Digital e Transmissão (v.4.00)
+            <span class="path-badge">PDV › Configurações › Opções Locais › Certificado Digital e Transmissão (v.4.00)</span>
+          </a>
         </div>
       </div>
 
@@ -2370,6 +2373,11 @@
             <div class="icon">🔐</div>
             <h3>Certificado Digital</h3>
             <p>Configura o certificado A1 por arquivo (.pfx) e a senha do certificado digital desta estação.</p>
+          </div>
+          <div class="welcome-card" onclick="showSection('pdv-certificado-digital-v4')">
+            <div class="icon">📡</div>
+            <h3>Certificado Digital e Transmissão (v.4.00)</h3>
+            <p>Configura versão do XML, tipo de transmissão, bibliotecas SSL, certificado A1 e opções de XML da NFCe versão 4.00.</p>
           </div>
         </div>
       </div>
@@ -5399,6 +5407,132 @@
       </div>
     </section>
 
+
+    <!-- ══ PDV — CERTIFICADO DIGITAL E TRANSMISSÃO (v.4.00) ══ -->
+    <section id="pdv-certificado-digital-v4" class="page-section" data-section-img="prints/pdv_certificado_digital_v4.png">
+      <div class="page-header">
+        <div class="breadcrumb">PDV › Configurações › Opções Locais do Sistema › Certificado Digital e Transmissão (v.4.00)</div>
+        <h2>Certificado Digital e Transmissão (v.4.00)</h2>
+        <p>Configura a versão do layout XML, tipo de transmissão, bibliotecas SSL, certificado A1 e opções de XML da NFCe versão 4.00 para esta estação.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pdv_certificado_digital_v4.png" alt="Tela Certificado Digital e Transmissão v4"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pdv_certificado_digital_v4.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>PDV</strong> → <strong>Configurações</strong> →
+        <strong>Opções Locais do Sistema</strong> → <strong>Certificado Digital e Transmissão (v.4.00)</strong>.<br>
+        ⚠️ <strong>Área Restrita:</strong> ao acessar esta tela, o sistema solicitará uma senha. A senha padrão é <strong>nfce</strong>.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Versão e Transmissão</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Versão do Layout do XML da NFCe:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define a versão do layout do XML utilizado na emissão da NFCe. Manter como <strong>Versão 4.00</strong> para conformidade com a SEFAZ.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Tipo de Transmissão:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define a biblioteca usada para transmissão das notas fiscais. O valor padrão é <strong>1-libOpenSSL (por arquivo)</strong>.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Forma de Preenchimento:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define como os campos de certificado e SSL são preenchidos. <strong>1-Automático</strong> usa as configurações abaixo; outras opções permitem configuração manual.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Configurações SSL</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">SSL Crypt Lib:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Biblioteca de criptografia SSL utilizada na transmissão. Padrão: <strong>2-cryCapicom</strong>.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">SSL Http Lib:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Biblioteca HTTP SSL para comunicação com a SEFAZ. Padrão: <strong>1-httpWinINet</strong>.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">SSL Xml Sign Lib:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Biblioteca utilizada para assinatura digital do XML da nota fiscal. Padrão: <strong>3-xsMsXmlCapicom</strong>.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">SSL Type:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Versão do protocolo TLS/SSL usado na comunicação segura. Padrão: <strong>5-LT_TLSv1_2</strong>.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Certificado A1</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Nome do Arquivo PFX do Certificado A1:</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Caminho completo do arquivo .pfx do certificado A1 (ex: <em>c:\certificados\Certificado_20260814_644D250814453E42.pfx</em>).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Senha do Certificado A1:</div></td>
+              <td><span class="tag tag-txt">Texto</span></td>
+              <td>Senha de proteção do arquivo .pfx. Fornecida pela certificadora no momento da emissão do certificado.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Opções de XML</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Usar QRCode Versão 3 na NFCe:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o QRCode gerado na NFCe utilizará a versão 3 do padrão. Verificar exigência do estado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Incluir Resp.Técnico no XML:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se os dados do responsável técnico do sistema serão incluídos no XML da nota fiscal.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Incluir CSRT no XML:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o Código de Segurança do Responsável Técnico (CSRT) será incluído no XML. Ativar apenas se exigido pela SEFAZ do estado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Incluir Indicador de Intermediário no XML:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o indicador de intermediário (marketplace/plataforma) será incluído no XML da NFCe.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Incluir Descr.Quando Outras Formas Pagto no XML:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se a descrição da forma de pagamento será incluída no XML quando utilizado o tipo "Outras Formas de Pagamento".</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
     <!-- ══ PDV — LOCAIS DE IMPRESSÃO ══ -->
     <section id="pdv-locais-impressao" class="page-section" data-section-img="prints/pdv_locais_impressao.png">
@@ -13227,6 +13361,22 @@
         'Utilizar Certificado A1 por Arquivo:':       '29.6,5.6,71.2,11.7',
         'Nome do Arquivo PFX do Certificado A1:':     '46.7,0.5,98.7,13.6',
         'Senha do Certificado A1:':                   '64.5,14.7,69.9,14.4',
+      },
+      'prints/pdv_certificado_digital_v4.png': {
+        'Versão do Layout do XML da NFCe:':                       '0,0,0,0',
+        'Tipo de Transmissão:':                                   '0,0,0,0',
+        'Forma de Preenchimento:':                                '0,0,0,0',
+        'SSL Crypt Lib:':                                         '0,0,0,0',
+        'SSL Http Lib:':                                          '0,0,0,0',
+        'SSL Xml Sign Lib:':                                      '0,0,0,0',
+        'SSL Type:':                                              '0,0,0,0',
+        'Nome do Arquivo PFX do Certificado A1:':                 '0,0,0,0',
+        'Senha do Certificado A1:':                               '0,0,0,0',
+        'Usar QRCode Versão 3 na NFCe:':                          '0,0,0,0',
+        'Incluir Resp.Técnico no XML:':                           '0,0,0,0',
+        'Incluir CSRT no XML:':                                   '0,0,0,0',
+        'Incluir Indicador de Intermediário no XML:':             '0,0,0,0',
+        'Incluir Descr.Quando Outras Formas Pagto no XML:':       '0,0,0,0',
       },
       'prints/pdv_locais_impressao.png': {
       // Danfe

@@ -683,6 +683,36 @@ const IMAGES = [
     ]
   },
   {
+    file: 'prints/pdv_certificado_digital_v4.png',
+    label: 'Certificado Digital e Transmissão (v.4.00)',
+    system: 'pdv',
+    calibrated: false,
+    groups: [
+      { group: 'Versão e Transmissão', fields: [
+        'Versão do Layout do XML da NFCe:',
+        'Tipo de Transmissão:',
+        'Forma de Preenchimento:',
+      ]},
+      { group: 'Configurações SSL', fields: [
+        'SSL Crypt Lib:',
+        'SSL Http Lib:',
+        'SSL Xml Sign Lib:',
+        'SSL Type:',
+      ]},
+      { group: 'Certificado A1', fields: [
+        'Nome do Arquivo PFX do Certificado A1:',
+        'Senha do Certificado A1:',
+      ]},
+      { group: 'Opções de XML', fields: [
+        'Usar QRCode Versão 3 na NFCe:',
+        'Incluir Resp.Técnico no XML:',
+        'Incluir CSRT no XML:',
+        'Incluir Indicador de Intermediário no XML:',
+        'Incluir Descr.Quando Outras Formas Pagto no XML:',
+      ]},
+    ]
+  },
+  {
     file: 'prints/pdv_touch_screen.png',
     label: 'Touch Screen',
     system: 'pdv',
@@ -2405,6 +2435,22 @@ const COORDS = {
     'Utilizar Certificado A1 por Arquivo:':       '0,0,0,0',
     'Nome do Arquivo PFX do Certificado A1:':     '0,0,0,0',
     'Senha do Certificado A1:':                   '0,0,0,0',
+  },
+  'prints/pdv_certificado_digital_v4.png': {
+    'Versão do Layout do XML da NFCe:':                       '0,0,0,0',
+    'Tipo de Transmissão:':                                   '0,0,0,0',
+    'Forma de Preenchimento:':                                '0,0,0,0',
+    'SSL Crypt Lib:':                                         '0,0,0,0',
+    'SSL Http Lib:':                                          '0,0,0,0',
+    'SSL Xml Sign Lib:':                                      '0,0,0,0',
+    'SSL Type:':                                              '0,0,0,0',
+    'Nome do Arquivo PFX do Certificado A1:':                 '0,0,0,0',
+    'Senha do Certificado A1:':                               '0,0,0,0',
+    'Usar QRCode Versão 3 na NFCe:':                          '0,0,0,0',
+    'Incluir Resp.Técnico no XML:':                           '0,0,0,0',
+    'Incluir CSRT no XML:':                                   '0,0,0,0',
+    'Incluir Indicador de Intermediário no XML:':             '0,0,0,0',
+    'Incluir Descr.Quando Outras Formas Pagto no XML:':       '0,0,0,0',
   },
   'prints/pdv_touch_screen.png': {
     'Definir Qtd.de Botões':                              '0,0,0,0',
