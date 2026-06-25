@@ -1751,7 +1751,15 @@
               </a>
             </div>
           </div>
-          <div class="pdv-cat-item">TEF</div>
+          <div class="nav-section collapsed">
+            <div class="nav-section-title" onclick="toggleNavSection(this)">TEF</div>
+            <div class="nav-items">
+              <a class="nav-item" onclick="showSection('pdv-tef-opcoes')">
+                Configurar Opções TEF
+                <span class="path-badge">PDV › Configurações › TEF › Configurar Opções TEF</span>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -2496,6 +2504,21 @@
             <div class="icon">🗺️</div>
             <h3>Concentrador - Definir Mapa das Praças das Mesas</h3>
             <p>Cadastra intervalos de mesas associados a praças, definindo o mapa de praças do concentrador.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grupo: PDV — TEF -->
+      <div class="home-group" data-tab="pdv">
+        <div class="home-group-header">
+          <span class="sys-badge pdv">PDV › TEF</span>
+          <h3>TEF</h3>
+        </div>
+        <div class="welcome-grid">
+          <div class="welcome-card vprazo" onclick="showSection('pdv-tef-opcoes')">
+            <div class="icon">💳</div>
+            <h3>Configurar Opções TEF</h3>
+            <p>Habilita o módulo TEF, define número de cópias, modo de impressão das formas de pagamento, linhas entre cópias e guilhotina.</p>
           </div>
         </div>
       </div>
@@ -5737,6 +5760,73 @@
               <td><div class="field-name">Informe o Nº da Praça:</div></td>
               <td><span class="tag tag-num">Número</span></td>
               <td>Número da praça à qual as mesas do intervalo serão associadas.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ PDV — TEF OPÇÕES ══ -->
+    <section id="pdv-tef-opcoes" class="page-section" data-section-img="prints/pdv_tef_opcoes.png">
+      <div class="page-header">
+        <div class="breadcrumb">PDV › Configurações › TEF › Configurar Opções TEF</div>
+        <h2>Configurar Opções TEF</h2>
+        <p>Habilita e configura o módulo TEF (Transferência Eletrônica de Fundos) desta estação: número de cópias, modo de impressão, intervalos entre cópias e uso de guilhotina.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pdv_tef_opcoes.png" alt="Tela Configurar Opções TEF"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pdv_tef_opcoes.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o módulo <strong>PDV</strong> → <strong>Configurações</strong> → <strong>TEF</strong> → <strong>Configurar Opções TEF</strong>.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Campos</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Módulo de TEF:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Habilita ou desabilita o módulo TEF nesta estação. <strong>N-Não</strong> = desabilitado. Ativar apenas quando há equipamento TEF configurado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Nº de Cópias do Cupom TEF:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define quantas cópias do cupom TEF serão impressas a cada transação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Outras Formas de Pagamento por Último:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando <strong>S-Sim</strong>, outras formas de pagamento só podem ser informadas após o TEF ser processado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Modo de Imprimir Formas de Pagamento  (Recomendável "Modo 1" ):</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define como as formas de pagamento são descritas no cupom. <strong>Modo 1</strong> = imprime sempre como "TEF" (recomendado). Outros modos podem imprimir a bandeira/operadora específica.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">NºLinhas entre Cópias:</div></td>
+              <td><span class="tag tag-num">Número</span></td>
+              <td>Número de linhas em branco impressas entre uma cópia e outra do cupom TEF.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">NºSegundos entre Cópias:</div></td>
+              <td><span class="tag tag-num">Número</span></td>
+              <td>Tempo de espera em segundos entre a impressão de uma cópia e outra do cupom TEF.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Nº de Linhas Simultâneas na Impressão do Cupom TEF:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define quantas linhas são enviadas simultaneamente à impressora durante a impressão do cupom TEF.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Usar Guilhotina Entre Cupons TEF:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando <strong>S-Sim</strong>, aciona a guilhotina da impressora entre cada cópia do cupom TEF.</td>
             </tr>
           </tbody>
         </table>
@@ -14364,6 +14454,16 @@
         'Intervalo Inicial para o At.Id.:':                                          '40.6,29.9,35.2,15.9',
         'Intervalo Final para o At.Id.:':                                            '40.2,65.1,34.1,15.5',
         'Permitir At.Id. Fora do Intervalo Acima pelo Computador (Alt+Ins):':        '62,2,60.5,13.4',
+      },
+      'prints/pdv_tef_opcoes.png': {
+        'Módulo de TEF:':                                                          '0,0,0,0',
+        'Nº de Cópias do Cupom TEF:':                                             '0,0,0,0',
+        'Permitir Outras Formas de Pagamento por Último:':                        '0,0,0,0',
+        'Modo de Imprimir Formas de Pagamento  (Recomendável "Modo 1" ):':        '0,0,0,0',
+        'NºLinhas entre Cópias:':                                                 '0,0,0,0',
+        'NºSegundos entre Cópias:':                                               '0,0,0,0',
+        'Nº de Linhas Simultâneas na Impressão do Cupom TEF:':                    '0,0,0,0',
+        'Usar Guilhotina Entre Cupons TEF:':                                      '0,0,0,0',
       },
       'prints/pdv_concentrador_mapa_pracas.png': {
         // Grade
