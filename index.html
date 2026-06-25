@@ -1536,7 +1536,10 @@
         Locais de Impressão
         <span class="path-badge">PDV › Configurações › Opções Locais › Locais de Impressão</span>
       </a>
-      <div class="pdv-cat-item">Impressão de Pré-Contas Externas</div>
+      <a class="nav-item" onclick="showSection('pdv-pre-conta-externa')">
+        Impressão de Pré-Contas Externas
+        <span class="path-badge">PDV › Configurações › Opções Locais › Impressão de Pré Conta Externas</span>
+      </a>
       <div class="pdv-cat-item">Impressora Fiscal</div>
 
       <div class="pdv-cat-label">Aparência & Tela de Vendas</div>
@@ -2145,6 +2148,12 @@
             <div class="icon">🖨️</div>
             <h3>Locais de Impressão</h3>
             <p>Define locais de impressão do Danfe, pré-contas, espelhos, fechamento de caixa e orçamentos por estação.</p>
+          </div>
+
+          <div class="welcome-card" onclick="showSection('pdv-pre-conta-externa')">
+            <div class="icon">🧾</div>
+            <h3>Impressão de Pré-Contas Externas</h3>
+            <p>Configura impressões sequenciais, checagem, restrição por intervalo de mesa e permissão para entregas/atendimento identificado.</p>
           </div>
         </div>
       </div>
@@ -5446,6 +5455,67 @@
               <td><div class="field-name">Descrição da Estação:</div></td>
               <td><span class="tag tag-txt">Texto</span></td>
               <td>Nome ou identificação desta estação de trabalho. Usado para distinguir computadores em ambientes com múltiplas estações.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ PDV — IMPRESSÃO DE PRÉ-CONTAS EXTERNAS ══ -->
+    <section id="pdv-pre-conta-externa" class="page-section" data-section-img="prints/pdv_pre_conta_externa.png">
+      <div class="page-header">
+        <div class="breadcrumb">PDV › Configurações › Opções Locais do Sistema › Impressão de Pré Conta Externas</div>
+        <h2>Impressão de Pré-Contas Externas</h2>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pdv_pre_conta_externa.png" alt="Tela Impressão de Pré-Contas Externas"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pdv_pre_conta_externa.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        Acesse pelo PDV em: <strong>Configurações › Opções Locais do Sistema › Impressão de Pré Conta Externas</strong>
+      </div>
+
+      <div class="fields-card">
+        <table class="fields-table">
+          <thead>
+            <tr>
+              <th>Campo</th>
+              <th>Tipo</th>
+              <th>Descrição</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">NºMáximo de Impressões Sequencias de Pré-Contas Externas:</div></td>
+              <td><span class="tag tag-text">Número</span></td>
+              <td>Define o número máximo de impressões sequenciais de pré-contas externas permitidas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Nº de Segundos para Checagem de Pré-Conta Externa (0 p/não checar):</div></td>
+              <td><span class="tag tag-text">Número</span></td>
+              <td>Intervalo em segundos para checagem automática de pré-conta externa. Informe 0 para desabilitar a checagem.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Restringir Emissão de Pré-Conta Externa a um Intervalo de Mesa:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se a emissão de pré-conta externa é restrita a um intervalo específico de mesas (S-Sim / N-Não).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Intervalo Inicial para Emissão de Pré-Conta Externa:</div></td>
+              <td><span class="tag tag-text">Número</span></td>
+              <td>Número da mesa inicial do intervalo permitido para emissão de pré-conta externa (ativo somente se restrição habilitada).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Intervalo Final para Emissão de Pré-Conta Externa:</div></td>
+              <td><span class="tag tag-text">Número</span></td>
+              <td>Número da mesa final do intervalo permitido para emissão de pré-conta externa (ativo somente se restrição habilitada).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Emissão de Pré-Conta Externa de Entregas/At.Id:</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se a emissão de pré-conta externa é permitida também para Entregas e Atendimento com Identificação (S-Sim / N-Não).</td>
             </tr>
           </tbody>
         </table>
@@ -12978,6 +13048,14 @@
       'Espelho (2) — Orçamentos:':                                                '85.3,82.7,16.5,3.6',
       // Estação
       'Descrição da Estação:':                                                    '90,18,49.2,4.4',
+      },
+      'prints/pdv_pre_conta_externa.png': {
+        'NºMáximo de Impressões Sequencias de Pré-Contas Externas:':              '0,0,0,0',
+        'Nº de Segundos para Checagem de Pré-Conta Externa (0 p/não checar):':   '0,0,0,0',
+        'Restringir Emissão de Pré-Conta Externa a um Intervalo de Mesa:':        '0,0,0,0',
+        'Intervalo Inicial para Emissão de Pré-Conta Externa:':                   '0,0,0,0',
+        'Intervalo Final para Emissão de Pré-Conta Externa:':                     '0,0,0,0',
+        'Permitir Emissão de Pré-Conta Externa de Entregas/At.Id:':               '0,0,0,0',
       },
       'prints/pdv_touch_screen.png': {
         // Opções do Painel

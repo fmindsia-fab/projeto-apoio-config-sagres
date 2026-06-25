@@ -626,6 +626,22 @@ const IMAGES = [
     ]
   },
   {
+    file: 'prints/pdv_pre_conta_externa.png',
+    label: 'Impressão de Pré-Contas Externas',
+    system: 'pdv',
+    calibrated: false,
+    groups: [
+      { group: 'Campos', fields: [
+        'NºMáximo de Impressões Sequencias de Pré-Contas Externas:',
+        'Nº de Segundos para Checagem de Pré-Conta Externa (0 p/não checar):',
+        'Restringir Emissão de Pré-Conta Externa a um Intervalo de Mesa:',
+        'Intervalo Inicial para Emissão de Pré-Conta Externa:',
+        'Intervalo Final para Emissão de Pré-Conta Externa:',
+        'Permitir Emissão de Pré-Conta Externa de Entregas/At.Id:',
+      ]},
+    ]
+  },
+  {
     file: 'prints/pdv_servidor_local.png',
     label: 'Configurar Opções do Servidor Local',
     system: 'pdv',
@@ -2335,6 +2351,14 @@ const COORDS = {
     'Espelho (2) — Check-Out:':                               '0,0,0,0',
     'Espelho (2) — Orçamentos:':                              '0,0,0,0',
     'Descrição da Estação:':                                  '0,0,0,0',
+  },
+  'prints/pdv_pre_conta_externa.png': {
+    'NºMáximo de Impressões Sequencias de Pré-Contas Externas:':              '0,0,0,0',
+    'Nº de Segundos para Checagem de Pré-Conta Externa (0 p/não checar):':   '0,0,0,0',
+    'Restringir Emissão de Pré-Conta Externa a um Intervalo de Mesa:':        '0,0,0,0',
+    'Intervalo Inicial para Emissão de Pré-Conta Externa:':                   '0,0,0,0',
+    'Intervalo Final para Emissão de Pré-Conta Externa:':                     '0,0,0,0',
+    'Permitir Emissão de Pré-Conta Externa de Entregas/At.Id:':               '0,0,0,0',
   },
   'prints/pdv_servidor_local.png': {
     'Definir esta estação como "Concentrador":':              '0,0,0,0',
