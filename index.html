@@ -1891,6 +1891,10 @@
             Cfg. Especiais — Tipo de Maquininha
             <span class="path-badge">Pro › Configurações Especiais › Tipo de Maquininha</span>
           </a>
+          <a class="nav-item" onclick="showSection('pro-cfg-especiais-tipo-app')">
+            Cfg. Especiais — Tipo de App
+            <span class="path-badge">Pro › Configurações Especiais › Tipo de App</span>
+          </a>
         </div>
       </div>
     </div>
@@ -2706,6 +2710,11 @@
             <div class="icon">💳</div>
             <h3>Tipo de Maquininha</h3>
             <p>Define a maquininha integrada (Android, Cielo, Stone, GetNet, Rede) e botões de teste.</p>
+          </div>
+          <div class="welcome-card" onclick="showSection('pro-cfg-especiais-tipo-app')">
+            <div class="icon">📱</div>
+            <h3>Tipo de App</h3>
+            <p>Modo entregador, PDV apenas de lançamento e tipo de módulo do terminal.</p>
           </div>
         </div>
       </div>
@@ -13514,6 +13523,48 @@
       </div>
     </section>
 
+    <!-- ══ PRO — CONFIGURAÇÕES ESPECIAIS — TIPO DE APP ══ -->
+    <section id="pro-cfg-especiais-tipo-app" class="page-section" data-section-img="prints/pro_cfg_especiais_tipo_app.png">
+      <div class="page-header">
+        <div class="breadcrumb">Pro › Configurações › Configurações Especiais › Tipo de App</div>
+        <h2>Configurações Especiais — Tipo de App</h2>
+        <p>Define o comportamento do terminal: modo entregador, lançamento e tipo de módulo.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pro_cfg_especiais_tipo_app.png" alt="Tela Tipo de App"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pro_cfg_especiais_tipo_app.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o <strong>Squalus Pro</strong> → <strong>Configurações</strong> → <strong>Configurações especiais</strong> → informe a senha → toque em <strong>Tipo de App</strong> no menu lateral.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Tipo de App</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Transformar PDV em Controle de Entregadores?</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando "Sim", transforma este terminal em um painel de controle de entregadores, exibindo pedidos aguardando entrega em vez da tela de lançamento normal.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">PDV apenas de lançamento?</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando "Sim", o terminal opera apenas no modo de lançamento de pedidos, sem acesso a funções de caixa ou fechamento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Tipo de Módulo</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define o modo de operação do terminal (ex.: "PDV (por Operador)" — cada operador faz login individualmente no PDV).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- ══ PRO — CONFIGURAÇÕES ESPECIAIS — TIPO DE MAQUININHA ══ -->
     <section id="pro-cfg-especiais-maquininha" class="page-section" data-section-img="prints/pro_cfg_especiais_maquininha.png">
       <div class="page-header">
@@ -13782,6 +13833,7 @@
       'pro-cfg-especiais-modulos': 'Cfg. Especiais — Módulos',
       'pro-cfg-especiais-balanca': 'Cfg. Especiais — Balança',
       'pro-cfg-especiais-maquininha': 'Cfg. Especiais — Tipo de Maquininha',
+      'pro-cfg-especiais-tipo-app': 'Cfg. Especiais — Tipo de App',
     };
 
     function switchSystem(system) {
@@ -15522,6 +15574,11 @@
         'Pedir Atendente p/ Mesa':                                                           '64.9,21.7,37.5,8.1',
         'Fixar Atendente até Fechar o App':                                                  '64.8,60.9,37.1,8.4',
         'Mostrar Teclado Virt. p/ Cód. Produto':                                             '75.6,21.7,37.6,7.8',
+      },
+      'prints/pro_cfg_especiais_tipo_app.png': {
+        'Transformar PDV em Controle de Entregadores?': '0,0,0,0',
+        'PDV apenas de lançamento?':                    '0,0,0,0',
+        'Tipo de Módulo':                               '0,0,0,0',
       },
       'prints/pro_cfg_especiais_maquininha.png': {
         'Tipo do App':                        '19.7,21.5,37.6,7.9',
