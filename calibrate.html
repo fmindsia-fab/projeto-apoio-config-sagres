@@ -2404,6 +2404,21 @@ const IMAGES = [
       ]},
     ]
   },
+  // ── Squalus Pro ──
+  {
+    file: 'prints/pro_cfg_gerais.png',
+    label: 'Configurações Gerais',
+    system: 'pro',
+    calibrated: false,
+    groups: [
+      { group: 'Campos', fields: [
+        'Ip do servidor',
+        'Porta',
+        'Tipo de Aplicação',
+        'Tema festivo?',
+      ]},
+    ]
+  },
 ];
 
 // ── Coordenadas atuais (carregadas do index.html, editáveis aqui) ──
@@ -3042,7 +3057,14 @@ const COORDS = {
     'Endereço para Relatórios (Linha 1)':            '0,0,0,0',
     'Endereço para Relatórios (Linha 2)':            '0,0,0,0',
     'Horário Inicial Redução Z':                     '0,0,0,0',
-  }
+  },
+  // ── Squalus Pro ──
+  'prints/pro_cfg_gerais.png': {
+    'Ip do servidor':      '0,0,0,0',
+    'Porta':               '0,0,0,0',
+    'Tipo de Aplicação':   '0,0,0,0',
+    'Tema festivo?':       '0,0,0,0',
+  },
 };
 
 // ════════════════════════════════════════════════════════════════
@@ -3087,11 +3109,13 @@ function buildImgPanel() {
     panel.appendChild(group);
   }
 
-  const gestao = IMAGES.map((img, i) => ({ img, i })).filter(({ img }) => img.system !== 'pdv');
+  const gestao = IMAGES.map((img, i) => ({ img, i })).filter(({ img }) => !img.system || img.system === 'gestao');
   const pdv    = IMAGES.map((img, i) => ({ img, i })).filter(({ img }) => img.system === 'pdv');
+  const pro    = IMAGES.map((img, i) => ({ img, i })).filter(({ img }) => img.system === 'pro');
 
   renderGroup('GESTÃO', gestao, false);
   if (pdv.length) renderGroup('PDV', pdv, false);
+  if (pro.length) renderGroup('PRO', pro, false);
 }
 
 // ════════════════════════════════════════════════════════════════

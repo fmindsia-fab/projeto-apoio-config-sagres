@@ -1860,7 +1860,15 @@
 
     <!-- Nav Pro (oculto até clicar na aba Pro) -->
     <div id="nav-pro">
-      <!-- seções do Squalus Pro serão adicionadas aqui -->
+      <div class="nav-section collapsed">
+        <div class="nav-section-title" onclick="toggleNavSection(this)">Configurações</div>
+        <div class="nav-items">
+          <a class="nav-item" onclick="showSection('pro-cfg-gerais')">
+            Configurações Gerais
+            <span class="path-badge">Pro › Configurações › Configurações Gerais</span>
+          </a>
+        </div>
+      </div>
     </div>
 
   </nav>
@@ -2623,14 +2631,18 @@
         </div>
       </div>
 
-      <!-- Grupo: Squalus Pro -->
+      <!-- Grupo: Squalus Pro — Configurações -->
       <div class="home-group" data-tab="pro">
         <div class="home-group-header">
-          <span class="sys-badge pro">Squalus Pro</span>
-          <h3>Squalus Pro</h3>
+          <span class="sys-badge pro">Pro › Configurações</span>
+          <h3>Configurações</h3>
         </div>
         <div class="welcome-grid">
-          <!-- cards do Pro serão adicionados aqui -->
+          <div class="welcome-card pre-venda" onclick="showSection('pro-cfg-gerais')">
+            <div class="icon">⚙️</div>
+            <h3>Configurações Gerais</h3>
+            <p>IP do servidor, porta de comunicação, tipo de aplicação e tema visual do Squalus Pro.</p>
+          </div>
         </div>
       </div>
 
@@ -13117,6 +13129,59 @@
       </div>
     </section>
 
+    <!-- ══ PRO — CONFIGURAÇÕES GERAIS ══ -->
+    <section id="pro-cfg-gerais" class="page-section" data-section-img="prints/pro_cfg_gerais.png">
+      <div class="page-header">
+        <div class="breadcrumb">Pro › Configurações › Configurações Gerais</div>
+        <h2>Configurações Gerais</h2>
+        <p>Parâmetros de conexão com o servidor e aparência do Squalus Pro.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pro_cfg_gerais.png" alt="Tela Configurações Gerais"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pro_cfg_gerais.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o <strong>Squalus Pro</strong> → toque em <strong>Configurações</strong> → selecione <strong>Configurações gerais</strong>.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Campos</div>
+        <table class="fields-table">
+          <thead>
+            <tr>
+              <th>Campo</th>
+              <th>Tipo</th>
+              <th>Descrição / Orientação de Suporte</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Ip do servidor</div></td>
+              <td><span class="tag tag-text">Texto</span></td>
+              <td>Endereço IP do servidor onde o Sagres Server está instalado. Em redes locais, geralmente o IP da máquina servidora (ex.: <code>192.168.1.10</code>). Para acesso local na mesma máquina, usar <code>127.0.0.1</code>.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Porta</div></td>
+              <td><span class="tag tag-text">Número</span></td>
+              <td>Porta de comunicação com o Sagres Server. O valor padrão é <code>50601</code>. Alterar apenas se o servidor estiver configurado em porta diferente.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Tipo de Aplicação</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define o modo de exibição dos produtos na tela de vendas. "Sem Códigos" oculta o código do produto na interface, deixando apenas a descrição visível.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Tema festivo?</div></td>
+              <td><span class="tag tag-sim">Sim/Não</span></td>
+              <td>Ativa ou desativa o tema visual festivo no aplicativo. Quando habilitado, exibe decorações sazonais na interface do Squalus Pro.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
 
   </main>
 
@@ -13211,6 +13276,8 @@
       'cad-empresas-opcoes-coletores': 'Opções de Coletores',
       'cad-empresas-opcoes-estoque-producao': 'Opções de Estoque/Produção',
       'cad-empresas-prato-digital': 'Opções do Prato Digital / PIX / Fidelidade nas Nuvens',
+      // Squalus Pro
+      'pro-cfg-gerais': 'Configurações Gerais',
     };
 
     function switchSystem(system) {
@@ -14907,6 +14974,13 @@
         // Sub-opções
         'Definir Imagem (Logo) da Tela de Vendas':    '10.4,51.5,15.6,3.1',
         'Definir Cor de Fundo da Tela de Vendas':     '13.5,51.7,14.6,2.9',
+      },
+      // ── Squalus Pro ──
+      'prints/pro_cfg_gerais.png': {
+        'Ip do servidor':      '0,0,0,0',
+        'Porta':               '0,0,0,0',
+        'Tipo de Aplicação':   '0,0,0,0',
+        'Tema festivo?':       '0,0,0,0',
       },
     };
 
