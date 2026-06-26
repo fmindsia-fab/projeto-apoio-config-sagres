@@ -1907,6 +1907,14 @@
             Cfg. Especiais — Local de Impressão (2/2)
             <span class="path-badge">Pro › Configurações Especiais › Local de Impressão (2/2)</span>
           </a>
+          <a class="nav-item" onclick="showSection('pro-cfg-especiais-robo-whatsapp-1')">
+            Cfg. Especiais — Robô WhatsApp (1/2)
+            <span class="path-badge">Pro › Configurações Especiais › Robô WhatsApp (1/2)</span>
+          </a>
+          <a class="nav-item" onclick="showSection('pro-cfg-especiais-robo-whatsapp-2')">
+            Cfg. Especiais — Robô WhatsApp (2/2)
+            <span class="path-badge">Pro › Configurações Especiais › Robô WhatsApp (2/2)</span>
+          </a>
         </div>
       </div>
     </div>
@@ -2742,6 +2750,16 @@
             <div class="icon">🖨️</div>
             <h3>Local de Impressão (2/2)</h3>
             <p>Impressão espelho, segundo espelho e descrição da estação.</p>
+          </div>
+          <div class="welcome-card" onclick="showSection('pro-cfg-especiais-robo-whatsapp-1')">
+            <div class="icon">🤖</div>
+            <h3>Robô WhatsApp (1/2)</h3>
+            <p>Execução do robô, conexão WhatsHub e configurações de monitoramento de mensagens.</p>
+          </div>
+          <div class="welcome-card" onclick="showSection('pro-cfg-especiais-robo-whatsapp-2')">
+            <div class="icon">🤖</div>
+            <h3>Robô WhatsApp (2/2)</h3>
+            <p>Mensagens automáticas, notificações e configurações SSL do robô de atendimento.</p>
           </div>
         </div>
       </div>
@@ -13781,6 +13799,183 @@
       </div>
     </section>
 
+    <!-- ══ PRO — CONFIGURAÇÕES ESPECIAIS — ROBÔ WHATSAPP 1/2 ══ -->
+    <section id="pro-cfg-especiais-robo-whatsapp-1" class="page-section" data-section-img="prints/pro_cfg_especiais_robo_whatsapp_1.png">
+      <div class="page-header">
+        <div class="breadcrumb">Pro › Configurações › Configurações Especiais › Robô WhatsApp (1/2)</div>
+        <h2>Configurações Especiais — Robô WhatsApp (1/2)</h2>
+        <p>Configurações de execução, conexão e monitoramento do Robô WhatsApp no Squalus Pro.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pro_cfg_especiais_robo_whatsapp_1.png" alt="Tela Robô WhatsApp 1/2"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pro_cfg_especiais_robo_whatsapp_1.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        <strong>Acesso:</strong> Pro › Configurações › Configurações Especiais › Robô WhatsApp
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Execução e Conexão</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">O Robô será executado?</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o Robô WhatsApp está ativo nesta estação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Onde o Robô será executado?</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o robô roda localmente ou em outro computador da rede.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mostrar Chrome do Robô?</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Exibe ou oculta a janela do Chrome utilizada pelo robô para conectar ao WhatsApp Web.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Monitorar Mensagens contendo "Ajuda"?</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando ativo, o robô responde automaticamente a mensagens que contenham a palavra "Ajuda".</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Monitorar Mensagens contendo "Atendente"?</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando ativo, o robô responde automaticamente a mensagens que contenham a palavra "Atendente".</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Id do Aplicativo</div></td>
+              <td><span class="tag tag-text">Texto</span></td>
+              <td>Identificador do aplicativo WhatsHub. Fornecido pela configuração do serviço.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Id da Empresa</div></td>
+              <td><span class="tag tag-text">Texto</span></td>
+              <td>Identificador da empresa no WhatsHub Cloud.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">API KEY WhatsHub Cloud</div></td>
+              <td><span class="tag tag-text">Texto</span></td>
+              <td>Chave de API para autenticação no serviço WhatsHub Cloud.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Nome da conexao WhatsHubCloud</div></td>
+              <td><span class="tag tag-text">Texto</span></td>
+              <td>Nome da conexão configurada no WhatsHub Cloud para este estabelecimento.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ PRO — CONFIGURAÇÕES ESPECIAIS — ROBÔ WHATSAPP 2/2 ══ -->
+    <section id="pro-cfg-especiais-robo-whatsapp-2" class="page-section" data-section-img="prints/pro_cfg_especiais_robo_whatsapp_2.png">
+      <div class="page-header">
+        <div class="breadcrumb">Pro › Configurações › Configurações Especiais › Robô WhatsApp (2/2)</div>
+        <h2>Configurações Especiais — Robô WhatsApp (2/2)</h2>
+        <p>Mensagens automáticas, notificações e configurações SSL do Robô WhatsApp.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pro_cfg_especiais_robo_whatsapp_2.png" alt="Tela Robô WhatsApp 2/2"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pro_cfg_especiais_robo_whatsapp_2.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        <strong>Acesso:</strong> Pro › Configurações › Configurações Especiais › Robô WhatsApp
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Mensagens</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Endereço Web</div></td>
+              <td><span class="tag tag-text">Texto</span></td>
+              <td>URL do cardápio ou site que pode ser enviado automaticamente nas mensagens do robô.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem Inicial</div></td>
+              <td><span class="tag tag-text">Texto</span></td>
+              <td>Texto de boas-vindas enviado automaticamente ao cliente ao iniciar uma conversa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem de Ajuda</div></td>
+              <td><span class="tag tag-text">Texto</span></td>
+              <td>Resposta automática enviada quando o cliente digita "Ajuda".</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mensagem Chamar Atendente</div></td>
+              <td><span class="tag tag-text">Texto</span></td>
+              <td>Resposta automática enviada quando o cliente digita "Atendente".</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Habilitar Mensagens Pré-definidas?</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Ativa o uso de mensagens pré-cadastradas para respostas rápidas do robô.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Editar Mensagens Pré-definidas</div></td>
+              <td><span class="tag tag-opt">Ação</span></td>
+              <td>Abre a tela de cadastro e edição das mensagens pré-definidas do robô.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Tempo entre mensagens p/ enviar boas-vindas (em minutos)</div></td>
+              <td><span class="tag tag-text">Número</span></td>
+              <td>Intervalo mínimo (em minutos) entre envios da mensagem de boas-vindas para o mesmo cliente.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Tempo para relembrar cliente do pedido (em minutos)</div></td>
+              <td><span class="tag tag-text">Número</span></td>
+              <td>Tempo (em minutos) após o qual o robô envia lembrete automático sobre o pedido. Use 0 para não enviar.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Notificações</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Configurar Envio de Notificações</div></td>
+              <td><span class="tag tag-opt">Ação</span></td>
+              <td>Abre a configuração de quais eventos disparam notificações via WhatsApp.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Apagar mensagem depois de enviar</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se a mensagem enviada pelo robô é apagada automaticamente após o envio.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Configurações</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Habilitar Sobrescrever Http Certificado SSL?</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Permite que o robô ignore erros de certificado SSL nas requisições HTTP. Usar com cautela.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Configurar Notificações de Cliente</div></td>
+              <td><span class="tag tag-opt">Ação</span></td>
+              <td>Abre a tela de configuração das notificações direcionadas ao cliente final.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- ══ PRO — CONFIGURAÇÕES ESPECIAIS — SAGRES DISPLAY ══ -->
     <section id="pro-cfg-especiais-sagres-display" class="page-section" data-section-img="prints/pro_cfg_especiais_sagres_display.png">
       <div class="page-header">
@@ -14166,6 +14361,8 @@
       'pro-cfg-especiais-sagres-display': 'Cfg. Especiais — Sagres Display',
       'pro-cfg-especiais-local-impressao-1': 'Cfg. Especiais — Local de Impressão (1/2)',
       'pro-cfg-especiais-local-impressao-2': 'Cfg. Especiais — Local de Impressão (2/2)',
+      'pro-cfg-especiais-robo-whatsapp-1': 'Cfg. Especiais — Robô WhatsApp (1/2)',
+      'pro-cfg-especiais-robo-whatsapp-2': 'Cfg. Especiais — Robô WhatsApp (2/2)',
     };
 
     function switchSystem(system) {
@@ -15906,6 +16103,35 @@
         'Pedir Atendente p/ Mesa':                                                           '64.9,21.7,37.5,8.1',
         'Fixar Atendente até Fechar o App':                                                  '64.8,60.9,37.1,8.4',
         'Mostrar Teclado Virt. p/ Cód. Produto':                                             '75.6,21.7,37.6,7.8',
+      },
+      'prints/pro_cfg_especiais_robo_whatsapp_1.png': {
+        // Execução e Conexão
+        'O Robô será executado?':                                                   '16.6,25.9,35,6.3',
+        'Onde o Robô será executado?':                                              '16.8,62.8,35.1,6.6',
+        'Mostrar Chrome do Robô?':                                                  '25.4,26.1,34.5,6.2',
+        'Monitorar Mensagens contendo "Ajuda"?':                                    '25,63,34.8,6.4',
+        'Monitorar Mensagens contendo "Atendente"?':                                '33.8,25.9,34.7,6.1',
+        'Id do Aplicativo':                                                         '33.7,62.7,34.7,6.2',
+        'Id da Empresa':                                                            '42.2,25.9,34.8,6.1',
+        'API KEY WhatsHub Cloud':                                                   '42.6,62.7,35.1,6.3',
+        'Nome da conexao WhatsHubCloud':                                            '51.5,25.5,35.4,5.4',
+      },
+      'prints/pro_cfg_especiais_robo_whatsapp_2.png': {
+        // Mensagens
+        'Endereço Web':                                                             '26.9,26,30.6,5.6',
+        'Mensagem Inicial':                                                         '26.3,63.1,30.2,6.4',
+        'Mensagem de Ajuda':                                                        '34.4,25.9,30.4,6.4',
+        'Mensagem Chamar Atendente':                                                '34.6,62.7,30.6,6.3',
+        'Habilitar Mensagens Pré-definidas?':                                       '43.2,26,34.7,6.1',
+        'Editar Mensagens Pré-definidas':                                           '42.8,62.4,36.1,7',
+        'Tempo entre mensagens p/ enviar boas-vindas (em minutos)':                 '51.3,26,34.7,6.8',
+        'Tempo para relembrar cliente do pedido (em minutos)':                      '51.3,62.7,34.7,6.9',
+        // Notificações
+        'Configurar Envio de Notificações':                                         '67.9,25.1,36.2,8.4',
+        'Apagar mensagem depois de enviar':                                         '68.4,62.7,34.7,6.3',
+        // Configurações
+        'Habilitar Sobrescrever Http Certificado SSL?':                             '85,26,34.7,6.8',
+        'Configurar Notificações de Cliente':                                       '93.4,25.2,36.4,5.7',
       },
       'prints/pro_cfg_especiais_local_impressao_1.png': {
         'Usar configuração geral de Local de Impressão?':         '16.5,25.9,34.7,6.4',
