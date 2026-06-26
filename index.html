@@ -1915,6 +1915,10 @@
             Cfg. Especiais — Robô WhatsApp (2/2)
             <span class="path-badge">Pro › Configurações Especiais › Robô WhatsApp (2/2)</span>
           </a>
+          <a class="nav-item" onclick="showSection('pro-cfg-especiais-combos')">
+            Cfg. Especiais — Combos
+            <span class="path-badge">Pro › Configurações Especiais › Combos</span>
+          </a>
         </div>
       </div>
     </div>
@@ -2760,6 +2764,11 @@
             <div class="icon">🤖</div>
             <h3>Robô WhatsApp (2/2)</h3>
             <p>Mensagens automáticas, notificações e configurações SSL do robô de atendimento.</p>
+          </div>
+          <div class="welcome-card" onclick="showSection('pro-cfg-especiais-combos')">
+            <div class="icon">🧩</div>
+            <h3>Combos</h3>
+            <p>Simulador de combos para testar configurações de etapas, preços e lógica de quantidade.</p>
           </div>
         </div>
       </div>
@@ -13976,6 +13985,77 @@
       </div>
     </section>
 
+    <!-- ══ PRO — CONFIGURAÇÕES ESPECIAIS — COMBOS ══ -->
+    <section id="pro-cfg-especiais-combos" class="page-section" data-section-img="prints/pro_cfg_especiais_combos.png">
+      <div class="page-header">
+        <div class="breadcrumb">Pro › Configurações › Configurações Especiais › Combos</div>
+        <h2>Configurações Especiais — Combos</h2>
+        <p>Simulador de combos para validar configurações de etapas, inclusão, preço e lógica de quantidade antes de aplicar em produção.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pro_cfg_especiais_combos.png" alt="Tela Combos"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pro_cfg_especiais_combos.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        <strong>Acesso:</strong> Pro › Configurações › Configurações Especiais › Combos
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Configuracao do Combo</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Qtd Etapas</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define o número de etapas do combo (ex.: 1 Etapa, 2 Etapas). Cada etapa representa um grupo de escolha pelo cliente.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Inclusao Pai</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define como o produto pai é incluído no combo e como seu preço se relaciona com os filhos. Opções variam entre incluir apenas o pai, apenas filhos ou combinações.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Preco Montagem</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define como o preço final do combo é calculado a partir dos filhos selecionados (ex.: somar preços, usar o maior preço).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Preco Individual</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define qual preço é considerado para cada filho do combo (ex.: preço normal do produto, preço da estrutura).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Logica Qtd</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define como a quantidade é tratada nos filhos do combo (ex.: todos com quantidade unitária, proporcional).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Ações</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Simular (abre tela real)</div></td>
+              <td><span class="tag tag-opt">Ação</span></td>
+              <td>Abre a tela real de montagem do combo com os produtos mock definidos abaixo, permitindo simular a experiência do cliente.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Rodar 24 Testes</div></td>
+              <td><span class="tag tag-opt">Ação</span></td>
+              <td>Executa uma bateria de 24 testes unitários automáticos para validar todas as combinações de configuração do combo.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- ══ PRO — CONFIGURAÇÕES ESPECIAIS — SAGRES DISPLAY ══ -->
     <section id="pro-cfg-especiais-sagres-display" class="page-section" data-section-img="prints/pro_cfg_especiais_sagres_display.png">
       <div class="page-header">
@@ -14363,6 +14443,7 @@
       'pro-cfg-especiais-local-impressao-2': 'Cfg. Especiais — Local de Impressão (2/2)',
       'pro-cfg-especiais-robo-whatsapp-1': 'Cfg. Especiais — Robô WhatsApp (1/2)',
       'pro-cfg-especiais-robo-whatsapp-2': 'Cfg. Especiais — Robô WhatsApp (2/2)',
+      'pro-cfg-especiais-combos': 'Cfg. Especiais — Combos',
     };
 
     function switchSystem(system) {
@@ -16103,6 +16184,17 @@
         'Pedir Atendente p/ Mesa':                                                           '64.9,21.7,37.5,8.1',
         'Fixar Atendente até Fechar o App':                                                  '64.8,60.9,37.1,8.4',
         'Mostrar Teclado Virt. p/ Cód. Produto':                                             '75.6,21.7,37.6,7.8',
+      },
+      'prints/pro_cfg_especiais_combos.png': {
+        // Configuracao do Combo
+        'Qtd Etapas':                                                               '13.8,1.9,95.1,3.8',
+        'Inclusao Pai':                                                             '20.6,2.1,95.1,2.8',
+        'Preco Montagem':                                                           '26.4,2.1,94.7,2.8',
+        'Preco Individual':                                                         '32,2.2,94.9,3',
+        'Logica Qtd':                                                               '37.7,2.2,95,3.2',
+        // Ações
+        'Simular (abre tela real)':                                                 '45.4,0.9,97.8,4.7',
+        'Rodar 24 Testes':                                                          '89,2.6,94.7,4.3',
       },
       'prints/pro_cfg_especiais_robo_whatsapp_1.png': {
         // Execução e Conexão
