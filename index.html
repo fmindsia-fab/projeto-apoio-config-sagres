@@ -1899,6 +1899,14 @@
             Cfg. Especiais — Sagres Display
             <span class="path-badge">Pro › Configurações Especiais › Sagres Display</span>
           </a>
+          <a class="nav-item" onclick="showSection('pro-cfg-especiais-local-impressao-1')">
+            Cfg. Especiais — Local de Impressão (1/2)
+            <span class="path-badge">Pro › Configurações Especiais › Local de Impressão (1/2)</span>
+          </a>
+          <a class="nav-item" onclick="showSection('pro-cfg-especiais-local-impressao-2')">
+            Cfg. Especiais — Local de Impressão (2/2)
+            <span class="path-badge">Pro › Configurações Especiais › Local de Impressão (2/2)</span>
+          </a>
         </div>
       </div>
     </div>
@@ -2724,6 +2732,16 @@
             <div class="icon">🖥️</div>
             <h3>Sagres Display</h3>
             <p>Servidor de display, IP, porta, logo animado e envio para segundo monitor.</p>
+          </div>
+          <div class="welcome-card" onclick="showSection('pro-cfg-especiais-local-impressao-1')">
+            <div class="icon">🖨️</div>
+            <h3>Local de Impressão (1/2)</h3>
+            <p>DANFE, locais de pré-conta e impressão para locais específicos por tipo de atendimento.</p>
+          </div>
+          <div class="welcome-card" onclick="showSection('pro-cfg-especiais-local-impressao-2')">
+            <div class="icon">🖨️</div>
+            <h3>Local de Impressão (2/2)</h3>
+            <p>Impressão espelho, segundo espelho e descrição da estação.</p>
           </div>
         </div>
       </div>
@@ -13532,6 +13550,237 @@
       </div>
     </section>
 
+    <!-- ══ PRO — CONFIGURAÇÕES ESPECIAIS — LOCAL DE IMPRESSÃO 1/2 ══ -->
+    <section id="pro-cfg-especiais-local-impressao-1" class="page-section" data-section-img="prints/pro_cfg_especiais_local_impressao_1.png">
+      <div class="page-header">
+        <div class="breadcrumb">Pro › Configurações › Configurações Especiais › Local de Impressão (1/2)</div>
+        <h2>Configurações Especiais — Local de Impressão <small style="font-size:0.6em;opacity:0.6">(1/2)</small></h2>
+        <p>Configurações de locais de impressão, danfe e impressão para locais específicos.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pro_cfg_especiais_local_impressao_1.png" alt="Tela Local de Impressão 1/2"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pro_cfg_especiais_local_impressao_1.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o <strong>Squalus Pro</strong> → <strong>Configurações</strong> → <strong>Configurações especiais</strong> → informe a senha → toque em <strong>Local de Impressão</strong> no menu lateral.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Geral</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Usar configuração geral de Local de Impressão?</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se este terminal usa a configuração global de locais de impressão ou uma configuração específica. "Não, usar Configuração Específica" permite personalizar por terminal.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Salvar Alterações para Todos</div></td>
+              <td><span class="tag tag-opt">Botão</span></td>
+              <td>Replica as configurações de local de impressão deste terminal para todos os outros terminais cadastrados.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Configurações Locais</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Porta de Impressão do Danfe</div></td>
+              <td><span class="tag tag-text">Texto</span></td>
+              <td>Impressora utilizada para impressão do DANFE (ex.: "Microsoft Print to PDF" para gerar PDF).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Usar Impressora Danfe para Outras Impressões</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando "Sim", utiliza a impressora do DANFE também para outros tipos de impressão neste terminal.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Local de Impressão Padrão p/ Outras Impressões</div></td>
+              <td><span class="tag tag-text">Texto</span></td>
+              <td>Local de impressão padrão para impressões que não têm um local específico configurado (ex.: "Caixa").</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Local de Impressão do Fechamento de Caixa</div></td>
+              <td><span class="tag tag-text">Texto</span></td>
+              <td>Define onde o relatório de fechamento de caixa será impresso. "Não Imprimir" desabilita a impressão.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Local de Impressão da Pré-conta das Mesas</div></td>
+              <td><span class="tag tag-text">Texto</span></td>
+              <td>Define onde a pré-conta de mesas será impressa. "Não Imprimir" desabilita a impressão.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Local de Impressão da Pré-conta do At. Id.</div></td>
+              <td><span class="tag tag-text">Texto</span></td>
+              <td>Define onde a pré-conta do atendimento identificado será impressa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Local de Impressão da Pré-conta das Entregas</div></td>
+              <td><span class="tag tag-text">Texto</span></td>
+              <td>Define onde a pré-conta de entregas será impressa. "Não Imprimir" desabilita a impressão.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Local de Impressão da Pré-conta das Entregas</div></td>
+              <td><span class="tag tag-text">Texto</span></td>
+              <td>Define onde a pré-conta de entregas será impressa. "Não Imprimir" desabilita a impressão.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Local de Impressão da Pré-conta das Entregas</div></td>
+              <td><span class="tag tag-text">Texto</span></td>
+              <td>Define onde a pré-conta de entregas será impressa. "Não Imprimir" desabilita a impressão.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir (Enviar) para Locais de Impressão (Geral)</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando "Sim", envia a impressão para os locais de impressão configurados globalmente.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir para Locais de Impressão (Caixa)</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando "Sim", envia cópia da impressão para o local de impressão configurado como Caixa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir para Locais de Impressão (Mesa)</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando "Sim", envia cópia da impressão para o local de impressão configurado como Mesa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir para Locais de Impressão (Entrega)</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando "Sim", envia cópia da impressão para o local de impressão configurado como Entrega.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir para Locais de Impressão (Atend. Ident.)</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando "Sim", envia cópia da impressão para o local de impressão do Atendimento Identificado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Imprimir para Locais de Impressão (Orçamento)</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando "Sim", envia cópia da impressão para o local de impressão configurado como Orçamento.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ PRO — CONFIGURAÇÕES ESPECIAIS — LOCAL DE IMPRESSÃO 2/2 ══ -->
+    <section id="pro-cfg-especiais-local-impressao-2" class="page-section" data-section-img="prints/pro_cfg_especiais_local_impressao_2.png">
+      <div class="page-header">
+        <div class="breadcrumb">Pro › Configurações › Configurações Especiais › Local de Impressão (2/2)</div>
+        <h2>Configurações Especiais — Local de Impressão <small style="font-size:0.6em;opacity:0.6">(2/2)</small></h2>
+        <p>Configurações de impressão espelho e identificação da estação.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pro_cfg_especiais_local_impressao_2.png" alt="Tela Local de Impressão 2/2"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pro_cfg_especiais_local_impressao_2.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o <strong>Squalus Pro</strong> → <strong>Configurações</strong> → <strong>Configurações especiais</strong> → informe a senha → toque em <strong>Local de Impressão</strong> e role a tela para baixo.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Imprimir Espelho</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Imprimir Espelho</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Habilita a impressão espelho neste terminal — envia uma cópia de cada impressão para uma impressora secundária.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Espelho p/ Mesa</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define o local de impressão espelho para pedidos de mesa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Espelho p/ At.Id.</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define o local de impressão espelho para pedidos de atendimento identificado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Espelho p/ Entregas</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define o local de impressão espelho para pedidos de entrega.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Espelho p/ Check-out</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define o local de impressão espelho para o check-out.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Espelho p/ Orçamentos</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define o local de impressão espelho para orçamentos.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Imprimir Espelho (2)</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Imprimir Espelho (2)</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Habilita um segundo espelho de impressão, permitindo envio para uma terceira impressora.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Espelho (2) p/ Mesa</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define o local do segundo espelho para pedidos de mesa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Espelho (2) p/ At.Id.</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define o local do segundo espelho para atendimento identificado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Espelho (2) p/ Entregas</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define o local do segundo espelho para entregas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Espelho (2) p/ Check-out</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define o local do segundo espelho para check-out.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Espelho (2) p/ Orçamentos</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define o local do segundo espelho para orçamentos.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Descrição</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Descrição da Estação</div></td>
+              <td><span class="tag tag-text">Texto</span></td>
+              <td>Nome ou identificação desta estação/terminal para fins de controle interno.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- ══ PRO — CONFIGURAÇÕES ESPECIAIS — SAGRES DISPLAY ══ -->
     <section id="pro-cfg-especiais-sagres-display" class="page-section" data-section-img="prints/pro_cfg_especiais_sagres_display.png">
       <div class="page-header">
@@ -13915,6 +14164,8 @@
       'pro-cfg-especiais-maquininha': 'Cfg. Especiais — Tipo de Maquininha',
       'pro-cfg-especiais-tipo-app': 'Cfg. Especiais — Tipo de App',
       'pro-cfg-especiais-sagres-display': 'Cfg. Especiais — Sagres Display',
+      'pro-cfg-especiais-local-impressao-1': 'Cfg. Especiais — Local de Impressão (1/2)',
+      'pro-cfg-especiais-local-impressao-2': 'Cfg. Especiais — Local de Impressão (2/2)',
     };
 
     function switchSystem(system) {
@@ -15655,6 +15906,38 @@
         'Pedir Atendente p/ Mesa':                                                           '64.9,21.7,37.5,8.1',
         'Fixar Atendente até Fechar o App':                                                  '64.8,60.9,37.1,8.4',
         'Mostrar Teclado Virt. p/ Cód. Produto':                                             '75.6,21.7,37.6,7.8',
+      },
+      'prints/pro_cfg_especiais_local_impressao_1.png': {
+        'Usar configuração geral de Local de Impressão?':         '0,0,0,0',
+        'Salvar Alterações para Todos':                           '0,0,0,0',
+        'Porta de Impressão do Danfe':                            '0,0,0,0',
+        'Usar Impressora Danfe para Outras Impressões':           '0,0,0,0',
+        'Local de Impressão Padrão p/ Outras Impressões':         '0,0,0,0',
+        'Local de Impressão do Fechamento de Caixa':              '0,0,0,0',
+        'Local de Impressão da Pré-conta das Mesas':              '0,0,0,0',
+        'Local de Impressão da Pré-conta do At. Id.':             '0,0,0,0',
+        'Local de Impressão da Pré-conta das Entregas':           '0,0,0,0',
+        'Imprimir (Enviar) para Locais de Impressão (Geral)':    '0,0,0,0',
+        'Imprimir para Locais de Impressão (Caixa)':             '0,0,0,0',
+        'Imprimir para Locais de Impressão (Mesa)':              '0,0,0,0',
+        'Imprimir para Locais de Impressão (Entrega)':           '0,0,0,0',
+        'Imprimir para Locais de Impressão (Atend. Ident.)':     '0,0,0,0',
+        'Imprimir para Locais de Impressão (Orçamento)':         '0,0,0,0',
+      },
+      'prints/pro_cfg_especiais_local_impressao_2.png': {
+        'Imprimir Espelho':           '0,0,0,0',
+        'Espelho p/ Mesa':            '0,0,0,0',
+        'Espelho p/ At.Id.':          '0,0,0,0',
+        'Espelho p/ Entregas':        '0,0,0,0',
+        'Espelho p/ Check-out':       '0,0,0,0',
+        'Espelho p/ Orçamentos':      '0,0,0,0',
+        'Imprimir Espelho (2)':       '0,0,0,0',
+        'Espelho (2) p/ Mesa':        '0,0,0,0',
+        'Espelho (2) p/ At.Id.':      '0,0,0,0',
+        'Espelho (2) p/ Entregas':    '0,0,0,0',
+        'Espelho (2) p/ Check-out':   '0,0,0,0',
+        'Espelho (2) p/ Orçamentos':  '0,0,0,0',
+        'Descrição da Estação':       '0,0,0,0',
       },
       'prints/pro_cfg_especiais_sagres_display.png': {
         'Ser Servidor p/ Display':                                                    '30.5,21.7,37.2,7.6',
