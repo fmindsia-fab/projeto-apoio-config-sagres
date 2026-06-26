@@ -1301,8 +1301,7 @@
   <!-- ══════════════ SIDEBAR ══════════════ -->
   <nav id="sidebar">
     <div id="sidebar-header">
-      <h1>Squalus Gestão</h1>
-      <p>Guia de Configurações — Suporte</p>
+      <h1>Guia de Configurações</h1>
       <svg id="search-icon" viewBox="0 0 16 16" fill="currentColor">
         <path
           d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398l3.85 3.85a1 1 0 0 0 1.415-1.415l-3.868-3.833zm-5.242 1.156a5 5 0 1 1 0-10 5 5 0 0 1 0 10z" />
@@ -1931,7 +1930,7 @@
     <!-- HOME -->
     <section id="home" class="page-section visible">
       <div class="page-header">
-        <h2>Guia de Configurações</h2>
+        <h2 id="home-title">Guia de Configurações</h2>
         <p>Referência rápida para a equipe de suporte — caminhos e campos de cada tela de configuração.</p>
       </div>
 
@@ -14473,6 +14472,10 @@
       document.querySelectorAll('.home-group').forEach(g => {
         g.style.display = (tab === 'tudo' || g.dataset.tab === tab) ? '' : 'none';
       });
+      const tabLabel = tab === 'tudo'
+        ? 'Guia de Configurações'
+        : document.querySelector('.home-tab[data-tab="' + tab + '"]').textContent.trim();
+      document.getElementById('home-title').textContent = tabLabel;
     }
 
     function setNavSystem(system) {
