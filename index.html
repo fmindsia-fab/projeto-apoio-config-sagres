@@ -1867,6 +1867,10 @@
             Configurações Gerais
             <span class="path-badge">Pro › Configurações › Configurações Gerais</span>
           </a>
+          <a class="nav-item" onclick="showSection('pro-cfg-especiais')">
+            Configurações Especiais
+            <span class="path-badge">Pro › Configurações › Configurações Especiais › Configurações</span>
+          </a>
         </div>
       </div>
     </div>
@@ -2642,6 +2646,11 @@
             <div class="icon">⚙️</div>
             <h3>Configurações Gerais</h3>
             <p>IP do servidor, porta de comunicação, tipo de aplicação e tema visual do Squalus Pro.</p>
+          </div>
+          <div class="welcome-card mesas" onclick="showSection('pro-cfg-especiais')">
+            <div class="icon">🔧</div>
+            <h3>Configurações Especiais</h3>
+            <p>Etapas, imagens, comportamento geral, filtros de produto, pizza, fichas e solicitação de atendente. Acesso por senha.</p>
           </div>
         </div>
       </div>
@@ -13182,6 +13191,219 @@
       </div>
     </section>
 
+    <!-- ══ PRO — CONFIGURAÇÕES ESPECIAIS ══ -->
+    <section id="pro-cfg-especiais" class="page-section" data-section-img="prints/pro_cfg_especiais.png">
+      <div class="page-header">
+        <div class="breadcrumb">Pro › Configurações › Configurações Especiais › Configurações</div>
+        <h2>Configurações Especiais</h2>
+        <p>Configurações avançadas do Squalus Pro: etapas, imagens, comportamento geral, filtros, pizza, fichas e solicitação de atendente.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pro_cfg_especiais.png" alt="Tela Configurações Especiais"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pro_cfg_especiais.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o <strong>Squalus Pro</strong> → <strong>Configurações</strong> → <strong>Configurações especiais</strong> → informe a senha quando solicitado → toque em <strong>Configurações</strong> no menu lateral.
+      </div>
+
+      <!-- Configurações para Etapas -->
+      <div class="fields-card">
+        <div class="fields-card-header">Configurações para Etapas</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Mostrar Etapas no Módulo de Entrega</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se as etapas de preparo são exibidas na tela do módulo de entregas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Editar Etapas</div></td>
+              <td><span class="tag tag-opt">Botão</span></td>
+              <td>Abre o cadastro de etapas de preparo, permitindo criar, editar ou excluir as etapas utilizadas no fluxo de produção.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Configurações para Imagens -->
+      <div class="fields-card">
+        <div class="fields-card-header">Configurações para Imagens</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Alterar Imagem de Fundo de Fichas</div></td>
+              <td><span class="tag tag-opt">Botão</span></td>
+              <td>Abre seletor para substituir a imagem de fundo exibida nas fichas do sistema.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Alterar Imagem de Logo</div></td>
+              <td><span class="tag tag-opt">Botão</span></td>
+              <td>Abre seletor para substituir a logomarca exibida no aplicativo.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Configurações Gerais -->
+      <div class="fields-card">
+        <div class="fields-card-header">Configurações Gerais</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Tipo de Aplicação</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define o modo de exibição dos produtos (ex.: "Sem Códigos").</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Por Atendente</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Controla em que momento o atendente é solicitado durante o lançamento do pedido.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Sub-Identificação</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define como a sub-identificação é utilizada nos pedidos.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Sempre poder alterar Sub na tela do pedido</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando habilitado, permite alterar a sub-identificação diretamente na tela do pedido em qualquer momento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mostrar Conferir Pedido</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Exibe ou oculta o botão de conferência de pedido na interface de lançamento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Forçar teclado não numérico</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando ativo, exibe teclado alfanumérico ao invés do numérico padrão nas buscas.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Usar teclado completo para mesa ou at.id</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Ativa teclado completo (QWERTY) ao digitar número de mesa ou identificação do atendimento.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mostrar tela Entregar Em</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Exibe tela de seleção de destino da entrega durante o lançamento do pedido.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Ip impressora de REDE</div></td>
+              <td><span class="tag tag-text">Texto</span></td>
+              <td>Endereço IP da impressora de rede utilizada por este terminal.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Id Operador</div></td>
+              <td><span class="tag tag-text">Texto</span></td>
+              <td>Identificador fixo do operador vinculado a este terminal.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Senha Operador</div></td>
+              <td><span class="tag tag-text">Texto</span></td>
+              <td>Senha do operador vinculado a este terminal.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Permitir Pular Cadastro Rápido</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando habilitado, o operador pode confirmar pedido sem preencher o cadastro rápido do cliente.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Método filtro de produtos</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define como a busca de produtos é realizada (ex.: "Busca Local" — filtra apenas no cache local sem consultar o servidor).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Quantidade de produtos filtro local</div></td>
+              <td><span class="tag tag-text">Número</span></td>
+              <td>Quantidade máxima de produtos exibidos na lista de resultados do filtro local.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Utilizar Sagres IA</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Ativa o recurso de inteligência artificial Sagres IA para sugestões e otimizações no aplicativo.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Quantidade máxima de sabores (pizza)</div></td>
+              <td><span class="tag tag-text">Número</span></td>
+              <td>Número máximo de sabores permitidos por pizza no lançamento de pedidos.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Utilizar Metodo Pro de Pizza?</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Habilita o método avançado de montagem de pizza do Squalus Pro, com seleção de sabores por metades.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Utilizar Fichas na Mesa?</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Ativa o sistema de fichas vinculadas a mesas para controle de consumação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mostrar placar At.Id?</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Controla a exibição do placar no atendimento identificado. "Usar configuração do Server" herda a configuração do servidor.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Desconsiderar configuração de "Desativar para coletores do grupo" para esse PDV?</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando "Sim", ignora a restrição de grupo de coletores e permite uso neste terminal independentemente da configuração do grupo.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Filtro somente por identificação?</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando ativo, restringe a busca de produtos para funcionar apenas por código de identificação.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Forçar Uso Qual Tabela?</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Força o uso de uma tabela de preços específica neste terminal, sobrepondo a tabela padrão do sistema.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pedir Atendente -->
+      <div class="fields-card">
+        <div class="fields-card-header">Pedir Atendente</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Pedir Atendente p/ At. Id.</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se solicita identificação do atendente nos pedidos de atendimento identificado.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Pedir Atendente p/ Entrega</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se solicita identificação do atendente nos pedidos de entrega.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Pedir Atendente p/ Mesa</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se solicita identificação do atendente nos pedidos de mesa.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Fixar Atendente até Fechar o App</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Quando habilitado, mantém o mesmo atendente logado até que o aplicativo seja fechado, sem pedir nova identificação a cada pedido.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Mostrar Teclado Virt. p/ Cód. Produto</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Exibe teclado virtual ao digitar o código do produto durante o lançamento de pedidos.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
 
   </main>
 
@@ -13278,6 +13500,7 @@
       'cad-empresas-prato-digital': 'Opções do Prato Digital / PIX / Fidelidade nas Nuvens',
       // Squalus Pro
       'pro-cfg-gerais': 'Configurações Gerais',
+      'pro-cfg-especiais': 'Configurações Especiais',
     };
 
     function switchSystem(system) {
@@ -14981,6 +15204,43 @@
         'Porta':               '18.8,0.9,98.2,8.4',
         'Tipo de Aplicação':   '28.4,1.1,64.8,8.8',
         'Tema festivo?':       '28.3,67,31.9,8.8',
+      },
+      'prints/pro_cfg_especiais.png': {
+        // Configurações para Etapas
+        'Mostrar Etapas no Módulo de Entrega':                                                    '0,0,0,0',
+        'Editar Etapas':                                                                          '0,0,0,0',
+        // Configurações para Imagens
+        'Alterar Imagem de Fundo de Fichas':                                                      '0,0,0,0',
+        'Alterar Imagem de Logo':                                                                 '0,0,0,0',
+        // Configurações Gerais
+        'Tipo de Aplicação':                                                                      '0,0,0,0',
+        'Por Atendente':                                                                          '0,0,0,0',
+        'Sub-Identificação':                                                                      '0,0,0,0',
+        'Sempre poder alterar Sub na tela do pedido':                                             '0,0,0,0',
+        'Mostrar Conferir Pedido':                                                                '0,0,0,0',
+        'Forçar teclado não numérico':                                                            '0,0,0,0',
+        'Usar teclado completo para mesa ou at.id':                                               '0,0,0,0',
+        'Mostrar tela Entregar Em':                                                               '0,0,0,0',
+        'Ip impressora de REDE':                                                                  '0,0,0,0',
+        'Id Operador':                                                                            '0,0,0,0',
+        'Senha Operador':                                                                         '0,0,0,0',
+        'Permitir Pular Cadastro Rápido':                                                         '0,0,0,0',
+        'Método filtro de produtos':                                                              '0,0,0,0',
+        'Quantidade de produtos filtro local':                                                    '0,0,0,0',
+        'Utilizar Sagres IA':                                                                     '0,0,0,0',
+        'Quantidade máxima de sabores (pizza)':                                                   '0,0,0,0',
+        'Utilizar Metodo Pro de Pizza?':                                                          '0,0,0,0',
+        'Utilizar Fichas na Mesa?':                                                               '0,0,0,0',
+        'Mostrar placar At.Id?':                                                                  '0,0,0,0',
+        'Desconsiderar configuração de "Desativar para coletores do grupo" para esse PDV?':       '0,0,0,0',
+        'Filtro somente por identificação?':                                                      '0,0,0,0',
+        'Forçar Uso Qual Tabela?':                                                                '0,0,0,0',
+        // Pedir Atendente
+        'Pedir Atendente p/ At. Id.':                                                             '0,0,0,0',
+        'Pedir Atendente p/ Entrega':                                                             '0,0,0,0',
+        'Pedir Atendente p/ Mesa':                                                                '0,0,0,0',
+        'Fixar Atendente até Fechar o App':                                                       '0,0,0,0',
+        'Mostrar Teclado Virt. p/ Cód. Produto':                                                  '0,0,0,0',
       },
     };
 
