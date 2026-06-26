@@ -1883,6 +1883,10 @@
             Cfg. Especiais — Módulos
             <span class="path-badge">Pro › Configurações Especiais › Módulos</span>
           </a>
+          <a class="nav-item" onclick="showSection('pro-cfg-especiais-balanca')">
+            Cfg. Especiais — Balança
+            <span class="path-badge">Pro › Configurações Especiais › Balança</span>
+          </a>
         </div>
       </div>
     </div>
@@ -13471,6 +13475,68 @@
       </div>
     </section>
 
+    <!-- ══ PRO — CONFIGURAÇÕES ESPECIAIS — BALANÇA ══ -->
+    <section id="pro-cfg-especiais-balanca" class="page-section" data-section-img="prints/pro_cfg_especiais_balanca.png">
+      <div class="page-header">
+        <div class="breadcrumb">Pro › Configurações › Configurações Especiais › Balança</div>
+        <h2>Configurações Especiais — Balança</h2>
+        <p>Configurações da balança integrada ao Squalus Pro.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pro_cfg_especiais_balanca.png" alt="Tela Balança"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pro_cfg_especiais_balanca.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o <strong>Squalus Pro</strong> → <strong>Configurações</strong> → <strong>Configurações especiais</strong> → informe a senha → toque em <strong>Balança</strong> no menu lateral.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Balança</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Usar Balança</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Habilita ou desabilita o uso de balança integrada neste terminal.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Porta Balança</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Seleciona a porta serial (COM) onde a balança está conectada.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Tipo Balança</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define o modelo/protocolo da balança utilizada (ex.: "Toledo Prix 3").</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Velocidade Balança</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define a taxa de comunicação serial (baud rate) com a balança. O valor padrão é 9600.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Timeout Balança</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Tempo máximo de espera (em ms) pela resposta da balança antes de cancelar a leitura. Padrão: 3000.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Divisor Balança</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Fator divisor aplicado ao peso lido pela balança para ajuste de unidade. Padrão: 1.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Testar Balança</div></td>
+              <td><span class="tag tag-opt">Botão</span></td>
+              <td>Realiza um teste de comunicação com a balança configurada para verificar se está respondendo corretamente.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- ══ PRO — CONFIGURAÇÕES ESPECIAIS — MÓDULOS ══ -->
     <section id="pro-cfg-especiais-modulos" class="page-section" data-section-img="prints/pro_cfg_especiais_modulos.png">
       <div class="page-header">
@@ -13613,6 +13679,7 @@
       'pro-cfg-especiais-2': 'Configurações Especiais (2/3)',
       'pro-cfg-especiais-3': 'Configurações Especiais (3/3)',
       'pro-cfg-especiais-modulos': 'Cfg. Especiais — Módulos',
+      'pro-cfg-especiais-balanca': 'Cfg. Especiais — Balança',
     };
 
     function switchSystem(system) {
@@ -15353,6 +15420,15 @@
         'Pedir Atendente p/ Mesa':                                                           '64.9,21.7,37.5,8.1',
         'Fixar Atendente até Fechar o App':                                                  '64.8,60.9,37.1,8.4',
         'Mostrar Teclado Virt. p/ Cód. Produto':                                             '75.6,21.7,37.6,7.8',
+      },
+      'prints/pro_cfg_especiais_balanca.png': {
+        'Usar Balança':          '0,0,0,0',
+        'Porta Balança':         '0,0,0,0',
+        'Tipo Balança':          '0,0,0,0',
+        'Velocidade Balança':    '0,0,0,0',
+        'Timeout Balança':       '0,0,0,0',
+        'Divisor Balança':       '0,0,0,0',
+        'Testar Balança':        '0,0,0,0',
       },
       'prints/pro_cfg_especiais_modulos.png': {
         'Usar Entrega':                   '19.8,21.7,37.5,7.8',
