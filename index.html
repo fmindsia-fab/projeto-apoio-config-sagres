@@ -1887,6 +1887,10 @@
             Cfg. Especiais — Balança
             <span class="path-badge">Pro › Configurações Especiais › Balança</span>
           </a>
+          <a class="nav-item" onclick="showSection('pro-cfg-especiais-maquininha')">
+            Cfg. Especiais — Tipo de Maquininha
+            <span class="path-badge">Pro › Configurações Especiais › Tipo de Maquininha</span>
+          </a>
         </div>
       </div>
     </div>
@@ -13475,6 +13479,68 @@
       </div>
     </section>
 
+    <!-- ══ PRO — CONFIGURAÇÕES ESPECIAIS — TIPO DE MAQUININHA ══ -->
+    <section id="pro-cfg-especiais-maquininha" class="page-section" data-section-img="prints/pro_cfg_especiais_maquininha.png">
+      <div class="page-header">
+        <div class="breadcrumb">Pro › Configurações › Configurações Especiais › Tipo de Maquininha</div>
+        <h2>Configurações Especiais — Tipo de Maquininha</h2>
+        <p>Define o tipo de maquininha integrada ao Squalus Pro e oferece botões de teste de comunicação.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pro_cfg_especiais_maquininha.png" alt="Tela Tipo de Maquininha"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pro_cfg_especiais_maquininha.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o <strong>Squalus Pro</strong> → <strong>Configurações</strong> → <strong>Configurações especiais</strong> → informe a senha → toque em <strong>Tipo de Maquininha</strong> no menu lateral.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Tipo de Maquininha</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Tipo do App</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define a maquininha integrada ao terminal. Opções: <strong>Android</strong> (dispositivo genérico), <strong>Cielo Lio v2</strong>, <strong>Stone</strong>, <strong>GetNet</strong>, <strong>Rede</strong>.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Testar init</div></td>
+              <td><span class="tag tag-opt">Botão</span></td>
+              <td>Inicia o teste de inicialização da integração com a maquininha selecionada.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Pegar informações do aparelho</div></td>
+              <td><span class="tag tag-opt">Botão</span></td>
+              <td>Consulta e exibe informações do terminal/maquininha conectado (modelo, serial, versão de firmware).</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Testar impressora pré-conta</div></td>
+              <td><span class="tag tag-opt">Botão</span></td>
+              <td>Envia um teste de impressão no formato de pré-conta para a impressora da maquininha.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Testar impressora texto</div></td>
+              <td><span class="tag tag-opt">Botão</span></td>
+              <td>Envia um teste de impressão de texto simples para verificar o funcionamento da impressora.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Testar checkout 2 - venda</div></td>
+              <td><span class="tag tag-opt">Botão</span></td>
+              <td>Realiza uma transação de teste de venda usando o fluxo de checkout 2 da maquininha.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Testar checkout - venda</div></td>
+              <td><span class="tag tag-opt">Botão</span></td>
+              <td>Realiza uma transação de teste de venda usando o fluxo de checkout padrão da maquininha.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- ══ PRO — CONFIGURAÇÕES ESPECIAIS — BALANÇA ══ -->
     <section id="pro-cfg-especiais-balanca" class="page-section" data-section-img="prints/pro_cfg_especiais_balanca.png">
       <div class="page-header">
@@ -13680,6 +13746,7 @@
       'pro-cfg-especiais-3': 'Configurações Especiais (3/3)',
       'pro-cfg-especiais-modulos': 'Cfg. Especiais — Módulos',
       'pro-cfg-especiais-balanca': 'Cfg. Especiais — Balança',
+      'pro-cfg-especiais-maquininha': 'Cfg. Especiais — Tipo de Maquininha',
     };
 
     function switchSystem(system) {
@@ -15420,6 +15487,15 @@
         'Pedir Atendente p/ Mesa':                                                           '64.9,21.7,37.5,8.1',
         'Fixar Atendente até Fechar o App':                                                  '64.8,60.9,37.1,8.4',
         'Mostrar Teclado Virt. p/ Cód. Produto':                                             '75.6,21.7,37.6,7.8',
+      },
+      'prints/pro_cfg_especiais_maquininha.png': {
+        'Tipo do App':                        '0,0,0,0',
+        'Testar init':                        '0,0,0,0',
+        'Pegar informações do aparelho':      '0,0,0,0',
+        'Testar impressora pré-conta':        '0,0,0,0',
+        'Testar impressora texto':            '0,0,0,0',
+        'Testar checkout 2 - venda':          '0,0,0,0',
+        'Testar checkout - venda':            '0,0,0,0',
       },
       'prints/pro_cfg_especiais_balanca.png': {
         'Usar Balança':          '19.5,21.6,76.3,8.4',
