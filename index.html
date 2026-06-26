@@ -1879,6 +1879,10 @@
             Configurações Especiais (3/3)
             <span class="path-badge">Pro › Cfg. Especiais › Gerais (fim) e Pedir Atendente</span>
           </a>
+          <a class="nav-item" onclick="showSection('pro-cfg-especiais-modulos')">
+            Cfg. Especiais — Módulos
+            <span class="path-badge">Pro › Configurações Especiais › Módulos</span>
+          </a>
         </div>
       </div>
     </div>
@@ -13467,6 +13471,48 @@
       </div>
     </section>
 
+    <!-- ══ PRO — CONFIGURAÇÕES ESPECIAIS — MÓDULOS ══ -->
+    <section id="pro-cfg-especiais-modulos" class="page-section" data-section-img="prints/pro_cfg_especiais_modulos.png">
+      <div class="page-header">
+        <div class="breadcrumb">Pro › Configurações › Configurações Especiais › Módulos</div>
+        <h2>Configurações Especiais — Módulos</h2>
+        <p>Define quais módulos de atendimento estão habilitados neste terminal do Squalus Pro.</p>
+      </div>
+
+      <div class="screen-print">
+        <img src="prints/pro_cfg_especiais_modulos.png" alt="Tela Módulos"
+             onerror="this.parentElement.innerHTML='<div class=\'print-placeholder\'>Salve o print como <code>prints/pro_cfg_especiais_modulos.png</code> para exibir aqui.</div>'">
+      </div>
+
+      <div class="note-box">
+        <strong>Como acessar:</strong> Abra o <strong>Squalus Pro</strong> → <strong>Configurações</strong> → <strong>Configurações especiais</strong> → informe a senha → toque em <strong>Módulos</strong> no menu lateral.
+      </div>
+
+      <div class="fields-card">
+        <div class="fields-card-header">Módulos</div>
+        <table class="fields-table">
+          <thead><tr><th>Campo</th><th>Tipo</th><th>Descrição / Orientação de Suporte</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><div class="field-name">Usar Entrega</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o módulo de entregas está habilitado neste terminal. "Usar configuração do Server" herda a configuração central.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Usar Atendimento Identificado</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o módulo de atendimento identificado está habilitado neste terminal.</td>
+            </tr>
+            <tr>
+              <td><div class="field-name">Usar Mesas</div></td>
+              <td><span class="tag tag-opt">Seleção</span></td>
+              <td>Define se o módulo de mesas está habilitado neste terminal.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
 
   </main>
 
@@ -13566,6 +13612,7 @@
       'pro-cfg-especiais-1': 'Configurações Especiais (1/3)',
       'pro-cfg-especiais-2': 'Configurações Especiais (2/3)',
       'pro-cfg-especiais-3': 'Configurações Especiais (3/3)',
+      'pro-cfg-especiais-modulos': 'Cfg. Especiais — Módulos',
     };
 
     function switchSystem(system) {
@@ -15306,6 +15353,11 @@
         'Pedir Atendente p/ Mesa':                                                           '64.9,21.7,37.5,8.1',
         'Fixar Atendente até Fechar o App':                                                  '64.8,60.9,37.1,8.4',
         'Mostrar Teclado Virt. p/ Cód. Produto':                                             '75.6,21.7,37.6,7.8',
+      },
+      'prints/pro_cfg_especiais_modulos.png': {
+        'Usar Entrega':                   '0,0,0,0',
+        'Usar Atendimento Identificado':  '0,0,0,0',
+        'Usar Mesas':                     '0,0,0,0',
       },
     };
 
