@@ -742,6 +742,12 @@
       border: 1px solid rgba(52, 211, 153, .28);
     }
 
+    .res-badge.pro {
+      background: rgba(168, 85, 247, .13);
+      color: #a855f7;
+      border: 1px solid rgba(168, 85, 247, .28);
+    }
+
     .search-result-item.kbd-focus {
       background: var(--sidebar-act);
       color: var(--text);
@@ -968,8 +974,15 @@
       color: #fb923c;
     }
 
-    /* ── NAV PDV ── */
+    .sys-tab.pro.active {
+      background: rgba(168, 85, 247, .11);
+      border-color: rgba(168, 85, 247, .3);
+      color: #a855f7;
+    }
+
+    /* ── NAV PDV / PRO ── */
     #nav-pdv { display: none; padding: 0 0 22px; }
+    #nav-pro { display: none; padding: 0 0 22px; }
 
     #nav-pdv .nav-section { border-bottom: none; }
 
@@ -1171,6 +1184,12 @@
       border: 1px solid rgba(248, 113, 113, .22);
     }
 
+    .sys-badge.pro {
+      background: rgba(168, 85, 247, .10);
+      color: #a855f7;
+      border: 1px solid rgba(168, 85, 247, .22);
+    }
+
     .home-group .welcome-grid { margin-top: 0; }
 
     /* ── HOME FILTRADO — grid unificado ── */
@@ -1292,6 +1311,7 @@
       <div class="sys-tabs">
         <button class="sys-tab gestao active" onclick="switchSystem('gestao')">Gestão</button>
         <button class="sys-tab pdv" onclick="switchSystem('pdv')">PDV</button>
+        <button class="sys-tab pro" onclick="switchSystem('pro')">Pro</button>
       </div>
     </div>
 
@@ -1302,6 +1322,7 @@
         <button class="search-chip active" data-filter="tudo" onclick="setSearchFilter('tudo')">Tudo</button>
         <button class="search-chip" data-filter="pdv" onclick="setSearchFilter('pdv')">PDV</button>
         <button class="search-chip" data-filter="gestao" onclick="setSearchFilter('gestao')">Gestão</button>
+        <button class="search-chip" data-filter="pro" onclick="setSearchFilter('pro')">Pro</button>
       </div>
       <div id="search-results"></div>
     </div>
@@ -1836,6 +1857,12 @@
       </div>
 
     </div>
+
+    <!-- Nav Pro (oculto até clicar na aba Pro) -->
+    <div id="nav-pro">
+      <!-- seções do Squalus Pro serão adicionadas aqui -->
+    </div>
+
   </nav>
 
   <!-- ══════════════ MAIN ══════════════ -->
@@ -1858,6 +1885,7 @@
         <button class="home-tab"        data-tab="atid"       onclick="showHomeTab('atid')">Atend. c/ Identificação</button>
         <button class="home-tab"        data-tab="pdv"        onclick="showHomeTab('pdv')">PDV</button>
         <button class="home-tab"        data-tab="apps"       onclick="showHomeTab('apps')">Apps</button>
+        <button class="home-tab"        data-tab="pro"        onclick="showHomeTab('pro')">Pro</button>
       </div>
 
       <!-- Grupo: Configurações Gerais -->
@@ -2592,6 +2620,17 @@
             <h3>Configurar Opções TEF</h3>
             <p>Habilita o módulo TEF, define número de cópias, modo de impressão das formas de pagamento, linhas entre cópias e guilhotina.</p>
           </div>
+        </div>
+      </div>
+
+      <!-- Grupo: Squalus Pro -->
+      <div class="home-group" data-tab="pro">
+        <div class="home-group-header">
+          <span class="sys-badge pro">Squalus Pro</span>
+          <h3>Squalus Pro</h3>
+        </div>
+        <div class="welcome-grid">
+          <!-- cards do Pro serão adicionados aqui -->
         </div>
       </div>
 
@@ -13175,9 +13214,9 @@
     };
 
     function switchSystem(system) {
-      setNavSystem(system === 'pdv');
+      setNavSystem(system);
       backToHome();
-      showHomeTab(system === 'pdv' ? 'pdv' : 'tudo');
+      showHomeTab(system === 'gestao' ? 'tudo' : system);
     }
 
     function toggleNavSection(titleEl) {
@@ -13205,23 +13244,26 @@
       });
     }
 
-    function setNavSystem(isPdv) {
+    function setNavSystem(system) {
       const navNormal = document.getElementById('nav-normal');
       const navPdv    = document.getElementById('nav-pdv');
+      const navPro    = document.getElementById('nav-pro');
       document.querySelectorAll('.sys-tab').forEach(t => t.classList.remove('active'));
-      if (isPdv) {
-        navNormal.style.display = 'none';
-        navPdv.style.display    = 'block';
-        document.querySelector('.sys-tab.pdv').classList.add('active');
-      } else {
-        navNormal.style.display = 'block';
-        navPdv.style.display    = 'none';
-        document.querySelector('.sys-tab.gestao').classList.add('active');
-      }
+      navNormal.style.display = system === 'gestao' ? 'block' : 'none';
+      if (navPdv) navPdv.style.display = system === 'pdv'  ? 'block' : 'none';
+      if (navPro) navPro.style.display = system === 'pro'  ? 'block' : 'none';
+      const activeBtn = document.querySelector(`.sys-tab.${system}`);
+      if (activeBtn) activeBtn.classList.add('active');
+    }
+
+    function _sectionSystem(id) {
+      if (id.startsWith('pdv-')) return 'pdv';
+      if (id.startsWith('pro-')) return 'pro';
+      return 'gestao';
     }
 
     function showSection(id) {
-      const isPdv       = id.startsWith('pdv-');
+      const system      = _sectionSystem(id);
       const homeVisible = document.getElementById('home').classList.contains('visible');
 
       // ── MODO PREVIEW: chamado da home → mantém home + rola até a seção ──
@@ -13240,7 +13282,7 @@
             if (navSection) navSection.classList.remove('collapsed');
           }
         });
-        setNavSystem(isPdv);
+        setNavSystem(system);
         return;
       }
 
@@ -13257,7 +13299,7 @@
         }
       });
       document.getElementById('main').scrollTo({ top: 0, behavior: 'smooth' });
-      if (id !== 'home') setNavSystem(isPdv);
+      if (id !== 'home') setNavSystem(system);
     }
 
     let searchFilter = 'tudo';
@@ -13312,20 +13354,18 @@
 
       if (!q) {
         panel.style.display = 'none';
-        const pdvActive = document.querySelector('.sys-tab.pdv.active');
-        if (pdvActive) {
-          navNormal.style.display = 'none';
-          if (navPdv) navPdv.style.display = 'block';
-        } else {
-          navNormal.style.display = '';
-          if (navPdv) navPdv.style.display = 'none';
-        }
+        const activeTab = document.querySelector('.sys-tab.active');
+        const sys = activeTab
+          ? (['pdv','pro','gestao'].find(s => activeTab.classList.contains(s)) || 'gestao')
+          : 'gestao';
+        setNavSystem(sys);
         return;
       }
 
       panel.style.display = '';
       navNormal.style.display = 'none';
       if (navPdv) navPdv.style.display = 'none';
+      if (document.getElementById('nav-pro')) document.getElementById('nav-pro').style.display = 'none';
       box.innerHTML = '';
 
       const qLow = q.toLowerCase();
@@ -13347,7 +13387,7 @@
       document.querySelectorAll('.page-section').forEach(section => {
         const sectionId = section.id;
         if (sectionId === 'home') return;
-        const module = sectionId.startsWith('pdv-') ? 'pdv' : 'gestao';
+        const module = sectionId.startsWith('pdv-') ? 'pdv' : sectionId.startsWith('pro-') ? 'pro' : 'gestao';
         if (searchFilter !== 'tudo' && module !== searchFilter) return;
 
         const sectionLabel = SECTION_LABELS[sectionId] || sectionId;
@@ -13388,7 +13428,8 @@
       results.forEach(({ sectionId, sectionLabel, fieldName, module, row, el }) => {
         const item = document.createElement('a');
         item.className = 'search-result-item';
-        const badge = `<span class="res-badge ${module}">${module === 'pdv' ? 'PDV' : 'Gestão'}</span>`;
+        const badgeLabel = module === 'pdv' ? 'PDV' : module === 'pro' ? 'Pro' : 'Gestão';
+        const badge = `<span class="res-badge ${module}">${badgeLabel}</span>`;
         item.innerHTML = `<span class="res-field">${escapeHtml(fieldName)}${badge}</span>
                         <span class="res-section">${escapeHtml(sectionLabel)}</span>`;
         item.onclick = () => {
@@ -13396,9 +13437,6 @@
           showSection(sectionId);
           document.getElementById('search-bar').value = '';
           panel.style.display = 'none';
-          const isPdv = sectionId.startsWith('pdv-');
-          navNormal.style.display = isPdv ? 'none' : '';
-          if (navPdv) navPdv.style.display = isPdv ? 'block' : 'none';
           requestAnimationFrame(() => {
             if (row) {
               row.classList.add('row-highlight');
