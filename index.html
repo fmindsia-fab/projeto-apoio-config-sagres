@@ -433,6 +433,92 @@
 
     .note-box strong { color: #f0c840; }
 
+    /* ── SENHAS DE ACESSO (Contingência / Desbloqueio) ── */
+    .senha-painel {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      margin-bottom: 18px;
+    }
+
+    .senha-painel-data { font-size: .79rem; color: var(--text-dim); }
+
+    .senha-painel-valor {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: var(--azul-accent);
+      background: var(--azul-dark);
+      border: 1px solid rgba(92, 158, 248, .3);
+      border-radius: var(--radius-sm);
+      padding: 6px 16px;
+    }
+
+    .btn-copiar {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      font-size: .75rem;
+      font-family: 'DM Sans', sans-serif;
+      padding: 7px 14px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: border-color .15s ease, color .15s ease;
+    }
+
+    .btn-copiar:hover { border-color: var(--azul-accent); color: var(--text); }
+    .btn-copiar.copiado { border-color: var(--tag-sim); color: var(--tag-sim); }
+
+    .senha-lookup {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      background: var(--bg-card);
+      border: 1px solid var(--border-faint);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      margin-bottom: 20px;
+    }
+
+    .senha-lookup label { font-size: .79rem; color: var(--text-dim); }
+
+    .senha-lookup input[type="date"] {
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: var(--radius-sm);
+      padding: 6px 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .82rem;
+    }
+
+    .senha-lookup-resultado {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .95rem;
+      color: var(--text);
+    }
+
+    .senha-lookup-resultado .senha-fora {
+      color: var(--tag-nao);
+      font-family: 'DM Sans', sans-serif;
+      font-size: .79rem;
+    }
+
+    .senha-tabela-toggle { margin-top: 6px; }
+    .senha-tabela-toggle summary {
+      cursor: pointer;
+      color: var(--azul-accent);
+      font-size: .8rem;
+      margin-bottom: 12px;
+    }
+
     /* ── WELCOME CARDS ── */
     .welcome-grid {
       display: grid;
@@ -1190,6 +1276,12 @@
       border: 1px solid rgba(168, 85, 247, .22);
     }
 
+    .sys-badge.senhas {
+      background: var(--amarelo-dim);
+      color: var(--amarelo);
+      border: 1px solid rgba(232, 184, 48, .25);
+    }
+
     .home-group .welcome-grid { margin-top: 0; }
 
     /* ── HOME FILTRADO — grid unificado ── */
@@ -1463,6 +1555,14 @@
           <a class="nav-item" onclick="showSection('cfg-senha-internet')">
             Senha Via Internet
             <span class="path-badge">Gestão › Configurações › Senha Via Internet</span>
+          </a>
+          <a class="nav-item" onclick="showSection('senha-contingencia')">
+            Senha de Contingência
+            <span class="path-badge">Suporte › Senhas de Acesso › Senha de Contingência</span>
+          </a>
+          <a class="nav-item" onclick="showSection('senha-desbloqueio')">
+            Senha de Desbloqueio
+            <span class="path-badge">Suporte › Senhas de Acesso › Senha de Desbloqueio</span>
           </a>
           <a class="nav-item" onclick="showSection('cfg-otimizar-velocidade')">
             Otimizar Velocidade do Sistema
@@ -1943,6 +2043,7 @@
         <button class="home-tab"        data-tab="atid"       onclick="showHomeTab('atid')">Atend. c/ Identificação</button>
         <button class="home-tab"        data-tab="pdv"        onclick="showHomeTab('pdv')">PDV</button>
         <button class="home-tab"        data-tab="pro"        onclick="showHomeTab('pro')">Pro</button>
+        <button class="home-tab"        data-tab="senhas"     onclick="showHomeTab('senhas')">Senhas</button>
       </div>
 
       <!-- Grupo: Configurações Gerais -->
@@ -2106,6 +2207,26 @@
             <div class="icon">👤</div>
             <h3>Usuários / Permissões</h3>
             <p>Cadastro de usuários, perfis de acesso e permissões.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grupo: Senhas de Acesso -->
+      <div class="home-group" data-tab="senhas">
+        <div class="home-group-header">
+          <span class="sys-badge senhas">Senhas</span>
+          <h3>Senhas de Acesso</h3>
+        </div>
+        <div class="welcome-grid">
+          <div class="welcome-card" onclick="showSection('senha-contingencia')">
+            <div class="icon">🛡️</div>
+            <h3>Senha de Contingência</h3>
+            <p>Consulta da senha de contingência válida para o dia atual ou para qualquer outra data.</p>
+          </div>
+          <div class="welcome-card" onclick="showSection('senha-desbloqueio')">
+            <div class="icon">🔓</div>
+            <h3>Senha de Desbloqueio</h3>
+            <p>Consulta da senha de desbloqueio da semana atual ou de qualquer outro período cadastrado.</p>
           </div>
         </div>
       </div>
@@ -5407,6 +5528,82 @@
           </tbody>
         </table>
       </div>
+    </section>
+
+    <!-- ══ SENHA DE CONTINGÊNCIA ══ -->
+    <section id="senha-contingencia" class="page-section">
+      <div class="page-header">
+        <div class="breadcrumb">Suporte › Senhas de Acesso › Senha de Contingência</div>
+        <h2>Senha de Contingência</h2>
+        <p>Consulta da senha de contingência válida para o dia atual ou para qualquer outra data.</p>
+      </div>
+
+      <div class="note-box">
+        <strong>Como funciona:</strong> a senha de contingência muda <strong>todos os dias</strong>, seguindo uma
+        sequência própria por dia, mês e ano. Não é necessário manter uma lista — a senha de qualquer data é
+        calculada automaticamente abaixo.
+      </div>
+
+      <div class="senha-painel">
+        <div>
+          <div class="senha-painel-data">Senha de hoje — <span id="sc-data-hoje"></span></div>
+          <div class="senha-painel-valor" id="sc-senha-hoje">--------</div>
+        </div>
+        <button class="btn-copiar" type="button" onclick="copiarSenha('Contingência', 'sc-data-hoje', 'sc-senha-hoje', this)">Copiar</button>
+      </div>
+
+      <div class="senha-lookup">
+        <label for="sc-data-consulta">Consultar outra data:</label>
+        <input type="date" id="sc-data-consulta" onchange="atualizarConsultaContingencia()" />
+        <div class="senha-lookup-resultado" id="sc-resultado"></div>
+      </div>
+    </section>
+
+    <!-- ══ SENHA DE DESBLOQUEIO ══ -->
+    <section id="senha-desbloqueio" class="page-section">
+      <div class="page-header">
+        <div class="breadcrumb">Suporte › Senhas de Acesso › Senha de Desbloqueio</div>
+        <h2>Senha de Desbloqueio</h2>
+        <p>Consulta da senha de desbloqueio da semana atual ou de qualquer outro período cadastrado.</p>
+      </div>
+
+      <div class="note-box">
+        <strong>Como funciona:</strong> a senha de desbloqueio muda a cada <strong>período (geralmente semanal)</strong>,
+        conforme tabela própria fornecida pela Squalus. A tabela atual cobre até <strong>06/01/2027</strong> — quando uma
+        nova lista de senhas for recebida, ela deve ser adicionada ao array <code>senhasDesbloqueio</code> no
+        <code>index.html</code>.
+      </div>
+
+      <div class="senha-painel">
+        <div>
+          <div class="senha-painel-data">Senha da semana atual — <span id="sd-data-hoje"></span></div>
+          <div class="senha-painel-valor" id="sd-senha-hoje">--------</div>
+        </div>
+        <button class="btn-copiar" type="button" onclick="copiarSenha('Desbloqueio', 'sd-data-hoje', 'sd-senha-hoje', this)">Copiar</button>
+      </div>
+
+      <div class="senha-lookup">
+        <label for="sd-data-consulta">Consultar outra data:</label>
+        <input type="date" id="sd-data-consulta" onchange="atualizarConsultaDesbloqueio()" />
+        <div class="senha-lookup-resultado" id="sd-resultado"></div>
+      </div>
+
+      <details class="senha-tabela-toggle">
+        <summary>Ver tabela completa de períodos cadastrados</summary>
+        <div class="fields-card">
+          <div class="fields-card-header">Senhas de Desbloqueio — Períodos Cadastrados</div>
+          <table class="fields-table">
+            <thead>
+              <tr>
+                <th>Início</th>
+                <th>Fim</th>
+                <th>Senha</th>
+              </tr>
+            </thead>
+            <tbody id="sd-tabela-corpo"></tbody>
+          </table>
+        </div>
+      </details>
     </section>
 
     <!-- ══ OTIMIZAR VELOCIDADE DO SISTEMA ══ -->
@@ -16363,6 +16560,157 @@
         sec.appendChild(bar);
       });
     });
+
+    // ── SENHA DE CONTINGÊNCIA (calculada por fórmula — válida para qualquer data) ──
+    function calcSenhaContingencia(date) {
+      const dia  = date.getDate();
+      const mes  = date.getMonth() + 1;
+      const ano  = date.getFullYear();
+      const codigoDia  = String(100 - dia).padStart(2, '0');
+      const codigoMes  = String(mes * 2).padStart(2, '0');
+      const codigoAno  = String(1000 - (ano % 100)).padStart(4, '0');
+      return codigoDia + codigoMes + codigoAno;
+    }
+
+    function formatarDataBR(date) {
+      return date.toLocaleDateString('pt-BR');
+    }
+
+    function dateFromInputValue(value) {
+      // value no formato YYYY-MM-DD (input type="date"), construído em horário local
+      const [ano, mes, dia] = value.split('-').map(Number);
+      return new Date(ano, mes - 1, dia);
+    }
+
+    function atualizarConsultaContingencia() {
+      const input = document.getElementById('sc-data-consulta');
+      const resultado = document.getElementById('sc-resultado');
+      if (!input.value) { resultado.textContent = ''; return; }
+      const data = dateFromInputValue(input.value);
+      const senha = calcSenhaContingencia(data);
+      resultado.innerHTML = `${formatarDataBR(data)} → <strong>${senha}</strong>`;
+    }
+
+    // ── SENHA DE DESBLOQUEIO (tabela de períodos fornecida pela Squalus) ──
+    const senhasDesbloqueio = [
+      { inicio: '2026-01-01', fim: '2026-01-07', senha: '375149898' },
+      { inicio: '2026-01-08', fim: '2026-01-14', senha: '174542796' },
+      { inicio: '2026-01-15', fim: '2026-01-21', senha: '973935693' },
+      { inicio: '2026-01-22', fim: '2026-01-28', senha: '773328591' },
+      { inicio: '2026-01-29', fim: '2026-02-04', senha: '572721488' },
+      { inicio: '2026-02-05', fim: '2026-02-11', senha: '372114386' },
+      { inicio: '2026-02-12', fim: '2026-02-18', senha: '171507284' },
+      { inicio: '2026-02-19', fim: '2026-02-25', senha: '970900181' },
+      { inicio: '2026-02-26', fim: '2026-03-04', senha: '770293079' },
+      { inicio: '2026-03-05', fim: '2026-03-11', senha: '569685977' },
+      { inicio: '2026-03-12', fim: '2026-03-18', senha: '369078874' },
+      { inicio: '2026-03-19', fim: '2026-03-25', senha: '168471772' },
+      { inicio: '2026-03-26', fim: '2026-04-01', senha: '967864669' },
+      { inicio: '2026-04-02', fim: '2026-04-08', senha: '767257567' },
+      { inicio: '2026-04-09', fim: '2026-04-15', senha: '566650465' },
+      { inicio: '2026-04-16', fim: '2026-04-22', senha: '366043363' },
+      { inicio: '2026-04-23', fim: '2026-04-29', senha: '165436260' },
+      { inicio: '2026-04-30', fim: '2026-05-06', senha: '964829157' },
+      { inicio: '2026-05-07', fim: '2026-05-13', senha: '764222055' },
+      { inicio: '2026-05-14', fim: '2026-05-20', senha: '563614953' },
+      { inicio: '2026-05-21', fim: '2026-05-27', senha: '363007851' },
+      { inicio: '2026-05-28', fim: '2026-06-03', senha: '162400749' },
+      { inicio: '2026-06-04', fim: '2026-06-10', senha: '961793645' },
+      { inicio: '2026-06-11', fim: '2026-06-17', senha: '761186543' },
+      { inicio: '2026-06-18', fim: '2026-06-24', senha: '560579441' },
+      { inicio: '2026-06-25', fim: '2026-07-01', senha: '359972339' },
+      { inicio: '2026-07-02', fim: '2026-07-08', senha: '159365237' },
+      { inicio: '2026-07-09', fim: '2026-07-15', senha: '958758134' },
+      { inicio: '2026-07-16', fim: '2026-07-22', senha: '758151031' },
+      { inicio: '2026-07-23', fim: '2026-07-29', senha: '557543929' },
+      { inicio: '2026-07-30', fim: '2026-08-05', senha: '356936827' },
+      { inicio: '2026-08-06', fim: '2026-08-12', senha: '156329725' },
+      { inicio: '2026-08-13', fim: '2026-08-19', senha: '955722622' },
+      { inicio: '2026-08-20', fim: '2026-08-26', senha: '755115520' },
+      { inicio: '2026-08-27', fim: '2026-09-02', senha: '554508417' },
+      { inicio: '2026-09-03', fim: '2026-09-09', senha: '353901315' },
+      { inicio: '2026-09-10', fim: '2026-09-16', senha: '153294213' },
+      { inicio: '2026-09-17', fim: '2026-09-23', senha: '952687110' },
+      { inicio: '2026-09-24', fim: '2026-09-30', senha: '752080008' },
+      { inicio: '2026-10-01', fim: '2026-10-07', senha: '551472906' },
+      { inicio: '2026-10-08', fim: '2026-10-14', senha: '350865804' },
+      { inicio: '2026-10-15', fim: '2026-10-21', senha: '150258701' },
+      { inicio: '2026-10-22', fim: '2026-10-28', senha: '949651598' },
+      { inicio: '2026-10-29', fim: '2026-11-04', senha: '749044496' },
+      { inicio: '2026-11-05', fim: '2026-11-11', senha: '548437394' },
+      { inicio: '2026-11-12', fim: '2026-11-18', senha: '347830292' },
+      { inicio: '2026-11-19', fim: '2026-11-25', senha: '147223190' },
+      { inicio: '2026-11-26', fim: '2026-12-02', senha: '946616086' },
+      { inicio: '2026-12-03', fim: '2026-12-09', senha: '746008984' },
+      { inicio: '2026-12-10', fim: '2026-12-16', senha: '545401882' },
+      { inicio: '2026-12-17', fim: '2026-12-23', senha: '344794780' },
+      { inicio: '2026-12-24', fim: '2026-12-30', senha: '144187678' },
+      { inicio: '2026-12-31', fim: '2027-01-06', senha: '943580575' },
+    ];
+
+    function isoFromDate(date) {
+      const ano = date.getFullYear();
+      const mes = String(date.getMonth() + 1).padStart(2, '0');
+      const dia = String(date.getDate()).padStart(2, '0');
+      return `${ano}-${mes}-${dia}`;
+    }
+
+    function getSenhaDesbloqueio(date) {
+      const iso = isoFromDate(date);
+      const periodo = senhasDesbloqueio.find(p => iso >= p.inicio && iso <= p.fim);
+      return periodo ? periodo.senha : null;
+    }
+
+    function atualizarConsultaDesbloqueio() {
+      const input = document.getElementById('sd-data-consulta');
+      const resultado = document.getElementById('sd-resultado');
+      if (!input.value) { resultado.textContent = ''; return; }
+      const data = dateFromInputValue(input.value);
+      const senha = getSenhaDesbloqueio(data);
+      if (senha) {
+        resultado.innerHTML = `${formatarDataBR(data)} → <strong>${senha}</strong>`;
+      } else {
+        resultado.innerHTML = `<span class="senha-fora">Data fora da tabela cadastrada (cobre até 06/01/2027). Atualize a lista <code>senhasDesbloqueio</code> com a nova planilha.</span>`;
+      }
+    }
+
+    function preencherTabelaDesbloqueio() {
+      const corpo = document.getElementById('sd-tabela-corpo');
+      if (!corpo) return;
+      corpo.innerHTML = senhasDesbloqueio.map(p => `
+        <tr>
+          <td>${formatarDataBR(dateFromInputValue(p.inicio))}</td>
+          <td>${formatarDataBR(dateFromInputValue(p.fim))}</td>
+          <td><span class="field-name">${p.senha}</span></td>
+        </tr>
+      `).join('');
+    }
+
+    function copiarSenha(tipo, dataElementId, senhaElementId, btn) {
+      const senha = document.getElementById(senhaElementId).textContent.trim();
+      const data = document.getElementById(dataElementId).textContent.trim();
+      if (!senha || senha === '--------') return;
+      const mensagem = `A senha de ${tipo} da data ${data} é ${senha}.`;
+      navigator.clipboard.writeText(mensagem).then(() => {
+        const original = btn.textContent;
+        btn.textContent = 'Copiado!';
+        btn.classList.add('copiado');
+        setTimeout(() => { btn.textContent = original; btn.classList.remove('copiado'); }, 1500);
+      });
+    }
+
+    function initSenhasAcesso() {
+      const hoje = new Date();
+      document.getElementById('sc-data-hoje').textContent = formatarDataBR(hoje);
+      document.getElementById('sc-senha-hoje').textContent = calcSenhaContingencia(hoje);
+
+      document.getElementById('sd-data-hoje').textContent = formatarDataBR(hoje);
+      document.getElementById('sd-senha-hoje').textContent = getSenhaDesbloqueio(hoje) || 'fora da tabela';
+
+      preencherTabelaDesbloqueio();
+    }
+
+    document.addEventListener('DOMContentLoaded', initSenhasAcesso);
 
     // ── Modal ──
     let _calibrateMode = false;
