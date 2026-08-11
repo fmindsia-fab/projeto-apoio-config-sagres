@@ -536,52 +536,48 @@
     .links-search-wrap input:focus { border-color: var(--cor-apps); }
     .links-search-wrap input::placeholder { color: var(--text-faint); }
 
-    .links-group { margin-bottom: 26px; }
-    .links-group-title {
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--text-faint);
-      margin-bottom: 10px;
-    }
-
-    .links-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 12px;
-    }
-
-    .link-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 15px 16px;
-    }
-
-    .link-card-name {
-      font-size: .92rem;
+    table.links-table { width: 100%; border-collapse: collapse; font-size: .81rem; table-layout: auto; }
+    table.links-table thead tr { background: var(--bg-thead); }
+    table.links-table th {
+      text-align: left;
+      padding: 9px 14px;
+      color: #6888a8;
       font-weight: 600;
-      color: var(--text);
-      margin-bottom: 10px;
+      font-size: .63rem;
+      text-transform: uppercase;
+      letter-spacing: .9px;
+      border-bottom: 1px solid var(--border);
     }
+    table.links-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border-faint);
+      vertical-align: middle;
+      line-height: 1.5;
+      color: #a0bcd8;
+    }
+    table.links-table tr:last-child td { border-bottom: none; }
+    table.links-table tr:hover td { background: var(--bg-hover); color: var(--text); }
 
-    .link-card-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    table.links-table td.links-col-nome { width: 40%; }
+    table.links-table td.links-col-versao { width: 30%; }
+    table.links-table td.links-col-acoes { width: 30%; white-space: nowrap; }
 
-    .link-card input[type="text"].link-version-input {
+    input[type="text"].link-version-input {
       width: 100%;
+      max-width: 180px;
       background: var(--bg-card2);
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
       color: var(--text);
       font-family: 'JetBrains Mono', monospace;
-      font-size: .85rem;
+      font-size: .84rem;
       padding: 6px 10px;
-      margin-bottom: 10px;
       outline: none;
     }
-    .link-card input[type="text"].link-version-input:focus { border-color: var(--cor-apps); }
-    .link-card input[type="text"].link-version-input::placeholder { color: var(--text-faint); }
+    input[type="text"].link-version-input:focus { border-color: var(--cor-apps); }
+    input[type="text"].link-version-input::placeholder { color: var(--text-faint); }
+
+    .links-col-acoes { display: flex; gap: 8px; }
 
     .btn-link-action {
       background: var(--bg-card2);
@@ -593,6 +589,7 @@
       border-radius: var(--radius-sm);
       cursor: pointer;
       transition: border-color .15s ease, color .15s ease;
+      white-space: nowrap;
     }
     .btn-link-action:hover { border-color: var(--cor-apps); color: var(--text); }
     .btn-link-action.copiado { border-color: var(--tag-sim); color: var(--tag-sim); }
@@ -16914,45 +16911,49 @@
         porGrupo[l.grupo].push(l);
       });
       container.innerHTML = grupos.map(grupo => `
-        <div class="links-group">
-          <div class="links-group-title">${escHtmlLinks(grupo)}</div>
-          <div class="links-grid">
-            ${porGrupo[grupo].map(l => renderLinkCard(l)).join('')}
-          </div>
+        <div class="fields-card">
+          <div class="fields-card-header">${escHtmlLinks(grupo)}</div>
+          <table class="links-table">
+            <tbody>
+              ${porGrupo[grupo].map(l => renderLinkRow(l)).join('')}
+            </tbody>
+          </table>
         </div>
       `).join('');
     }
 
-    function renderLinkCard(l) {
-      const cardId = 'link-' + l.nome.replace(/\W+/g, '-').toLowerCase();
+    function renderLinkRow(l) {
+      const rowId = 'link-' + l.nome.replace(/\W+/g, '-').toLowerCase();
       if (l.versionado) {
         return `
-          <div class="link-card">
-            <div class="link-card-name">${escHtmlLinks(l.nome)}</div>
-            <input type="text" class="link-version-input" id="${cardId}-versao" placeholder="Versão (ex: 1482)"
-              oninput="atualizarLinkVersionado('${cardId}')" />
-            <div class="link-card-actions">
-              <button class="btn-link-action" id="${cardId}-copiar" disabled onclick="copiarLinkVersionado('${cardId}', this)">Copiar</button>
-              <button class="btn-link-action" id="${cardId}-abrir" disabled onclick="abrirLinkVersionado('${cardId}')">Abrir</button>
-            </div>
-          </div>
+          <tr>
+            <td class="links-col-nome"><span class="field-name">${escHtmlLinks(l.nome)}</span></td>
+            <td class="links-col-versao">
+              <input type="text" class="link-version-input" id="${rowId}-versao" placeholder="Versão (ex: 1482)"
+                oninput="atualizarLinkVersionado('${rowId}')" />
+            </td>
+            <td class="links-col-acoes">
+              <button class="btn-link-action" id="${rowId}-copiar" disabled onclick="copiarLinkVersionado('${rowId}', this)">Copiar</button>
+              <button class="btn-link-action" id="${rowId}-abrir" disabled onclick="abrirLinkVersionado('${rowId}')">Abrir</button>
+            </td>
+          </tr>
         `;
       }
       return `
-        <div class="link-card">
-          <div class="link-card-name">${escHtmlLinks(l.nome)}</div>
-          <div class="link-card-actions">
+        <tr>
+          <td class="links-col-nome" colspan="2"><span class="field-name">${escHtmlLinks(l.nome)}</span></td>
+          <td class="links-col-acoes">
             <button class="btn-link-action" onclick="copiarLinkFixo('${escHtmlLinks(l.url)}', this)">Copiar</button>
             <button class="btn-link-action" onclick="window.open('${escHtmlLinks(l.url)}', '_blank')">Abrir</button>
-          </div>
-        </div>
+          </td>
+        </tr>
       `;
     }
 
-    function _linkVersionadoUrl(cardId) {
-      const nome = document.querySelector(`#${cardId}-versao`)?.closest('.link-card')?.querySelector('.link-card-name')?.textContent.trim();
+    function _linkVersionadoUrl(rowId) {
+      const nome = document.querySelector(`#${rowId}-versao`)?.closest('tr')?.querySelector('.field-name')?.textContent.trim();
       const link = _linksData.find(l => l.versionado && l.nome === nome);
-      const versao = document.getElementById(cardId + '-versao').value.trim();
+      const versao = document.getElementById(rowId + '-versao').value.trim();
       if (!link || !versao) return null;
       return link.url + versao + (link.extensao || '');
     }
