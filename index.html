@@ -519,6 +519,93 @@
       margin-bottom: 12px;
     }
 
+    /* ── LINKS ÚTEIS ── */
+    .links-search-wrap { margin-bottom: 18px; }
+    .links-search-wrap input {
+      width: 100%;
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: .86rem;
+      padding: 9px 14px;
+      outline: none;
+      transition: border-color .15s;
+    }
+    .links-search-wrap input:focus { border-color: var(--cor-apps); }
+    .links-search-wrap input::placeholder { color: var(--text-faint); }
+
+    .links-group { margin-bottom: 26px; }
+    .links-group-title {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin-bottom: 10px;
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 12px;
+    }
+
+    .link-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 15px 16px;
+    }
+
+    .link-card-name {
+      font-size: .92rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .link-card-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    .link-card input[type="text"].link-version-input {
+      width: 100%;
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .85rem;
+      padding: 6px 10px;
+      margin-bottom: 10px;
+      outline: none;
+    }
+    .link-card input[type="text"].link-version-input:focus { border-color: var(--cor-apps); }
+    .link-card input[type="text"].link-version-input::placeholder { color: var(--text-faint); }
+
+    .btn-link-action {
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      font-size: .76rem;
+      font-family: 'DM Sans', sans-serif;
+      padding: 6px 13px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: border-color .15s ease, color .15s ease;
+    }
+    .btn-link-action:hover { border-color: var(--cor-apps); color: var(--text); }
+    .btn-link-action.copiado { border-color: var(--tag-sim); color: var(--tag-sim); }
+    .btn-link-action:disabled { opacity: .4; cursor: not-allowed; }
+
+    .links-no-results {
+      text-align: center;
+      padding: 20px;
+      color: var(--text-faint);
+      font-style: italic;
+      font-size: .85rem;
+    }
+
     /* ── WELCOME CARDS ── */
     .welcome-grid {
       display: grid;
@@ -1282,6 +1369,12 @@
       border: 1px solid rgba(232, 184, 48, .25);
     }
 
+    .sys-badge.links {
+      background: var(--cor-apps-dim);
+      color: var(--cor-apps);
+      border: 1px solid rgba(34, 211, 238, .25);
+    }
+
     .home-group .welcome-grid { margin-top: 0; }
 
     /* ── HOME FILTRADO — grid unificado ── */
@@ -1577,6 +1670,16 @@
           <a class="nav-item" onclick="showSection('usuarios')">
             Usuários e Perfis
             <span class="path-badge">Em breve</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="nav-section collapsed">
+        <div class="nav-section-title" onclick="toggleNavSection(this)">Links</div>
+        <div class="nav-items">
+          <a class="nav-item" onclick="showSection('links-uteis')">
+            Links Úteis
+            <span class="path-badge">Suporte › Links Úteis</span>
           </a>
         </div>
       </div>
@@ -2044,6 +2147,7 @@
         <button class="home-tab"        data-tab="pdv"        onclick="showHomeTab('pdv')">PDV</button>
         <button class="home-tab"        data-tab="pro"        onclick="showHomeTab('pro')">Pro</button>
         <button class="home-tab"        data-tab="senhas"     onclick="showHomeTab('senhas')">Senhas</button>
+        <button class="home-tab"        data-tab="links"      onclick="showHomeTab('links')">Links</button>
       </div>
 
       <!-- Grupo: Configurações Gerais -->
@@ -2227,6 +2331,21 @@
             <div class="icon">🔓</div>
             <h3>Senha de Desbloqueio</h3>
             <p>Consulta da senha de desbloqueio da semana atual ou de qualquer outro período cadastrado.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grupo: Links Úteis -->
+      <div class="home-group" data-tab="links">
+        <div class="home-group-header">
+          <span class="sys-badge links">Links</span>
+          <h3>Links Úteis</h3>
+        </div>
+        <div class="welcome-grid">
+          <div class="welcome-card" onclick="showSection('links-uteis')">
+            <div class="icon">🔗</div>
+            <h3>Links Úteis</h3>
+            <p>Links de download dos aplicativos e páginas úteis para compartilhar com clientes e equipe.</p>
           </div>
         </div>
       </div>
@@ -5604,6 +5723,29 @@
           </table>
         </div>
       </details>
+    </section>
+
+    <!-- ══ LINKS ÚTEIS ══ -->
+    <section id="links-uteis" class="page-section">
+      <div class="page-header">
+        <div class="breadcrumb">Suporte › Links Úteis</div>
+        <h2>Links Úteis</h2>
+        <p>Links de download de aplicativos e páginas úteis para compartilhar com clientes ou com a equipe.</p>
+      </div>
+
+      <div class="note-box">
+        <strong>Como funciona:</strong> a lista de links é carregada da planilha de Links.
+        Para links marcados como <strong>versionados</strong>, digite apenas o número da versão (ex: <code>1482</code>)
+        para montar o link final automaticamente.
+      </div>
+
+      <div class="links-search-wrap">
+        <input type="text" id="links-search" placeholder="Buscar link..." oninput="filterLinks(this.value)" />
+      </div>
+
+      <div id="links-container">
+        <div class="links-no-results">Carregando links...</div>
+      </div>
     </section>
 
     <!-- ══ OTIMIZAR VELOCIDADE DO SISTEMA ══ -->
@@ -16711,6 +16853,148 @@
     }
 
     document.addEventListener('DOMContentLoaded', initSenhasAcesso);
+
+    // ── LINKS ÚTEIS ──
+    const LINKS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSRU6CfbJPypnrmQmcJqIykzsYo9OMTzWyfGFzNRaWS8EflRS--M7uBqol67u0VccL3lekckOuMvHYr/pub?gid=1610232724&single=true&output=csv';
+
+    function parseLinksCSV(text) {
+      const rows = [];
+      for (const line of text.trim().split(/\r?\n/)) {
+        const cols = []; let inQ = false, col = '';
+        for (let i = 0; i < line.length; i++) {
+          const c = line[i];
+          if      (c === '"' && !inQ)  { inQ = true; }
+          else if (c === '"' &&  inQ)  { if (line[i+1] === '"') { col += '"'; i++; } else { inQ = false; } }
+          else if (c === ',' && !inQ)  { cols.push(col); col = ''; }
+          else                         { col += c; }
+        }
+        cols.push(col);
+        rows.push(cols);
+      }
+      return rows;
+    }
+
+    function escHtmlLinks(s) {
+      return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    let _linksData = [];
+
+    async function loadLinks() {
+      const container = document.getElementById('links-container');
+      if (!container) return;
+      container.innerHTML = '<div class="links-no-results">Carregando links...</div>';
+      try {
+        const resp = await fetch(LINKS_CSV_URL);
+        if (!resp.ok) throw new Error('HTTP ' + resp.status);
+        const rows = parseLinksCSV(await resp.text()).slice(1).filter(r => r[0] && r[0].trim());
+        _linksData = rows.map(r => ({
+          grupo: (r[0] || '').trim(),
+          nome: (r[1] || '').trim(),
+          url: (r[2] || '').trim(),
+          versionado: (r[3] || '').trim().toUpperCase() === 'SIM',
+          extensao: (r[4] || '').trim()
+        })).filter(l => l.nome && l.url);
+        renderLinks(_linksData);
+      } catch (e) {
+        container.innerHTML = '<div class="links-no-results">Erro ao carregar links. Verifique se a planilha está publicada na web.</div>';
+      }
+    }
+
+    function renderLinks(links) {
+      const container = document.getElementById('links-container');
+      if (!links.length) {
+        container.innerHTML = '<div class="links-no-results">Nenhum link encontrado.</div>';
+        return;
+      }
+      const grupos = [];
+      const porGrupo = {};
+      links.forEach(l => {
+        if (!porGrupo[l.grupo]) { porGrupo[l.grupo] = []; grupos.push(l.grupo); }
+        porGrupo[l.grupo].push(l);
+      });
+      container.innerHTML = grupos.map(grupo => `
+        <div class="links-group">
+          <div class="links-group-title">${escHtmlLinks(grupo)}</div>
+          <div class="links-grid">
+            ${porGrupo[grupo].map(l => renderLinkCard(l)).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderLinkCard(l) {
+      const cardId = 'link-' + l.nome.replace(/\W+/g, '-').toLowerCase();
+      if (l.versionado) {
+        return `
+          <div class="link-card">
+            <div class="link-card-name">${escHtmlLinks(l.nome)}</div>
+            <input type="text" class="link-version-input" id="${cardId}-versao" placeholder="Versão (ex: 1482)"
+              oninput="atualizarLinkVersionado('${cardId}')" />
+            <div class="link-card-actions">
+              <button class="btn-link-action" id="${cardId}-copiar" disabled onclick="copiarLinkVersionado('${cardId}', this)">Copiar</button>
+              <button class="btn-link-action" id="${cardId}-abrir" disabled onclick="abrirLinkVersionado('${cardId}')">Abrir</button>
+            </div>
+          </div>
+        `;
+      }
+      return `
+        <div class="link-card">
+          <div class="link-card-name">${escHtmlLinks(l.nome)}</div>
+          <div class="link-card-actions">
+            <button class="btn-link-action" onclick="copiarLinkFixo('${escHtmlLinks(l.url)}', this)">Copiar</button>
+            <button class="btn-link-action" onclick="window.open('${escHtmlLinks(l.url)}', '_blank')">Abrir</button>
+          </div>
+        </div>
+      `;
+    }
+
+    function _linkVersionadoUrl(cardId) {
+      const nome = document.querySelector(`#${cardId}-versao`)?.closest('.link-card')?.querySelector('.link-card-name')?.textContent.trim();
+      const link = _linksData.find(l => l.versionado && l.nome === nome);
+      const versao = document.getElementById(cardId + '-versao').value.trim();
+      if (!link || !versao) return null;
+      return link.url + versao + (link.extensao || '');
+    }
+
+    function atualizarLinkVersionado(cardId) {
+      const url = _linkVersionadoUrl(cardId);
+      document.getElementById(cardId + '-copiar').disabled = !url;
+      document.getElementById(cardId + '-abrir').disabled = !url;
+    }
+
+    function copiarLinkVersionado(cardId, btn) {
+      const url = _linkVersionadoUrl(cardId);
+      if (!url) return;
+      navigator.clipboard.writeText(url).then(() => {
+        const original = btn.textContent;
+        btn.textContent = 'Copiado!';
+        btn.classList.add('copiado');
+        setTimeout(() => { btn.textContent = original; btn.classList.remove('copiado'); }, 1500);
+      });
+    }
+
+    function abrirLinkVersionado(cardId) {
+      const url = _linkVersionadoUrl(cardId);
+      if (url) window.open(url, '_blank');
+    }
+
+    function copiarLinkFixo(url, btn) {
+      navigator.clipboard.writeText(url).then(() => {
+        const original = btn.textContent;
+        btn.textContent = 'Copiado!';
+        btn.classList.add('copiado');
+        setTimeout(() => { btn.textContent = original; btn.classList.remove('copiado'); }, 1500);
+      });
+    }
+
+    function filterLinks(query) {
+      const q = query.trim().toLowerCase();
+      if (!q) { renderLinks(_linksData); return; }
+      renderLinks(_linksData.filter(l => l.nome.toLowerCase().includes(q) || l.grupo.toLowerCase().includes(q)));
+    }
+
+    document.addEventListener('DOMContentLoaded', loadLinks);
 
     // ── Modal ──
     let _calibrateMode = false;
