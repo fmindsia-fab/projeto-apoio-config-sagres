@@ -558,6 +558,15 @@
     table.links-table tr:last-child td { border-bottom: none; }
     table.links-table tr:hover td { background: var(--bg-hover); color: var(--text); }
 
+    .links-url {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .74rem;
+      color: var(--text-faint);
+      margin-top: 3px;
+      word-break: break-all;
+    }
+
     table.links-table td.links-col-nome { width: 40%; }
     table.links-table td.links-col-versao { width: 30%; }
     table.links-table td.links-col-acoes { width: 30%; white-space: nowrap; }
@@ -16927,7 +16936,10 @@
       if (l.versionado) {
         return `
           <tr>
-            <td class="links-col-nome"><span class="field-name">${escHtmlLinks(l.nome)}</span></td>
+            <td class="links-col-nome">
+              <span class="field-name">${escHtmlLinks(l.nome)}</span>
+              <span class="links-url" id="${rowId}-url">${escHtmlLinks(l.url)}&hellip;${escHtmlLinks(l.extensao || '')}</span>
+            </td>
             <td class="links-col-versao">
               <input type="text" class="link-version-input" id="${rowId}-versao" placeholder="Versão (ex: 1482)"
                 oninput="atualizarLinkVersionado('${rowId}')" />
@@ -16941,7 +16953,10 @@
       }
       return `
         <tr>
-          <td class="links-col-nome" colspan="2"><span class="field-name">${escHtmlLinks(l.nome)}</span></td>
+          <td class="links-col-nome" colspan="2">
+            <span class="field-name">${escHtmlLinks(l.nome)}</span>
+            <span class="links-url">${escHtmlLinks(l.url)}</span>
+          </td>
           <td class="links-col-acoes">
             <button class="btn-link-action" onclick="copiarLinkFixo('${escHtmlLinks(l.url)}', this)">Copiar</button>
             <button class="btn-link-action" onclick="window.open('${escHtmlLinks(l.url)}', '_blank')">Abrir</button>
@@ -16962,6 +16977,12 @@
       const url = _linkVersionadoUrl(cardId);
       document.getElementById(cardId + '-copiar').disabled = !url;
       document.getElementById(cardId + '-abrir').disabled = !url;
+      const urlEl = document.getElementById(cardId + '-url');
+      if (urlEl) {
+        const nome = urlEl.closest('tr')?.querySelector('.field-name')?.textContent.trim();
+        const link = _linksData.find(l => l.versionado && l.nome === nome);
+        urlEl.textContent = url || (link ? link.url + '…' + (link.extensao || '') : '');
+      }
     }
 
     function copiarLinkVersionado(cardId, btn) {
