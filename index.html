@@ -1386,6 +1386,12 @@
       border: 1px solid rgba(52, 211, 153, .25);
     }
 
+    .sys-badge.nfe {
+      background: var(--cor-vprazo-dim);
+      color: var(--cor-vprazo);
+      border: 1px solid rgba(248, 113, 113, .25);
+    }
+
     .home-group .welcome-grid { margin-top: 0; }
 
     /* ── HOME FILTRADO — grid unificado ── */
@@ -1701,6 +1707,16 @@
           <a class="nav-item" onclick="showSection('consulta-ncm')">
             Consulta de NCM
             <span class="path-badge">Suporte › Consulta de NCM</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="nav-section collapsed">
+        <div class="nav-section-title" onclick="toggleNavSection(this)">NFe</div>
+        <div class="nav-items">
+          <a class="nav-item" onclick="showSection('nfe-assistente')">
+            Assistente de NFe — Devolução c/ Redução BC
+            <span class="path-badge">Suporte › Assistente de NFe</span>
           </a>
         </div>
       </div>
@@ -2170,6 +2186,7 @@
         <button class="home-tab"        data-tab="senhas"     onclick="showHomeTab('senhas')">Senhas</button>
         <button class="home-tab"        data-tab="links"      onclick="showHomeTab('links')">Links</button>
         <button class="home-tab"        data-tab="ncm"        onclick="showHomeTab('ncm')">NCM</button>
+        <button class="home-tab"        data-tab="nfe"        onclick="showHomeTab('nfe')">NFe</button>
       </div>
 
       <!-- Grupo: Configurações Gerais -->
@@ -2383,6 +2400,21 @@
             <div class="icon">📦</div>
             <h3>Consulta de NCM</h3>
             <p>Busca local por nome do produto ou código NCM para apoio na classificação fiscal de itens.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grupo: Assistente de NFe -->
+      <div class="home-group" data-tab="nfe">
+        <div class="home-group-header">
+          <span class="sys-badge nfe">NFe</span>
+          <h3>Assistente de NFe</h3>
+        </div>
+        <div class="welcome-grid">
+          <div class="welcome-card" onclick="showSection('nfe-assistente')">
+            <div class="icon">🧾</div>
+            <h3>Devolução com Redução de BC ICMS</h3>
+            <p>Calcula a BC ICMS proporcional e o valor de ICMS devolvido em notas de devolução quando a NFe original tem redução de base de cálculo.</p>
           </div>
         </div>
       </div>
@@ -5834,6 +5866,130 @@
         transition: filter .15s;
       }
       .ncm-siscomex-link:hover { filter: brightness(1.12); }
+    </style>
+
+    <!-- ══ ASSISTENTE DE NFe — DEVOLUÇÃO C/ REDUÇÃO BC ICMS ══ -->
+    <section id="nfe-assistente" class="page-section">
+      <div class="page-header">
+        <div class="breadcrumb">Suporte › Assistente de NFe</div>
+        <h2>Assistente de NFe — Devolução com Redução de BC ICMS</h2>
+        <p>Calcula a Base de Cálculo do ICMS e o valor de ICMS proporcionais para notas de devolução, quando a NFe original de compra teve redução de base de cálculo (comum em compras de carnes).</p>
+      </div>
+
+      <div class="note-box">
+        <strong>Como funciona:</strong> informe o <strong>Valor Total</strong> e a <strong>BC ICMS</strong> da NFe original de compra, e o <strong>Valor Total</strong> que está sendo devolvido.
+        O assistente calcula a BC ICMS proporcional da devolução pela regra de três:
+        <code>BC ICMS Devolvida = (Valor Devolvido × BC ICMS Original) ÷ Valor Total Original</code>.
+        Informe também a alíquota de ICMS para obter o valor de ICMS a destacar na nota de devolução.
+      </div>
+
+      <div class="nfe-calc-card">
+        <div class="nfe-calc-group">
+          <div class="nfe-calc-group-title">NFe Original (Compra)</div>
+          <div class="nfe-calc-row">
+            <label for="nfe-valor-total-orig">Valor Total Original (R$)</label>
+            <input type="number" id="nfe-valor-total-orig" step="0.01" min="0" placeholder="Ex: 100,00" oninput="calcularNfeDevolucao()" />
+          </div>
+          <div class="nfe-calc-row">
+            <label for="nfe-bc-icms-orig">BC ICMS Original (R$)</label>
+            <input type="number" id="nfe-bc-icms-orig" step="0.01" min="0" placeholder="Ex: 58,33" oninput="calcularNfeDevolucao()" />
+          </div>
+          <div class="nfe-calc-row nfe-calc-readonly">
+            <label>% de Redução de BC (informativo)</label>
+            <div class="nfe-calc-output" id="nfe-pct-reducao">—</div>
+          </div>
+        </div>
+
+        <div class="nfe-calc-group">
+          <div class="nfe-calc-group-title">Devolução</div>
+          <div class="nfe-calc-row">
+            <label for="nfe-valor-total-dev">Valor Total Devolvido (R$)</label>
+            <input type="number" id="nfe-valor-total-dev" step="0.01" min="0" placeholder="Ex: 100,00" oninput="calcularNfeDevolucao()" />
+          </div>
+          <div class="nfe-calc-row">
+            <label for="nfe-aliquota-icms">Alíquota de ICMS (%)</label>
+            <input type="number" id="nfe-aliquota-icms" step="0.01" min="0" placeholder="Ex: 18" oninput="calcularNfeDevolucao()" />
+          </div>
+        </div>
+
+        <div class="nfe-calc-group nfe-calc-resultado">
+          <div class="nfe-calc-group-title">Resultado</div>
+          <div class="nfe-calc-row nfe-calc-readonly">
+            <label>BC ICMS Devolvida (R$)</label>
+            <div class="nfe-calc-output-wrap">
+              <div class="nfe-calc-output nfe-calc-destaque" id="nfe-bc-icms-dev">—</div>
+              <button class="btn-link-action" type="button" onclick="copiarNfeResultado('nfe-bc-icms-dev', this)">Copiar</button>
+            </div>
+          </div>
+          <div class="nfe-calc-row nfe-calc-readonly">
+            <label>Valor ICMS Devolvido (R$)</label>
+            <div class="nfe-calc-output-wrap">
+              <div class="nfe-calc-output nfe-calc-destaque" id="nfe-valor-icms-dev">—</div>
+              <button class="btn-link-action" type="button" onclick="copiarNfeResultado('nfe-valor-icms-dev', this)">Copiar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .nfe-calc-card {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+      }
+      .nfe-calc-group {
+        background: var(--bg-card2);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        padding: 16px 18px;
+      }
+      .nfe-calc-group-title {
+        font-size: .82rem;
+        font-weight: 700;
+        color: var(--text-dim);
+        text-transform: uppercase;
+        letter-spacing: .4px;
+        margin-bottom: 12px;
+      }
+      .nfe-calc-row { margin-bottom: 12px; }
+      .nfe-calc-row:last-child { margin-bottom: 0; }
+      .nfe-calc-row label {
+        display: block;
+        font-size: .83rem;
+        color: var(--text-dim);
+        margin-bottom: 5px;
+      }
+      .nfe-calc-row input {
+        width: 100%;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        color: var(--text);
+        font-size: .95rem;
+        padding: 9px 12px;
+        font-family: 'JetBrains Mono', monospace;
+      }
+      .nfe-calc-row input:focus { outline: none; border-color: var(--cor-vprazo); }
+      .nfe-calc-output {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: .95rem;
+        color: var(--text);
+        background: var(--bg-card);
+        border: 1px solid var(--border-faint);
+        border-radius: var(--radius-sm);
+        padding: 9px 12px;
+      }
+      .nfe-calc-resultado { border-color: var(--cor-vprazo); background: var(--cor-vprazo-dim); }
+      .nfe-calc-output-wrap { display: flex; align-items: center; gap: 8px; }
+      .nfe-calc-output-wrap .nfe-calc-output { flex: 1; }
+      .nfe-calc-destaque {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--cor-vprazo);
+        background: var(--azul-dark);
+        border-color: rgba(248, 113, 113, .3);
+      }
     </style>
 
     <!-- ══ OTIMIZAR VELOCIDADE DO SISTEMA ══ -->
@@ -17159,6 +17315,55 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => renderNcm(NCM_DATA));
+
+    // ── ASSISTENTE DE NFe — DEVOLUÇÃO C/ REDUÇÃO BC ICMS ──
+    function _nfeFmt(n) {
+      return n.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    function calcularNfeDevolucao() {
+      const valorTotalOrig = parseFloat(document.getElementById('nfe-valor-total-orig').value);
+      const bcIcmsOrig     = parseFloat(document.getElementById('nfe-bc-icms-orig').value);
+      const valorTotalDev  = parseFloat(document.getElementById('nfe-valor-total-dev').value);
+      const aliquota       = parseFloat(document.getElementById('nfe-aliquota-icms').value);
+
+      const pctReducaoEl = document.getElementById('nfe-pct-reducao');
+      const bcDevEl      = document.getElementById('nfe-bc-icms-dev');
+      const icmsDevEl    = document.getElementById('nfe-valor-icms-dev');
+
+      if (valorTotalOrig > 0 && !isNaN(bcIcmsOrig)) {
+        const pctReducao = (1 - (bcIcmsOrig / valorTotalOrig)) * 100;
+        pctReducaoEl.textContent = _nfeFmt(pctReducao) + '%';
+      } else {
+        pctReducaoEl.textContent = '—';
+      }
+
+      if (valorTotalOrig > 0 && !isNaN(bcIcmsOrig) && !isNaN(valorTotalDev)) {
+        const bcIcmsDev = (valorTotalDev * bcIcmsOrig) / valorTotalOrig;
+        bcDevEl.textContent = 'R$ ' + _nfeFmt(bcIcmsDev);
+
+        if (!isNaN(aliquota)) {
+          const icmsDev = bcIcmsDev * (aliquota / 100);
+          icmsDevEl.textContent = 'R$ ' + _nfeFmt(icmsDev);
+        } else {
+          icmsDevEl.textContent = '—';
+        }
+      } else {
+        bcDevEl.textContent = '—';
+        icmsDevEl.textContent = '—';
+      }
+    }
+
+    function copiarNfeResultado(elId, btn) {
+      const text = document.getElementById(elId).textContent.trim();
+      if (!text || text === '—') return;
+      navigator.clipboard.writeText(text.replace('R$ ', '')).then(() => {
+        const original = btn.textContent;
+        btn.textContent = 'Copiado!';
+        btn.classList.add('copiado');
+        setTimeout(() => { btn.textContent = original; btn.classList.remove('copiado'); }, 1500);
+      });
+    }
 
     // ── Modal ──
     let _calibrateMode = false;
