@@ -528,32 +528,32 @@
       border-radius: var(--radius-sm);
       color: var(--text);
       font-family: 'DM Sans', sans-serif;
-      font-size: .86rem;
-      padding: 9px 14px;
+      font-size: 1.02rem;
+      padding: 12px 16px;
       outline: none;
       transition: border-color .15s;
     }
     .links-search-wrap input:focus { border-color: var(--cor-apps); }
     .links-search-wrap input::placeholder { color: var(--text-faint); }
 
-    table.links-table { width: 100%; border-collapse: collapse; font-size: .81rem; table-layout: auto; }
+    table.links-table { width: 100%; border-collapse: collapse; font-size: .95rem; table-layout: auto; }
     table.links-table thead tr { background: var(--bg-thead); }
     table.links-table th {
       text-align: left;
-      padding: 9px 14px;
-      color: #6888a8;
-      font-weight: 600;
-      font-size: .63rem;
+      padding: 11px 16px;
+      color: var(--cor-apps);
+      font-weight: 700;
+      font-size: .72rem;
       text-transform: uppercase;
       letter-spacing: .9px;
       border-bottom: 1px solid var(--border);
     }
     table.links-table td {
-      padding: 10px 14px;
+      padding: 13px 16px;
       border-bottom: 1px solid var(--border-faint);
       vertical-align: middle;
       line-height: 1.5;
-      color: #a0bcd8;
+      color: var(--text-dim);
     }
     table.links-table tr:last-child td { border-bottom: none; }
     table.links-table tr:hover td { background: var(--bg-hover); color: var(--text); }
@@ -561,15 +561,18 @@
     .links-url {
       display: block;
       font-family: 'JetBrains Mono', monospace;
-      font-size: .74rem;
-      color: var(--text-faint);
-      margin-top: 3px;
+      font-size: .82rem;
+      color: var(--cor-apps);
+      opacity: .75;
+      margin-top: 4px;
       word-break: break-all;
     }
 
     table.links-table td.links-col-nome { width: auto; }
     table.links-table td.links-col-versao { width: 1%; white-space: nowrap; }
     table.links-table td.links-col-acoes { width: 1%; white-space: nowrap; }
+
+    table.links-table .field-name { font-size: 1rem; font-weight: 600; color: var(--text); }
 
     input[type="text"].link-version-input {
       width: 220px;
@@ -578,8 +581,8 @@
       border-radius: var(--radius-sm);
       color: var(--text);
       font-family: 'JetBrains Mono', monospace;
-      font-size: .84rem;
-      padding: 6px 10px;
+      font-size: .92rem;
+      padding: 8px 12px;
       outline: none;
     }
     input[type="text"].link-version-input:focus { border-color: var(--cor-apps); }
@@ -590,17 +593,18 @@
     .btn-link-action {
       background: var(--bg-card2);
       border: 1px solid var(--border);
-      color: var(--text-dim);
-      font-size: .76rem;
+      color: var(--text);
+      font-size: .86rem;
+      font-weight: 600;
       font-family: 'DM Sans', sans-serif;
-      padding: 6px 13px;
+      padding: 7px 15px;
       border-radius: var(--radius-sm);
       cursor: pointer;
-      transition: border-color .15s ease, color .15s ease;
+      transition: border-color .15s ease, color .15s ease, background .15s ease;
       white-space: nowrap;
     }
-    .btn-link-action:hover { border-color: var(--cor-apps); color: var(--text); }
-    .btn-link-action.copiado { border-color: var(--tag-sim); color: var(--tag-sim); }
+    .btn-link-action:hover { border-color: var(--cor-apps); color: var(--cor-apps); background: var(--cor-apps-dim); }
+    .btn-link-action.copiado { border-color: var(--tag-sim); color: var(--tag-sim); background: var(--tag-sim-bg); }
     .btn-link-action:disabled { opacity: .4; cursor: not-allowed; }
 
     .links-no-results {
@@ -608,7 +612,7 @@
       padding: 20px;
       color: var(--text-faint);
       font-style: italic;
-      font-size: .85rem;
+      font-size: .95rem;
     }
 
     /* ── WELCOME CARDS ── */
@@ -5801,6 +5805,13 @@
         <h2>Links Úteis</h2>
         <p>Links de download de aplicativos e páginas úteis para compartilhar com clientes ou com a equipe.</p>
       </div>
+
+      <style>
+        #links-uteis .page-header h2 { font-size: 1.65rem; }
+        #links-uteis .page-header p { font-size: 1rem; }
+        #links-uteis .note-box { font-size: .95rem; }
+        #links-uteis .fields-card-header { font-size: .9rem; padding: 12px 18px; background: #123061; color: #e4eef8; }
+      </style>
 
       <div class="note-box">
         <strong>Como funciona:</strong> a lista de links é carregada da planilha de Links.
